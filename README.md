@@ -1,5 +1,7 @@
 # War++ / TheGame
 
+**Warning:** The code is published just for fun and old memories. The version here probably does not compile.
+
 Client-server game with custome unit/AI scripting language "TripleS". Motivated by StarCraft/Brood War game, but without artifical 200 units limit ;).
 
 Created as school project at Charles University (MFF UK = Faculty of Math and Physics) around 2002-2005.
