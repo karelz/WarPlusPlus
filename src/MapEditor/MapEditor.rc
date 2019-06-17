@@ -1,0 +1,1760 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\MapEditor.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\MapEditor.ico"
+IDR_MAPEDTYPE           ICON    DISCARDABLE     "res\\MapEditorDoc.ico"
+IDI_MAPEX               ICON    DISCARDABLE     "res\\icon1.ico"
+IDI_DRAWICON            ICON    DISCARDABLE     "res\\ico00001.ico"
+IDI_SELECTIONICON       ICON    DISCARDABLE     "res\\ico00002.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+IDB_MAPEXEDITTB         BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
+IDR_MAPEXBAR            BITMAP  DISCARDABLE     "res\\toolbar1.bmp"
+IDB_ULTCHECKIMAGELIST   BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
+IDB_USMCHECKIMAGELIST   BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
+IDR_UNITBAR             BITMAP  DISCARDABLE     "res\\bmp00003.bmp"
+IDB_VISCHECKIMAGELIST   BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+IDB_TOOLBAR_COLOR       BITMAP  DISCARDABLE     "res\\ToolbarColor.bmp"
+IDB_TOOLBAR_GRAY        BITMAP  DISCARDABLE     "res\\ToolbarGray.bmp"
+IDB_TOOLBAR_DISABLE     BITMAP  DISCARDABLE     "res\\ToolbarDisable.bmp"
+IDB_KRYSTAL2            BITMAP  DISCARDABLE     "res\\krystal2.bmp"
+IDB_KRYSTAL             BITMAP  DISCARDABLE     "res\\krystal.bmp"
+IDB_KRYSTAL3            BITMAP  DISCARDABLE     "res\\krystal3.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    BUTTON      ID_MAPEX_DELETE
+    SEPARATOR
+    BUTTON      ID_MAPEXEDITOR
+    BUTTON      ID_UNIT_EDITOR
+    SEPARATOR
+    BUTTON      ID_VIEW_BL1
+    BUTTON      ID_VIEW_BL2
+    BUTTON      ID_VIEW_BL3
+    BUTTON      ID_VIEW_UL
+    SEPARATOR
+    BUTTON      ID_SELECT_BL1
+    BUTTON      ID_SELECT_BL2
+    BUTTON      ID_SELECT_BL3
+    BUTTON      ID_SELECT_UL
+    BUTTON      ID_MAPEX_ZPOS
+    SEPARATOR
+    BUTTON      ID_MAP_GRID
+    BUTTON      ID_MAP_LANDTYPES
+    SEPARATOR
+    BUTTON      ID_VIEW_MINIMAP
+    BUTTON      ID_MINIMAP_ZOOMIN
+    BUTTON      ID_MINIMAP_ZOOMOUT
+    SEPARATOR
+    BUTTON      ID_UNIT_DIRECTION_LEFT
+    BUTTON      ID_UNIT_DIRECTION_RIGHT
+    BUTTON      ID_UNIT_DIRECTION_RANDOM
+    SEPARATOR
+    BUTTON      ID_MAPEX_UP
+    BUTTON      ID_MAPEX_DOWN
+END
+
+IDR_MAPEXBAR TOOLBAR DISCARDABLE  32, 32
+BEGIN
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+    BUTTON      ID_MAPEXBUT
+END
+
+IDR_UNITBAR TOOLBAR DISCARDABLE  32, 32
+BEGIN
+    BUTTON      ID_UNITBUT
+    BUTTON      ID_UNITBUT
+    BUTTON      ID_UNITBUT
+    BUTTON      ID_UNITBUT
+    BUTTON      ID_UNITBUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&Soubor"
+    BEGIN
+        MENUITEM "&Nová mapa\tCtrl+N",          ID_FILE_NEW
+        MENUITEM "&Otevøít mapu...\tCtrl+O",    ID_FILE_OPEN
+        MENUITEM "&Uložit mapu\tCtrl+S",        ID_FILE_SAVE
+        MENUITEM "Uložit mapu j&ako...",        ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Zpracovat &mapu...",          ID_FILE_FINISH
+        MENUITEM "Zpracova&t mapu a skonèit...", ID_FILE_FINISHEXIT
+        MENUITEM SEPARATOR
+        MENUITEM "&Civilizace...",              ID_UNIT_CIVILIZATIONS
+        MENUITEM "Sk&riptSety...",              ID_FILE_SCRIPTSET
+        MENUITEM "&Suroviny...",                ID_FILE_RESOURCES
+        MENUITEM "V&iditelnost",                ID_FILE_INVISIBILITY
+        MENUITEM SEPARATOR
+        MENUITEM "Nastavit typy &povrchu...",   ID_FILE_SETLANDTYPES
+        MENUITEM "Grafy pro hledání cesty...",  ID_FILE_FINDPATHGRAPHS
+        MENUITEM "&Zoptimalizovat knihovny...", ID_FILE_REBUILDLIBRARIES
+        MENUITEM "Nastavit ve&likost mapy...",  ID_FILE_SETMAPSIZE
+        MENUITEM "&Vlastnosti...",              ID_FILE_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Konec",                      ID_APP_EXIT
+    END
+    POPUP "Úpr&avy"
+    BEGIN
+        MENUITEM "&Vyjmout\tShift+Del",         ID_EDIT_CUT
+        MENUITEM "&Kopírovat\tCtrl+Ins",        ID_EDIT_COPY
+        MENUITEM "V&ložit\tShift+Ins",          ID_EDIT_PASTE
+        MENUITEM "&Smazat\tDel",                ID_MAPEX_DELETE
+    END
+    POPUP "Mape&xy"
+    BEGIN
+        MENUITEM "&Editor mapexù... \tF3",      ID_MAPEXEDITOR
+        MENUITEM SEPARATOR
+        MENUITEM "&Nová knihovna...",           ID_MAPEX_NEWLIBRARY
+        MENUITEM "&Otevøít knihovnu...",        ID_MAPEX_OPENLIBRARY
+        MENUITEM "&Upravit knihovnu...",        ID_MAPEX_EDITLIBRARY
+        MENUITEM "Od&stranit knihovnu...",      ID_MAPEX_DELETELIBRARY
+    END
+    POPUP "&Jednotky"
+    BEGIN
+        MENUITEM "&Editor jednotek... \tF4",    ID_UNIT_EDITOR
+        MENUITEM SEPARATOR
+        MENUITEM "&Nová knihovna...",           ID_UNIT_NEWLIBRARY
+        MENUITEM "&Otevøít knihovnu..",         ID_UNIT_OPENLIBRARY
+        MENUITEM "&Upravit knihovnu...",        ID_UNIT_EDITLIBRARY
+        MENUITEM "Od&stranit knihovnu...",      ID_UNIT_DELETELIBRARY
+    END
+    POPUP "&Zobrazit"
+    BEGIN
+        MENUITEM "&Panel nástrojù",             ID_VIEW_TOOLBAR
+        MENUITEM "&MiniMap \tCtrl+M",           ID_VIEW_MINIMAP
+        MENUITEM "Mape&xy \tCtrl+X",            ID_VIEW_MAPEXBAR
+        MENUITEM "Jednotky\tCtrl+J",            ID_VIEW_UNITBAR
+        MENUITEM "&Stavový øádek",              ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Úroveò &1\tCtrl+1",           ID_VIEW_BL1
+        MENUITEM "Úroveò &2\tCtrl+2",           ID_VIEW_BL2
+        MENUITEM "Úroveò &3\tCtrl+3",           ID_VIEW_BL3
+        MENUITEM "Úroveò &Jednotek\tCtrl+4",    ID_VIEW_UL
+    END
+    POPUP "&Nápovìda"
+    BEGIN
+        MENUITEM "&O aplikaci MapEditor...",    ID_APP_ABOUT
+    END
+END
+
+IDM_VIEWGRAPHICSMENU MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&Grafika",                    ID_MAPEXGRP_GRAPHICS
+        MENUITEM "&Typy terénu",                ID_MAPEXGRP_GRID
+        MENUITEM "&Obojí",                      ID_MAPEXGRP_BOTH
+    END
+END
+
+IDM_GRIDSIZEMENU MENU DISCARDABLE 
+BEGIN
+    POPUP " "
+    BEGIN
+        MENUITEM "1",                           ID_GRIDSIZE_1
+        MENUITEM "2",                           ID_GRIDSIZE_2
+        MENUITEM "4",                           ID_GRIDSIZE_4
+        MENUITEM "8",                           ID_GRIDSIZE_8
+        MENUITEM "16",                          ID_GRIDSIZE_16
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "1",            ID_SELECT_BL1,          VIRTKEY, NOINVERT
+    "1",            ID_VIEW_BL1,            VIRTKEY, CONTROL, NOINVERT
+    187,            ID_UNIT_DIRECTION_RANDOM, VIRTKEY, NOINVERT
+    "2",            ID_SELECT_BL2,          VIRTKEY, NOINVERT
+    "2",            ID_VIEW_BL2,            VIRTKEY, CONTROL, NOINVERT
+    219,            ID_UNIT_DIRECTION_LEFT, VIRTKEY, NOINVERT
+    221,            ID_UNIT_DIRECTION_RIGHT, VIRTKEY, NOINVERT
+    "3",            ID_SELECT_BL3,          VIRTKEY, NOINVERT
+    "3",            ID_VIEW_BL3,            VIRTKEY, CONTROL, NOINVERT
+    "4",            ID_SELECT_UL,           VIRTKEY, NOINVERT
+    "4",            ID_VIEW_UL,             VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "G",            ID_MAP_GRID,            VIRTKEY, CONTROL, NOINVERT
+    "J",            ID_VIEW_UNITBAR,        VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_VIEW_MINIMAP,        VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_MAP_LANDTYPES,       VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_MAPEX_DELETE,        VIRTKEY, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F3,          ID_MAPEXEDITOR,         VIRTKEY, NOINVERT
+    VK_F4,          ID_UNIT_EDITOR,         VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_RETURN,      IDOK,                   VIRTKEY, NOINVERT
+    "X",            ID_VIEW_MAPEXBAR,       VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 427, 222
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "O aplikaci MapEditor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_SPLASHBITMAP,"Static",SS_BITMAP | SS_CENTERIMAGE | 
+                    SS_REALSIZEIMAGE,0,0,427,222
+    DEFPUSHBUTTON   "OK",IDOK,373,4,50,14,WS_GROUP
+END
+
+IDD_SPLASHWINDOW DIALOGEX 0, 0, 428, 222
+STYLE DS_CENTER | WS_POPUP | WS_BORDER | WS_SYSMENU | WS_VISIBLE
+//EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_SPLASHBITMAP,"Static",SS_BITMAP | SS_CENTERIMAGE | 
+                    SS_REALSIZEIMAGE,0,0,428,223
+END
+
+IDD_MAPEXEDITOR DIALOG DISCARDABLE  0, 0, 208, 167
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Editor mapexù"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,138,7,63,14
+    COMBOBOX        IDC_LIBRARYCOMBO,7,17,122,63,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Knihovna:",IDC_STATIC,7,7,33,8
+    LTEXT           "Mapexy:",IDC_STATIC,7,35,56,9
+    PUSHBUTTON      "Nový mapex...",IDC_ADDMAPEX,138,32,63,14
+    PUSHBUTTON      "Odstranit mapex",IDC_DELETEMAPEX,138,50,63,14
+    PUSHBUTTON      "Upravit mapex...",IDC_EDITMAPEX,138,67,63,14
+    LTEXT           "Ukázka:",IDC_STATIC,138,92,28,8
+    CONTROL         "",IDC_MAPEXPREVIEW,"Static",SS_BLACKRECT | SS_SUNKEN,
+                    138,101,63,59
+    CONTROL         "List1",IDC_MAPEXLISTCTRL,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,45,122,115
+END
+
+IDD_MAPPROPERTIES DIALOG DISCARDABLE  0, 0, 247, 118
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vlastnosti mapy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_MAPNAME,42,22,198,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MAPDESCRIPTION,42,42,198,30,ES_MULTILINE | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,131,97,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,190,97,50,14
+    EDITTEXT        IDC_FILENAME,42,8,198,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "Soubor:",IDC_STATIC,7,8,26,8
+    LTEXT           "Jméno:",IDC_STATIC,7,24,24,8
+    LTEXT           "Popis:",IDC_STATIC,7,42,20,8
+    LTEXT           "Šíøka:",IDC_STATIC,7,78,20,8
+    LTEXT           "Výška:",IDC_STATIC,121,78,22,8
+    EDITTEXT        IDC_WIDTH,41,78,64,11,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_HEIGHT,160,78,80,11,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+END
+
+IDD_MAPEXLIBRARYEDITOR DIALOG DISCARDABLE  0, 0, 217, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Knihovna mapexù"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,44,24,166,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,103,45,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,160,45,50,14
+    EDITTEXT        IDC_FILENAME,44,8,166,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "Soubor:",IDC_STATIC,7,8,26,8
+    LTEXT           "Jméno:",IDC_STATIC,7,26,24,8
+END
+
+IDD_EDITLIBRARY DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Upravit knihovnu"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Upravit...",IDC_EDIT,129,26,50,14
+    LISTBOX         IDC_LIST,7,7,113,81,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_DELETELIBRARY DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Odstranit knihovnu"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    LISTBOX         IDC_LIST,7,7,113,81,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Odstranit",IDC_DELETE,129,26,50,14
+END
+
+IDD_MAPEX DIALOGEX 0, 0, 348, 201
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Mapex"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Jméno:",IDC_STATIC,5,4,24,8
+    EDITTEXT        IDC_NAME,32,2,309,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_VIEW,"Static",SS_WHITERECT,0,37,348,164,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_TOOLBAR,"Static",SS_ETCHEDFRAME,0,16,348,17
+END
+
+IDD_MAPEXSIZE DIALOG DISCARDABLE  0, 0, 205, 61
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Velikost mapexu"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_WIDTH,36,7,96,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_HEIGHT,36,24,96,12,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,148,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,148,24,50,14
+    LTEXT           "Šíøka:",IDC_STATIC,7,9,20,8
+    LTEXT           "Výška:",IDC_STATIC,7,26,22,8
+    LTEXT           "Velikost mapexu je v mapcellech",IDC_STATIC,7,46,191,8
+END
+
+IDD_LANDTYPESELECT DIALOG DISCARDABLE  0, 0, 211, 157
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Typ povrchu"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,154,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,154,24,50,14
+    CONTROL         "List1",IDC_LANDTYPELIST,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | LVS_NOCOLUMNHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,7,137,143
+END
+
+IDD_NEWMAP DIALOG DISCARDABLE  0, 0, 186, 116
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nová mapa"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,95,50,14
+    EDITTEXT        IDC_NAME,42,7,137,11,ES_AUTOHSCROLL
+    LTEXT           "Jméno:",IDC_STATIC,7,8,24,8
+    EDITTEXT        IDC_WIDTH,42,25,137,11,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_HEIGHT,42,39,137,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Šíøka:",IDC_STATIC,7,26,20,8
+    LTEXT           "Výška:",IDC_STATIC,7,41,22,8
+    LTEXT           "Popis:",IDC_STATIC,7,59,20,8
+    EDITTEXT        IDC_DESCRIPTION,42,59,137,29,ES_MULTILINE | 
+                    ES_AUTOHSCROLL
+END
+
+IDD_SELECTMAPEX DIALOG DISCARDABLE  0, 0, 208, 167
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vybrat mapex"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,138,7,63,14
+    PUSHBUTTON      "Storno",IDCANCEL,138,24,63,14
+    COMBOBOX        IDC_LIBRARYCOMBO,7,17,122,63,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Knihovna:",IDC_STATIC,7,7,33,8
+    LTEXT           "Mapexy:",IDC_STATIC,7,35,56,9
+    LTEXT           "Ukázka:",IDC_STATIC,138,92,28,8
+    CONTROL         "",IDC_MAPEXPREVIEW,"Static",SS_BLACKRECT | SS_SUNKEN,
+                    138,101,63,59
+    CONTROL         "List1",IDC_MAPEXLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,45,122,115
+    LTEXT           "Velikost:",IDC_STATIC,138,67,28,8
+    LTEXT           "11 x 15",IDC_MAPEXSIZE,138,78,62,9
+END
+
+IDD_CIVILIZATION DIALOG DISCARDABLE  0, 0, 241, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Civilizace"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,57,7,117,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,184,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,184,24,50,14
+    LTEXT           "Jméno:",IDC_STATIC,7,9,24,8
+    LTEXT           "Barva:",IDC_STATIC,7,27,22,8
+    CONTROL         "",IDC_COLOR,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,57,25,35,12
+    LTEXT           "Sada skriptù:",IDC_STATIC,7,46,42,8
+    LTEXT           "Suroviny:",IDC_STATIC,7,65,30,8
+    LTEXT           "Static",IDC_RESOURCES,57,64,117,10,SS_SUNKEN
+    COMBOBOX        IDC_SCRIPTSET,57,44,117,70,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Poèáteèní pozice:",IDC_STATIC,7,79,47,16
+    COMBOBOX        IDC_STARTPOS,57,80,117,73,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CIVILIZATIONEDITOR DIALOG DISCARDABLE  0, 0, 186, 134
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Editor civilizací"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_SORTASCENDING | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,7,112,120
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Pøidat...",IDC_ADD,129,28,50,14
+    PUSHBUTTON      "Smazat",IDC_DELETE,129,44,50,14
+    PUSHBUTTON      "Upravit...",IDC_EDIT,129,60,50,14
+END
+
+IDD_UNITAPPEARANCE DIALOG DISCARDABLE  0, 0, 228, 241
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vzhled jednotky"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,7,20,153,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,171,7,50,14
+    LTEXT           "Jméno vzhledu:",IDC_STATIC,7,9,50,8
+    CONTROL         "",IDC_NORTHWEST,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,7,47,66,57
+    CONTROL         "",IDC_NORTH,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,81,47,66,57
+    CONTROL         "",IDC_NORTHEAST,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,155,47,66,57
+    CONTROL         "",IDC_WEST,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,7,112,66,57
+    CONTROL         "",IDC_SOUTHWEST,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,7,177,66,57
+    CONTROL         "",IDC_SOUTH,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,81,177,66,57
+    CONTROL         "",IDC_SOUTHEAST,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,155,177,66,57
+    CONTROL         "",IDC_EAST,"Static",SS_BLACKRECT | SS_NOTIFY | 
+                    SS_SUNKEN,155,112,66,57
+END
+
+IDD_UNITMAINPAGE DIALOG DISCARDABLE  0, 0, 300, 151
+STYLE WS_CHILD | WS_CAPTION
+CAPTION "Obecné"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Jméno:",IDC_STATIC,7,7,24,8
+    EDITTEXT        IDC_NAME,34,7,166,12,ES_AUTOHSCROLL
+    LTEXT           "Poèet životù:",IDC_STATIC,7,31,42,8
+    EDITTEXT        IDC_LIFEMAX,65,29,52,12,ES_AUTOHSCROLL
+    LTEXT           "Viditelnost:",IDC_STATIC,7,46,35,8
+    EDITTEXT        IDC_VIEWRADIUS,65,44,52,12,ES_AUTOHSCROLL
+    LTEXT           "(mapcellù)",IDC_STATIC,127,46,33,8
+    LTEXT           "Výška jednotky pøi vzniku:",IDC_STATIC,7,58,50,16
+    COMBOBOX        IDC_ZPOS,65,60,114,77,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "Lze oznaèit (vybrat)",IDC_SELECTABLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,193,30,77,10
+    GROUPBOX        "Životy pod jednotkou",IDC_STATIC,187,46,106,55
+    CONTROL         "Nezobrazovat",IDC_LIFEBAR_HIDE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,193,58,60,10
+    CONTROL         "Jen pokud je vybraná",IDC_LIFEBAR_SELECTED,"Button",
+                    BS_AUTORADIOBUTTON,193,72,84,10
+    CONTROL         "Vždy zobrazovat",IDC_LIFEBAR_SHOW,"Button",
+                    BS_AUTORADIOBUTTON,193,86,68,10
+END
+
+IDD_UNITLIBRARIES DIALOG DISCARDABLE  0, 0, 208, 167
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Editor jednotek"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,138,7,63,14
+    COMBOBOX        IDC_LIBRARYCOMBO,7,17,122,63,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Knihovna:",IDC_STATIC,7,7,33,8
+    LTEXT           "Jednotky:",IDC_STATIC,7,35,32,8
+    PUSHBUTTON      "Nová jednotka...",IDC_ADDUNIT,138,32,63,14
+    PUSHBUTTON      "Odstranit jednotku",IDC_DELETEUNIT,138,50,63,14
+    PUSHBUTTON      "Upravit jednotku...",IDC_EDITUNIT,138,67,63,14
+    LTEXT           "Ukázka:",IDC_STATIC,138,92,28,8
+    CONTROL         "",IDC_UNITPREVIEW,"Static",SS_BLACKRECT | SS_SUNKEN,138,
+                    101,63,59
+    CONTROL         "List1",IDC_UNITLISTCTRL,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,45,122,115
+END
+
+IDD_DELETEUNITLIBRARY DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Odstranit knihovnu"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    LISTBOX         IDC_LIST,7,7,113,81,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Odstranit",IDC_DELETE,129,26,50,14
+END
+
+IDD_EDITUNITLIBRARY DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Upravit knihovnu"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Upravit...",IDC_EDIT,129,26,50,14
+    LISTBOX         IDC_LIST,7,7,113,81,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_UNITLIBRARYEDITOR DIALOG DISCARDABLE  0, 0, 217, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Knihovna jednotek"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,44,24,166,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,103,45,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,160,45,50,14
+    EDITTEXT        IDC_FILENAME,44,8,166,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "Soubor:",IDC_STATIC,7,8,26,8
+    LTEXT           "Jméno:",IDC_STATIC,7,26,24,8
+END
+
+IDD_UNITAPPEARANCEPAGE DIALOG DISCARDABLE  0, 0, 300, 151
+STYLE WS_CHILD | WS_CAPTION
+CAPTION "Vzhled"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_NOCOLUMNHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,7,217,116
+    PUSHBUTTON      "Pøidat...",IDC_ADD,234,7,59,14
+    PUSHBUTTON      "Odebrat...",IDC_DELETE,234,24,59,14
+    PUSHBUTTON      "Upravit...",IDC_EDIT,234,41,59,14
+END
+
+IDD_UNITLANDTYPESPAGE DIALOG DISCARDABLE  0, 0, 300, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Povrchy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Povrchy pro mód:",IDC_STATIC,7,7,56,8
+    COMBOBOX        IDC_MODES,7,16,130,106,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOCOLUMNHEADER | 
+                    WS_BORDER | WS_TABSTOP,7,33,130,111
+    LTEXT           "Zaškrtnìte typy povrchù, po kterých se smí jednotka pohybovat, pokud je ve vybraném módu.",
+                    IDC_STATIC,147,119,146,25
+END
+
+IDD_UNITMODESPAGE DIALOG DISCARDABLE  0, 0, 300, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Módy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_MODE,7,16,109,111,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_NAME,66,38,120,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MOVEWIDTH,66,55,120,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_APPEARANCE,66,71,120,66,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Aktuální mód:",IDC_STATIC,7,7,44,8
+    LTEXT           "Jméno:",IDC_STATIC,7,40,24,8
+    LTEXT           "Výchozí vzhled:",IDC_STATIC,7,73,51,8
+    LTEXT           "Šíøka pøi pohybu:",IDC_STATIC,7,57,56,8
+    LTEXT           "Viditelnost:",IDC_STATIC,7,89,35,8
+    LTEXT           "Static",IDC_INVISIBILITY,66,88,120,10,SS_SUNKEN
+    LTEXT           "Detekce:",IDC_STATIC,7,103,35,8
+    LTEXT           "Static",IDC_DETECTION,66,102,120,10,SS_SUNKEN
+END
+
+IDD_UNITSKILLSPAGE DIALOG DISCARDABLE  0, 0, 300, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednosti"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,7,7,234,84
+    PUSHBUTTON      "Pøidat...",IDC_ADD,250,7,43,14
+    PUSHBUTTON      "Odebrat...",IDC_DELETE,250,23,43,14
+    PUSHBUTTON      "Upravit...",IDC_EDIT,250,39,43,14
+    CONTROL         "List2",IDC_MODELIST,"SysListView32",LVS_LIST | 
+                    LVS_SINGLESEL | LVS_NOCOLUMNHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,102,286,42
+    LTEXT           "Módy, ve kterých je dovednost povolena:",IDC_STATIC,7,
+                    94,132,8
+    CONTROL         "Povolená na zaèátku",IDC_ENABLED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,212,92,81,10
+    PUSHBUTTON      "Nahoru",IDC_UP,250,61,43,14
+    PUSHBUTTON      "Dolù",IDC_DOWN,250,77,43,14
+END
+
+IDD_NEWSKILLTYPE DIALOG DISCARDABLE  0, 0, 186, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nová dovednost"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,129,24,50,14
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_NOCOLUMNHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,7,113,97
+END
+
+IDD_EXAMPLESKILLTYPE DIALOG DISCARDABLE  0, 0, 186, 98
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Pøíklad skilly"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    EDITTEXT        IDC_EDIT1,7,38,136,12,ES_AUTOHSCROLL
+    LTEXT           "Popis:",IDC_STATIC,7,29,62,8
+END
+
+IDD_SELECTUNIT DIALOG DISCARDABLE  0, 0, 208, 194
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vybrat jednotku"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,138,7,63,14
+    PUSHBUTTON      "Storno",IDCANCEL,138,24,63,14
+    COMBOBOX        IDC_LIBRARYCOMBO,7,18,122,63,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Knihovna:",IDC_STATIC,7,8,33,8
+    LTEXT           "Jednotky:",IDC_STATIC,7,36,56,9
+    LTEXT           "Ukázka:",IDC_STATIC,138,93,28,8
+    CONTROL         "",IDC_UNITPREVIEW,"Static",SS_BLACKRECT | SS_SUNKEN,138,
+                    102,63,59
+    CONTROL         "List1",IDC_UNITLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,46,122,115
+    COMBOBOX        IDC_CIVCOMBO,7,175,122,84,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Civilizace:",IDC_STATIC,7,165,72,9
+END
+
+IDD_FINISH_PROGRESS DIALOG DISCARDABLE  0, 0, 244, 34
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Zpracování mapy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Processing...",IDC_PROCESSING,7,7,230,8
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH,
+                    7,18,230,9
+END
+
+IDD_MOVESKILL DIALOG DISCARDABLE  0, 0, 242, 76
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednost - Move"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,185,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,185,24,50,14
+    EDITTEXT        IDC_SPEED,75,7,101,12,ES_AUTOHSCROLL
+    LTEXT           "Rychlost:",IDC_STATIC,7,9,30,8
+    LTEXT           "Mapcellù za 100 timeslicù",IDC_STATIC,94,20,82,8
+    LTEXT           "Vzhled pøi pohybu:",IDC_STATIC,7,35,60,8
+    COMBOBOX        IDC_MOVEAPPEARANCE,75,33,101,71,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_RESOURCES DIALOG DISCARDABLE  0, 0, 241, 106
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Suroviny"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,184,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,184,24,50,14
+    CONTROL         "List1",IDC_RESOURCES,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | 
+                    WS_BORDER | WS_TABSTOP,7,7,168,92
+    PUSHBUTTON      "Ikona...",IDC_SETIMAGE,184,42,50,14
+    LTEXT           "Ikona:",IDC_STATIC,184,62,21,8
+    CONTROL         "",IDC_PREVIEW,"Static",SS_GRAYRECT | SS_SUNKEN,184,72,
+                    31,27
+END
+
+IDD_EDITRESOURCES DIALOG DISCARDABLE  0, 0, 255, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Suroviny"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,198,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,198,24,50,14
+    CONTROL         "List1",IDC_RESOURCES,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,
+                    7,7,182,113
+END
+
+IDD_STARTDLG DIALOG DISCARDABLE  0, 0, 246, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "MapEditor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,189,7,50,14
+    CONTROL         "Nová mapa",IDC_NEWMAP,"Button",BS_AUTORADIOBUTTON | 
+                    BS_NOTIFY,7,24,53,10
+    LTEXT           "Vyberte s jakou mapou se má MapEditor spustit.",
+                    IDC_STATIC,7,7,152,8
+    CONTROL         "Poslednì otevøená mapa :",IDC_LASTOPENED,"Button",
+                    BS_AUTORADIOBUTTON | BS_NOTIFY,7,38,99,10
+    EDITTEXT        IDC_LASTOPENEDMAP,107,39,132,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    CONTROL         "Otevøít jinou mapu",IDC_OPEN,"Button",
+                    BS_AUTORADIOBUTTON | BS_NOTIFY,7,52,74,10
+END
+
+IDD_INVISIBILITY DIALOG DISCARDABLE  0, 0, 216, 124
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Viditelnost"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,159,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,159,24,50,14
+    CONTROL         "List1",IDC_INVISIBILITY,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,
+                    7,7,143,110
+END
+
+IDD_EDITINVISIBILITY DIALOG DISCARDABLE  0, 0, 186, 132
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Viditelnost"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,129,24,50,14
+    CONTROL         "List1",IDC_INVISIBILITY,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,7,113,118
+END
+
+IDD_SCRIPTSETEDIT DIALOGEX 0, 0, 209, 138
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "SkriptSety"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "List2",IDC_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,7,135,99
+    DEFPUSHBUTTON   "OK",IDOK,152,7,50,14
+    PUSHBUTTON      "Nový...",IDC_ADD,152,24,50,14
+    PUSHBUTTON      "Smazat...",IDC_DELETE,152,41,50,14
+    PUSHBUTTON      "Upravit...",IDC_EDIT,152,59,50,14
+    LTEXT           "Cesta k souboru:",IDC_STATIC,7,112,54,8
+    EDITTEXT        IDC_PATH,7,121,195,10,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+END
+
+IDD_SCRIPTSET DIALOG DISCARDABLE  0, 0, 210, 68
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "SkriptSet"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,7,17,134,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PATH,7,48,134,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,141,48,14,12
+    DEFPUSHBUTTON   "OK",IDOK,153,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,153,24,50,14
+    LTEXT           "Jméno:",IDC_STATIC,7,7,24,8
+    LTEXT           "Cesta k souboru:",IDC_STATIC,7,39,54,8
+END
+
+IDD_BULLETATTACKSKILL DIALOG DISCARDABLE  0, 0, 307, 210
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednost Bullet Attack"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,245,165,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,245,184,50,14
+    EDITTEXT        IDC_LOADTIME,7,20,133,12,ES_AUTOHSCROLL
+    LTEXT           "Doba pøed prvním výstøelem:",IDC_STATIC,7,10,92,8
+    EDITTEXT        IDC_PERIOD,7,50,133,12,ES_AUTOHSCROLL
+    LTEXT           "Doba mezi dvìma výstøely:",IDC_STATIC,7,40,86,8
+    EDITTEXT        IDC_INTENSITY,7,80,133,12,ES_AUTOHSCROLL
+    LTEXT           "Síla jednoho výstøelu:",IDC_STATIC,7,70,69,8
+    COMBOBOX        IDC_APPEARANCE,7,125,133,70,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Vzhled pøi støelbì:",IDC_STATIC,7,115,58,8
+    EDITTEXT        IDC_OFFSET,7,155,133,12,ES_AUTOHSCROLL
+    LTEXT           "Èasový posun animace:",IDC_STATIC,7,145,76,8
+    EDITTEXT        IDC_LENGTH,7,185,133,12,ES_AUTOHSCROLL
+    LTEXT           "Délka animace:",IDC_STATIC,7,175,50,8
+    LTEXT           "Všechny uvedené èasy jsou v timeslicech.",IDC_STATIC,
+                    161,120,77,20
+    EDITTEXT        IDC_RADIUS,161,20,133,12,ES_AUTOHSCROLL
+    LTEXT           "Maximální dostøel:",IDC_STATIC,161,10,58,8
+    LTEXT           "Minimální výška cíle:",IDC_STATIC,161,40,66,8
+    LTEXT           "Maximální výška cíle:",IDC_STATIC,161,70,68,8
+    COMBOBOX        IDC_ALTITUDEMIN,161,50,133,70,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_ALTITUDEMAX,161,80,133,70,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_BULLETDEFENSESKILL DIALOG DISCARDABLE  0, 0, 181, 71
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednost Bulette Defense"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,126,5,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,126,22,50,14
+    EDITTEXT        IDC_LINEAR,7,15,98,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ABSOLUTE,7,45,98,12,ES_AUTOHSCROLL
+    LTEXT           "Lineární koeficient:",IDC_STATIC,7,5,61,8
+    LTEXT           "Absolutní koeficient:",IDC_STATIC,7,35,65,8
+    LTEXT           "%",IDC_STATIC,108,17,8,8
+END
+
+IDD_MAKESKILL DIALOG DISCARDABLE  0, 0, 244, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednost Make"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,187,88,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,187,106,50,14
+    LISTBOX         IDC_UNITTYPELIST,7,6,175,114,LBS_NOINTEGRALHEIGHT | 
+                    LBS_EXTENDEDSEL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Pøidat...",IDC_ADDUNITTYPE,187,6,50,14
+    PUSHBUTTON      "Odebrat...",IDC_REMOVEUNITTYPE,187,23,50,14
+    PUSHBUTTON      "Upravit...",IDC_EDITUNITTYPE,187,40,50,14
+END
+
+IDD_MAKESKILLTYPE DIALOG DISCARDABLE  0, 0, 179, 132
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednost Make - popis výroby"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Storno",IDCANCEL,122,111,50,14
+    DEFPUSHBUTTON   "OK",IDOK,122,94,50,14
+    LTEXT           "Typ jednotky:",IDC_STATIC,7,7,44,8
+    COMBOBOX        IDC_UNITTYPE,7,17,100,17,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Doba na vyrobení:",IDC_STATIC,7,37,60,8
+    EDITTEXT        IDC_TIMETOMAKE,7,47,100,12,ES_AUTOHSCROLL
+    LTEXT           "Vzhled bìhem vyrábìní:",IDC_STATIC,7,103,77,8
+    COMBOBOX        IDC_APPEARANCE,7,113,100,15,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Potøebné zdroje:",IDC_STATIC,7,67,53,8
+    LTEXT           "Static",IDC_RESOURCES,7,76,100,10,SS_SUNKEN
+END
+
+IDD_FINDPATHGRAPHS DIALOG DISCARDABLE  0, 0, 206, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Grafy pro hledání cesty"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,149,7,50,14
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,7,134,132
+    PUSHBUTTON      "Pøidat...",IDC_ADD,149,31,50,14
+    PUSHBUTTON      "Odebrat",IDC_DELETE,149,49,50,14
+    PUSHBUTTON      "Upravit...",IDC_EDIT,149,67,50,14
+END
+
+IDD_FINDPATHGRAPHEDIT DIALOG DISCARDABLE  0, 0, 198, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Graf pro hledání cesty"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,141,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,141,24,50,14
+    LTEXT           "Jméno:",IDC_STATIC,7,7,24,8
+    EDITTEXT        IDC_NAME,7,16,125,12,ES_AUTOHSCROLL
+    LTEXT           "Povolené povrchy:",IDC_STATIC,7,38,60,8
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | WS_BORDER | 
+                    WS_TABSTOP,7,47,125,118
+END
+
+IDD_MINESKILL DIALOG DISCARDABLE  0, 0, 406, 223
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednost - Mine"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,349,185,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,349,202,50,14
+    LTEXT           "Kolik lze max. natìžit:",IDC_STATIC,7,7,68,8
+    LTEXT           "Static",IDC_STORAGE_RESOURCES,82,7,113,10,SS_SUNKEN
+    LTEXT           "Max. vzdálenost pøi tìžení:",IDC_STATIC,16,33,86,8
+    EDITTEXT        IDC_MINE_DISTANCE,16,43,68,12,ES_AUTOHSCROLL
+    LTEXT           "mapcellù",IDC_STATIC,88,46,29,8
+    LTEXT           "Kolik se max. natìží za timeslice:",IDC_STATIC,16,63,
+                    104,8
+    LTEXT           "Static",IDC_MINE_RESOURCES,16,73,113,10,SS_SUNKEN
+    LTEXT           "Tìžba zaèíná:",IDC_STATIC,16,93,70,10
+    COMBOBOX        IDC_APPEARANCE_BEFORE_MINE,16,103,70,12,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trvání:",IDC_STATIC,92,93,35,10
+    EDITTEXT        IDC_TIMESLICES_BEFORE_MINE,92,103,35,12,ES_AUTOHSCROLL
+    LTEXT           "Tìžíme:",IDC_STATIC,16,123,70,10
+    COMBOBOX        IDC_APPEARANCE_MINE,16,133,70,12,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Tìžba konèí (jsme plní):",IDC_STATIC,16,153,75,8
+    COMBOBOX        IDC_APPEARANCE_AFTER_MINE,16,164,70,12,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trvání:",IDC_STATIC,92,153,35,10
+    EDITTEXT        IDC_TIMESLICES_AFTER_MINE,92,164,35,12,ES_AUTOHSCROLL
+    LTEXT           "Max. vzdálenost pøi unloadu:",IDC_STATIC,148,34,100,8
+    EDITTEXT        IDC_UNLOAD_DISTANCE,150,44,68,12,ES_AUTOHSCROLL
+    LTEXT           "mapcellù",IDC_STATIC,223,47,29,8
+    LTEXT           "Kolik se max. unloadne za timeslice:",IDC_STATIC,148,64,
+                    115,8
+    LTEXT           "Static",IDC_UNLOAD_RESOURCES,150,74,113,10,SS_SUNKEN
+    LTEXT           "Unload zaèíná:",IDC_STATIC,150,94,49,8
+    COMBOBOX        IDC_APPEARANCE_BEFORE_UNLOAD,150,104,70,12,
+                    CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trvání:",IDC_STATIC,225,94,35,10
+    EDITTEXT        IDC_TIMESLICES_BEFORE_UNLOAD,225,104,35,12,
+                    ES_AUTOHSCROLL
+    LTEXT           "Unload:",IDC_STATIC,150,122,26,8
+    COMBOBOX        IDC_APPEARANCE_UNLOAD,150,134,70,12,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Unload konèí (jsme prázdní):",IDC_STATIC,150,154,56,18
+    COMBOBOX        IDC_APPEARANCE_AFTER_UNLOAD,150,175,70,12,
+                    CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trvání:",IDC_STATIC,225,164,35,10
+    EDITTEXT        IDC_TIMESLICES_AFTER_UNLOAD,225,175,35,12,ES_AUTOHSCROLL
+    CONTROL         214,IDC_STATIC,"Static",SS_BITMAP,282,154,54,55
+    GROUPBOX        "Unload (z plné jednotky)",IDC_STATIC,139,22,129,194
+    GROUPBOX        "Tìžení (do prázdné jednotky)",IDC_STATIC,7,22,129,194
+    COMBOBOX        IDC_LOADED_MODE,16,196,112,12,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Mód po natìžení:",IDC_STATIC,16,186,56,8
+    LTEXT           "Tìžba zaèíná:",IDC_STATIC,276,33,70,10
+    COMBOBOX        IDC_APPEARANCE_BEFORE_MINE_FULL,276,43,70,12,
+                    CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trvání:",IDC_STATIC,352,33,35,10
+    EDITTEXT        IDC_TIMESLICES_BEFORE_MINE_FULL,352,43,35,12,
+                    ES_AUTOHSCROLL
+    LTEXT           "Tìžíme:",IDC_STATIC,276,63,70,10
+    COMBOBOX        IDC_APPEARANCE_MINE_FULL,276,73,70,12,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Tìžení (do èásteènì plné jednotky)",IDC_STATIC,271,22,
+                    128,72
+    LTEXT           "Unload konèí (stále jsme naložení):",IDC_STATIC,275,108,
+                    70,19
+    COMBOBOX        IDC_APPEARANCE_AFTER_UNLOAD_FULL,275,128,70,12,
+                    CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trvání:",IDC_STATIC,351,118,35,10
+    EDITTEXT        IDC_TIMESLICES_AFTER_UNLOAD_FULL,351,128,35,12,
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Unload (nedokonèený)",IDC_STATIC,271,97,128,48
+END
+
+IDD_RESOURCESKILL DIALOG DISCARDABLE  0, 0, 379, 132
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednost - Resource"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,264,111,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,321,111,50,14
+    LTEXT           "Kolik resourcù máme na zaèátku:",IDC_STATIC,7,7,106,8
+    LTEXT           "Static",IDC_INITRESOURCES,7,17,113,12,SS_SUNKEN
+    LTEXT           "Kolik jednotka natìží za timeslice:",IDC_STATIC,133,7,
+                    107,8
+    LTEXT           "Static",IDC_TSRESOURCES,133,17,113,12,SS_SUNKEN
+    LTEXT           "Animace po totálním vytìžení:",IDC_STATIC,7,103,96,8
+    COMBOBOX        IDC_APPEARANCE_AFTER_MINE,7,113,113,12,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Trvání animace v timeslicech:",IDC_STATIC,133,103,95,8
+    EDITTEXT        IDC_TIMESLICES_AFTER_MINE,133,113,113,12,ES_AUTOHSCROLL
+    LTEXT           "Když mám alespoò tolik resourcù...",IDC_STATIC,7,39,110,
+                    8
+    LTEXT           "...vypadám takto...",IDC_STATIC,133,39,110,8
+    LTEXT           "... a pøi tìžení takto:",IDC_STATIC,261,39,110,8
+    LTEXT           "Static",IDC_RESOURCESLIMIT1,7,49,113,12,SS_SUNKEN
+    COMBOBOX        IDC_APPEARANCE1,133,49,113,12,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_APPEARANCEMINE1,258,49,113,12,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_GRAYRECT,126,7,1,92
+    CONTROL         "",IDC_STATIC,"Static",SS_GRAYRECT,251,7,1,118
+    CONTROL         "",IDC_STATIC,"Static",SS_GRAYRECT,7,36,364,1
+    LTEXT           "Static",IDC_RESOURCESLIMIT2,7,65,113,12,SS_SUNKEN
+    COMBOBOX        IDC_APPEARANCE2,133,65,113,12,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_APPEARANCEMINE2,258,65,113,12,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_RESOURCESLIMIT3,7,81,113,12,SS_SUNKEN
+    COMBOBOX        IDC_APPEARANCE3,133,81,113,12,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_APPEARANCEMINE3,258,81,113,12,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_GRAYRECT,7,98,364,1
+    CONTROL         215,IDC_STATIC,"Static",SS_BITMAP,299,7,30,28
+    CONTROL         215,IDC_STATIC,"Static",SS_BITMAP,330,7,30,28
+    CONTROL         215,IDC_STATIC,"Static",SS_BITMAP,267,7,30,28
+END
+
+IDD_STORAGESKILL DIALOG DISCARDABLE  0, 0, 192, 93
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dovednost - Storage"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,135,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,135,24,50,14
+    LTEXT           "Kolik resourcù mùže jednotka max. unloadnout za timeslice",
+                    IDC_STATIC,7,7,115,20
+    LTEXT           "Static",IDC_RESOURCES,7,27,113,10,SS_SUNKEN
+    LTEXT           "Vzhled, když se do mne unloaduje:",IDC_STATIC,7,61,110,
+                    8
+    COMBOBOX        IDC_APPEARANCE,7,74,113,12,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         216,IDC_STATIC,"Static",SS_BITMAP,140,50,47,41
+END
+
+IDD_SETMAPSIZE DIALOG DISCARDABLE  0, 0, 225, 78
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nastavit velikost mapy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,168,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,168,24,50,14
+    LTEXT           "Zadejte novou velikost mapy v mapcellech",IDC_STATIC,7,
+                    7,136,8
+    LTEXT           "Šíøka:",IDC_STATIC,7,21,20,8
+    EDITTEXT        IDC_WIDTH,7,30,142,14,ES_AUTOHSCROLL
+    LTEXT           "Výška:",IDC_STATIC,7,48,20,8
+    EDITTEXT        IDC_HEIGHT,7,57,142,14,ES_AUTOHSCROLL
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "MapEditor MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "MapEditor\0"
+            VALUE "LegalCopyright", "Copyright (C) 1999\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "MapEditor.EXE\0"
+            VALUE "ProductName", "MapEditor Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAPEXEDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_MAPPROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_MAPEXLIBRARYEDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_EDITLIBRARY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_DELETELIBRARY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_MAPEX, DIALOG
+    BEGIN
+        TOPMARGIN, 2
+    END
+
+    IDD_MAPEXSIZE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 54
+    END
+
+    IDD_LANDTYPESELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 150
+    END
+
+    IDD_NEWMAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 109
+    END
+
+    IDD_SELECTMAPEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_CIVILIZATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 95
+    END
+
+    IDD_CIVILIZATIONEDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 127
+    END
+
+    IDD_UNITAPPEARANCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_UNITMAINPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_UNITLIBRARIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_DELETEUNITLIBRARY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_EDITUNITLIBRARY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_UNITLIBRARYEDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_UNITAPPEARANCEPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_UNITLANDTYPESPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_UNITMODESPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_UNITSKILLSPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_NEWSKILLTYPE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_EXAMPLESKILLTYPE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_SELECTUNIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+
+    IDD_FINISH_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 27
+    END
+
+    IDD_MOVESKILL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 69
+    END
+
+    IDD_RESOURCES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_EDITRESOURCES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_STARTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 239
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_INVISIBILITY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 117
+    END
+
+    IDD_EDITINVISIBILITY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_SCRIPTSETEDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 131
+    END
+
+    IDD_SCRIPTSET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 61
+    END
+
+    IDD_BULLETATTACKSKILL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_BULLETDEFENSESKILL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 174
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_MAKESKILL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_MAKESKILLTYPE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_FINDPATHGRAPHS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 199
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_FINDPATHGRAPHEDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 191
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 165
+    END
+
+    IDD_MINESKILL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 399
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 216
+    END
+
+    IDD_RESOURCESKILL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 371
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_STORAGESKILL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 185
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_SETMAPSIZE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 71
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_MOVECURSOR          CURSOR  DISCARDABLE     "res\\cursor1.cur"
+IDC_SELECTIONCURSOR     CURSOR  DISCARDABLE     "res\\cur00001.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "MapEditor\n\nMapEd\nSoubory map (*.map)\n.map\nMapEditor.Document\nMapEd Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "MapEditor"
+    AFX_IDS_IDLEMESSAGE     "Pøipraven"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Vytvoøí novou mapu\nNová mapa"
+    ID_FILE_OPEN            "Otevøe mapu\nOtevøít mapu"
+    ID_FILE_CLOSE           "Zavøe activní document\nZavøít"
+    ID_FILE_SAVE            "Uloží mapu\nUložit mapu"
+    ID_FILE_SAVE_AS         "Uloží mapu do jiného souboru\nUložit mapu jako"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Zobrazí informace o aplikaci\nO aplikaci"
+    ID_APP_EXIT             "Ukonèí aplikaci\nKonec"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE2       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE3       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE4       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE5       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE6       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE7       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE8       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE9       "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE10      "Otevøe tuto mapu"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Zkopírovat výbìr do schránky.\nKopírovat (Ctrl+Ins)"
+    ID_EDIT_CUT             "Vyjmout výbìr a vložit ho do schránky.\nVyjmout (Shift+Del)"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Vložit obsah schránky.\nVložit (Shift+Ins)"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Zobrazí/Skryje panel nástrojù\nPanel nástriojù"
+    ID_VIEW_STATUS_BAR      "Zobrazí/Skryje stavový øádek\nStavový øádek"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    IDS_SPLASHBITMAP        "splashfin.bmp"
+    IDS_REALLYRESIZEMAP     "Vámi zadané velikosti jsou alespoò v jednom rozmìru menší než pùvodní. Pokud zmìníte velikost, mapexy a jednotky, které se nacházejí na pøesahujících èástech mapy budou znièeny.\n\nOpravdu chcete zmìnit velikost mapy?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MAPEXEDITOR          "Vyvolá editor mapexù\nEditor mapexù (F3)"
+    ID_MAPEX_NOVKNIHOVNA    "Vytvoiøt novou knihovnu mapexù\nNová knihovna"
+    ID_FILE_PROPERTIES      "Zobrazí informace o mapì"
+    ID_MAPEX_NEWLIBRARY     "Vytvoøí novou knihovnu mapexù\nNová knihovna mapexù"
+    ID_MAPEX_OPENLIBRARY    "Otevøít knihovnu a pøidat ji do mapy\nOtevøít knihovnu"
+    ID_MAPEX_DELETELIBRARY  "Odstranit knihovnu z mapy\nOdstranit knihovnu"
+    ID_MAPEX_EDITLIBRARY    "Upravit knihovnu\nUpravit knihovnu"
+    ID_FILE_SETLANDTYPES    "Nastavit typy povrchu pro aktuální mapu\nNastavit typy povrchu"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MAPEXBUT             "Vybrat mapex"
+    ID_VIEW_BL2             "Zobarzí/Skryje úroveò 2\nZobrazit úroveò 2 (Ctrl+2)"
+    ID_VIEW_BL3             "Zobarzí/Skryje úroveò 3\nZobrazit úroveò 3 (Ctrl+3)"
+    ID_VIEW_UL              "Zobarzí/Skryje úroveò jednotek\nZobrazit úroveò jednotek (Ctrl+4)"
+    ID_VIEW_BL1             "Zobarzí/Skryje úroveò 1\nZobrazit úroveò 1 (Ctrl+1)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SELECT_BL1           "Aktivuje úroveò 1\nÚroveò 1 (1)"
+    ID_SELECT_BL2           "Aktivuje úroveò 2\nÚroveò 2 (2)"
+    ID_SELECT_BL3           "Aktivuje úroveò 3\nÚroveò 3 (3)"
+    ID_SELECT_UL            "Aktivuje úroveò jednotke\nÚroveò jednotek (4)"
+    ID_MAPEX_DELETE         "Smaže mapex z mapy\nSmazat mapex (Del)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MAP_GRID             "Zobrazí/Skryje møížku\nMøížka (Ctrl+G)"
+    ID_GRIDSIZE_1           "Rozteè møížky 1 mapcell"
+    ID_GRIDSIZE_2           "Rozteè møížky 2 mapcelly"
+    ID_GRIDSIZE_4           "Rozteè møížky 4 mapcelly"
+    ID_GRIDSIZE_8           "Rozteè møížky 8 mapcellù"
+    ID_GRIDSIZE_16          "Rozteè møížky 16 mapcellù"
+    ID_MAP_LANDTYPES        "Zobrazit typy terénu\nZobrazit terén (Ctrl+T)"
+    ID_VIEW_MINIMAP         "Zobrazí/Skryje minimapu\nMiniMap (Ctrl+M)"
+    ID_VIEW_MAPEXBAR        "Zobrazit/Skrýt panel mapexù\nMapexy (Ctrl+X)"
+    ID_MINIMAP_ZOOMIN       "Zvìtšit minimapu\nZvìtšit minimapu"
+    ID_MINIMAP_ZOOMOUT      "Zmenšit minimapu\nZmenšit minimapu"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MAPEX_ZPOS           "Výška mapexu v úrovni jednotek\nVýška mapexu"
+    ID_UNIT_CIVILIZATIONS   "Zobrazí editor civilizací.\nEditor civilizací"
+    ID_UNIT_NEWLIBRARY      "Vytvoøí novou knihovnu jednotek\nNová knihovna jednotek"
+    ID_UNIT_OPENLIBRARY     "Otevøe knihovnu jednotek (pøidá ji do mapy)\nOtevøít knihovnu jednotek"
+    ID_UNIT_EDITLIBRARY     "Zpbrazí dialog knihovny jednotek\nUpravit knihovnu jednotek"
+    ID_UNIT_DELETELIBRARY   "Odstraní vybranou knihovnu jednotek\nOdstranit knihovnu jednotek"
+    ID_UNIT_EDITOR          "Zobrazí editor jednotek\nEditor jednotek (F4)"
+    ID_UNITBUT              "Vybrat jednotku"
+    ID_FILE_REBUILDLIBRARIES 
+                            "Zoptimalizuje knihovny jednotek a mapexù.\nZoptimalizovat knihovny"
+    ID_FILE_FINISH          "Zabalí mapu do souboru, který lze použít pro vytvoøení nové hry."
+    ID_VIEW_UNITBAR         "Zobrazit/Skrýt panel jednotek\nJednotky (Ctrl+J)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_UNIT_DIRECTION_LEFT  "Otoèit vybranou jednotku doleva\nOtoèit jednotku doleva ( [ )"
+    ID_UNIT_DIRECTION_RIGHT "Otoèit vybranou jednotku doprava\nOtoèit jednotku doprava ( ] )"
+    ID_UNIT_DIRECTION_RANDOM 
+                            "U vybranné jednotky nastaví náhodný smìr (Jednotka se bude náhodnì toèit)\nNáhodný smìr jednotky ( = )"
+    ID_FILE_RESOURCES       "Editace surovin pro mapu."
+    ID_MAPEX_UP             "Pøesune vybrané mapexy o úroveò výš\nPøesunout mapexy nahoru"
+    ID_MAPEX_DOWN           "Pøesune vybrané mapexy o úroveò níž\nPøesunout mapexy dolù"
+    ID_FILE_INVISIBILITY    "Editace typù viditelnosti"
+    ID_FILE_SCRIPTSET       "Editace SkriptSetù mapy\nSkriptSety"
+END
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\MapEditor.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,829 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\GameServerApp.ico"
+IDR_THEMAPTYPE          ICON    DISCARDABLE     "res\\GameServerAppDoc.ico"
+IDI_GAMESTATUS_NONE     ICON    DISCARDABLE     "res\\icon1.ico"
+IDI_GAMESTATUS_PAUSED   ICON    DISCARDABLE     "res\\gamestat.ico"
+IDI_GAMESTATUS_UNPAUSED ICON    DISCARDABLE     "res\\ico00001.ico"
+IDI_TIMESLICE_ICON      ICON    DISCARDABLE     "res\\ico00002.ico"
+IDI_TRAY                ICON    DISCARDABLE     "res\\ico00003.ico"
+IDI_INSTRUCTIONCOUNTER_ICON ICON    DISCARDABLE     "res\\ico00004.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+IDB_USERLIST            BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
+IDB_USER                BITMAP  DISCARDABLE     "res\\User.bmp"
+IDB_MAINFRAME_TB_GRAY   BITMAP  DISCARDABLE     "res\\ToolbarGray.bmp"
+IDB_MAINFRAME_TB_COLOR  BITMAP  DISCARDABLE     "res\\ToolbarColor.bmp"
+IDB_CIVILIZATION        BITMAP  DISCARDABLE     "res\\Civilization.bmp"
+IDB_MAINFRAME_TB_DISABLED BITMAP  DISCARDABLE     "res\\ToolbarDisabled.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  24, 23
+BEGIN
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_GAME_UNPAUSE
+    BUTTON      ID_GAME_PAUSE
+    BUTTON      ID_GAME_STOP
+    SEPARATOR
+    BUTTON      ID_CIVILIZATION_ADDUSER
+    BUTTON      ID_USER_DELETEUSER
+    BUTTON      ID_USER_ENABLE
+    BUTTON      ID_USER_DISABLE
+    BUTTON      ID_PROPERTIES
+    BUTTON      ID_SENDMESSAGE
+    SEPARATOR
+    BUTTON      ID_VIEW_OPTIONS
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&Soubor"
+    BEGIN
+        MENUITEM "&Otev¯Ìt mapu nebo hru...\tCtrl+O", ID_FILE_OPEN
+        MENUITEM "&Uloûit hru\tCtrl+S",         ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "Naposled otev¯enÈ soubory",   ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Konec",                      ID_APP_EXIT
+    END
+    POPUP "&Zobrazit"
+    BEGIN
+        MENUITEM "&Panel n·stroju",             ID_VIEW_TOOLBAR
+        MENUITEM "&Stavov˝ ¯·dek",              ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "&NastavenÌ",                  ID_VIEW_OPTIONS
+    END
+    POPUP "&Hra"
+    BEGIN
+        MENUITEM "&Zaslat zpr·vu vöem...",      ID_GAME_SENDMESSAGE
+        MENUITEM SEPARATOR
+        MENUITEM "&Pozastavit hru",             ID_GAME_PAUSE
+        MENUITEM "&Spustit hru",                ID_GAME_UNPAUSE
+        MENUITEM SEPARATOR
+        MENUITEM "U&konËit hru",                ID_GAME_STOP
+    END
+    POPUP "&Civilizace"
+    BEGIN
+        MENUITEM "&P¯idat uûivatele",           ID_CIVILIZATION_ADDUSER
+        MENUITEM SEPARATOR
+        MENUITEM "Po&slat zpr·vu vöem uûivatel˘m civilizace", 
+                                                ID_CIVILIZATION_SENDMESSAGE
+        MENUITEM SEPARATOR
+        MENUITEM "V&ynulovat profilovacÌ ËÌtaËe pro civilizace", 
+                                                ID_CIVILIZATION_RESETPROFILING
+
+        MENUITEM "&Vlastnosti",                 ID_PROPERTIES_CIVILIZATION
+    END
+    POPUP "Uûivatel"
+    BEGIN
+        MENUITEM "Po&volit",                    ID_USER_ENABLE
+        MENUITEM "&Zak·zat",                    ID_USER_DISABLE
+        MENUITEM "&Odebrat",                    ID_USER_DELETEUSER
+        MENUITEM SEPARATOR
+        MENUITEM "Po&slat zpr·vu...",           ID_USER_SENDMESSAGE
+        MENUITEM SEPARATOR
+        MENUITEM "V&lastnosti...",              ID_PROPERTIES_USER
+    END
+    POPUP "S&kriptSety"
+    BEGIN
+        MENUITEM "&Vytv·¯enÌ SkriptSet˘ ...",   ID_SCRIPTSET_MAKER
+    END
+    POPUP "&N·povÏda"
+    BEGIN
+        MENUITEM "&O aplikaci GameServer...",   ID_APP_ABOUT
+    END
+END
+
+IDM_CIVILIZATION MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Zaslat &zpr·vu...",           ID_CIVILIZATION_SENDMESSAGE
+        MENUITEM SEPARATOR
+        MENUITEM "&P¯idat uûivatele",           ID_CIVILIZATION_ADDUSER
+        MENUITEM SEPARATOR
+        MENUITEM "&Vlastnosti",                 ID_PROPERTIES
+    END
+END
+
+IDM_USER MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Zaslat &zpr·vu...",           ID_USER_SENDMESSAGE
+        MENUITEM SEPARATOR
+        MENUITEM "&Odebrat uûivatele",          ID_USER_DELETEUSER
+        MENUITEM "&Povolit uûivatele",          ID_USER_ENABLE
+        MENUITEM "&Zak·zat uûivatele",          ID_USER_DISABLE
+        MENUITEM SEPARATOR
+        MENUITEM "&Vlastnosti",                 ID_PROPERTIES
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 105
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "O aplikaci GameServer"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "GameServer verze 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+    LTEXT           "SouË·st softwarovÈho projektu Strategy++\nstudent˘ MFF UK Praha:",
+                    IDC_STATIC,40,25,142,19
+    LTEXT           "VÌt Karas\nTom·ö Karban\nHelena Kupkov·\nKarel Zikmund\nRoman éenka",
+                    IDC_STATIC,40,44,58,51
+END
+
+IDD_USER DIALOG DISCARDABLE  0, 0, 248, 78
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Uûivatel"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,83,7,100,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,83,23,100,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD2,83,39,100,12,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,191,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,191,26,50,14
+    LTEXT           "JmÈno:",IDC_STATIC,35,11,24,8
+    LTEXT           "Heslo:",IDC_STATIC,35,25,21,8
+    LTEXT           "Potvrdit heslo:",IDC_STATIC,35,41,46,8
+    LTEXT           "Static",IDC_COMMENT,35,63,206,8
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP,7,7,31,28
+END
+
+IDD_CIVILIZATION DIALOGEX 0, 0, 269, 274
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Civilizace"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,212,7,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,212,24,50,14
+    CONTROL         141,IDC_STATIC,"Static",SS_BITMAP,7,7,36,33
+    LTEXT           "Mod¯Ì skym·ci",IDC_NAME,42,7,120,10
+    LTEXT           "Barva:",IDC_STATIC,42,21,22,8
+    CONTROL         "",IDC_COLOR,"Static",SS_GRAYRECT | SS_SUNKEN,69,20,53,
+                    10
+    LTEXT           "Profilov·nÌ za celou civilizaci:",IDC_STATIC,42,36,93,8
+    LTEXT           "Procento Ëasu celkovÏ:",IDC_STATIC,51,47,76,8
+    LTEXT           "Procento Ëasu za poslednÌch 5 sekund:",IDC_STATIC,51,71,
+                    126,8
+    RTEXT           "Static",IDC_GLOBALPROFILE,195,47,67,9,0,
+                    WS_EX_STATICEDGE
+    RTEXT           "Static",IDC_LOCALPROFILE,195,71,67,9,0,WS_EX_STATICEDGE
+    LTEXT           "Profilov·nÌ pro tuto civilizaci:",IDC_STATIC,7,95,90,8
+    CONTROL         "List1",IDC_PROFILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,7,104,255,163
+    CONTROL         "Zmrazit",IDC_FREEZE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,115,94,39,10
+    LTEXT           "PoËet instrukcÌ celkovÏ:",IDC_STATIC,51,58,78,8
+    RTEXT           "Static",IDC_GLOBALCOUNT,195,57,67,9,0,WS_EX_STATICEDGE
+    LTEXT           "PoËet instrukcÌ za poslednÌch 5 sekund:",IDC_STATIC,51,
+                    82,128,8
+    RTEXT           "Static",IDC_LOCALCOUNT,195,81,67,9,0,WS_EX_STATICEDGE
+END
+
+IDD_OPTIONS_PATHS DIALOGEX 0, 0, 210, 154
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "UmÌstÏnÌ soubor˘"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,19,196,12,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_DATA,9,21,181,9,ES_AUTOHSCROLL | NOT WS_BORDER
+    PUSHBUTTON      "...",IDC_BROWSEDATA,190,20,12,10
+    LTEXT           "Adres·¯ s datov˝mi soubory:",IDC_STATIC,7,9,90,8
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,48,196,12,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_GAMETEMP,9,50,181,9,ES_AUTOHSCROLL | NOT WS_BORDER
+    PUSHBUTTON      "...",IDC_BROWSEGAMETEMP,190,49,12,10
+    LTEXT           "PracovnÌ adres·¯ serveru:",IDC_STATIC,7,38,90,8
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,77,196,12,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_ARCHIVETEMP,9,79,181,9,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER
+    PUSHBUTTON      "...",IDC_BROWSEARCHIVETEMP,190,78,12,10
+    LTEXT           "PracovnÌ adres·¯ systÈmu archivace:",IDC_STATIC,7,67,
+                    118,8
+    LTEXT           "ZmÏna se projevÌ aû p¯i p¯ÌötÌm spuötÏnÌ aplikace",
+                    IDC_STATIC,47,91,156,8
+END
+
+IDD_OPTIONS_NETWORK DIALOG DISCARDABLE  0, 0, 210, 154
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "SÌù"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "»Ìslo portu pro server:",IDC_STATIC,7,9,70,8
+    EDITTEXT        IDC_PORT,118,7,85,12,ES_AUTOHSCROLL
+END
+
+IDD_OPTIONS_DEBUG DIALOG DISCARDABLE  0, 0, 210, 154
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Debug"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Trace server loops",IDC_TRACE_SERVER_LOOPS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,75,10
+    CONTROL         "Trace server-client comm.",
+                    IDC_TRACE_SERVER_CLIENT_COMMUNICATION,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,20,97,10
+    CONTROL         "Trace skill calls",IDC_TRACE_SKILL_CALLS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,33,64,10
+    CONTROL         "Trace skills",IDC_TRACE_SKILLS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,46,51,10
+    CONTROL         "Trace client requests",IDC_TRACE_CLIENT_REQUESTS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,59,82,10
+    CONTROL         "Trace interpret",IDC_TRACE_INTERPRET,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,72,62,10
+    CONTROL         "Trace interpret details",IDC_TRACE_INTERPRET_DETAILS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,85,84,10
+    CONTROL         "Trace notifications",IDC_TRACE_NOTIFICATIONS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,98,74,10
+    CONTROL         "Delete working directory on create",
+                    IDC_DELETE_WORKING_DIRECTORY_ON_CREATE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,119,124,10
+    CONTROL         "Delete working directory on delete",
+                    IDC_DELETE_WORKING_DIRECTORY_ON_DELETE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,132,123,10
+    CONTROL         "Trace network",IDC_TRACE_NETWORK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,108,7,62,10
+    CONTROL         "Trace error logs",IDC_TRACE_ERROR_LOGS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,108,20,65,10
+    CONTROL         "UDP alive?",IDC_UDPALIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,108,98,52,10
+    CONTROL         "Trace compiled code",IDC_TRACE_COMPILED_CODE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,108,35,83,10
+END
+
+IDD_OPTIONS_GAME DIALOG DISCARDABLE  0, 0, 210, 154
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Hra"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "DÈlka timeslicu (v millisekund·ch):",IDC_STATIC,7,9,108,
+                    8
+    EDITTEXT        IDC_TIMESLICE_LENGTH,138,7,65,12,ES_AUTOHSCROLL
+    CONTROL         "Zobrazovat profilovacÌ informace v hlavnÌm oknÏ",
+                    IDC_SHOWPROFILING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    7,31,170,10
+    CONTROL         "Zobrazovat zpr·vy na liötÏ aplikacÌ\n(pouze Windows 2000)",
+                    IDC_SHOWTRAYINFOS,"Button",BS_AUTOCHECKBOX | BS_TOP | 
+                    BS_MULTILINE | WS_TABSTOP,7,44,132,19
+END
+
+IDD_SCRIPTSETMAKER DIALOGEX 0, 0, 210, 149
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vytv·¯enÌ SkriptSet˘"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,19,196,12,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "VstupnÌ adres·¯:",IDC_STATIC,7,9,53,8
+    EDITTEXT        IDC_SOURCE,9,21,181,9,ES_AUTOHSCROLL | NOT WS_BORDER
+    PUSHBUTTON      "...",IDC_BROWSESOURCE,190,20,12,10
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,48,196,12,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "V˝sledn˝ SkriptSet:",IDC_STATIC,7,38,90,8
+    EDITTEXT        IDC_DESTINATION,9,50,181,9,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER
+    PUSHBUTTON      "...",IDC_BROWSEDESTINATION,190,49,12,10
+    LTEXT           "Vöechny soubory ze vstupnÌho adres·¯e s p¯Ìponou .3s budou p¯eloûeny a zbaleny do v˝slednÈho SkriptSetu.",
+                    IDC_STATIC,7,68,196,18
+    DEFPUSHBUTTON   "Zpracovat",IDC_PROCESS,74,97,60,14
+    PUSHBUTTON      "Konec",IDCANCEL,153,128,50,14
+END
+
+IDD_SCRIPTSETPROGRESS DIALOG DISCARDABLE  0, 0, 312, 148
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Kompilace SkriptSetu..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDCANCEL,255,7,50,14
+    LTEXT           "ProbÌh· kompilace zdrojov˝ch soubor˘...",IDC_STATUS,7,7,
+                    129,8
+    LTEXT           "V˝stup kompil·toru:",IDC_STATIC,7,22,62,8
+    EDITTEXT        IDC_ERROROUTPUT,7,32,298,109,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_VSCROLL
+END
+
+IDD_SENDMESSAGE DIALOG DISCARDABLE  0, 0, 221, 60
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Zaslat zpr·vu"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_MESSAGE,7,17,207,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Odeslat",IDOK,106,39,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,164,39,50,14
+    LTEXT           "Text zpr·vy:",IDC_STATIC,7,7,40,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040504b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "GameServer\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "GameServer\0"
+            VALUE "LegalCopyright", "Copyright © 2000\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "GameServer.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Strategy++ GameServer\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "GameServer MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "GameServer\0"
+            VALUE "LegalCopyright", "Copyright (C) 2000\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "GameServer.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Strategy++ GameServer\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x405, 1200, 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
+    END
+
+    IDD_USER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 241
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 71
+    END
+
+    IDD_CIVILIZATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 262
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 267
+    END
+
+    IDD_OPTIONS_PATHS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_OPTIONS_NETWORK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_OPTIONS_DEBUG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_OPTIONS_GAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_SCRIPTSETMAKER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 142
+    END
+
+    IDD_SCRIPTSETPROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 305
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 141
+    END
+
+    IDD_SENDMESSAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 214
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 53
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "GameServerApp\n\nTheMap\n*.TheMap\n.themap\nGameServer.TheMap\nTheMap Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "GameServer"
+    AFX_IDS_IDLEMESSAGE     "P¯ipraven"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Otev¯Ìt mapu nebo uloûenou hru\nOtev¯Ìt"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Uloûit hru\nUloûit"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Obnovit okno do p˘vodnÌ velikosti"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    IDS_GAMESTATUS_NONE     "é·dn· hra"
+    IDS_GAMESTATUS_PAUSED   "Hra pozastavena"
+    IDS_GAMESTATUS_UNPAUSED "Hra bÏûÌ"
+    IDS_FILE_OPENTITLE      "Otev¯Ìt mapu nebo uloûenou hru"
+    IDS_FILE_OPENFILTER     "Mapa (*.TheMap)|*.TheMap|Uloûen· hra (*.SaveGame)|*.SaveGame|Vöechny soubory (*.*)|*.*||"
+    IDS_FILE_THEMAPEXT      "TheMap"
+    IDS_FILE_SAVEEXT        "SaveGame"
+    IDS_FILE_CANTOPENFILE   "Soubor neexistuje nebo nelze otev¯Ìt."
+    IDS_FILE_WRONGEXTENSION "Nezn·m· p¯Ìpona souboru."
+    IDS_PROGRESS_CREATEGAME "Vytv·¯enÌ hry..."
+    IDS_PROGRESS_STOPGAME   "UkonËov·nÌ hry..."
+    IDS_PROGRESS_LOADGAME   "Nahr·v·nÌ hry..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROGRESS_SAVEGAME   "Ukl·d·nÌ hry..."
+    IDS_PROGRESS_PAUSEGAME  "Pozastavov·nÌ hry..."
+    IDS_PROGRESS_UNPAUSEGAME "SpouötÏnÌ hry..."
+    IDS_USER_PASSWORDSNOTMATCH "Zadan· hesla se neshodujÌ."
+    IDS_USER_EXISTSCOMMENT  "Tento uûivatel pat¯Ì k civilizaci %s"
+    IDS_USER_NEWCOMMENT     "Uûivatel bude p¯id·n do civilizace %s"
+    IDS_NETWORK_INITFAILED  "Chyba p¯i inicializaci sÌtÏ.\nZkontrolujte, ûe zadanÈ ËÌslo portu je spr·vnÏ (neobsazeno)."
+    IDS_OPTIONSPATHS_BROWSEARCHIVETEMP_TITLE 
+                            "PracovnÌ adres·¯ systÈmu archivace:"
+    IDS_OPTIONSPATHS_BROWSEGAMETEMP_TITLE "PracovnÌ adres·¯ serveru:"
+    IDS_OPTIONSPATHS_BROWSEDATA_TITLE "Datov˝ adres·¯:"
+    IDS_OPTIONS_TITLE       "NastavenÌ"
+    IDS_FILE_SAVEFILTER     "Uloûen· hra (*.SaveGame)|*.SaveGame|Vöechny soubory (*.*)|*.*||"
+    IDS_FILE_SAVEEXTENSION  "*.SaveGame"
+    IDS_FILE_SAVETITLE      "Uloûit hru"
+    IDS_FILE_SAVE_OVERWRITEPROMPT 
+                            "Soubor '%s' jiû existuje, chcete ho p¯epsat?"
+    IDS_USER_DELETECONFIRMATION "Opravdu chcete smazat uûivatele %s?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Zobrazit informace o programu\nO programu"
+    ID_APP_EXIT             "UkonËit program\nKonec"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE2       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE3       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE4       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE5       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE6       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE7       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE8       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE9       "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE10      "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE11      "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE12      "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE13      "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE14      "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE15      "Otev¯Ìt tuto mapu/hru"
+    ID_FILE_MRU_FILE16      "Otev¯Ìt tuto mapu/hru"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "ZobrazÌ/Skryje panel n·stroj˘\nPanel n·stroj˘"
+    ID_VIEW_STATUS_BAR      "ZobrazÌ/Skryje stavov˝ ¯·dek\nStavov˝ ¯·dek"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "ZmÏnit velikost okna"
+    AFX_IDS_SCMOVE          "ZmÏnit pozici okna"
+    AFX_IDS_SCMINIMIZE      "Zmenöit okno do ikony"
+    AFX_IDS_SCMAXIMIZE      "Maximalizivat okno"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_USER_DELETEUSER      "Odebere uûivatele od civilizace\nOdebrat uûivatele"
+    ID_USER_DISABLE         "OdpojÌ uûivatele pokud je nalogov·n a zak·ûe ho\nZak·zat uûivatele"
+    ID_USER_ENABLE          "PovolÌ vybranÈho uûivatele\nPovolit uûivatele"
+    ID_SCRIPTSET_MAKER      "Vytv·¯enÌ SkriptSet˘ ze zdrojov˝ch soubor˘\nVytv·¯enÌ SkriptSet˘"
+    ID_USER_MESSAGE         "Poöle vybranÈmu uûivateli textovou zpr·vu\nZaslat zpr·vu uûivateli"
+    ID_CIVILIZATION_SENDMESSAGE 
+                            "Poöle textovou zpr·vu vöem uûivatel˘m vybranÈ civilizace\nZaslat zpr·vu civilizaci"
+    ID_SENDMESSAGE          "Zaslat zpr·vu vybran˝m uûivatel˘m\nZaslat zpr·vu"
+    ID_GAME_SENDMESSAGE     "Poöle zpr·vu vöem p¯ihl·öen˝m uûivatel˘m\nZaslat zpr·vu vöem"
+    ID_PROPERTIES_USER      "ZobrazÌ vlastnosti uûivatele"
+    ID_PROPERTIES_CIVILIZATION "ZobrazÌ vlastnosti civilizace"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_USER_ALREADYEXISTS  "Takov˝ uûivatel jiû existuje, zadejte jinÈ jmÈno uûivatele."
+    IDS_USER_DISABLECONFIRMATION "Opravdu chcete zak·zat uûivatele %s?"
+    IDS_APPLICATION_CANTOPENARCHIVETEMPDIR 
+                            "Nelze nalÈzt doËasn˝ adres·¯ systÈmu archivace.\nNÏco je hodnÏ öpatnÏ."
+    IDS_SCRIPTSETMAKER_DESTFILTER 
+                            "SkriptSety (*.ScriptSet)|*.ScriptSet|Vöechny soubory (*.*)|*.*||"
+    IDS_SCRIPTSETMAKER_DESTTITLE "V˝sledn˝ SkriptSet:"
+    IDS_SCRIPTSETMAKER_SOURCETITLE "VstupnÌ adres·¯:"
+    IDS_SCRIPTSETPROGRESS_SUCCESS "SkriptSet ˙spÏönÏ vytvo¯en."
+    IDS_SCRIPTSETPROGRESS_ERROR "P¯i kompilaci SkriptSetu doölo k chybÏ."
+    IDS_FILE_THEMAPFILTER   "Soubor mapy (*.TheMap)|*.TheMap|Vöechny soubory (*.*)|*.*||"
+    IDS_FILE_THEMAPFIND_TITLE "NalÈzt mapu"
+    IDS_SENDMESSAGE_USER    "Zaslat zpr·vu uûivateli %s"
+    IDS_SENDMESSAGE_CIVILIZATION "Zaslat zpr·vu vöem uûivatel˘m civilizace %s"
+    IDS_FILE_BADMAP         "Soubor mapy nebyl nalezen nebo m· öpatnÈ ËÌslo verze.\nPokusÌte se ho nalÈzt sami?"
+    IDS_SENDMESSAGE_ALL     "Zaslat zpr·vu vöem"
+    IDS_CREATETEMPDIRECTORYQUESTION 
+                            "PracovnÌ adres·¯ '%s' neexistuje, chcete ho vytvo¯it?"
+    IDS_CANTOVERWRITESAVEGAME "Nelze smazat p˘vodnÌ uloûenou hru '%s'."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_GAME_PAUSE           "PozastavÌ hru (odpojÌ vöechny uûivatele)\nPozastavit hru"
+    ID_GAME_UNPAUSE         "SpustÌ hru\nSpustit hru"
+    ID_GAME_STOP            "UkonËÌ hru\nUkonËit hru"
+    ID_PROPERTIES           "ZobrazÌ vlastnosti vybranÈho objektu\nVlastnosti"
+    ID_VIEW_OPTIONS         "Zobrazit nastavenÌ aplikace\nNastavenÌ"
+    ID_CIVILIZATION_ADDUSER "P¯id· uûivatele k vybranÈ civilizaci\nP¯idat uûivatele"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_CIVILIZATION_RESETPROFILING 
+                            "Vynuluje profilovacÌ ËÌtaËe pro civilizace"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_USERLOGGEDON        "P¯ihl·sil se uûivatel '%s'."
+    IDS_USERLOGGEDOFF       "Uûivatel '%s' se odhl·sil."
+END
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\GameServerApp.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\GameServerApp.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

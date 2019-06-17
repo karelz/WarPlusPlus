@@ -1,0 +1,13 @@
+Zamykání jednotek, typù jednotek a civilizací:
+----------------------------------------------
+z MainLoopu se mùže zamykat kdy chce co chce (dokonce lze jednotku zamknout na READ a hned na WRITE - neni to DEADLOCK)
+MainLoop = DoTimeSlice, DPC
+mimo MainLoop se mùže zamykat na zápis/ètení nejvýše jedna jednotka naráz
+typ jednotky i civilizace jsou z hlediska zamykání jako jednotka (tj. nelze zamknout 
+	jednotku a typ jednotky naráz atp.)
+z MainLoopu nelze zamknout typ jednotky nebo civilizaci nejprve na READ a nasledne na WRITE = DEADLOCK
+
+Zmìna pozice jednotky:
+----------------------
+zmìna pozice se smí volat pouze z MainLoopu a musí zamykat jednotku na zápis
+ètení pozice musí zamknout jednotku na ètení

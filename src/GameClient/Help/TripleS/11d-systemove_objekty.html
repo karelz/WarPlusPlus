@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Množina</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="11c-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11c-systemove_objekty.html#sysobj_array">Pole</a>
+<b>|</b>
+<a href="11e-systemove_objekty.html#sysobj_position">Objekt <code>Position</code></a>
+<a href="11e-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="sysobj_set">Množina</h2>
+<p>Konstrukce proměnné typu množina viz <a href="04-promenne.html#mnozina">Definice množiny</a>.</p>
+
+<h3 id="set_oper">Operace s množinami</h3>
+<p><b>Sjednocení, průnik, rozdíl</b></p>
+<p><b>TripleS</b> obsahuje následující operátory pro sjednocení, průnik a rozdíl množin. Množiny, na kterých má být daná operace provedena, musí být stejného typu.</p>
+<table>
+<tr><td style="width : 30px"><code>+</code></td><td>sjednocení</td></tr>
+<tr><td><code>*</code></td><td>průnik</td></tr>
+<tr><td><code>-</code></td><td>rozdíl</td></tr>
+</table>
+<p><b>Dotaz na prvek</b></p>
+<p>Pro zjištění, zda je nějaká hodnota prvkem množiny, je v <b>TripleS</b> operátor <code>in</code>. Na jeho pravé straně musí být proměnná typu množina, na levé straně hledaná hodnota stejného typu, jako jsou prvky množiny. Výsledek je typu <code>bool</code>, hodnota je pak <code>true</code> pokud množina daný prvek obsahuje nebo <code>false</code> pokud ne.</p>
+
+<p>Příklad použití:</p>
+<pre>
+char Znaky{};
+...
+if ( 'A' in Znaky ) { /* písmeno A je v mnozine znaky */ }
+
+</pre>
+
+<p><b>Enumerace</b></p>
+<p>Pomocí <code>for</code> cyklu pro množiny lze enumerovat všechny prvky množiny. Viz <a href="07b-prikazy.html#for_set"><code>for</code> cyklus pro množinu</a>.</p>
+
+<h3>Metody</h3>
+<pre class="hlavicka">int GetItemCount ()</pre>
+<p>Vrací počet položek v množině.</p>
+<pre class="hlavicka">bool IsEmpty ()</pre>
+<p>Vrací true, je-li množina prázdná, jinak vrací false.</p>
+
+<p class="odkaz">
+<a href="11c-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11c-systemove_objekty.html#sysobj_array">Pole</a>
+<b>|</b>
+<a href="11e-systemove_objekty.html#sysobj_position">Objekt <code>Position</code></a>
+<a href="11e-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

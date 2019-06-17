@@ -1,0 +1,35 @@
+unit VelitelPruzkumniku extends Velitel
+{
+
+// reakce na zadost o pomoc
+notification PLEASE_HELP(Unit uMyUnit)
+{
+  // posleme si sami sobe prikaz k pomoci
+  EmptyCommandQueue ( );
+
+  this <- HELP ( uMyUnit );
+}
+
+// reakce na prikaz k pomoci jine jednotce
+// vezme vsechny sve jednotky a posle je na to misto hlidkovat
+command HELP(Unit uMyUnit)
+{
+  // poslat je na to misto
+  sendto ( GetInferiorUnits ( ) )
+  {
+    MOVE ( uMyUnit.GetPosition ( ) );
+  }
+
+  // A kazde jednotce poslat prikaz k hlidkovani
+  Unit u;
+  for( u in MyUnits )
+  {
+    Position pos;
+    pos.x = uMyUnit.GetPosition().x + RandomInt ( 10 ) - 5;
+    pos.y = uMyUnit.GetPosition().y + RandomInt ( 10 ) - 5;
+
+    u <- CIRCLE (pos, RandomInt ( 10 ) );
+  }
+}
+
+}

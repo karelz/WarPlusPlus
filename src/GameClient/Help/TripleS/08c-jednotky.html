@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - jednotky</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="08b-jednotky.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="08b-jednotky.html#zpravy">Zprávy</a>
+</a>
+</p>
+
+<h2 id="fronty">Fronty příkazů a notifikací</h2>
+
+<p>Již jsme ukázali, jak se definují reakce na zprávy, upřesnili jsme význam notifikací a příkazů. Zbývá ukázat, jakým způsobem probíhá spouštění reakcí na zprávy.</p>
+
+<p>V každém okamžiku je interpretována nejvýše jedna reakce na notifikaci a nejvýše jedna reakce na příkaz u každé jednotky. Nově příchozí notifikace a příkazy se přidávají do front.</p>
+
+<h3 id="notifikace">Notifikace</h3>
+
+<p>Reakce na notifikaci by měla být pokud možno krátká a rychlá a podle potřeby iniciovat nějakou činnost pomocí poslání příkazů sám sobě nebo svým podřízeným. To proto, aby se co nejrychleji mohla začít interpretovat reakce na další notifikace čekající ve frontě.</p>
+
+<p>V reakci na notifikaci je tedy velmi nevhodné provádět nějaké dlouho trvající akce, jako například nechat jednotku někam jít, někde útočit, stavět, těžit, atp. Namísto toho by si jednotka měla poslat příkaz na provedení této akce. Frontu příkazů lze explicitně vyprázdnit, když potřebujeme, aby se příkaz začal provádět ihned.</p>
+
+<h3 id="prikazy">Fronty příkazů</h3>
+
+<p>Každá jednotka si udržuje dvě fronty příkazů. V jedné frontě si udržuje příkazy od velitele, to je tzv. <b>nadřazená fronta</b>, a v druhé si udržuje příkazy, které si poslala sama sobě, to je tzv. <b>podřízená fronta</b>.</p>
+
+<p>Příkazy od velitele většinou znamenají nějakou dlouhodobější činnost, kdežto podřízená fronta obsahuje příkazy, které jsou typicky vlastní rozhodnutí jednotky na základě aktuální situace (podle notifikací).</p>
+
+<p>Při vykonávání příkazů má přednost podřízená fronta. Když je podřízená fronta příkazů prázdná (všechny příkazy jsou buď splněny nebo byla fronta záměrně vyprázdněna), začnou se provádět příkazy z nadřazené fronty. Když při provádění příkazu z nadřazené fronty přijde nějaký příkaz do podřízené fronty, vykonávaná činnost se přeruší a začne se provádět příkaz z podřízené fronty, a po jejím dokončení se původní činnost (původní příkaz od velitele) restartuje.</p>
+
+<p>Z chování front příkazů se může zdát, že byly jejich názvy zvoleny opačně. Názvy byly zvoleny podle toho, že do nadřízené fronty přicházejí příkazy od velitele (nadřízeného), a pouze velitel (nebo jiná nadřízená jednotka) dané jednotky může tuto frontu také vyprázdnit. Do podřízené fronty naopak přicházejí příkazy od jednotky samotné, tedy to jsou vlastní rozhodnutí, ke kterým jednotka dospěla na základě aktuální situace (z notifikací), a jen ona sama si ji může vyprázdnit.</p>
+
+<p>Fronty příkazů jednotky se vyprazdňují metodou <code>EmptyCommandQueue()</code>. Zda se vyprázdní nadřazená nebo podřízená fronta se rozhoduje za běhu podle toho, zda metodu volá nadřazená jednotka nebo jednotka sama.</p>
+
+<h3 id="priklad">Příklad</h3>
+
+<p>Mechanismus front ilustrujeme na následujícím příkladě. Jednotka <b>A</b> dostane od svého velitele za úkol někam jít (např. příkaz <code>GO</code>) a něco tam udělat (<code>DO_SOMETHING</code>). Při vykonávání příkazu <code>GO</code> od velitele tedy jednotka <b>A</b> někam jde, ale najednou na ni začne útočit nepřátelská jednotka (dostane notifikaci od serveru). Jednotka <b>A</b> se v reakci na notifikaci sama rozhodne útok opětovat (pošle sama sobě příkaz <code>ATTACK</code>) a zároveň může poslat notifikaci svému veliteli, že je pod útokem. Pokud se velitel rozhodne s tím něco dělat (třeba proto, že je více jednotek v dané oblasti pod útokem), může zrušit zadaný úkol jednotky <b>A</b> &bdquo;jdi někam a udělej něco&ldquo; tím, že jí vyprázdní nadřazenou frontu, případně zruší úkoly okolních jednotek, pošle na místo posily a začne řídit vojenskou akci. Pokud s danou situací nechce nic dělat (je to např. jen zbloudilá nepřátelská jednotka), pak poté, co jednotka <b>A</b> dokončí svůj &bdquo;soukromý&ldquo; útok, vrátí se k původní činnosti, kterou má v nadřazené frontě, tj. &bdquo;jdi někam a udělej něco&ldquo;.</p>
+
+<p class="odkaz">
+<a href="08b-jednotky.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="08b-jednotky.html#zpravy">Zprávy</a>
+</a>
+</p>
+
+</body>
+</html>

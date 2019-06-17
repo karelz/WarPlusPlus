@@ -1,0 +1,6 @@
+0-9999 pod vodou (typicky 5000)
+10000-19999 voda (typicky 15000)
+20000-29999 pod zemí (typicky 25000)
+30000-39999 pozemní jednotky (typicky 35000)
+40000-49999 nad zemí - vznášedla (typicky 45000)
+50000-DWORD_MAX letadla (typicky 150000 nízká letadla, 250000 vysoká letadla)

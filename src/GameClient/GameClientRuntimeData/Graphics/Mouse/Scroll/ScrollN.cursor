@@ -1,0 +1,13 @@
+# Animation part
+FrameNum = 6;
+Speed = 50;
+Frame0 = "ScrollCursN1.tga";
+Frame1 = "ScrollCursN2.tga";
+Frame2 = "ScrollCursN3.tga";
+Frame3 = "ScrollCursN4.tga";
+Frame4 = "ScrollCursN3.tga";
+Frame5 = "ScrollCursN2.tga";
+
+# Cursor part
+HotSpot_X = 22;
+HotSpot_Y = 0;

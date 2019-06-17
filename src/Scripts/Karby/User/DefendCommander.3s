@@ -1,0 +1,132 @@
+unit DefendCommander
+{
+
+// pozice, na ktere hlidam
+Position posDefendPosition;
+// polomer, ktery mam hlidat
+int nDefendRadius;
+// utocna sila, kterou mam shromazdit
+int nAttackPower;
+// build commander, ktery pro me produkuje jednotky
+Unit uBuildCommander;
+
+// vsechny jednotky, ktere jsou pobliz
+Unit uEnemyUnits{};
+// 3 "nejlepsi" nepratele
+BestEnemy sBestEnemyUnits[3];
+
+constructor
+{
+  // zahajime casovani
+  SetTimer(1, 100);
+
+  // inicializace pole
+  BestEnemy sPom;
+  int i;
+  for (i = 0; i < 3; i++)
+    sBestEnemyUnits[i] = dup sPom;
+}
+
+notification TIMER(int nTimerID, int nTimeSlice)
+{
+  Log("DefendCommander::TIMER");
+
+  // z mnoziny, kterou mame, vyhazime jednotky, ktere jsou mrtve nebo daleko
+  Unit u;
+  for (u in uEnemyUnits)
+  {
+    if (u.IsDead() || (u.GetPosition().GetDistancePos(posDefendPosition) > nDefendRadius))
+      uEnemyUnits -= u;
+  }
+
+  // zjistime nove nepratelske jednotky
+  Unit uNewEnemyUnits{} = GetMap().GetEnemyUnitsInArea(posDefendPosition.x, posDefendPosition.y, nDefendRadius);
+
+  // sjednotime mnoziny
+  uEnemyUnits += uNewEnemyUnits;
+
+  // index do pole
+  int i;
+  // "odlozeni" nepratele
+  Unit uSelectedEnemyUnits{};
+
+  // celkovy pocet nepratel
+  int nMaxEnemyUnits = uEnemyUnits.GetItemCount();
+  if (nMaxEnemyUnits == 0)
+  {
+    // nemame nepratele, svet je krasny  :-)
+    SetTimer(1, 50);
+    return;
+  }
+
+  // kdyz jich je hodne, tak vybereme nejlepsi
+  if (nMaxEnemyUnits > 3)
+    nMaxEnemyUnits = 3;
+
+  // nepouzitou cast pole vynulujeme
+  for (i = nMaxEnemyUnits; i < 3; i++)
+  {
+    sBestEnemyUnits[i].nValue = 0;
+    sBestEnemyUnits[i].uEnemy = null;
+  }
+
+  // najdeme nejlepsi nepratele
+  for (i = 0; i < nMaxEnemyUnits; i++)
+  {
+    // dosavadni nejlepsi ohodnoceni
+    sBestEnemyUnits[i].nValue = 1000000;
+
+    // najdeme nejlepsiho nepritele
+    for (u in uEnemyUnits)
+    {
+      int nEnemyDistance = u.GetPosition().GetDistancePos(posDefendPosition);
+
+      if (nEnemyDistance < sBestEnemyUnits[i].nValue)
+      {
+        sBestEnemyUnits[i].nValue = nEnemyDistance;
+        sBestEnemyUnits[i].uEnemy = u;
+      }
+    }
+
+    // nejlepsi nalezenou jednotku docasne vytahneme z mnoziny
+    uEnemyUnits -= u;
+    uSelectedEnemyUnits += u;
+  }
+
+  // mame nejlepsi nepratele
+  // vratime naselektovane jednotky zpatky do mnoziny
+  uEnemyUnits += uSelectedEnemyUnits;
+
+  // posleme notifikaci vsem podrizenym jednotkam
+  sendto (GetInferiorUnits()) notification
+  {
+    PREFERRED_ATTACK(sBestEnemyUnits);
+  }
+
+  // znovu nastavime casovac
+  SetTimer(1, 50);
+}
+
+
+notification DEFENDER_IDLE(Unit u)
+{
+  sendto (u) notification
+  {
+    PREFERRED_ATTACK(sBestEnemyUnits);
+  }
+}
+
+
+notification INFERIOR_ADDED(Unit u)
+{
+  u<-DEFENDER_INITIALIZE(posDefendPosition, nDefendRadius / 2);
+}
+
+
+notification INFERIOR_CREATED(Unit u)
+{
+  u<-DEFENDER_INITIALIZE(posDefendPosition, nDefendRadius / 2);
+}
+
+
+}  // unit DefendCommander

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>GameClient - uživatelská dokumentace</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../trava.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>GameClient - uživatelská dokumentace</h1>
+
+<h2 id="stahovani">Stahování mapy</h2>
+
+<p>Pokud přihlášení uspěje, objeví se okno informující o průběhu stahování mapy.</p>
+<p><img class="samostatny" src="Obrazky\StahovaniMapy.png" alt="Stahovani mapy" /></p>
+<p>Klient v tomto okamžiku stahuje ze serveru statické informace o hře. Je to grafika mapy, obrázky jednotek a další informace o konfiguraci hry. Nahraná data se ukládají na disk do pomocného adresáře. Klient bude nadále pracovat s touto lokální kopií dat. Při příštím spuštění nebude třeba veškerá data stahovat znovu, pokud klient zjistí, že se uživatel připojuje ke stejné hře.</p>
+<p>Okno zobrazuje informaci o průběhu stahování. V případě potřeby je možné stahování přerušit, což má za následek návrat do přihlašovacího dialogu.</p>
+
+<table class="tip">
+<tr>
+    <td class="tipimg"><img src="..\varovani.png" alt="Varovani" /></td>
+    <td class="tiptext">Operace může trvat i několik minut, v závislosti na rychlosti síťového spojení a velikosti mapy hry. Odhad zbývajícího času se může lišit od skutečnosti.</td>
+</tr>
+</table>
+
+<h2 id="nahravani">Nahrávání mapy</h2>
+
+<p><img class="samostatny" src="Obrazky\Nahravam.png" alt="Nahravani mapy" /></p>
+<p>Po stažení dat o hře je potřeba veškerá data inicializovat a klienta nastartovat. Tento proces je indikován malým oknem a kvůli jeho složitosti jej není možné přerušit.</p>
+
+</body>
+</html>

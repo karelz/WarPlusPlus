@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Dovednost Make</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="17b-dovednosti_move.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="17b-dovednosti_move.html#dovednost_move">Dovednost <code>Move</code></a>
+<b>|</b>
+<a href="17d-dovednosti_bulletattack.html#dovednost_bulletattack">Dovednost <code>BulletAttack</code></a>
+<a href="17d-dovednosti_bulletattack.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="dovednost_make">Dovednost <code>Make</code></h2>
+<p>Vyrábí nové jednotky. Tato dovednost je vhodná například pro budovy, které vyrábějí vojáčky, protože v průběhu vyrábění jednotka neexistuje a vznikne, až když je vyrobená. Na mapě se dokončená jednotka okamžitě objeví.</p>
+
+<h3>Metody</h3>
+
+<pre class="hlavicka">bool IsActive ()</pre>
+<p>Vrátí <code>true</code> pokud je dovednost aktivní.</p>
+
+<pre class="hlavicka">String GetName ()</pre>
+<p>Vrátí jméno dovednosti.</p>
+
+<pre class="hlavicka">Unit Make ( String unitType, String scriptName, Unit commander )</pre>
+<p>Vyrobí novou jednotku typu <code>unitType</code>, dá jí skript <code>scriptName</code> a přiřadí jí k velitelovy <code>commander</code>. Vrátí nově vyrobenou jednotku. Tato metoda je čekací, a nevrátí, dokud není jednotka vyrobena, nebo dokud nenastane nějaká chyba (například nedostatek surovin pro výrobu), v tom případě vrátí <code>null</code>.</p>
+
+<pre class="hlavicka">Resources GetCost ( String unitType )</pre>
+<p>Vrátí objekt <code>Resources</code>, do kterého naplní množství surovin potřebných pro výrobu jednotky typu <code>unitType</code>.</p>
+
+<p class="odkaz">
+<a href="17b-dovednosti_move.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="17b-dovednosti_move.html#dovednost_move">Dovednost <code>Move</code></a>
+<b>|</b>
+<a href="17d-dovednosti_bulletattack.html#dovednost_bulletattack">Dovednost <code>BulletAttack</code></a>
+<a href="17d-dovednosti_bulletattack.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

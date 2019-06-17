@@ -1,0 +1,4 @@
+void Log(String strText)
+{
+  WriteToLog(IntToString(GetTimeSlice()) + " " + strText);
+}

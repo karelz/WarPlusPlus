@@ -1,0 +1,25 @@
+unit LastSeenTest
+{
+
+Unit uEnemy;
+
+notification UNIT_SEEN(Unit u)
+{
+  if ((u.GetUnitTypeName() == "Explorer") && (uEnemy == null))
+    uEnemy = u;
+}
+
+notification HOLD()
+{
+  if (uEnemy == null) return;
+  WriteToLog(
+    IntToString(GetTimeSlice()) +
+    " last seen position (" +
+    IntToString(uEnemy.GetPosition().x) + ", " +
+    IntToString(uEnemy.GetPosition().y) + "), " +
+    "my position (" +
+    IntToString(GetPosition().x) + ", " +
+    IntToString(GetPosition().y) + ")");
+}
+
+}

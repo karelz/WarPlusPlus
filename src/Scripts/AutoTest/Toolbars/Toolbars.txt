@@ -1,0 +1,275 @@
+
+#[Eskymo discoverer]
+#ButtonsCount = 1;
+#[Eskymo discoverer/Button1]
+#Caption = "Zkoumy zkoumy koumy";
+#Function = "Some";
+#ParamCount = 0;
+
+[Base]
+ButtonsCount = 3;
+
+[Base/Button1]
+Caption = "Vyrobit jednotku Explorer";
+Function = "CreateUnit";
+Icon = "Explorer.tga";
+ParamCount = 1;
+Param1 = "Explorer";
+
+[Base/Button2]
+Caption = "Vyrobit jednotku Builder";
+Function = "CreateUnit";
+Icon = "Builder.tga";
+ParamCount = 1;
+Param1 = "Builder";
+
+[Base/Button3]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Cross.tga";
+
+
+[Factory]
+ButtonsCount = 3;
+
+[Factory/Button1]
+Caption = "Vyrobit jednotku Jumper";
+Function = "CreateUnit";
+Icon = "Jumper.tga";
+ParamCount = 1;
+Param1 = "Jumper";
+
+[Factory/Button2]
+Caption = "Vyrobit jednotku Boot";
+Function = "CreateUnit";
+Icon = "Boot.tga";
+ParamCount = 1;
+Param1 = "Boot";
+
+[Factory/Button3]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Cross.tga";
+ParamCount = 0;
+
+[Jumper]
+ButtonsCount = 3;
+
+[Jumper/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "ArrowEast.tga";
+Accelerator = "M";
+ParamCount = 0;
+
+[Jumper/Button2]
+Caption = "Zaútoè";
+Function = "Attack";
+Icon = "Bolt.tga";
+ParamCount = 0;
+
+[Jumper/Button3]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Cross.tga";
+ParamCount = 0;
+
+[Jumper/RightClickPosition]
+Function = "RightClickMove";
+ParamCount = 0;
+
+
+[Boot]
+ButtonsCount = 3;
+
+[Boot/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "ArrowEast.tga";
+ParamCount = 0;
+
+[Boot/Button2]
+Caption = "Zaútoè";
+Function = "Attack";
+Icon = "Bolt.tga";
+Accelerator = "A";
+ParamCount = 0;
+
+[Boot/Button3]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Cross.tga";
+Accelerator = "S";
+ParamCount = 0;
+
+[Boot/RightClickPosition]
+Function = "RightClickMove";
+ParamCount = 0;
+
+
+[Builder]
+ButtonsCount = 5;
+
+[Builder/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "ArrowEast.tga";
+Accelerator = "M";
+ParamCount = 0;
+
+[Builder/Button2]
+Caption = "Vyrob jednotku Factory";
+Function = "CreateUnit";
+Icon = "Factory.tga";
+Accelerator = "F";
+ParamCount = 1;
+Param1 = "Factory";
+
+[Builder/Button3]
+Caption = "Vyrob jednotku Base";
+Function = "CreateUnit";
+Accelerator = "B";
+Icon = "Base.tga";
+ParamCount = 1;
+Param1 = "Base";
+
+[Builder/Button4]
+Caption = "Tìž/vykládej";
+Function = "MineUnload";
+Accelerator = "L";
+Icon = "Crystal.tga";
+ParamCount = 0;
+
+[Builder/Button5]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Cross.tga";
+Accelerator = "S";
+ParamCount = 0;
+
+[Builder/RightClickPosition]
+Function = "RightClickMove";
+ParamCount = 0;
+
+
+[Explorer]
+ButtonsCount = 6;
+
+[Explorer/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "ArrowEast.tga";
+Accelerator = "M";
+ParamCount = 0;
+
+[Explorer/Button2]
+Caption = "Náhodnì zkoumej";
+Function = "RandomMove";
+Icon = "Random.tga";
+Accelerator = "R";
+ParamCount = 0;
+
+[Explorer/Button3]
+Caption = "Hlídej";
+Function = "Patrol";
+Icon = "DoubleArrow.tga";
+Accelerator = "P";
+ParamCount = 0;
+
+[Explorer/Button4]
+Caption = "Kroužení";
+Function = "Cruise";
+Icon = "RoundArrow.tga";
+Accelerator = "C";
+ParamCount = 0;
+
+[Explorer/Button5]
+Caption = "Tìž/vylož";
+Function = "MineUnload";
+Icon = "Crystal.tga";
+Accelerator = "L";
+ParamCount = 0;
+
+[Explorer/Button6]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Cross.tga";
+Accelerator = "S";
+ParamCount = 0;
+
+[Explorer/RightClickPosition]
+Function = "RightClickMove";
+ParamCount = 0;
+
+
+[default]
+
+ButtonsCount = 3;
+
+[default/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "ArrowEast.tga";
+Accelerator = "M";
+ParamCount = 0;
+
+[default/Button2]
+Caption = "Zaútoè";
+Function = "Attack";
+Icon = "Bolt.tga";
+Accelerator = "A";
+ParamCount = 0;
+
+[default/Button3]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Cross.tga";
+Accelerator = "S";
+ParamCount = 0;
+
+[default/RightClickPosition]
+Function = "RightClickMove";
+ParamCount = 0;
+
+[enemy]
+
+ButtonsCount = 0;
+
+# [enemy/Button1]
+# Caption = "Zaútoè";
+# Function = "AttackEnemy";
+# Icon = "Bolt.tga";
+# Accelerator = "A";
+# ParamCount = 0;
+
+# [enemy/Button2]
+# Caption = "Sleduj";
+# Function = "FollowEnemy";
+# Icon = "Eye.tga";
+# Accelerator = "F";
+# ParamCount = 0;
+
+# [noselection]
+
+# ButtonsCount = 3;
+
+# [noselection/Button1]
+# Caption = "Bednárek";
+# Function = "Test1";
+# Icon = "Bednarek.tga";
+# Accelerator = "B";
+# ParamCount = 0;
+
+# [noselection/Button2]
+# Caption = "Yaghob";
+# Function = "Test2";
+# Icon = "Yaghob.tga";
+# Accelerator = "Y";
+# ParamCount = 0;
+
+# [noselection/Button3]
+# Caption = "Zavoral";
+# Function = "Test3";
+# Icon = "Zavoral.tga";
+# Accelerator = "Z";
+# ParamCount = 0;

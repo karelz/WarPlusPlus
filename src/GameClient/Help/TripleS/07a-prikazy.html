@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - příkazy (1/3)</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="07b-prikazy.html#cykly">Cykly</a>
+<a href="07b-prikazy.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h1>Příkazy</h1>
+
+<h2 id="zakladni">Základní příkazy</h2>
+
+<p>Mezi základní příkazy patří programový blok, prázdný příkaz a výrazový příkaz.</p>
+
+<pre>
+{ příkaz; příkaz; ... }  // blok
+ ;  // prázdný příkaz
+výraz;  // výrazový příkaz
+</pre>
+
+<h2 id="vetveni">Větvení</h2>
+
+<p>Větvení jsou dvou druhů &mdash; jednoduché větvení pomocí klíčových slov <code>if</code>-<code>else</code> a vícenásobné větvení <code>switch</code>-<code>case</code>.</p>
+
+<p>U podmínky <code>if</code> lze vynechat větev <code>else</code>:</p>
+
+<pre>
+<b>if</b> (podmínka) příkaz
+<b>if</b> (podmínka) příkaz <b>else</b> příkaz
+</pre>
+
+<p>U vícenásobného větvení se podle hodnoty výrazu najde správná větev a od té se začnou vykonávat příkazy až do konce příkazu switch (vykonávání &bdquo;přetéká&ldquo; do dalších větví). Tomuto jevu se zabrání příkazem <code>break</code>, který způsobí ukončení vykonávání příkazů uvnitř bloku <code>switch</code> (viz část této kapitoly <a href="07c-prikazy.html#skoky">Skoky</a>).</p>
+
+<p>Dovnitř bloku <code>switch</code> lze na konec přidat větev <code>default</code>, který se použije, pokud výraz nenabyl žádné hodnoty z větví <code>case</code>.</p>
+
+<pre>
+<b>switch</b> (výraz)
+{
+  <b>case</b> hodnota1: příkaz; příkaz; ...
+  <b>case</b> hodnota2: příkaz; ...
+    . . .
+  <b>default</b>: příkaz; ...
+}
+</pre>
+
+<table class="tip">
+<tr><td class="tipimg"><img src="../tip.png" alt="Tip" /></td>
+<td class="tiptext">Oproti jazyku C++ může být řídící proměnná příkazu <code>switch</code> i řetězec nebo reálné číslo.</p>
+</td></tr>
+</table>
+
+
+<p class="odkaz">
+<a href="07b-prikazy.html#cykly">Cykly</a>
+<a href="07b-prikazy.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

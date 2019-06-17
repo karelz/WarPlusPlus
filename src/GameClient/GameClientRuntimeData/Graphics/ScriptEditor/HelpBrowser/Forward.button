@@ -1,0 +1,3 @@
+Passive = "ForwardP.tga";
+Active = "ForwardA.tga";
+Pressed = "ForwardS.tga";

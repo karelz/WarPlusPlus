@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Dovednost Move</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="17a-dovednosti.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="17a-dovednosti.html#dovednosti_uvod">Dovednosti, úvod</a>
+<b>|</b>
+<a href="17c-dovednosti_make.html#dovednost_make">Dovednost <code>Make</code></a>
+<a href="17c-dovednosti_make.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="dovednost_move">Dovednost <code>Move</code></h2>
+<p>Tato dovednost umí pohybovat jednotkou.</p>
+
+<h3>Metody</h3>
+
+<pre class="hlavicka">bool IsActive ()</pre>
+<p>Vrátí <code>true</code> pokud je dovednost aktivní.</p>
+
+<pre class="hlavicka">String GetName ()</pre>
+<p>Vrátí jméno dovednosti.</p>
+
+<pre class="hlavicka">void Go ( int x, int y )</pre>
+<p>Pošle jednotku na zadané souřadnice na mapě (parametry <code>x</code> a <code>y</code>). Tato metoda je čekací, tedy nevrátí, dokud jednotka na zadané souřadnice nedorazí, nebo pokud v danou chvíli neexistuje cesta na zadané souřadnice.</p>
+
+<pre class="hlavicka">void GoPos ( Position pos )</pre>
+<p>Stejná funkce, jako <code>Go</code>, pouze bere jako parametr pozici <code>pos</code>.</p>
+
+<pre class="hlavicka">void GoCloseTo( int x, int y, int dist )</pre>
+<p>Podobné <code>Go</code>. Dopraví jednotku do max. vzdálenosti <code>dist</code> od zadané pozice, ne nutně přesně na určené místo.</p>
+
+<pre class="hlavicka">void GoCloseToPos ( Position pos )</pre>
+<p>Podobné <code>GoPos</code>. Dopraví jednotku do max. vzdálenosti <code>dist</code> od zadané pozice, ne nutně přesně na určené místo.</p>
+
+<pre class="hlavicka">int GetSpeed()</pre>
+<p>Vrací rychlost pohybu jednotky.</p>
+
+<p class="odkaz">
+<a href="17a-dovednosti.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="17a-dovednosti.html#dovednosti_uvod">Dovednosti, úvod</a>
+<b>|</b>
+<a href="17c-dovednosti_make.html#dovednost_make">Dovednost <code>Make</code></a>
+<a href="17c-dovednosti_make.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

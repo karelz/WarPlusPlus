@@ -1,0 +1,266 @@
+////////////////////////////////////////////////////////////////////// 
+// PanelNastroju.3s - Globální funkce pro panel nástroju 
+
+// Funkce pro výrobu jednotek
+
+// Vyrobí pomocí jednotky u novou jednotku daného typu a nastaví jí skripty a velitele
+Unit CreateUnitHelper(Unit u, String type, String script, Unit commander)
+{
+  if(u.Make == null) {
+    // Jednotka není schopna výroby
+    WriteToLog("Unit "+u.GetUnitTypeName()+" can't create unit "+type+".");
+    Unit ret;
+    return ret;
+  }
+
+  Unit NewUnit;
+  NewUnit=u.Make.Make(type, script, commander);
+  return NewUnit;
+}
+
+// Otestuje výber, jestli neobsahuje jiný pocet jednotek než práve jednu
+Unit TestWrongSelection(Client cl, Unit us{}, String UnitType)
+{
+  Unit u;
+  if(us.GetItemCount()>1) {
+    // Mnoho jednotek
+    for(u in us) {
+      cl.MessageWarning("Bylo vybráno více jednotek. Vytváøím jednotku "+UnitType+" na první z nich.");
+      return u;
+    }
+  } else if(us.GetItemCount()<1) {
+    // Málo jednotek
+    cl.MessageError("Nebyla vybrána žádná jednotka. Akce nemuže být provedena.");
+    Unit uu;
+    return uu;
+  }
+
+  for(u in us) {
+    return u;
+  }
+  
+  return u;
+}
+
+// Pomocná metoda pro výrobu jednotky
+void CreateHelper(String type)
+{
+  Unit u;
+  StartupCommander sc=GetGeneralCommander();  
+  sendto(sc) notification {
+    REQUEST_UNIT(type, sc.User);
+  }
+}
+
+// Pomocná metoda pro vyprázdniní fronty poíkazu
+void EmptyQueue(Unit us{})
+{
+  Unit u;
+  for(u in us) {
+    u.EmptyCommandQueue(true, false);
+  }
+}
+
+// Vyrobení jednotky Explorer
+void CreateUnit(Client cl, Unit us{}, String unitType)
+{
+  StartupCommander sc=GetGeneralCommander();
+	Unit u;
+	for(u in us) {
+	  CreateUnitHelper(u, unitType, "AbstractUnit", sc.User);
+	}
+}
+
+// Poerušení einnosti
+void Stop(Client cl, Unit us{})
+{
+  // Nepotoebujeme žádné informace od uživatele
+  cl.CloseUserInput();
+
+  Unit u;
+  for(u in us) {
+    if(!u.EmptyCommandQueue(true, false)) {
+      cl.MessageError("Nepovedlo se ukoneit akci na jednotce "+u.Name);
+    }
+    StartupCommander sc=GetGeneralCommander();
+    u.ChangeCommander(sc.User);
+  }
+}
+
+// Pohyb jednotek
+void Move(Client cl, Unit us{})
+{
+  Unit u;
+  Position pos;
+
+  if(!cl.AskForPosition("Kam mám jít?", pos)) {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  // Nyní už nepotoebujeme žádné informace od uživatele
+  cl.CloseUserInput();
+
+  EmptyQueue(us);
+
+  sendto(us) {
+    MOVE(pos);
+  }
+}
+
+// Útoeení
+void Attack(Client cl, Unit us{})
+{
+  Unit u;
+  Position pos;
+
+  Unit a=cl.AskForEnemyUnit("Na koho mám zaútoeit?");
+  if(a==null) {
+    // Uživatel si zadání jednotky rozmyslel
+    return;
+  }
+
+  // Nyní už nepotoebujeme žádné informace od uživatele
+  cl.CloseUserInput();
+
+  EmptyQueue(us);
+
+  sendto(us) {
+    ATTACK(a);
+  }
+}
+
+// Tìžba a vykládání
+void MineUnload(Client cl, Unit us{})
+{
+  Unit u;
+  Position pos;
+
+  if(!cl.AskForPosition("Kde mám tìžit?", pos)) {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  cl.CloseUserInput();
+
+  EmptyQueue(us);
+
+  StartupCommander sc=GetGeneralCommander();
+  Unit base=sc.GetClosestBase(pos);
+  if(base==null) {
+    cl.MessageError("Tìžba není možná, pokud civilizace nemá základnu.");
+  } else {
+    sendto(us) {        
+      MINEUNLOAD(pos, base);
+    }
+  }
+}
+
+// Hlídání
+void Patrol(Client cl, Unit us{})
+{
+  Unit u;
+  Position pos1, pos2;
+
+  if(!cl.AskForPosition("Zadej první bod pro hlídání", pos1)) {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  if(!cl.AskForPosition("Zadej druhý bod pro hlídání", pos2)) {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  // Nyní už nepotoebujeme žádné informace od uživatele
+  cl.CloseUserInput();
+
+  EmptyQueue(us);
+
+  sendto(us) {
+    PATROL(pos1, pos2);
+  }
+}
+
+void Cruise(Client cl, Unit us{})
+{
+  // promenne pro stred a bod na kruznici
+  Position pos1, pos2;
+
+  // stred krouzeni
+  if (!cl.AskForPosition("Kde mám kroužit?", pos1))
+  {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  // bod na kruznici
+  if (!cl.AskForPosition("Polomìr (bod na kružnici)?", pos2))
+  {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  // uz nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // vyprazdnime frontu
+  EmptyQueue(us);
+
+  // posleme prikaz CIRCLE
+  sendto(us)
+  {
+    CIRCLE(pos1, pos2);
+  }
+}
+
+// Náhodné zkoumání
+void RandomMove(Client cl, Unit us{})
+{
+  Unit u;
+
+  // Nepotoebujeme žádné informace od uživatele
+  cl.CloseUserInput();
+
+  EmptyQueue(us);
+  
+  sendto(us) {
+    EXPLORE();
+  }
+}
+
+void Trace(String s) {
+  StartupCommander sc=GetGeneralCommander();
+
+  WriteToLog(IntToString(sc.nTrace++)+") "+s);
+}
+
+// Vrati nejblizsi jednotku dane pozici
+Unit GetClosestUnit(Unit us{}, Position pos) {
+  int dist, mindist=1E9;
+  Unit u, mu;
+  for(u in us) {
+    dist=pos.GetDistancePos(u.GetPosition());
+    if(dist<mindist) {
+      mindist=dist;
+      mu=u;
+    }
+  }
+  return mu;
+}
+
+// Vrati nejblizsiho nepritele dane pozici
+Unit GetClosestEnemy(Unit us{}, Position pos) {
+  int dist, mindist=1E9;
+  Unit u, mu;
+  for(u in us) {
+    if(u.IsEnemyUnit()){
+      dist=pos.GetDistancePos(u.GetPosition());
+      if(dist<mindist) {
+        mindist=dist;
+        mu=u;
+      }
+    }
+  }
+  return mu;
+}

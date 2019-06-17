@@ -1,0 +1,116 @@
+unit ExploringUnit extends AbstractUnit
+{
+
+// Nahodne bloudeni po mape
+command EXPLORE()
+{
+  // Kdyz se nemuzu hybat -> nic
+  if (Move == null)
+  {
+    WriteToLog("Explorer: I can't move!");
+    return;
+  }
+
+  while (true)
+  {
+    Position posMy = GetPosition();
+
+    posMy.x += RandomInt(101) - 50;
+    posMy.y += RandomInt(101) - 50;
+
+    Move.Go(posMy.x, posMy.y);
+  }
+}
+
+// Letani mezi dvema body
+command PATROL(Position pos1, Position pos2)
+{
+  // Kdyz se nemuzu hybat -> nic
+  if (Move == null)
+  {
+    WriteToLog(Name+": I can't move!");
+    return;
+  }
+
+  while(true)
+  {
+    Move.Go(pos1.x, pos1.y);
+    Move.Go(pos2.x, pos2.y);
+  }
+}
+
+
+// letani po kruznici
+command CIRCLE(Position posCenter, Position posOnCircle)
+{
+  // kdyz se nemuzu hybat -> nic
+  if (Move == null)
+  {
+    WriteToLog("Explorer: I can't move!");
+    return;
+  }
+
+  // vypocitame polomer kruznice
+  int nRadius = posCenter.GetDistancePos(posOnCircle);
+
+  // pocet useku kruznice
+  int nSegmentsNumber;
+  if (nRadius < 6)
+    nSegmentsNumber = 6;
+  else
+    nSegmentsNumber = nRadius;
+  // konverze poctu useku kruznice do floatu
+  float fSegmentsNumber = nSegmentsNumber;
+
+  // iteracni promenna do cyklu
+  int i;
+
+  // zjistime stavajici pozici jednotky
+  Position posCurrent = GetPosition();
+
+  // promenna na minimalni vzdalenost
+  int nDistanceMin = 1000000;
+  // promenna na vzdalenost aktualne zpracovavaneho bodu na kruznici
+  int nDistanceActual;
+  // index nejblizsi pozice
+  int nDistanceMinIndex;
+  // pozice na kruznici
+  Position posTempOnCircle;
+
+  // vypocitame bod, ktery je nejblize ke stavajici pozice
+  for (i = 0; i < nSegmentsNumber; i++)
+  {
+    // pozice na kruznici
+    posTempOnCircle.x = posCenter.x + nRadius * cos(2 * 3.15159 * (i / fSegmentsNumber));
+    posTempOnCircle.y = posCenter.y + nRadius * sin(2 * 3.15159 * (i / fSegmentsNumber));
+    // vypocitame vzdalenost
+    nDistanceActual = posCurrent.GetDistancePos(posTempOnCircle);
+
+    // kdyz je vzdalenost mensi, tak si ji zapamatujeme
+    if (nDistanceActual <= nDistanceMin)
+    {
+      nDistanceMin = nDistanceActual;
+      nDistanceMinIndex = i;
+    }
+  }
+
+  // do promenne i nastavime minimum
+  i = nDistanceMinIndex;
+
+  // priznak, ze neletime prvni kruznici
+  bool bNotFirstCircle = false;
+
+  // nekonecny cyklus
+  while (true)
+  {
+    if (bNotFirstCircle)
+      i = 0;
+    for ( ; i < nSegmentsNumber; i++)
+    {
+      Move.Go(posCenter.x + nRadius * cos(2 * 3.15159 * (i / fSegmentsNumber)), posCenter.y + nRadius * sin(2 * 3.15159 * (i / fSegmentsNumber)));
+    }
+    bNotFirstCircle = true;
+  }
+}
+
+}

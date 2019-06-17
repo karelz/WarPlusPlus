@@ -1,0 +1,109 @@
+/************************************************************
+ *
+ * Projekt: Strategicka hra
+ *    Cast: Code Mamager
+ *
+ *   Popis: Definice rozhrani defaultniho predka vsech jednotek
+ *
+ ***********************************************************/
+
+//
+// POZOR: polozka typu pole nebo mnoziny se zapisuje takto:
+//  int [] P;
+//  object String {} S;
+//
+
+unit Unit
+{
+    // Jmeno jednotky
+    object String Name;
+
+    // vraci jmeno typu jednotky
+    object String GetUnitTypeName();
+
+    // vraci jmeno skriptu (skriptovy typ) jednotky
+    object String GetScriptName();
+
+    // znema skriptu jednotky na skript ScriptName (zmena skriptoveho typu)
+    // vraci false, pokud se to nepovedlo, jinak je aktualni process zastrelen
+    // a je nastartovan konstruktor noveho skritoveho typu
+    bool ChangeScript( object String ScriptName);
+
+    // Status jednotky (pise se do fullinfa)
+    object String Status;
+
+
+    // Skilly jednotky
+    object SMoveSkill Move;
+    object SMakeSkill Make;
+    object SBulletAttackSkill BulletAttack;
+    object SBulletDefenseSkill BulletDefense;
+    object SMineSkill Mine;
+    object SResourceSkill Resource;
+    object SStorageSkill Storage;
+
+
+    // vraci pocet zivotu
+    int GetLives();
+
+    // vraci maximalni pocet zivotu, co jednotka kdy mohla mit
+    int GetLivesMax();
+
+    // vraci true, pokud je jednotka mrtva
+    bool IsDead();
+
+
+    // vraci pozici jednotky
+    object Position GetPosition();
+
+    // vraci polomer viditelnosti jednotky (jak daleko vidi)
+    int GetViewRadius();
+
+
+    // vraci velitele jednotky
+    unit Unit GetCommander();
+
+    // vraci true, jestlize je jednotka velitelem
+    bool IsCommander();
+
+    // vraci podrizene jednotky
+    unit Unit{} GetInferiorUnits();
+
+    // Vytvari podvelitele skriptoveho typu ScriptName. Novy velitel muze byt vytvoren pouze jinym
+    // velitelem (jehoz se stava podrizenym), vraci false, kdyz jednotka nemuze mit podrizene velitele.
+    unit Unit CreateCommander( object String ScriptName);
+
+    // Zruseni velitele Commander, vraci false, kdyz velitele nejde smazat (napr. ma jeste
+    // podrizene jednotky)
+    bool KillCommander( unit Unit Commander);
+
+    // Zmena velitele jednotky. Vraci false, pokud volajici jednotka nema pravo menit dane jednotce
+    // velitele.
+    bool ChangeCommander( unit Unit NewCommander);
+
+
+    // Vyprazdnuje frontu prikazu jednotky.
+    // Kdyz je metoda volana jejim velitelem, prvni parametr bBoth urcuje, budou-li
+    // vyprazdneny obe fronty prikazu (hodnota true), nebo jen horni (velitelova)
+    // fronta (hodnota false).
+    // Je-li tento prikaz volan jednotkou samotnou, vyprazdni se jen dolni fronta
+    // a parametr bBoth je ignorovan.
+    // Druhy parametr urcuje, ma-li se po vyprazdneni fronty poslat jednotce
+    // notifikace IDLE.
+    bool EmptyCommandQueue( bool bBoth, bool bSendIdle );
+
+    // vraci true, pokud jsou obe fronty prikazu jednotky prazdne
+    bool IsCommandQueueEmpty();
+
+
+    // vraci true, pokud jednotka patri me civilizaci
+    bool IsMyUnit();
+
+    // vraci true, pokud je jednotka nepratelska (systemova civilizace nepratelska neni)
+    bool IsEnemyUnit();
+
+
+    // nastavi timer nTimerID pro jednotku na nDelay timeslicu
+    void SetTimer( int nTimerID, int nDelay );
+}
+

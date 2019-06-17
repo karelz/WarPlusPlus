@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Notifikace zasílané serverem</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+    table.notifikace
+    {
+        margin: 3mm 0mm 3mm 10mm;
+        width: 11cm;
+    }
+    td
+    {
+        text-align: left;
+    }
+
+    td.vycpavka
+    {
+        width: 5mm;
+    }
+
+    td.notifikace_deklarace
+    {
+        font-size: 10pt;
+        font-weight: bold;
+    }
+
+    td.notifikace_hlavicka
+    {
+        font-weight: bold;
+        vertical-align: top;
+    }
+
+    td.notifikace_popis
+    {
+        width: 10.5cm;
+    }
+</style>
+</head>
+<body>
+<h1 id="notifications">Notifikace zasílané serverem</h1>
+<p>Pokud dojde k chybovému ukončení skriptu, do logu se vypíše zpráva o této události a jako důvod se uvede jedna z následujících konstant:</p>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>GAME_INITIALIZED ()</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Hra je inicializována. Tato notifikace se pošle právě jednou při startu hry.</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Hlavní velitel (jednotka typu <code>StartupCommander</code>)</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>INFERIOR_CREATED ( Unit inferior )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Vytvoření nové podřízené jednotky</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Velitel nově vyrobené jednotky. Velitel, ke kterému se má nově vyrobená jednotka přidat se určuje při vyrábění jednotky.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>INFERIOR_ADDED ( Unit inferior )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Změna velitele jednotky, adresátovi přibyla podřízená jednotka</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Nový velitel jednotky, které se mění velitel</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>INFERIOR_REMOVED ( Unit inferior )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Změna velitele jednotky, adresátovi ubyla podřízená jednotka</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Původní velitel jednotky, které se mění velitel</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>COMMANDER_CHANGED ()</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Změna velitele jednotky, adresátovi se změnil velitel</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Jednotka, které se mění velitel</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>UNIT_DIED ( Position pos )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Fyzická jednotka zemřela. Adresát dostane tuto zprávu v okamžiku svojí smrti. Parametr <code>pos</code> obsahuje pozici, kde jednotka zemřela.</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Fyzická jednotka, která umírá</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>INFERIOR_DIED ( Unit unit, Position pos )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Fyzická jednotka <code>unit</code>, která je podřízená adresátovi zemřela. Adresát dostane tuto zprávu v okamžiku smrti svého podřízeného. Parametr <code>pos</code> obsahuje pozici, na které jednotka zemřela.</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Nadřízená jednotka, které zemřela podřízená fyzická jednotka <code>unit</code>.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>ENEMY_UNIT_SEEN ( Unit enemy )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Jednotka zahlédla nepřátelskou jednotku <code>enemy</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Jednotka, která zahlédla nepřátelskou jednotku <code>enemy</code></td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>ENEMY_UNIT_SEEN_BY_CIVILIZATION ( Unit enemy )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Civilizace jako celek zahlédla nepřátelskou jednotku <code>enemy</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Nejvyšší velitel vojenské hierarchie (StartupCommander)</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>ENEMY_UNIT_DISAPPEARED ( Unit enemy )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Jednotka ztratila z dohledu nepřátelskou jednotku <code>enemy</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Jednotka, která ztratila z dohledu nepřátelskou jednotku <code>enemy</code></td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>SYSTEM_UNIT_SEEN ( Unit system )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Jednotka zahlédla systémovou jednotku <code>system</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Jednotka, která zahlédla systémovou jednotku <code>system</code></td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>SYSTEM_UNIT_SEEN_BY_CIVILIZATION ( Unit system )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Civilizace jako celek zahlédla systémovou jednotku <code>system</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Nejvyšší velitel vojenské hierarchie (StartupCommander)</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>SYSTEM_UNIT_DISAPPEARED ( Unit system )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Jednotka ztratila z dohledu systémovou jednotku <code>system</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Jednotka, která ztratila z dohledu systémovou jednotku <code>system</code></td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>UNIT_BEING_ATTACKED ( Unit enemy, int damage )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Jednotka byla napadena jednotkou <code>enemy</code>, útok jí sebral <code>damage</code> životů.</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Napadená jednotka</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>TIMER ( int nTimerID, int nActualTimeSlice )</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Uplynula doba nastavená na časovači <code>nTimerID</code>. <code>nActualTimeSlice</code> obsahuje aktuální číslo timeslicu.</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Jednotka, na které byl časovač nastaven.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="3" class="notifikace_deklarace"><code>IDLE ()</code></td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Událost:</td>
+<td class="notifikace_popis">Jednotce se vyprázdnily fronty příkazů. Jednotka nemá co na práci.</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_hlavicka">Adresát:</td>
+<td class="notifikace_popis">Jednotka, které se vyprázdnily fronty příkazů. Notifikace není volána, když byla fronta příkazů vyprázdněna příkazem <code>EmptyCommandQueue()</code> s druhým parametrem <code>bSendIdle</code> nastaveným na <code>false</code>.</td></tr>
+</table>
+
+</body>
+</html>

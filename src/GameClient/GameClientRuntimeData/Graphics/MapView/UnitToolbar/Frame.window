@@ -1,0 +1,24 @@
+Passive_Bottom = "FrameWindow\WindowBottom.tga";
+Passive_BottomLeft = "FrameWindow\WindowBottomLeft.tga";
+Passive_BottomRight = "FrameWindow\WindowBottomRight.tga";
+Passive_Middle = "FrameWindow\WindowMid.tga";
+Passive_Left = "FrameWindow\WindowLeft.tga";
+Passive_Right = "FrameWindow\WindowRight.tga";
+Passive_Top = "FrameWindow\WindowTop.tga";
+Passive_TopLeft = "FrameWindow\WindowTopLeft.tga";
+Passive_TopRight = "FrameWindow\WindowTopRight.tga";
+
+MinimalSize_X = 1;
+MinimalSize_Y = 1;
+
+EdgeSize_Left = 4;
+EdgeSize_Right = 4;
+EdgeSize_Top = 4;
+EdgeSize_Bottom = 4;
+
+DragRight = -9;
+
+LRCursor = "..\..\Mouse\ScaleCursorLR.cursor";
+TBCursor = "..\..\Mouse\ScaleCursorTB.cursor";
+TLBRCursor = "..\..\Mouse\ScaleCursorTLBR.cursor";
+TRBLCursor = "..\..\Mouse\ScaleCursorTRBL.cursor";

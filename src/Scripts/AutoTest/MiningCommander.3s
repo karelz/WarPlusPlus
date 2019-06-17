@@ -1,0 +1,118 @@
+unit MiningCommander extends AbstractCommander {
+ 
+  /////////////////////////////////////////////////////
+  // Data
+
+  // Mnozina resourcu
+  Unit resources{};
+
+  // Mnozina netezitelnych resourcu
+  Unit badResources{};
+
+  // Kolik jednotek je momentalne objednano?
+  int m_nRequests;
+
+  // Jednotky, ktere nemaji co delat
+  Unit free{};
+    
+  constructor {
+    m_nRequests=0;
+    // Jednou za 5000 timeslicu se zapomenou 'spatne' krystaly
+    // a jednotkam se da znovu sance je zkusit vytezit
+    SetTimer(1, 5000);
+  }
+    
+  // Byl spatren krystal
+  void ResourceSpotted(Unit resource) {
+    MineResource(resource);
+  }
+
+  void MineResource(Unit resource) {
+    if(resource in badResources) return;
+    int nSize=resources.GetItemCount();
+	resources+=resource;
+	if(resources.GetItemCount()==nSize) {
+		// Zadna nova jednotka
+		return;
+	}
+    Unit us{}=GetInferiorUnits();
+    Unit u;
+    // Na 20 krystalu jedna tezebni jednotka
+    if(us.GetItemCount()+m_nRequests<1+resources.GetItemCount()/20) {
+      m_nRequests++;
+      GetCommander()<-REQUEST_UNIT("Builder", this);
+    }
+    for(u in free) {
+      if(!u.IsDead()) {
+        GiveWork(u);
+      } else {
+        free-=u;
+      }
+    }
+  }
+
+  // Zadany krystal je *spatny* - nelze tezit
+  void BadResource(Unit resource) {
+    resources-=resource;
+    badResources+=resource;
+    // Rekneme vsem o zlem krystalu
+    sendto(GetInferiorUnits()) notification {
+      EXPLOITED(resource);
+    }
+  }
+
+  // Objevila se nova jednotka, pozadavek na jeji vytezeni
+  command MINE_RESOURCE(Unit resource)
+  {
+    MineResource(resource);
+  }
+  
+  void GiveWork(Unit miner) {
+    StartupCommander sc=GetGeneralCommander();
+    Position pos=miner.GetPosition();
+    BaseUnit base=sc.GetClosestBase(pos);    
+    if(base==null) {
+      // Neni baze, jdeme na vylet
+      miner<-EXPLORE(); free+=miner; return;
+    }
+    Unit mine=base.GetClosestResource();
+    if(mine==null) {
+      // Neni co tezit, jdeme na vylet
+      miner<-EXPLORE(); free+=miner; return;
+    } else {
+      free-=miner;
+      sendto(miner) notification {
+        MINE(mine, base);
+      }
+    }
+  }
+
+  notification INFERIOR_ADDED(Unit miner) { AddInferior(miner); }
+  notification INFERIOR_CREATED(Unit miner) { AddInferior(miner); }
+  notification INFERIOR_REMOVED(Unit miner) { free-=miner; }
+
+  void AddInferior(Unit miner) 
+  {
+    m_nRequests--;
+    if(m_nRequests<0) m_nRequests=0;    
+    miner.ChangeScript("MiningUnit");
+    GiveWork(miner);
+  }
+
+  void ResourceVanished(Unit resource) {
+    resources-=resource;
+    sendto(GetInferiorUnits()) notification {
+      EXPLOITED(resource);
+    }
+  }
+
+  notification REQUEST_WORK(Unit request) {
+    GiveWork(request);
+  }
+
+  notification TIMER(int timer, int timeslice) {
+    Unit us{};
+    badResources=us;
+    SetTimer(1, 5000);
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - lexikální struktura</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Lexikální struktura TripleS</h1>
+
+<h2 id="komentare">Komentáře</h2>
+<p>Komentáře jsou v <b>TripleS</b> stejné jako v C++. Jednořádkový komentář začíná dvěma lomítky, kompilátor pak nepřekládá text až do konce řádku. Víceřádkový komentář začíná dvojznakem lomítko hvězdička, končí opačným dvojznakem &mdash; hvězdička lomítko. Víceřádkové komentáře lze vnořovat.</p>
+
+<pre>
+// jednořádkový komentář
+
+/* víceřádkový
+   komentář
+/* vnořený komentář */ */
+</pre>
+
+<h2 id="identifikatory">Identifikátory</h2>
+<p>Identifikátory jednotek, metod a proměnných se skládají z velkých a malých písmen anglické abecedy, číslic a znaku podtržení (A-Z, a-z, 0-9, _). Identifikátor nesmí začínat číslicí.</p>
+
+<h2 id="retezce">Řetězce</h2>
+<p>Řetězce se uzavírají do uvozovek &quot; &quot;. Uvnitř řetězce se mohou používat běžné znakové, oktalové i hexadecimální escape sekvence, známé z jazyka C++.</p>
+
+<pre>
+"Ahoj"
+"První řádek \n Druhý řádek -- \x41"
+</pre>
+
+</body>
+</html>

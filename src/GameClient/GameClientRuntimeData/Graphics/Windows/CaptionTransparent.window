@@ -1,0 +1,39 @@
+Passive_Bottom = "CaptionTransparent\Bottom.tga";
+Passive_BottomLeft = "CaptionTransparent\BottomLeft.tga";
+Passive_BottomRight = "CaptionTransparent\BottomRight.tga";
+Passive_Left = "CaptionTransparent\Left.tga";
+Passive_Right = "CaptionTransparent\Right.tga";
+Passive_Middle = "CaptionTransparent\Middle.tga";
+Passive_Top = "CaptionTransparent\Top.tga";
+Passive_TopLeft = "CaptionTransparent\TopLeft.tga";
+Passive_TopRight = "CaptionTransparent\TopRight.tga";
+
+DragBottom = -20;
+
+EdgeSize_Left = 5;
+EdgeSize_Right = 5;
+EdgeSize_Top = 5;
+EdgeSize_Bottom = 5;
+EdgeSize_Corner = 10;
+
+Active_CaptionColor = 0x008CF0D0;
+Passive_CaptionColor = 0x0001D080;
+
+CaptionPos_X = 5;
+CaptionPos_Y = 7;
+
+RightMargin = 5;
+
+MinimalSize_X = 80;
+MinimalSize_Y = 92;
+
+CloseButton = "..\Controls\CloseButton.button";
+CloseRightMargin = 22;
+CloseTopMargin = -2;
+CloseDummyRight = 6;
+CloseDummyTop = 5;
+
+LRCursor = "..\Mouse\ScaleCursorLR.cursor";
+TBCursor = "..\Mouse\ScaleCursorTB.cursor";
+TLBRCursor = "..\Mouse\ScaleCursorTLBR.cursor";
+TRBLCursor = "..\Mouse\ScaleCursorTRBL.cursor";

@@ -1,0 +1,17 @@
+Passive_Bottom = "..\Windows\ThinNonTransparent\Bottom.tga";
+Passive_BottomLeft = "..\Windows\ThinNonTransparent\BottomLeft.tga";
+Passive_BottomRight = "..\Windows\ThinNonTransparent\BottomRight.tga";
+Passive_Middle = "..\Windows\ThinNonTransparent\Middle.tga";
+Passive_Left = "..\Windows\ThinNonTransparent\Left.tga";
+Passive_Right = "..\Windows\ThinNonTransparent\Right.tga";
+Passive_Top = "..\Windows\ThinNonTransparent\Top.tga";
+Passive_TopLeft = "..\Windows\ThinNonTransparent\TopLeft.tga";
+Passive_TopRight = "..\Windows\ThinNonTransparent\TopRight.tga";
+
+MinimalSize_X = 1;
+MinimalSize_Y = 1;
+
+EdgeSize_Left = 4;
+EdgeSize_Right = 4;
+EdgeSize_Top = 4;
+EdgeSize_Bottom = 4;

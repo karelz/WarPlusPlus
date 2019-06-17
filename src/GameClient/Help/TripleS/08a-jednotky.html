@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - jednotky</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="08b-jednotky.html#zpravy">Zprávy</a>
+<a href="08b-jednotky.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h1>Jednotky</h1>
+
+<p>Jednotka v <b>TripleS</b> &mdash; definice reakcí na zprávy a definice datových položek &mdash; se velmi podobá objektům, tak jak je známe například z C++. Nejsilnější stránkou jednotek v <b>TripleS</b> je dědičnost, kterou lze s výhodou využít pro snadné vyjádření chování jednotek. Když potřebujeme stávající jednotku trošku &bdquo;vylepšit&ldquo;, použijeme ji jako předka pro nově definovanou jednotku a jen upravíme ty části kódu, které jsou nezbytné. Není třeba znovu psát ty části, které zůstávají stejné. Když se pak změní (v jiném ohledu) chování předka, promítne se tato změna i do chování potomka, opět tedy není nutno zasahovat do více částí kódu. Existuje základní jednotka nazvaná <code>Unit</code>, ze které jsou všechny ostatní jednotky zděděny.</p>
+
+<h2 id="definice">Definice jednotky</h2>
+
+<p>Definice nového typu jednotky se provede takto:</p>
+
+<pre>
+<b>unit</b> identifikátor <b>extends</b> identifikátor
+{
+  deklarace datových položek
+  konstruktor
+  metody
+  reakce na zprávy
+}
+</pre>
+
+<p>Za klíčovým slovek <code>unit</code> následuje jméno jednotky, která je definována. Volitelně lze pak za <code>extends</code> specifikovat jméno jednotky, ze kterého definovaná jednotka dědí. Pokud toto jméno není uvedeno, jednotka dědí z předka všech jednotek <code>Unit</code>.</p>
+
+<p>Definice datových položek je popsána <a href="04-promenne.html">v odstavci 4</a>.</p>
+
+<h2 id="metody">Metody</h2>
+
+<p>Metodami jsou nazývány funkce definované uvnitř jednotky. Celá metoda je vždy napsaná přímo v definici jednotky. Pro srovnání &mdash; v jazyce C++ by to byla inline metoda, v <b>TripleS</b> je to jediný způsob definice, nerozlišují se deklarace a definice.</p>
+
+<pre>
+návratový_typ jméno_metody(parametr, parametr, ...) programový_blok
+</pre>
+
+<p>Pokud metoda nemá návratovou hodnotu, použije se klíčové slovo <code>void</code>.</p>
+
+
+<h2 id="konstruktor">Konstuktor</h2>
+
+<p>Konstruktor je speciální metoda jednotky se jménem <code>constructor</code> bez parametrů a bez návratové hodnoty (nepíše se <code>void</code>), která je automaticky zavolána jako první při vytvoření jednotky, resp. po změně skriptu na jednotce. V&nbsp;konstruktoru je zpravidla vhodné inicializovat datové položky jednotky na rozumné hodnoty, lze například zaslat zprávu svému veliteli, kde bude informován o tom, že mu přibyla (změnila se) podřízená jednotka, atp.</p>
+
+<p>Ještě před samotným spuštěním konstruktoru je automaticky proveden konstruktor předka jednotky.</p>
+
+<pre>
+<b>unit</b> Bojovnik
+{
+  <b>int</b> pocet_bodu;
+  constructor { pocet_bodu = 0; }
+  <b>void</b> PridejBod() { pocet_bodu++; }
+}
+</pre>
+
+<p class="odkaz">
+<a href="08b-jednotky.html#zpravy">Zprávy</a>
+<a href="08b-jednotky.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

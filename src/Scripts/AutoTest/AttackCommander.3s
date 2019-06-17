@@ -1,0 +1,73 @@
+unit AttackCommander extends AbstractCommander 
+{
+  // Prikaz, ze mame jit zautocit na zadany cil
+  command ATTACK_ENEMY(Unit enemy) {
+    AttackEnemy(enemy);
+  }
+
+  // Funkce pro utok na nepritele
+  void AttackEnemy(Unit enemy) {
+    Unit closest=FindClosest(enemy);
+		
+    // Nemame volne jednotky!
+    if(closest==null) {
+      // Tak si o ne zazadame
+      if(enemy.GetUnitTypeName()=="Boot") {
+        this.GetCommander()<-REQUEST_UNIT("Boot", this);
+      } else {
+        this.GetCommander()<-REQUEST_UNIT("Jumper", this);
+      }
+    } else {
+      // Nejblizsi jednotka jde utocit
+      closest<-ATTACK(enemy);
+    }
+  }
+
+  // Nalezne nejblizsi volnou jednotku k zadane
+  Unit FindClosest(Unit enemy) {
+    FightingUnit closest, u, us{};
+    
+    int dist=1000000, nd;
+    us=GetInferiorUnits();
+    for(u in us) {
+      Position pos=u.GetPosition();
+      nd=pos.GetDistancePos(enemy.GetPosition());
+      // Jednotka je bliz, musi byt utocna, nesmi utocit
+      if(nd<dist && u.BulletAttack!=null && !u.bBusy) {
+				// A musi byt schopna zautocit na nepritele
+			  if(u.BulletAttack.CanAttackUnit(enemy)) {
+			    closest=u;
+				  dist=nd;
+				}
+			}
+    }	
+    return closest;
+  }
+
+  notification INFERIOR_ADDED(Unit inferior) {
+    Unit u, ml, us{};
+    int minLives=10000000;
+    // Najdeme momentalne nejmrtvejsi jednotku
+    us=GetInferiorUnits();
+    for(u in us) {
+      if(u.GetLives()<minLives) {
+        minLives=u.GetLives();
+        ml=u;
+      }
+    }
+
+    // A novou ji posleme pobliz na pomoc
+    if(ml!=null) {
+      Position pos=dup ml.GetPosition();
+      pos.x+=RandomInt(20)-10;
+      pos.y+=RandomInt(20)-10;
+      inferior.ChangeScript("FightingUnit");
+      inferior<-MOVE(pos);
+    }
+  }
+
+  notification INFERIOR_CREATED(Unit inferior) {
+    inferior.ChangeScript("FightingUnit");
+  }
+
+}	

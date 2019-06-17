@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Chybové zprávy překladače</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="16b-chyby_kompilatoru.html#cast2">Část 2</a>
+<a href="16b-chyby_kompilatoru.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h1>Chybové zprávy překladače</h1>
+
+<h2 id="cast1">Chybové zprávy překladače - Část 1</h2>
+
+<p>
+<a href="16a-chyby_kompilatoru.html#hash">#</a>
+<a href="16a-chyby_kompilatoru.html#A">A</a>
+<a href="16a-chyby_kompilatoru.html#B">B</a>
+<a href="16a-chyby_kompilatoru.html#C">C</a>
+<a href="16b-chyby_kompilatoru.html#D">D</a>
+<a href="16b-chyby_kompilatoru.html#E">E</a>
+<a href="16b-chyby_kompilatoru.html#F">F</a>
+<a href="16b-chyby_kompilatoru.html#G">G</a>
+<a href="16b-chyby_kompilatoru.html#H">H</a>
+<a href="16b-chyby_kompilatoru.html#I">I</a>
+<a href="16c-chyby_kompilatoru.html#J">J</a>
+<a href="16c-chyby_kompilatoru.html#K">K</a>
+<a href="16c-chyby_kompilatoru.html#L">L</a>
+<a href="16c-chyby_kompilatoru.html#M">M</a>
+<a href="16c-chyby_kompilatoru.html#N">N</a>
+<a href="16d-chyby_kompilatoru.html#O">O</a>
+<a href="16d-chyby_kompilatoru.html#P">P</a>
+<a href="16d-chyby_kompilatoru.html#Q">Q</a>
+<a href="16d-chyby_kompilatoru.html#R">R</a>
+<a href="16e-chyby_kompilatoru.html#S">S</a>
+<a href="16e-chyby_kompilatoru.html#T">T</a>
+<a href="16e-chyby_kompilatoru.html#U">U</a>
+<a href="16f-chyby_kompilatoru.html#V">V</a>
+<a href="16f-chyby_kompilatoru.html#W">W</a>
+<a href="16f-chyby_kompilatoru.html#X">X</a>
+<a href="16f-chyby_kompilatoru.html#Y">Y</a>
+<a href="16f-chyby_kompilatoru.html#Z">Z</a>
+</p>
+
+<h3 id="hash">#</h3>
+<pre>
+'--' needs l-value
+'++' needs l-value
+</pre>
+<p>Postfixové a infixové operátory <code>++</code> a <code>--</code> lze použít pouze na výraz, který je l-value, tj. lze do něj ukládat.</p>
+
+<h3 id="A">A</h3>
+<pre>
+argument 'num' : cannot convert from 'type1' to 'type2'
+</pre>
+<p>Chybný typ <code>type1</code> parametru volání metody nebo globální funkce. Číslo chybného parametru je specifikováno na místě <code>num</code>, požadovaný typ je <code>type2</code>.</p>
+
+<h3 id="B">B</h3>
+<h3 id="C">C</h3>
+<pre>
+cannot convert from 'type1' to 'type2'
+</pre>
+<p>Chybný typ <code>type1</code> výrazu. Požadovaný typ je <code>type2</code>.</p>
+
+<pre>
+cannot update unit 'unit type' - check the log for error description
+</pre>
+<p>Chyba při aktualizaci jednotky typu <code>unit type</code>. Bližší popis chyby lze nalézt v prohlížeči událostí.</p>
+
+<pre>
+can't duplicate the object
+</pre>
+<p>Pokus o vytvoření kopie (pomocí operátoru <code>dup</code>) systémového objektu, od kterého nelze kopie vytvářet (např. objekt <code>Client</code>).</p>
+
+<pre>
+can't load unit 'unit name', parent of 'unit name'
+</pre>
+<p>Chyba při hledání předka jednotky, většinou protože jednotka daného jména neexistuje.</p>
+
+<pre>
+command/notification identifier should be uppercase (warning)
+</pre>
+<p>Jména notifikací a příkazů by měla být psána velkými písmeny (konvence).</p>
+
+<pre>
+command/notification 'id' : redefinition
+</pre>
+<p>Definice daného příkazu nebo notifikace se v jednotce vyskytuje podruhé.</p>
+
+<pre>
+command/notification 'id' : takes num argument(s)
+</pre>
+<p>Příkaz nebo notifikace bere odlišný počet parametrů <code>num</code>, než je specifikováno. Tato chyba se projevuje pouze u systémových notifikací.</p>
+
+<pre>
+command/notification header doesn't match 'header'(warning)
+</pre>
+<p>Hlavička systémové notifikace se neshoduje s předdefinovanou hlavičkou <code>header</code>.</p>
+
+<pre>
+command/notification returning value
+</pre>
+<p>Příkaz nebo notifikace nesmí vracet hodnotu.</p>
+
+<pre>
+constructor redefinition
+</pre>
+<p>Definice konstruktoru se v jednotce vyskytuje už podruhé.</p>
+
+<pre>
+creating instances of 'type' is not allowed
+</pre>
+<p>Pokus o vytvoření instance u typu <code>type</code>, u kterého není vytváření instancí povoleno (např. dovednosti).</p>
+
+<p class="odkaz">
+<a href="16b-chyby_kompilatoru.html#cast2">Část 2</a>
+<a href="16b-chyby_kompilatoru.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

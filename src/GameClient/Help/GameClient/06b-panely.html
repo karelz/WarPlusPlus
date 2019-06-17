@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>GameClient - uživatelská dokumentace</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../trava.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>GameClient - uživatelská dokumentace</h1>
+
+<h2 id="zpravy">Oblast zpráv</h2>
+
+<p>O své činnosti hra informuje uživatele v oblasti zpráv v levé horní části obrazovky. Najednou se mohou zobrazit až čtyři řádky textu - zprávy ze skriptů a od ostatních uživatelů, varování a chybová hlášení. Pokud je zpráva nějakým způsobem svázána s nějakým místem nebo s jednotkou na mapě, objeví se vlevo od ní ikona šipky. Po klepnutí na tuto ikonu se nastaví výřez mapy tak, aby toto místo bylo zobrazeno.</p>
+<p><img class="samostatny" src="Obrazky\OblastZprav.png" alt="Oblast zpráv" /></p>
+<p>Po nějaké době zobrazené zprávy z této oblasti automaticky mizí. Tato oblast je tedy využívána pro sdělování pomocných informací, důležité zprávy (hlášení chyb ve skriptu) se ukládají v <a href="14-zobrazeni.html#udalosti">prohlížeči událostí</a>.</p>
+
+<h2 id="suroviny">Suroviny</h2>
+
+<p>Pravá horní část obrazovky zobrazuje údaje o surovinách, které jsou k dispozici. Každá ze surovin je zde reprezentovaná svou ikonou a číslem, které udává její množství. Hra podporuje až 16 různých druhů surovin.</p>
+
+<h2 id="ikony">Lišta ikon</h2>
+
+<p>V pravém dolním rohu obrazovky je umístěna poloprůhledná lišta s ikonami. Kromě ikon, které fungují jako tlačítka pro zobrazování a skrývání jednotlivých oken je zde také zobrazována informace o stavu hry. Pokud hra po uživateli žádá nějaká data pomocí <a href="06a-panely.html#radek">stavového řádku</a>, zobrazí se zde ikona otazníku. Pokud uživatel nějakým z tlačítek na <a href="06a-panely.html#panel">panelu nástrojů</a> spustil skript na serveru, který momentálně pracuje, ale bude vyžadovat v budoucnu nějakou interakci s uživatelem (například hledá nepřátelské jednotky a pak se bude chtít zeptat, na kterou z nich zaútočit), je zde zobrazena ikona modrých přesýpacích hodin. Během tohoto počítání má uživatel možnost celou akci zrušit stiskem klávesy <code>Esc</code> nebo klepnutím na pravé tlačítko myši. Rušení běžícího interaktivního skriptu má za následek zčervenání hodin, které zmizí poté, co server zpracuje požadavek na zrušení.</p>
+<table>
+<tr>
+    <td><img src="Obrazky\HodinyModre.png" alt="Modré hodiny v liště ikon" /></td>
+    <td><img src="Obrazky\HodinyCervene.png" alt="Červené hodiny v liště ikon" /></td>
+</tr>
+<tr>
+    <td><i>Skript běží</i></td>
+    <td><i>Skript je rušen</i></td>
+</tr>
+</table>
+<p>Pokud jsou zobrazeny přesýpací hodiny, není možné spouštět další skripty. Uživatel se díky tomu nemůže dostat do matoucí situace, kdy by po něm najednou několik různých skriptů chtělo zadat údaje.</p>
+
+</body>
+</html>

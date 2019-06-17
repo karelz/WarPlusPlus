@@ -1,0 +1,117 @@
+unit StartupCommander
+{
+
+// posledni vytvoreny obranny velitel
+Unit uDefendCommander;
+// pozice a polomer posledniho vytvoreneho defend commandera
+Position posDefendPoint;
+int nDefendRadius;
+
+
+notification GAME_INITIALIZED()
+{
+  // pøidìlíme všem jednotkám jejich skripty
+  Unit u, uInferior{} = GetInferiorUnits();
+  for (u in uInferior)
+  {
+    String strUnitTypeName = u.GetUnitTypeName();
+
+    if (strUnitTypeName == "Base")
+    {
+      // vyrobime velitele, ktery umi rozesilat nove vyrobene jednotky
+      Unit uBaseCommander = CreateCommander("FactoryCommander");
+      // inicializujeme relay point na pozici tovarny
+      sendto(uBaseCommander) notification
+      {
+        SET_RELAY_POINT(u.GetPosition());
+      }
+      // zmenime velitele tovarny
+      u.ChangeCommander(uBaseCommander);
+      // zmenime skript tovarne
+      u.ChangeScript("Base");
+      continue;
+    }
+
+    if (strUnitTypeName == "Factory")
+    {
+      // vyrobime velitele, ktery umi rozesilat nove vyrobene jednotky
+      Unit uFactoryCommander = CreateCommander("FactoryCommander");
+      // inicializujeme relay point na pozici tovarny
+      sendto(uFactoryCommander) notification
+      {
+        SET_RELAY_POINT(u.GetPosition());
+      }
+      // zmenime velitele tovarny
+      u.ChangeCommander(uFactoryCommander);
+      // zmenime skript tovarne
+      u.ChangeScript("Factory");
+      continue;
+    }
+
+    if (strUnitTypeName == "Explorer")
+    {
+      u.ChangeScript("Explorer");
+      continue;
+    }
+
+    if ((strUnitTypeName == "Boot") || (strUnitTypeName == "Jumper"))
+    {
+      u.ChangeScript("SimpleUnit");
+      continue;
+    }
+
+    if (strUnitTypeName == "Builder")
+    {
+      u.ChangeScript("Builder");
+      continue;
+    }
+  }
+
+  WriteToLog("Startup Commander: Game initialized");
+}
+
+
+// reakce na nove vyrobenou tovarnu nebo zakladnu
+notification INFERIOR_CREATED(Unit u)
+{
+  String strUnitTypeName = u.GetUnitTypeName();
+
+  if (strUnitTypeName == "Base")
+  {
+    // vyrobime velitele, ktery umi rozesilat nove vyrobene jednotky
+    Unit uBaseCommander = CreateCommander("FactoryCommander");
+    // inicializujeme relay point na pozici tovarny
+    sendto(uBaseCommander) notification
+    {
+      SET_RELAY_POINT(u.GetPosition());
+    }
+    // zmenime velitele tovarny
+    u.ChangeCommander(uBaseCommander);
+    // zmenime skript tovarne
+    u.ChangeScript("Base");
+
+    return;
+  }
+
+  if (strUnitTypeName == "Factory")
+  {
+    // vyrobime velitele, ktery umi rozesilat nove vyrobene jednotky
+    Unit uFactoryCommander = CreateCommander("FactoryCommander");
+    // inicializujeme relay point na pozici tovarny
+    sendto(uFactoryCommander) notification
+    {
+      SET_RELAY_POINT(u.GetPosition());
+    }
+    // zmenime velitele tovarny
+    u.ChangeCommander(uFactoryCommander);
+    // zmenime skript tovarne
+    u.ChangeScript("Factory");
+
+    return;
+  }
+
+  // cokoliv ostatniho ignorujeme
+}
+
+
+}  // unit StartupCommander

@@ -1,0 +1,36 @@
+//====================================================================
+void Custom1(Client cl, Unit us{})
+{
+  Position posCenter;
+  if (!cl.AskForPosition("Zadej støed hlídané oblasti", posCenter))
+    return;
+
+  Position posBoundary;
+  if (!cl.AskForPosition("Zadej polomìr oblasti (bod na kružnici)", posBoundary))
+    return;
+
+  cl.CloseUserInput();
+
+  StartupCommander uGeneral = GetGeneralCommander();
+  uGeneral.uDefendCommander = uGeneral.CreateCommander("DefendCommander");
+  DefendCommander uDefendCommander = uGeneral.uDefendCommander;
+
+  uDefendCommander.posDefendPosition = posCenter;
+  uDefendCommander.nDefendRadius = posCenter.GetDistancePos(posBoundary);
+  if (uDefendCommander.nDefendRadius < 10)
+    uDefendCommander.nDefendRadius = 10;
+  if (uDefendCommander.nDefendRadius > 100)
+    uDefendCommander.nDefendRadius = 100;
+}
+
+//====================================================================
+void Custom2(Client cl, Unit us{})
+{
+  cl.MessageInfo("Custom2() called");
+}
+
+//====================================================================
+void Custom3(Client cl, Unit us{})
+{
+  cl.MessageInfo("Custom3() called");
+}

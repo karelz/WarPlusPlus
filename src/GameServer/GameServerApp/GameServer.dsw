@@ -1,0 +1,331 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "Archive"=..\..\Archive\Archive\Archive.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Archive/Archive", FHCAAAAA
+    ..\..\archive\archive
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Compression
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "CICommon"=..\..\triples\cicommon\CICommon.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/TripleS/CICommon", SVAAAAAA
+    ..\..\triples\cicommon
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Events
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Civilization"=..\civilization\Civilization.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameServer/Civilization", FLAAAAAA
+    ..\civilization
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name CodeManager
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Network
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "CodeManager"=..\..\triples\codemanager\CodeManager.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/TripleS/CodeManager", AVAAAAAA
+    ..\..\triples\codemanager
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Interpret
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Common"=..\..\common\Common.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Common", JWAAAAAA
+    ..\..\common
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Archive
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Compiler"=..\..\triples\compiler\Compiler.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/TripleS/Compiler", DTAAAAAA
+    ..\..\triples\compiler
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name CompilerIO
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "CompilerIO"=..\..\triples\compilerio\CompilerIO.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/TripleS/CompilerIO", TYAAAAAA
+    ..\..\triples\compilerio
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name CICommon
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Compression"=..\..\Archive\Compression\Compression.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Archive/Compression", FJCAAAAA
+    ..\..\archive\compression
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Documentation"=..\..\Documentation\Documentation.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Documentation", VCCAAAAA
+    ..\..\documentation
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Events"=..\..\common\events\Events.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Common/Events", KWAAAAAA
+    ..\..\common\events
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Common
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GameServerApp"=..\gameserverapp\GameServerApp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameServer/GameServerApp", UNAAAAAA
+    ..\gameserverapp
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GameServerLib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GameServerLib"=.\GameServerLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameServer/GameServerLib", RDAAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Civilization
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Skills
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GameServerRuntimeData"=..\GameServerRuntimeData\GameServerRuntimeData.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameServer/GameServerRuntimeData", RJDAAAAA
+    ..\gameserverruntimedata
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Interpret"=..\..\triples\interpret\Interpret.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/TripleS/Interpret", GQAAAAAA
+    ..\..\triples\interpret
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Compiler
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Network"=..\..\network\network\Network.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Network/Network", IKAAAAAA
+    ..\..\network\network
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Skills"=..\skills\Skills.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameServer/Skills", NPAAAAAA
+    ..\skills
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Zlib"=..\..\Archive\Zlib\Zlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Archive/Zlib", WJCAAAAA
+    ..\..\archive\zlib
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

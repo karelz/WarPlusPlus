@@ -1,0 +1,41 @@
+# Scroll Part
+
+Passive_Top = "SmScrollUpP.tga";
+Passive_Middle = "SmScrollMid.tga";
+Passive_Bottom = "SmScrollDOwnP.tga";
+Passive_Button_Top = "SmScrollMidEdgeP.tga";
+Passive_Button_Middle = "SmScrollMidScaleP.tga";
+Passive_Button_Bottom = "SmScrollMidEdgeP.tga";
+
+Active_Top = "SmScrollUpA.tga";
+Active_Middle = "SmScrollMid.tga";
+Active_Bottom = "SmScrollDownA.tga";
+Active_Button_Top = "SmScrollMidEdgeA.tga";
+Active_Button_Middle = "SmScrollMidScaleA.tga";
+Active_Button_Bottom = "SmScrollMidEdgeA.tga";
+
+#Active_Top = "Scroll\ScrollTa.tga";
+#Active_Middle = "Scroll\ScrollMa.tga";
+#Active_Bottom = "Scroll\ScrollBa.tga";
+#Active_Button_Top = "Scroll\ScrollButTa.tga";
+#Active_Button_Middle = "Scroll\ScrollButMa.tga";
+#Active_Button_Bottom = "Scroll\ScrollButBa.tga";
+
+Pressed_Top = "SmScrollUpPs.tga";
+Pressed_Middle = "SmScrollMid.tga";
+Pressed_Bottom = "SmScrollDownPs.tga";
+Pressed_Button_Top = "SmScrollMidEdgeA.tga";
+Pressed_Button_Middle = "SmScrollMidScaleA.tga";
+Pressed_Button_Bottom = "SmScrollMidEdgeA.tga";
+
+#Pressed_Top = "Scroll\ScrollTp.tga";
+#Pressed_Middle = "Scroll\ScrollMp.tga";
+#Pressed_Bottom = "Scroll\ScrollBp.tga";
+#Pressed_Button_Top = "Scroll\ScrollButTp.tga";
+#Pressed_Button_Middle = "Scroll\ScrollButMp.tga";
+#Pressed_Button_Bottom = "Scroll\ScrollButBp.tga";
+
+Top_ButtonSize = 20;
+Bottom_ButtonSize = 20;
+
+MinButtonSize = 12;

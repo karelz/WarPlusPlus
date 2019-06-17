@@ -1,0 +1,6 @@
+FrameNum = 4;
+Speed = 125;
+Frame0 = "Selection1.tga";
+Frame1 = "Selection2.tga";
+Frame2 = "Selection3.tga";
+Frame3 = "Selection2.tga";

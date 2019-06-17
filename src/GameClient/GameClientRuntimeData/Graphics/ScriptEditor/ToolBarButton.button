@@ -1,0 +1,12 @@
+Passive = "..\Controls\IconButton\Passive.tga";
+Active = "..\Controls\IconButton\Active.tga";
+Pressed = "..\Controls\IconButton\Pressed.tga";
+
+IconOffset_Passive_X = 4;
+IconOffset_Passive_Y = 4;
+
+IconOffset_Active_X = 3;
+IconOffset_Active_Y = 3;
+
+IconOffset_Pressed_X = 4;
+IconOffset_Pressed_Y = 4;

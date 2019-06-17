@@ -1,0 +1,4 @@
+FrameNum = 2;
+Speed = 100;
+Frame0 = "SelectionA1.tga";
+Frame1 = "SelectionA2.tga";

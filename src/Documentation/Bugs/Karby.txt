@@ -1,0 +1,9 @@
+------------------------------------------------------------------------------
+20001213@1610 Vitek
+
+- V otazce na uzivatele ze skriptu "Na koho mam zautocit?" je spatne diakritika...
+
+------------------------------------------------------------------------------
+20001205@1810 Karby
+
+- dopsat do skill metody do C++ a do skriptu

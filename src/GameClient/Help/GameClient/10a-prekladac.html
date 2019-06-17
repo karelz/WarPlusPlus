@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>GameClient - uživatelská dokumentace</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../trava.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>GameClient - uživatelská dokumentace</h1>
+
+<h2 id="menu">Menu překladače</h2>
+
+<p><img class="samostatny" src="Obrazky\MenuPrelozit.png" alt="Přeložit" /></p>
+<p>Toto menu obsahuje funkce pro překládání skriptů. Skript ve zdrojovém tvaru nemůže být serverem vykonáván. Překlad je realizován tak, že je serveru zaslán zdrojový text skriptu, server na něj pustí svůj interní překladač a zpět na klienta pak odešle hlášení o chybách. To se zobrazí v okně <a href="10b-prekladac.html#vystup">výstupu překladače</a>.</p>
+<p>Vzniklý přeložený kód je uložen na serveru, kde je také vykonáván.</p>
+<p>Je rozdíl mezi samotným přeložením a přeložením s aktualizací. Při překladu je nově vzniklý kód uložen na server, ale není asociován s žádnými jednotkami. To znamená, že se nebude vykonávat. Při aktualizaci jsou zrušeny instance starého skriptu, které byly v okamžiku aktualizace používány a běžely. Jednotky pak dostanou kód nový, který se na nich rozběhne od začátku. Aktualizace skriptů tedy znamená v jistém smyslu resetování jednotky.</p>
+<p>Funkce pro překlad popisuje následující seznam.</p>
+<dl>
+
+<dt><img src="Obrazky\MenuPrelozitSkript.png" alt="Přeložit skript" /></dt>
+<dd>Přeloží aktuálně editovaný skript.</dd>
+
+<dt><img src="Obrazky\MenuPrelozitAktualizovat.png" alt="Přeložit a aktualizovat" /></dt>
+<dd>Přeloží aktuální skript a provede aktualizaci.</dd>
+
+<dt><img src="Obrazky\MenuPrelozitAktualizovatVse.png" alt="Přeložit a aktualizovat vše" /></dt>
+<dd>Přeloží všechny skripty změněné od poslední kompilace a provede aktualizaci všech skriptů, překompilovaných od poslední aktualizace.</dd>
+
+</dl>
+<p>Protože překlad je poměrně častá operace, byly tyto funkce zpřístupněny též jako ikony v horním panelu editoru skriptů.</p>
+<table>
+<tr>
+    <th>Ikona</th>
+    <th>Popis</th>
+</tr>
+<tr>
+    <td><img src="Obrazky\IkonaPreloz.png" alt="Ikona Přeložit skript" /></td>
+    <td>Přeložit skript (<code>F7</code>)</td>
+</tr>
+<tr>
+    <td><img src="Obrazky\IkonaPrelozAktualizuj.png" alt="Ikona Přeložit a aktualizovat" /></td>
+    <td>Přeložit a aktualizovat (<code>F5</code>)</td>
+</tr>
+<tr>
+    <td><img src="Obrazky\IkonaPrelozAktualizujVse.png" alt="Ikona Přeložit a aktualizovat vše" /></td>
+    <td>Přeložit a aktualizovat vše</td>
+</tr>
+</table>
+
+<p></p>
+<h2 id="profiling">Profilování</h2>
+<p><img class="samostatny" src="Obrazky\MenuProfiling.png" alt="Profilování" /></p>
+<p>Tato funkce otevře na klientovi okno s profilerem pro aktuální civilizaci. V tomto okně
+jsou zobrazeny jména funkcí skriptů civilizace. U každé funkce jsou uvedena dvě čísla - kolik
+daná funkce spotřebovala procent času interpretu za posledních pět sekund a za celý běh civilizace.
+Obsah okna je pravidelně obnovován každých pět sekund.</p>
+
+<p><img class="samostatny" src="Obrazky\Profiling.png" alt="Profilovací okno" /></p>
+
+</body>
+</html>

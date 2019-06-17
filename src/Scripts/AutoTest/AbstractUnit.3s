@@ -1,0 +1,238 @@
+// Jednotka se zakladnimi reakcemi pro prikazy z toolbaru
+unit AbstractUnit extends Unit
+{
+  // Reakce na prikaz MOVE
+  // Dojde s jednotkou na zadanou pozici
+  // Pokud se jednotka nemuze hybat, okamzite vrati
+  command MOVE(Position posDestination)
+  {
+  	// Kdyz se nemuzu hybat -> nic
+  	if ( Move == null ) return;
+  
+  	// Zavolam na sobe dovednost Move
+  	Move.GoPos ( posDestination );
+  }
+  
+  // Reakce na prikaz ATTACK
+  // Zautoci na jednotku
+  // Pokud na jednotku nejde utocit, dojde k ni bliz a zkusi to znovu
+  // Skonci pokud se povedlo jednotku zabit
+  command ATTACK(Unit uEnemy)
+  {  
+    // Kdyz nemuzu utocit kulkama -> nic
+    if (BulletAttack == null)
+    {
+      WriteToLog(Name+": I can't attack!");
+      return;
+    }
+
+    // Nekonecny cyklus
+	int r;
+    for(r=0; r<10; r++)
+    {
+			bBusy=true;
+      // zjistime pozici nepratelske jednotky
+      Position posEnemy = uEnemy.GetPosition();
+      if (!posEnemy.IsOnMap())
+      {
+        // nepritel neni na mape  (?!?!)				
+        return;
+      }
+  
+      if (posEnemy.z < BulletAttack.GetAttackAltMin() || posEnemy.z > BulletAttack.GetAttackAltMax())
+      {
+        // nepritel je moc vysoko nebo nizko
+        WriteToLog(Name+": Can't attack unit in the altitude " + IntToString(posEnemy.z));
+        return;
+      }
+  
+      // moje pozice
+      Position posMy = GetPosition ();
+  
+      // je dost blizko?
+      if (posMy.GetDistance(posEnemy.x, posEnemy.y) > BulletAttack.GetAttackRadius())
+      {
+        // neni, zkusime jit blize
+		  switch(Move.GoCloseToPos(posEnemy, BulletAttack.GetAttackRadius()-2)) 
+			{
+			case -1:
+			case 1:
+				// Cesta neni a nebude
+				Sleep(30);
+				return;
+			case 0:
+				// Cesta je v pohode
+				break;
+			case 2:
+				// Cesta je zablokovana
+				Sleep(20);
+				break;
+		  }
+      }
+      else
+      {
+        // jsme dost blizko, zkus zautocit
+        if (BulletAttack.Fire(uEnemy))
+        {
+          // nepritel zemrel
+          return;
+        }
+      }
+    }
+  }  
+  
+  // Najde jednotku, která je tezitelna a nejblize dane pozici
+  Unit FindClosestMineable(Position pos) {
+    Unit u, closest, us{};
+    us=GetMap().GetAllUnitsInArea(pos.x, pos.y, GetViewRadius());
+    int dist=GetViewRadius()*10, d;
+    closest=null;
+    for(u in us) {
+      if(u.GetUnitTypeName()=="Crystal") {
+        Position posTmp=u.GetPosition();
+        d=pos.GetDistancePos(posTmp);
+        if(d<dist) {
+          dist=d;
+          closest=u;
+        }
+      }
+    }
+    return closest;
+  }
+  
+  // Dopravi se na dostatecnou vzdalenost k zadane jednotce,
+  // tak aby se dalo tezit/vykladat
+  int GoNearby(Position pos, bool bMine) {
+    return Move.GoCloseToPos(pos, 5);
+  }
+  
+  // Vraci false, pokud je jednotka nepouzitelna (null/mrtva)
+  bool IsAlive(Unit u) {
+    if(u==null) return false;
+    return !u.IsDead();
+  }
+  
+  // Reakce na prikaz MINEUNLOAD
+  command MINEUNLOAD(Position posMine, Unit uUnload)
+  {
+    if(uUnload.GetUnitTypeName()!="Base") 
+    {
+      return;
+    }
+  
+    lastMinedUnit=null;
+    lastMinedPos=posMine;
+    nMineState=0;
+  
+    while(true) {
+      Position pos;
+  
+      if(nMineState<=1) { // Letíme k jednotce
+       
+        // Jestliže nemáme jednotku k težení, nebo ji máme a je mrtvá
+        if(!IsAlive(lastMinedUnit)) {
+          // Zkoušíme najít další `pro težení
+          lastMinedUnit=FindClosestMineable(lastMinedPos);
+        }
+        if(IsAlive(lastMinedUnit)) {
+          // Povedlo se najít jednotku
+          lastMinedPos=lastMinedUnit.GetPosition();
+          // Priletíme k ní
+          if(GoNearby(lastMinedPos, true)!=0) return;
+          // A nastavíme se na stav - u jednotky
+          nMineState=2;
+        } else {
+          // Jednotku se najít nepovedlo. Možná je problém v tom, že není zatím
+          // videt. Letíme nejprve na zadané místo, jestliže jsme tam ješte neleteli
+          if(nMineState==0) {
+            if(Move.GoPos(lastMinedPos)!=0) return;
+            nMineState=1;
+          } else {
+            // Ani po presunu se težené jednotky nepodarilo najít
+            // Koncíme
+            return;
+          }
+        }
+      } else if(nMineState==2) { // Jsme u jednotky, chceme težit
+        if(!IsAlive(lastMinedUnit)) {
+          // Jednotka nám zatím zmizela, zkoušíme najít jinou
+          nMineState=1;
+          continue;
+        } else {
+          Mine.Mine(lastMinedUnit);
+          nMineState=3;
+        }
+      } else if(nMineState==3) { // Letíme zpátky, vykládáme
+        if(uUnload!=null) {
+          pos=uUnload.GetPosition();
+          if(GoNearby(pos, false)!=0) return;
+          if(uUnload.IsDead()) {
+            // Zemrela nám báze, koncíme
+            return;
+          }
+          // Vyložíme
+          Mine.Unload(uUnload);
+          nMineState=0;
+        } else return;
+      } 
+    }
+  }
+  
+  // Reakce na spatreni nepratelske jednotky
+  notification ENEMY_UNIT_SEEN(Unit enemy)
+  {
+    StartupCommander sc=GetGeneralCommander();
+    sc.EnemySpotted(enemy);
+  }
+  
+  // Nekdo na mne utoci
+  notification UNIT_BEING_ATTACKED(Unit enemy, int damage)
+  {
+    if(enemy==null) return;
+		bool bAttack;
+    bAttack=BulletAttack!=null;
+    if(bAttack) bAttack=bAttack && BulletAttack.CanAttackUnit(enemy);
+    if(bAttack) {
+      if(!IsAlive(AttacksMe)) {
+        // Ten, kdo na mne predtim utocil uz zemrel
+        AttacksMe=enemy;
+        this<-ATTACK(enemy);
+      } else {
+        // Uz na mne jednou nekdo utoci
+        // Nedelame nic
+      }
+    } else {
+      // Neumime utocit na nepritele
+      if(AttacksMe==enemy) {
+        // Zapominame ho
+        AttacksMe=null;				
+      }
+    }
+  }
+
+	notification IDLE()
+	{
+		bBusy=false;
+	}
+  
+//////////////////////////////
+// Datove polozky
+  
+  Unit lastMinedUnit;
+  Position lastMinedPos;
+
+  // Stav pri težení
+  int nMineState; 
+  /* 0 - hledame jednotku
+     1 - hledame jednotku, uz jsme se presunuli na pozadovanou pozici
+     2 - nalezena jednotka, jsme u ni, tezime
+     3 - letime zpatky a vykladame
+   */
+
+  // Jednotka, ktera na mne utoci
+  Unit AttacksMe;
+
+	// Jsem zamestnan?
+	bool bBusy;
+
+}

@@ -1,0 +1,10 @@
+#ifndef YYSTYPE
+#define YYSTYPE int
+#endif
+#define	NSP_IDENTIFIER	258
+#define	NSP_OBJECT	259
+#define	NSP_EVENT	260
+#define	NSP_FUNCTIONS	261
+#define	NSP_NUMBER	262
+#define	NSP_NOINSTANCES	263
+

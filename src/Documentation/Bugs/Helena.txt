@@ -1,0 +1,9 @@
+
+-----------------------------------------------------------------------------------------
+
+-> Nereleasovane stringy pri prekladu a updatu nove jednotky (ktera je potomkem nejake
+   jine skriptove jednotky)
+
+   (Nehori, tento bug tam klidne muze zustat)
+
+-----------------------------------------------------------------------------------------

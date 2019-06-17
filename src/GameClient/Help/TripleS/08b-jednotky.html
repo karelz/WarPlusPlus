@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - jednotky</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="08a-jednotky.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /><a href="08a-jednotky.html#definice">Definice</a>,
+<a href="08a-jednotky.html#metody">Metody</a>,
+<a href="08a-jednotky.html#konstruktor">Konstruktor</a>
+<b>|</b>
+<a href="08c-jednotky.html#fronty">Fronty příkazů a notifikací</a>
+<a href="08c-jednotky.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="Zprávy">Zprávy</h2>
+
+<p>Jednotky si mezi sebou mohou posílat zprávy, dostávají také zprávy od serveru.
+Zprávy se dělí na notifikace a příkazy. Nejčastějším zdrojem notifikací je server, který tak jednotce oznamuje události, ke kterým došlo, jako např. že se na dohled přiblížila jiná jednotka, že byla napadena atp. Naopak příkazy posílají zpravidla velitelé svým podřízeným jednotkám jako úkoly, které mají provést, nebo může jednotka posílat příkazy sama sobě.</p>
+
+<p>Zprávy jsou speciální metody, které nevrací žádnou hodnotu. Místo návratového typu se píší klíčová slova <code>notification</code> pro notifikaci a <code>command</code> pro příkaz. Pro jména notifikací a příkazů se používají velká písmena.</p>
+
+<pre>
+<b>notification</b> IDENTIFIKÁTOR(parametr, parametr, ...) blok
+<b>command</b> IDENTIFIKÁTOR(parametr, parametr, ...) blok
+</pre>
+
+<p class="odkaz">
+<a href="08a-jednotky.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /><a href="08a-jednotky.html#definice">Definice</a>,
+<a href="08a-jednotky.html#metody">Metody</a>,
+<a href="08a-jednotky.html#konstruktor">Konstruktor</a>
+<b>|</b>
+<a href="08c-jednotky.html#fronty">Fronty příkazů a notifikací</a>
+<a href="08c-jednotky.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

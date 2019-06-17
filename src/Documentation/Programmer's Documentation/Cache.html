@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<title>Cache</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+</head>
+<body>
+
+<h1>Cache</h1>
+
+<h2>Úvod</h2>
+<p>Knihovna cachí vytváří iluzi, že určitá množina objektů je neustále přítomna v paměti, ačkoliv se typicky tyto objekty nemohou do paměti najednou vejít. Aby této iluze bylo možné dosáhnout, musí mít cachované objekty určité vlastnosti - musí existovat způsob, jak je dočasně z paměti odstranit a pak je opět obnovit ve stejné podobě, v jaké byly při odstraňování.</p>
+
+<h2>Cachovaný objekt</h2>
+<p>Cachovaným objektem se může stát jakýkoliv objekt, který podporuje dvě základní metody - <b>odložení</b> a <b>obnovení</b>. Nahraný objekt zabírá typicky velké množství paměti. Po odložení se spotřeba paměti sníží. Jediné, co v paměti přetrvá z původního objektu, by měla být informace, jak objekt obnovit do původního stavu - může se jednat o jméno souboru s daty objektu nebo například o zadání výpočtu, jehož výsledek zabírá mnoho paměti.</p>
+<p>Pokud je objekt odložen, cache by měla mít informaci o tom, jak velký bude po obnovení. Tato informace nemusí být přesná, čím je však přesnější, tím lépe může cache plánovat využití své paměti.</p>
+
+<h2>Mechanismus odkládání objektů</h2>
+<p>Přestože cache určuje, kdy se budou objekty odkládat a obnovovat, musí dodržovat určitá pravidla. Pokud totiž k nahranému objektu přistupuje uživatel (čte/modifikuje jeho data), nesmí být takový objekt odložen. Pokud přijde požadavek na přístup k objektu, který je momentálně odložený, cache se snaží jej co nejdříve obnovit a tento požadavek uspokojit. Snahou cache je, aby objekty byly k dispozici co nejdříve, a zároveň aby spotřeba paměti nebyla příliš vysoká. Tyto dva požadavky jsou protikladné, cache se snaží najít mezi nimi kompromis pomocí dodatečných informací od uživatele, jako je velikost preferované a maximálně povolené spotřeby paměti.</p>
+<p><b>Maximální spotřeba paměti</b> je velikost paměti, kterou nesmí překročit celková velikost nahraných objektů. Tento požadavek nelze splnit, pokud by uživatel měl jeden objekt o velikosti větší, než je maximální povolená velikost cache. Tento případ cache považuje za chybu nastavení. Kromě tohoto patologického případu mohou nastat tři situace:</p>
+<ul>
+<li>Pokud je velikost potřebné paměti menší, než preferovaná velikost, cache neodkládá žádné objekty.</li>
+<li>Pokud je potřebná velikost paměti větší než preferovaná velikost, ale menší než maximální, cache se pokusí uvolnit objekty tak, aby se dosáhlo preferované velikost cache. Pokud neuspěje, nový objekt přesto nahraje bez čekání, a přebývající nezrušitelné objekty zruší dodatečně, až na ně uživatel přistupovat přestane.</li>
+<li>Pokud by při nahrání požadovaného objektu měla velikost použité paměti přesáhnout maximum, cache se snaží uvolnit dostatek volného místa. Pokud se jí nepodaří toto volné místo uvolnit (například proto, že uživatel přistupuje na mnoho objektů), cache se zastaví a čeká, až uživatel na tyto objekty přistupovat přestane, takže je bude možné uvolnit.</li>
+</ul>
+
+<h2>Nápověda pro cache</h2>
+<p>Aby cache mohla fungovat co nejlépe, je třeba určit vhodný algoritmus, který je schopen určit, který objekt se vyplatí odložit. Typicky to bývá ten, na který se dlouho nepřistupovalo, takže se pravděpodobně na něj ještě nějakou dobu přistupovat nebude. Protože tato strategie nemusí mít dobré výsledky, cache dovoluje uživateli dávat jí nápovědu a říci, který objekt pravděpodobně bude za chvíli potřeba, a který naopak pravděpodobně potřeba dlouho nebude.</p>
+
+<h2>Statistiky</h2>
+<p>Cache si drží souhrnné statistické informace o průběhu cachování. Ty jsou užitečné zejména při nastavování správných limitů velikosti paměti. Počítají se jednotlivé odložení a obnovení objektů a maximální velikost spotřebované paměti, které bylo dosaženo.</p>
+
+</body>
+</html>

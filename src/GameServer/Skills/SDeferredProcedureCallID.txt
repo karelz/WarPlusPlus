@@ -1,0 +1,9 @@
+Informaci o novém DPC musíte pøidat do souboru 
+	"GameServer\GameServer\SDeferredProcedureCalls.cpp"
+
+ ID   ClassName
+----------------------------------
+  0   CSMapGetUnitsInAreaDPC
+  1   CSAttackableUnitsDPC
+  2   CSCanAttackUnitDPC
+  3   CSMineSetModeDPC

@@ -1,0 +1,30 @@
+FrameNum = 4;
+Speed = 150;
+Loop = True;
+
+XOffset = 0;
+YOffset = 0;
+
+
+Frame0 = "Drag\DragCursHome1.tga";
+Frame0_Delay = 0;
+Frame0_XOffset = 0;
+Frame0_YOffset = 0;
+
+Frame1 = "Drag\DragCursHome2.tga";
+Frame1_Delay = 0;
+Frame1_XOffset = 0;
+Frame1_YOffset = 0;
+
+Frame2 = "Drag\DragCursHome3.tga";
+Frame2_Delay = 0;
+Frame2_XOffset = 0;
+Frame2_YOffset = 0;
+
+Frame3 = "Drag\DragCursHome4.tga";
+Frame3_Delay = 0;
+Frame3_XOffset = 0;
+Frame3_YOffset = 0;
+
+HotSpot_X = 5;
+HotSpot_Y = 2;

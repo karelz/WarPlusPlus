@@ -1,0 +1,13 @@
+Informaci o nové skille musíte pøidat do souboru 
+	"GameServer\GameServer\SSkillTypes.cpp"
+
+ ID   Name
+-----------------------
+  0   Move
+  1   BulletAttack
+  2   BulletDefense
+  3   MakeSkill
+  4   MineSkill
+  5   ResourceSkill
+  6   StorageSkill
+ 97   Example

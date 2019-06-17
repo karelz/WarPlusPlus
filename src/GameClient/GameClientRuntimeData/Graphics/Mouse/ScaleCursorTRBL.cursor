@@ -1,0 +1,14 @@
+# Animation part
+FrameNum = 7;
+Speed = 50;
+Frame0 = "ScaleCursorTRBL1.tga";
+Frame1 = "ScaleCursorTRBL2.tga";
+Frame2 = "ScaleCursorTRBL3.tga";
+Frame3 = "ScaleCursorTRBL4.tga";
+Frame4 = "ScaleCursorTRBL3.tga";
+Frame5 = "ScaleCursorTRBL2.tga";
+Frame6 = "ScaleCursorTRBL1.tga";
+
+# Cursor part
+HotSpot_X = 15;
+HotSpot_Y = 15;

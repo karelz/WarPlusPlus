@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Pole</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="11b-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11b-systemove_objekty.html#sysobj_string">Objekt <code>String</code></a>
+<b>|</b>
+<a href="11d-systemove_objekty.html#sysobj_set">Množina</a>
+<a href="11d-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="sysobj_array">Pole</h2>
+
+<p>Vytvoření proměnné typu pole viz <a href="04-promenne.html#pole">Definice pole</a>.</p>
+<p>Následující metody pracují vždy s &bdquo;prvním rozměrem&ldquo; pole. Je-li pole vícerozměrné, <b>TripleS</b> se na něj dívá jako na pole polí, a k ostatním rozměrům lze dostat pomocí indexace. S jednotlivými podpoli lze pracovat samostatně (předávat jako parametry atp.), platí pro ně pravidla jako pro ostatní systémové objekty, tedy že např. při přiřazování operátorem <code>=</code> se pouze zkopíruje reference na podpole. Kopie se vytváří operátorem <code>dup</code>.</p>
+
+<h3>Metody</h3>
+
+<pre class="hlavicka">int GetLength ()</pre>
+<p>Vrací počet buněk pole. Pokud je pole vícerozměrné, vrací počet buňek první dimenze. Počet buňek v ostatních dimenzích lze získat pomocí indexace.</p>
+<p>Příklad použití:</p>
+<pre>
+int a[10][20], N;
+N = a.GetLength();      // N obsahuje 10
+N = a[0].GetLength();   // N obsahuje 20
+
+</pre>
+<pre class="hlavicka">void Resize ( int newsize )</pre>
+<p>Mění počet buňek pole na <code>newsize</code>. Obsahy buňek s indexem menším nez <code>newsize</code> jsou zachovány.</p>
+
+
+<p>Příklad použití pole:</p>
+<pre>
+int a[10][20], b[20], N;
+N = a.GetLength();      // N obsahuje 10
+N = a[0].GetLength();   // N obsahuje 20
+b = dup a[1];           // b obsahuje kopii 2. radku matice
+
+</pre>
+<p>Proměnná a je typu <code>int[10][20]</code>, výraz <code>a[0]</code> je typu <code>int[20]</code>, <code>a[0][1]</code> je typu <code>int</code>.</p>
+
+<p class="odkaz">
+<a href="11b-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11b-systemove_objekty.html#sysobj_string">Objekt <code>String</code></a>
+<b>|</b>
+<a href="11d-systemove_objekty.html#sysobj_set">Množina</a>
+<a href="11d-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

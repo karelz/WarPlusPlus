@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>GameClient - uživatelská dokumentace</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../trava.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>GameClient - uživatelská dokumentace</h1>
+
+<h2 id="hierarchie">Hierarchie jednotek</h2>
+
+<p>Jednotky ve hře jsou uspořádány v hierarchii, která svou logikou odpovídá hierarchii vojenské. Každá jednotka kromě nejvyššího generála má svého velitele, od kterého přijímá příkazy a kterého informuje o své činnosti. Tím vzniká strom jednotek, který je zobrazován v okně hierarchie jednotek.</p>
+<p><img class="samostatny" src="Obrazky\Hierarchie.png" alt="Hierarchie jednotek" /></p>
+<p>Protože hierarchie může být velice složitá a rozsáhlá, okno dovoluje uživateli omezit její zobrazení sbalováním jednotlivých větví stromu. Sbalení se provádí klepnutím na tlačítko <code>-</code> uzlu, kde větev začíná. Rozbalení větve se provede klepnutím na tlačítko <code>+</code>.</p>
+
+<p>Hierarchie umožňuje vybírat jednotky klepnutím levým tlačítkem myší. Pomocí kláves <code>shift</code> a <code>ctrl</code> lze výběr rozšířit na více jednotek. Na tomto výběru je pak možné vyvolávat funkce změny jména a skriptu.</p>
+
+<dl>
+<dt><img src="Obrazky\Obnovit.png" alt="Obnovit" /></dt>
+<dd>Obnoví hierarchii jednotek podle aktuálního stavu na serveru</dd>
+</dl>
+
+<dl>
+<dt><img src="Obrazky\Zmenit.png" alt="Změnit" /></dt>
+<dd>Změní skript na vybraných jednotkách. Staré skripty, které na jednotkách běžely jsou ukončeny. Jednotky se od této chvíle řídí novým skriptem. Skript se zadává svým jménem v dialogu.</dd>
+</dl>
+
+<p><img class="samostatny" src="Obrazky\ZmenitSkript.png" alt="Změnit skript" /></p>
+
+<dl>
+<dt><img src="Obrazky\Prejmenovat.png" alt="Přejmenovat" /></dt>
+<dd>Přejmenuje vybrané jednotky. Jména jednotek jsou určena pro zpřehlednění hry, uživatel své jednotky může pojmenovávat libovolně. Nové jméno se zadává dialogem.</dd>
+</dl>
+
+<p><img class="samostatny" src="Obrazky\ZmenitJmeno.png" alt="Změnit jméno" /></p>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+# no font - use system default
+
+# some quite dark blue slitely transparent
+Background_Color = 0x0000080;
+Background_Opaque = 200;
+
+# bright yellow
+Text_Color = 0x0E0E0E0;
+
+TextOffset_X = 3;
+TextOffset_Y = 0;
+
+RBMargin_X = 2;
+RBMargin_Y = 0;

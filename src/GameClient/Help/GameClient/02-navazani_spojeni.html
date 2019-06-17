@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>GameClient - uživatelská dokumentace</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../trava.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>GameClient - uživatelská dokumentace</h1>
+
+<h2 id="navazani">Navázání spojení</h2>
+
+<p>Klient po spuštění automaticky zobrazí následující dialog pro navázání spojení se serverem hry.</p>
+<p><img class="samostatny" src="Obrazky\Prihlaseni.png" alt="Prihlaseni do hry"/></p>
+<p>Jednotlivé položky dialogu mají následující význam:</p>
+<ul>
+<li>
+    <b>Adresa serveru</b> - internetová adresa počítače, na kterém běží server. Pokud server běží na stejném počítači, jako klient, zadejte hodnotu <code>localhost</code>.
+</li>
+<li>
+    <b>Port</b> - číslo portu, na kterém server běží. Toto číslo je možné nastavit v konfiguraci serveru, standardní hodnota je <code>3456</code>.
+</li>
+<li>
+    <b>Jméno</b> - jméno, pod kterým se uživatel přihlašuje do hry. Na serveru musí být předem vytvořené konto s tímto jménem, jinak přihlášení selže.
+</li>
+<li>
+    <b>Heslo</b> - heslo ke kontu. Může být prázdné. Při zadávání se nezobrazuje.
+</li>
+</ul>
+<p>Po zadání všech údajů klepněte na <b>OK</b>. Pokud jste zadali všechny údaje správně, klient se úspěšně připojí a začne stahovat mapu. Pokud se to nepodaří, ujistěte se, že:</p>
+<ul>
+<li>server běží na správném počítači se správným číslem portu</li>
+<li>hra na serveru je spuštěna a běží (tzn. není zapauzovaná)</li>
+<li>na serveru je založen uživatel správného jména se správným heslem</li>
+<li>k zadanému kontu není momentálně připojen jiný uživatel</li>
+</ul>
+<p>Klepnutím na <b>Storno</b> klienta ukončíte.</p>
+
+<table class="tip">
+<tr>
+    <td class="tipimg"><img class="tip" src="..\tip.png" alt="Tip" /></td>
+    <td class="tiptext">Tento dialog lze (stejně jako ostatní dialogy a okna v klientovi) zavřít klepnutím na krystal v pravém horním rohu. Tato akce má stejné následky jako klepnutí na <b>Storno</b>.</td>
+</tr>
+</table>
+
+</body>
+</html>

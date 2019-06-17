@@ -1,0 +1,84 @@
+20001215@0645 Karby
+
+- klient za behu access violation na UnitCache.cpp, radek 99
+- pUnit je 0x09a4aeb8, coz vypada smyslupne, ale ukazuje to na neplatnou stranku
+
+------------------------------------------------------------------------------
+20001215@0300 Helena
+
+- po loadu hry nechodi profilovani - asi neni nastaveny petisekundovy timer
+  (vubec se nevola ClearLocalProfileCounters()), nikde se nic nezobrazuje
+
+------------------------------------------------------------------------------
+20001215@0200 Karby
+
+- v klientovi hodne zlobi okenni system, asi po tom zasahu, co ses snazil, aby
+  se aktivovalo predtim aktivni okno po schovani jineho okna (hierarchie,
+  save dialogu, ...):
+  + neprekresluje se titulek okna
+  + spatne (skoro vubec) jede Ctrl-Tab
+  + pada klient na access violation pri skonceni (zridka, i debug verze)
+  + ...
+
+------------------------------------------------------------------------------
+200001213@0910 Karby
+
+- po nocnim behu dvou klientu na servera s klikaci mapou byli oba klienti temer
+  okamzite dokopani rychlym klikanim na toolbar (vyrobu jednotek) do stavu, kdy
+  sviti modre, resp. cervene, hodiny a kde nic tu nic.
+  Pri dalsich pokusech o nasimulovani jsem byl mnohem mene uspesny, kazdopadne to chce,
+  aby se na kompu se serverem delo jeste neco jineho, asi aby ta odpoved ze site nebyla
+  okamzita.
+
+------------------------------------------------------------------------------
+20001209@0040 Vitek
+
+- Na Aleskove kompu pada v Release verzi
+- Prekreslovani tooltipu
+- Zakazat volani nekterych metod z notifikace
+- Zakazat uzivatele po nekolika spatnych nalogovanich
+
+---------------------------------------------------------------------------
+20001209@0018 Karby
+
+- scrollovani minimapy pomoci praveho kliku -- zlobi drag hodne doprava a hodne dolu
+
+------------------------------------------------------------------------------
+20001206@2030 Karby
+
+- stara chyba: minimapu si das nekam doleva nahoru, pak pravym klikem dragnes hodne doprava (jakoby chces videt levej kraj) nebo hodne dolu (jakoby chces videt dolni kraj) -- minimapa ti pak najednou preskoci na pravej (resp. spodni) okraj.
+
+------------------------------------------------------------------------------
+20001129@0810 Karby
+
+Abych na to nezapomnel, u Hanky na kompu pada klient na assert hned po startu
+v nejakem neprojektovem souboru -- chce to tam pustit pod debugrem a podivat se.
+
+Taky tam NEJEDE help, prestoze ma IE 5.5 (pise, ze neni IE 5.5).
+
+Taky tam blbne grafika ve fullscreen pri scrollovani.
+------------------------------------------------------------------------------
+
+Ziki wrote:
+- ID grafu 0 = vzdusny graf, nesmi byt nikde pouzite explicitne, vzdusny graf je implicitni (nezadava se explicitne v seznamu grafu)
+- jmena grafu musi byt unikatni i co se tyce nazvu adresaru (tj nocase unikatni + zadne osklive znaky, ktere nejde dat do jmena adresare)
+- transparentni land type (TRANSPARENT_LAND_TYPE_ID = 0x00 v MDataTypes.h) by nemel byt v pouzitych LandTypech (aby to nematlo v povolenych landtypech grafu cesty)
+- MapEditor: kdyz zmensim/zvetsim Minimapu, byl bych rad, aby zustala zachovana pozice leveho horniho rohu, nejlepe pozice leveho horniho rohu zobrazeneho vyrezu
+- MapEditor: pocita novy MapEditor s tim, ze by melo jit zjistit, bylo-li na mape neco zmeneno? a tedy ma-li se zadat o povoleni ulozit .map soubor pred exportem, ukoncenim atp.?
+
+------------------------------------------------------------------------------
+
+20001112@1515 Karby
+
+Fujky fujky race condition... race won by ASSERT! Congratulations!
+
+AfxAssertValidObjectLine(const CObject * 0x00000000 {CObject}, const char * 0x0050e0f4 `string', int 99) line 134
+CCUnit::GetXPixelPosition() line 99 + 45 bytes
+CWatchUnitFrame::RecomputeViewportPosition() line 301 + 14 bytes
+CWatchUnitFrame::Perform(unsigned long 65536, unsigned long 1, unsigned long 55624024) line 43 + 8 bytes
+CEventManager::DoEvent(unsigned long * 0x020ffd6c) line 151 + 38 bytes
+
+Takhle jednoho nedelniho odpoledne parim jak cip a najednou zniceho nic bum bac zuch tfuj to byla ale rana.
+Proste jsem zavrel okno s vyhledem na jednotku a jak se to okno zaviralo, tak s sebou vzalo celyho klienta.
+:-)
+A ted vazne -- v metode CWatchUnitFrame::RecomputeViewportPosition() je m_pWatchedUnit == NULL (WatchUnitFrame.cpp, radek 301).

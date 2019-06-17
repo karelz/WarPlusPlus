@@ -1,0 +1,66 @@
+20001126@1700 Vitek
+
+Na Aleskove kompu pada na ASSERT ve wincore
+
+------------------------------------------------------------------------------
+20001124@1625 Karby
+
+Po ustreleni serveru (ale nevim, jestli je to bezpodminecne nutne) spousta memory leaku
+
+E:\Projekt\GameClient\windows\Keyboard\KeyboardWindow.cpp(74) : {4097954} normal block at 0x0903BAE8, 12 bytes long.
+ Data: <            > 0D 00 00 00 00 00 00 00 CD CD CD CD 
+E:\Projekt\GameClient\windows\Keyboard\KeyboardWindow.cpp(91) : {4097953} normal block at 0x060D9F30, 12 bytes long.
+ Data: <            > 0D 00 00 00 00 00 00 00 CD CD CD CD 
+E:\Projekt\GameClient\windows\Keyboard\KeyboardWindow.cpp(57) : {4097952} normal block at 0x0261B678, 12 bytes long.
+ Data: <            > 0D 00 00 00 00 00 00 00 CD CD CD CD 
+E:\Projekt\GameClient\windows\Keyboard\KeyboardWindow.cpp(74) : {4097758} normal block at 0x084D8FE0, 12 bytes long.
+ Data: <            > 20 00 00 00 00 00 00 00 CD CD CD CD 
+E:\Projekt\GameClient\windows\Keyboard\KeyboardWindow.cpp(91) : {4097747} normal block at 0x0356CCF0, 12 bytes long.
+ Data: <            > 20 00 00 00 00 00 00 00 CD CD CD CD 
+E:\Projekt\GameClient\windows\Keyboard\KeyboardWindow.cpp(57) : {4097746} normal block at 0x08F530E0, 12 bytes long.
+ Data: <            > 20 00 00 00 00 00 00 00 CD CD CD CD 
+Object dump complete.
+
+------------------------------------------------------------------------------
+
+20001112@0000 Vitek
+
+Cudl na toolbaru jednotek je disabled (a to prestoze ten toolbar znicim a vyrobim )
+:-(
+
+------------------------------------------------------------------------------
+
+Ziki wrote:
+- ID grafu 0 = vzdusny graf, nesmi byt nikde pouzite explicitne, vzdusny graf je implicitni (nezadava se explicitne v seznamu grafu)
+- jmena grafu musi byt unikatni i co se tyce nazvu adresaru (tj nocase unikatni + zadne osklive znaky, ktere nejde dat do jmena adresare)
+- transparentni land type (TRANSPARENT_LAND_TYPE_ID = 0x00 v MDataTypes.h) by nemel byt v pouzitych LandTypech (aby to nematlo v povolenych landtypech grafu cesty)
+- MapEditor: kdyz zmensim/zvetsim Minimapu, byl bych rad, aby zustala zachovana pozice leveho horniho rohu, nejlepe pozice leveho horniho rohu zobrazeneho vyrezu
+- MapEditor: pocita novy MapEditor s tim, ze by melo jit zjistit, bylo-li na mape neco zmeneno? a tedy ma-li se zadat o povoleni ulozit .map soubor pred exportem, ukoncenim atp.?
+
+------------------------------------------------------------------------------
+
+20001112@1515 Karby
+
+Fujky fujky race condition... race won by ASSERT! Congratulations!
+
+AfxAssertValidObjectLine(const CObject * 0x00000000 {CObject}, const char * 0x0050e0f4 `string', int 99) line 134
+CCUnit::GetXPixelPosition() line 99 + 45 bytes
+CWatchUnitFrame::RecomputeViewportPosition() line 301 + 14 bytes
+CWatchUnitFrame::Perform(unsigned long 65536, unsigned long 1, unsigned long 55624024) line 43 + 8 bytes
+CEventManager::DoEvent(unsigned long * 0x020ffd6c) line 151 + 38 bytes
+
+Takhle jednoho nedelniho odpoledne parim jak cip a najednou zniceho nic bum bac zuch tfuj to byla ale rana.
+Proste jsem zavrel okno s vyhledem na jednotku a jak se to okno zaviralo, tak s sebou vzalo celyho klienta.
+:-)
+A ted vazne -- v metode CWatchUnitFrame::RecomputeViewportPosition() je m_pWatchedUnit == NULL (WatchUnitFrame.cpp, radek 301).
+
+------------------------------------------------------------------------------
+
+20000831@0230:
+    HelenaCZ: kdyz se server naloaduje ze savu a pak se pripoji klient, tak to neustoji.
+       Jakmile ma jednotka zacit novy pohyb (jak chodi furt dokola), tak to zbuchne na ASSERT.
+         Rekni to prosim Vitkovi, ...nebo mu to mam poslat mailem?
+    HelenaCZ: Kient to neustoji.
+    HelenaCZ: Nejaky ASSERT(this);
+    ZikiCZ: kdo zbuchne na assert ... klient?
+    HelenaCZ: Klient

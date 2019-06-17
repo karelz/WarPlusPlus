@@ -1,0 +1,504 @@
+/************************************************************
+ *
+ * Projekt: Strategicka hra
+ *    Cast: Prekladac
+ *
+ *   Popis: Definice namespace (systemove objekty, globalni funkce, skilly, hlavicky notifikaci)
+ *
+ ***********************************************************/
+
+//
+// SYSTEMOVE OBJEKTY
+//
+
+//
+// String - systemovy objekt reprezentujici retezec
+//
+object String
+{
+    // vraci delku retezce
+    0: int GetLength();
+
+    // vraci podretezec zacinajiciho na pozici first o delce count znaku
+    1: String Mid(int first, int count);
+
+    // vraci levou cast retezce o delce count znaku
+    2: String Left(int count);
+
+    // vraci pravou cast retezce o delce count znaku
+    3: String Right(int count);
+
+    // zmeni znaky v retezci tak, aby retezec obsahoval pouze mala pismena
+    4: void MakeLower();
+
+    // zmeni znaky v retezci tak, aby retezec obsahoval pouze velka pismena
+    5: void MakeUpper();
+
+    // vyhledani podretezce v retezci, hledani zacina od zacatku
+    // vraci pozici podretezce, -1 pokud nebyl nalezen
+    6: int Find(String substring);
+
+    // vyhledani podretezce v retezci, hledani zacina od pozice start
+    // vraci pozici podretezce, -1 pokud nebyl nalezen
+    7: int FindFrom(String substring, int start);
+
+    // implementovane operatory:
+    // +   ... spojeni retezcu / pridani znaku
+    // []  ... indexovany pristup na znaky retezce (indexy jsou od 0)
+}
+
+//
+// Set - systemovy objekt reprezentujici mnozinu
+//
+object Set
+{
+    // vraci pocet prvku v mnozine
+    0: int GetItemCount();
+
+    // vraci true, pokud je mnozina prazdna
+    1: bool IsEmpty();
+
+    // vyprazdni mnozinu
+    2: void SetEmpty();
+
+    // implementovane operatory:
+    // in  ... dotaz zda je prvek v mnozine
+    // +   ... pridani prvku do mnoziny / sjednoceni mnozin
+    // -   ... odebrani prvku z mnoziny / rozdil mnozin
+    // *   ... prunik mnozin
+}
+
+//
+// Array - systemovy objekt reprezentujici pole
+//
+object Array
+{
+    // vraci delku pole
+    0: int GetLength();
+
+    // zmena velikosti pole na novou velikost newsize
+    1: void Resize(int newsize);
+
+    // implementovane operatory:
+    // []  ... indexovany pristup na prvky pole (indexy jsou od 0)
+}
+
+//
+// Map - systemovy objekt reprezentujici mapu hry
+//
+object Map
+{
+    // vraci mnozinu jednotek vlastni civilizace, ktere se nachazi
+    // na mape v kruhu se stredem v bode o souradnicich x a y a polomeru radius.
+    0: Unit{} GetMyUnitsInArea( int x, int y, int radius);
+
+    // vraci mnozinu jednotek nepratelskych civilizaci, ktere se nachazi
+    // na mape v kruhu se stredem v bode o souradnicich x a y a polomeru radius.
+    1: Unit{} GetEnemyUnitsInArea( int x, int y, int radius);
+
+    // vraci mnozinu jednotek vsech civilizaci, ktere se nachazi
+    // na mape v kruhu se stredem v bode o souradnicich x a y a polomeru radius.
+    2: Unit{} GetAllUnitsInArea( int x, int y, int radius);
+}
+
+//
+// Position - systemovy objekt reprezentujici pozici na mape
+//
+object Position
+{
+    // vraci vzdalenost pozice od zadane pozice
+    0: int GetDistancePos( Position pos);
+
+    // vraci vzdalenost pozice od zadaneho bodu
+    1: int GetDistance( int x, int y);
+
+    // vraci true, pokud objekt reprezentruje platnou pozici na mape
+    2: bool IsOnMap();
+
+    // vraci souradnici x pozice
+    100: int x;
+
+    // vraci souradnici y pozice
+    101: int y;
+
+    // vraci souradnici z pozice (vysku)
+    102: int z;
+}
+
+/* obsolete
+object Path
+{
+    0: Position GetStartPoint();
+    1: Position GetEndPoint();
+    2: void SwapDirection();
+    3: int GetDistance();
+    4: int GetBeeLineDistance();
+    5: int GetMinWidth();
+    6: int GetMinDistance(Position pos);
+    7: int GetMaxDistance(Position pos);
+    8: void Truncate(int distance);
+    9: void TruncateBeeLine(int distance);
+    10: void AppendPath(Position pos);
+}
+*/
+
+//
+// Client - systemovy objekt reprezentujici klientskou aplikace
+//
+object Client
+{
+    // vraci jmeno hrace dane civilizace, hrac musi byt prihlasen
+    0: String GetUserLogin();
+
+    // vraci true, pokud je hrac civilizace prihlasem
+    1: bool IsLoggedOn();
+
+    // zobrazi informacni zpravu strText v klientske aplikaci
+    2: void MessageInfo(String strText);
+
+    // zobrazi informacni zpravu strText v klientske aplikaci se zadanou pozici pos
+    3: void MessageInfoLocation(String strText, Position pos);
+
+    // zobrazi informacni zpravu strText v klientske aplikaci se zadanou jednotkou unit
+    4: void MessageInfoUnit(String strText, Unit unit);
+
+    // zobrazi varujici zpravu strText v klientske aplikaci
+    5: void MessageWarning(String strText);
+
+    // zobrazi varujici zpravu strText v klientske aplikaci se zadanou pozici pos
+    6: void MessageWarningLocation(String strText, Position pos);
+
+    // zobrazi varujici zpravu strText v klientske aplikaci se zadanou jednotkou unit
+    7: void MessageWarningUnit(String strText, Unit unit);
+
+    // zobrazi chybovou zpravu strText v klientske aplikaci
+    8:  void MessageError(String strText);
+
+    // zobrazi chybovou zpravu strText v klientske aplikaci se zadanou pozici pos
+    9:  void MessageErrorLocation(String strText, Position pos);
+
+    // zobrazi chybovou zpravu strText v klientske aplikaci se zadanou jednotkou unit
+    10: void MessageErrorUnit(String strText, Unit unit);
+
+    // ukonceni komunikace s klientskou aplikaci a zneplatneni objektu Client
+    11: void CloseUserInput();
+
+    // zobrazi v klientske aplikaci dotaz strQuestion, jehoz odpovedi je zadani pozice na mape
+    // vraci false, pokud pozice nebyla zadana, jinak vraci true a v posResult zadana pozice
+    12: bool AskForPosition(String strQuestion, Position posResult);
+
+    // zobrazi v klientske aplikaci dotaz strQuestion, jehoz odpovedi ma byt oznaceni nepratelske
+    // jednotky, vraci null, pokud nebyla zadna jednotka zadana.
+    13: Unit AskForEnemyUnit(String strQuestion);
+
+    // zobrazi v klientske aplikaci dotaz strQuestion, jehoz odpovedi ma byt oznaceni vlastni
+    // jednotky, vraci null, pokud nebyla zadna jednotka zadana.
+    14: Unit AskForMyUnit(String strQuestion);
+
+    // zobrazi v klientske aplikaci dotaz strQuestion, jehoz odpovedi ma byt oznaceni jakekoliv
+    // jednotky, vraci null, pokud nebyla zadna jednotka zadana.
+    15: Unit AskForAnyUnit(String strQuestion);
+}
+
+//
+// Resources - systemovy objekt reprezentujici zdroje
+// Jedna se o n-rozmerny vektor celych cisel a jako s takovym se s nim da pracovat.
+//
+object Resources
+{
+    // Vynulovani vektoru
+    0: void Empty();
+
+    // Operator <
+    1: bool LessThan(Resources res);
+
+    // Operator <=
+    2: bool LessEqual(Resources res);
+
+    // Operator >
+    3: bool MoreThan(Resources res);
+
+    // Operator >=
+    4: bool MoreEqual(Resources res);
+
+    // Operator ==
+    5: bool Equal(Resources res);
+
+    // Vraci id-tou slozku vektoru zdroju
+    6: int GetResource(int id);
+
+    // Nastavi id-tou slozku vektoru na hodnotu value
+    7: void SetResource(int id, int value);
+
+    // Vraci pocet slozek vektoru zdroju
+    8: int GetNumResources();
+
+    // Test na prazdnost vektoru zdroju
+    9: bool IsEmpty();
+}
+
+//
+// GLOBALNI FUNKCE
+//
+functions
+{
+    // obsolete
+    // 0: void MessageBox(String);
+
+    // konvertuje cele cislo i na retezec, ktery vraci
+    1: String IntToString(int i);
+
+    // konvertuje realne cislo f na retezec, ktery vraci. Cislo je naformatovano se zadanou
+    // presnosti (precision == pocet mist za desetinnou carkou).
+    // Pro precision == -1 je vysledny format 1E10, pro -2 pak 1e10.
+    2: String FloatToString(float f, int precision);
+
+    // konvertuje logickou hodnotu b na retezec, ktery vraci
+    3: String BoolToString(bool b);
+
+    // zapise hlaseni message do logu civilizace (ktery se da prohlednout v klientske aplikaci
+    // Prohlizecem udalosti)
+    4: void WriteToLog(String message);
+
+    // obsolete
+    // 5: void DoStWithUnit( Unit u);
+
+    // obsolete
+    // 6: int DoStWaiting();
+
+    // vraci pocet civilizaci ve hre
+    7: int GetCivilizationCount();
+
+    // vraci mapu hry
+    8: Map GetMap();
+
+    // vraci nahodne realne cislo
+    9: float RandomFloat();
+
+    // vraci nahodne cele cislo z rozsahu 0..range-1
+    10: int RandomInt(int range);
+
+    // vraci nejvyssiho velitele vlastni civilizace
+    11: Unit GetGeneralCommander();
+
+    // obsolete
+    // 12: void Yield();
+
+    // vraci pocet timeslicu, ktere ubehly od zacatky hry (== cas hry)
+    13: int GetTimeSlice();
+
+    // uspi vykonavani aktualniho skriptu na zadanou dobu
+    14: void Sleep ( int nTimeslices );
+
+    // vraci funkci sinus z cisla angle
+    15: float sin( float angle );
+
+    // vraci funkci cosinus z cisla angle
+    16: float cos( float angle );
+
+    // vraci odmocninu z cisla f
+    17: float sqrt( float f );
+}
+
+
+//
+// PREDDEFINOVANE HLAVICKY NOTIFIKACI
+//
+event GAME_INITIALIZED();
+event INFERIOR_CREATED( Unit inferior);
+event INFERIOR_ADDED( Unit inferior);
+event INFERIOR_REMOVED( Unit inferior);
+event COMMANDER_CHANGED();
+event UNIT_DIED( Position pos);
+event ENEMY_UNIT_SEEN( Unit u);
+event ENEMY_UNIT_SEEN_BY_CIVILIZATION( Unit u);
+event ENEMY_UNIT_DISAPPEARED( Unit u);
+event SYSTEM_UNIT_SEEN( Unit u);
+event SYSTEM_UNIT_SEEN_BY_CIVILIZATION( Unit u);
+event SYSTEM_UNIT_DISAPPEARED( Unit u);
+event UNIT_BEING_ATTACKED( Unit u, int damage );
+event TIMER( int nTimerID, int nActualTimeSlice );
+
+
+//
+// SKILY
+//
+
+// obsolete
+//
+// SExampleSkill
+//
+/*
+noinstances object SExampleSkill
+{
+0: bool IsActive();
+1: String GetName();
+2: void Start( int a);
+3: void Stop( int a);
+}
+*/
+
+//
+// Move skill
+//
+noinstances object SMoveSkill
+{
+    /*
+        vysledky vsech metod Go...()
+            0  dorazili jsme do pozadovaneho cile
+           -1  cil je nejaky nesmysl (spatny parametr)
+            1  cesta vubec neexistuje
+            2  cesta existuje, ale momentalne je blokovana
+    */
+
+    // vraci true, pokud je skila aktivni
+    0: bool IsActive();
+
+    // vraci jmeno skily
+    1: String GetName();
+
+    // dojde/doleti s jednotkou na pozici se souradnicemi x a y
+    2: int Go(int x, int y);
+
+    // vraci rychlost pohybu
+    3: int GetSpeed();
+
+    // dojde/doleti s jednotkou na pozici pos
+    4: int GoPos(Position pos);
+
+    // dojde/doleti s jednotkou do vzdalenosti distance od pozice se souradnicemi x a y
+    5: int GoCloseTo(int x, int y, int distance);
+
+    // dojde/doleti s jednotkou do vzdalenosti distance od pozice pos
+    6: int GoCloseToPos(Position pos, int distance);
+}
+
+//
+// Make skill
+//
+noinstances object SMakeSkill
+{
+    // vraci true, pokud je skila aktivni
+    0: bool IsActive();
+
+    // vraci jmeno skily
+    1: String GetName();
+
+    // vyrobi jednotku typu unitType se skriptovym typem striptName a priradi
+    // ji veliteli commander
+    2: Unit Make(String unitType, String scriptName, Unit commander);
+
+    // vraci kolik stoji vytvoreni jednotky typu unitType
+    3: Resources GetCost(String unitType);
+}
+
+//
+// BulletAttack skill
+//
+noinstances object SBulletAttackSkill
+{
+    // vraci true, pokud je skila aktivni
+    0: bool IsActive();
+
+    // vraci jmeno skily
+    1: String GetName();
+
+    // ???
+    2: Unit{} GetAttackableUnits();
+
+    // vraci true, pokud je mozno na jednotku enemy utocit
+    3: bool CanAttackUnit(Unit enemy);
+
+    // ???
+    4: int GetAttackInteractionsMask();
+
+    // vraci polomer, ve kterem jednotka muze utocit na jine jednotky (dosah utoku)
+    5: int GetAttackRadius();
+
+    // ???
+    6: int GetAttackAltMin();
+
+    // ???
+    7: int GetAttackAltMax();
+
+    // zautoci na jednotku enemy
+    8: bool Fire(Unit enemy);
+}
+
+//
+// BulletDefence skill
+//
+noinstances object SBulletDefenseSkill
+{
+    // vraci true, pokud je skila aktivni
+    0: bool IsActive();
+
+    // vraci jmeno skily
+    1: String GetName();
+
+    // ???
+    2: int GetDefenseInteractionsMask();
+
+    // ???
+    3: int QueryDefense(int nAttackIntensity, int nInteractionsMask);
+}
+
+//
+// Mine skill
+//
+noinstances object SMineSkill
+{
+    // vraci true, pokud je skila aktivni
+    0: bool IsActive();
+
+    // vraci jmeno skily
+    1: String GetName();
+
+    // zacne tezit jednotku mine, vraci false, pokud se nenatezilo vubec nic
+    2: bool Mine(Unit mine);
+
+    // vylozi natezeny material do jednotky storage, vraci false, pokud se neunloadlo vubec nic
+    3: bool Unload(Unit storage);
+
+    // vraci aktualne natezene resourcy jednotky
+    4: Resources GetResources();
+
+    // obsolete
+    5: void SetMode(int mode);
+
+    // vraci celkovou kapacitu jednotky
+    6: Resources Capacity();
+
+    // vraci true, pokud je jednotka uplne prazdna
+    7: bool IsEmpty();
+
+    // vraci true, pokud je jednotka uplne plna
+    8: bool IsFull();
+}
+
+//
+// Resource skill
+//
+noinstances object SResourceSkill
+{
+    // vraci true, pokud je skila aktivni
+    0: bool IsActive();
+
+    // vraci jmeno skily
+    1: String GetName();
+
+    // ??? vraci zdroje jednotky
+    2: Resources GetResources();
+}
+
+//
+// Storage skill
+//
+noinstances object SStorageSkill
+{
+    // vraci true, pokud je skila aktivni
+    0: bool IsActive();
+
+    // vraci jmeno skily
+    1: String GetName();
+}

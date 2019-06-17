@@ -1,0 +1,31 @@
+// Jednotky, do kterych lze vykladat krystaly
+unit BaseUnit extends BuildingUnit
+{
+	
+  notification UNIT_BEING_ATTACKED(Unit enemy, int damage) 
+  {
+    // Hmm, utoci na nas nepritel, poprve
+	  if(!m_bAttacked) {
+	    // Stavime novou bazi
+	    m_bAttacked=true;
+	    StartupCommander sc=GetGeneralCommander();
+	    sc.Build.BuildUnit("Base", sc.Build);
+		}
+	}
+
+	// Vrati nejblizsi krystal k bazi
+	Unit GetClosestResource() 
+	{
+		StartupCommander sc=GetGeneralCommander();
+		if(!IsAlive(m_ClosestResource)) {
+			m_ClosestResource=GetClosestUnit(sc.Mining.resources, GetPosition());
+		}
+		return m_ClosestResource;
+	}
+
+  // Bylo jiz na mne utoceno?
+	bool m_bAttacked;
+
+	// Nejblizsi krystal k bazi
+	Unit m_ClosestResource;
+}

@@ -1,0 +1,9 @@
+unit StartupCommander
+{
+
+notification GAME_INITIALIZED()
+{
+  WriteToLog("Simple scriptset started");
+}
+
+}

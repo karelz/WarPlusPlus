@@ -1,0 +1,66 @@
+20001216@0200 Ziki
+
+opravil jsem ti bugu v MineSkille - pretypovaval jsi BOOL a bool - a ukladal jsi to na disk, ale ono to neni to samy!!!
+Takze to hnusne padalo na corrupt heap!!! - plz, prekontroluj VSUDE bool a BOOL konverzi, obzvalste v ukladani na disk!!!
+
+20001208@2155 Helena
+
+Nekde se mi (asi) zacykli AppendDir po prekladu source safu.
+Az se to doho pustis, tak ti to ukazu a dam ti zdrojak, co to dela.
+
+20001207@1210 Ziki
+
+- jak to, ze CSStorageSkillType neschovava u jednotky ukazatel na CISysCallStorage
+  Tady je to bud strasne spatne napsany, nebo se ten syscall nepouziva, nebo tomu nerozumim
+  Prosim vysvetlit!!!
+
+> vysvetleno doufam dostatecne pres e-mail
+
+
+20001207@0100 Ziki
+
+- chyba v MineSkille - v pouzivani SetMode na serveru - pouziti viz konzultace a komentar hlavicky funkce
+
+
+20001207@0050 Ziki
+
+MapEditor - hrál jsem si s mapou, nechal jsem zoptimalizovat knihovny, hrál jsem si dál (tj. vytváøel jsem ji) a pak mi to žuchlo takhle na Access Violation
+knihovna Grass.mlb obsahuje 2 Mapexy
+
+m_pCommon = m_pMappedFile = m_pRootDirectory = m_pChache = NULL
+m_dwThreadID = 358
+
+CDataArchiveInfo={"C:\Ziki\TheGame\Maps\MiniMap\Grass.mlb"}
+m_bOpened	0
+m_eArchiveType	archiveFile
+m_nCreatedFiles	0
+m_bDestructorRunning	1
+m_dwFlags	2
+m_Mutex	{CMutex}
+m_nPointerCounter	0
+
+CDataArchiveFile::~CDataArchiveFile() line 43 + 6 bytes
+CDataArchiveFile::`scalar deleting destructor'(unsigned int 1) + 37 bytes
+CDataArchiveInfo::DetachFromDataArchive(CDataArchive * 0x005eb644 {CDataArchive}) line 229 + 33 bytes
+CDataArchive::Delete() line 267
+CDataArchive::~CDataArchive() line 138
+CEMapexLibrary::~CEMapexLibrary() line 33 + 45 bytes
+CEMapexLibrary::`scalar deleting destructor'(unsigned int 1) + 37 bytes
+CEMap::Delete(CProgressCtrl * 0x0012f804 {CProgressCtrl hWnd=0x01e10682}) line 771 + 33 bytes
+CMainFrame::FinishMap(int 0) line 507
+CMainFrame::OnFileFinish() line 387
+_AfxDispatchCmdMsg(CCmdTarget * 0x005d2430 {CMainFrame hWnd=0x000b079c}, unsigned int 32846, int 0, void (void)* 0x00401479 CMainFrame::OnFileFinish(void), void * 0x00000000, unsigned int 12, AFX_CMDHANDLERINFO * 0x00000000) line 88
+CCmdTarget::OnCmdMsg(unsigned int 32846, int 0, void * 0x00000000, AFX_CMDHANDLERINFO * 0x00000000) line 302 + 39 bytes
+CFrameWnd::OnCmdMsg(unsigned int 32846, int 0, void * 0x00000000, AFX_CMDHANDLERINFO * 0x00000000) line 898 + 24 bytes
+CWnd::OnCommand(unsigned int 32846, long 0) line 2088
+CFrameWnd::OnCommand(unsigned int 32846, long 0) line 321
+CWnd::OnWndMsg(unsigned int 273, unsigned int 32846, long 0, long * 0x0012fd98) line 1597 + 28 bytes
+CWnd::WindowProc(unsigned int 273, unsigned int 32846, long 0) line 1585 + 30 bytes
+AfxCallWndProc(CWnd * 0x005d2430 {CMainFrame hWnd=0x000b079c}, HWND__ * 0x000b079c, unsigned int 273, unsigned int 32846, long 0) line 215 + 26 bytes
+AfxWndProc(HWND__ * 0x000b079c, unsigned int 273, unsigned int 32846, long 0) line 368
+AfxWndProcBase(HWND__ * 0x000b079c, unsigned int 273, unsigned int 32846, long 0) line 220 + 21 bytes
+USER32! 77e71820()
+
+------------------------------------------------------------------------------
+
+1) ... cosi se Save/Load hry -- blbnou DPCcka -- cislo 512, no vsak ty vis...

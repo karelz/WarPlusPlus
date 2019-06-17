@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Objekt Position</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="11d-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11d-systemove_objekty.html#sysobj_set">Množina</a>
+<b>|</b>
+<a href="11f-systemove_objekty.html#sysobj_map">Objekt <code>Map</code></a>
+<a href="11f-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="sysobj_position">Objekt <code>Position</code></h2>
+<p>Objekt <code>Position</code> reprezentuje pozici na mapě. To znamená souřadnice x a y v mapcellech a výšku jednotky (souřadnice z).</p>
+
+<h3>Datové položky</h3>
+<pre class="hlavicka">int x</pre>
+<p>Souřadnice <code>x</code> pozice na mapě.</p>
+<pre class="hlavicka">int y</pre>
+<p>Souřadnice <code>y</code> pozice na mapě.</p>
+<pre class="hlavicka">int z</pre>
+<p>Souřadnice <code>z</code>, výška jednotky.</p>
+
+<h3>Metody</h3>
+<pre class="hlavicka">int GetDistancePos ( Position pos )</pre>
+<p>Vrací vzdálenost pozice od pozice zadané jiným objektem <code>pos</code> typu <code>Position</code>.</p>
+<pre class="hlavicka">int GetDistance ( int x, int y )</pre>
+<p>Vrací vzdálenost pozice od pozice zadané souřadnicemi <code>x</code> a <code>y</code>.</p>
+<pre class="hlavicka">bool IsOnMap ()</pre>
+<p>Vrací <code>true</code>, pokud je pozice platnou pozicí na mapě, jinak vrací <code>false</code>. Platná pozice na mapě je pozice uvnitř mapy, neplatnou pozici můžou vrátit některé systémové funkce, pokud nelze požadovanou informaci zjistit, a nebo pokud ji nějaký skript vyrobí.</p>
+
+<p class="odkaz">
+<a href="11d-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11d-systemove_objekty.html#sysobj_set">Množina</a>
+<b>|</b>
+<a href="11f-systemove_objekty.html#sysobj_map">Objekt <code>Map</code></a>
+<a href="11f-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

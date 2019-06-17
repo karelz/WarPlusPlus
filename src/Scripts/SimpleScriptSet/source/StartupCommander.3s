@@ -1,0 +1,54 @@
+unit StartupCommander extends Unit 
+{
+  // velitel pruzkumníku
+  Unit m_cmdExplorer;
+
+  // Seznam zakladen
+  Unit m_bases{};
+
+Unit GetClosestBase(Position pos)
+{
+  Unit u;
+  Unit base=null;
+  int minDist=1E6;
+  int dist;
+  for(u in m_bases) {
+    dist=pos.GetDistancePos(u.GetPosition());
+    if(dist<minDist) {
+      minDist=dist;
+      base=u;
+    }
+  }
+  return base;
+}
+
+notification GAME_INITIALIZED () 
+{
+  Unit us{};
+  us = GetInferiorUnits ();
+  Unit b{};
+  m_bases=b;
+
+  WriteToLog("Game initialized");
+
+  m_cmdExplorer = CreateCommander ( "VelitelPruzkumniku" );
+
+  Unit u;
+  for ( u in us )
+  {
+    if ( u.GetUnitTypeName () == "Explorer" )
+    {
+      WriteToLog("Changing commander to VelitelPruzkumniku");
+      u.ChangeCommander ( m_cmdExplorer );
+    }
+    else
+    {
+      u.ChangeScript ( "Jednotka" );
+      if( u.GetUnitTypeName () == "Base" ) {
+        m_bases+=u;
+      }
+    }
+  }
+}
+
+}

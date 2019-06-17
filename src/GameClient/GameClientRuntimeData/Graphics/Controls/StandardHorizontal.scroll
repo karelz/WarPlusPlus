@@ -1,0 +1,41 @@
+# Scroll Part
+
+Passive_Top = "ScrollBar\PLeft.tga";
+Passive_Middle = "ScrollBar\PEmptyHor.tga";
+Passive_Bottom = "ScrollBar\PRight.tga";
+Passive_Button_Top = "ScrollBar\PBarLeft.tga";
+Passive_Button_Middle = "ScrollBar\PBarMidHor.tga";
+Passive_Button_Bottom = "ScrollBar\PBarRight.tga";
+
+Active_Top = "ScrollBar\ALeft.anim";
+Active_Middle = "ScrollBar\AEmptyHor.tga";
+Active_Bottom = "ScrollBar\ARight.anim";
+Active_Button_Top = "ScrollBar\ABarLeft.tga";
+Active_Button_Middle = "ScrollBar\ABarMidHor.tga";
+Active_Button_Bottom = "ScrollBar\ABarRight.tga";
+
+#Active_Top = "ScrollBar\ScrollLa.tga";
+#Active_Middle = "ScrollBar\ScrollMHa.tga";
+#Active_Bottom = "ScrollBar\ScrollRa.tga";
+#Active_Button_Top = "ScrollBar\ScrollButLa.tga";
+#Active_Button_Middle = "ScrollBar\ScrollButMHa.tga";
+#Active_Button_Bottom = "ScrollBar\ScrollButRa.tga";
+
+Pressed_Top = "ScrollBar\PsLeft.tga";
+Pressed_Middle = "ScrollBar\PsEmptyHor.tga";
+Pressed_Bottom = "ScrollBar\PsRight.tga";
+Pressed_Button_Top = "ScrollBar\PsBarLeft.tga";
+Pressed_Button_Middle = "ScrollBar\PsBarMidHor.tga";
+Pressed_Button_Bottom = "ScrollBar\PsBarRight.tga";
+
+#Pressed_Top = "ScrollBar\ScrollLp.tga";
+#Pressed_Middle = "ScrollBar\ScrollMHp.tga";
+#Pressed_Bottom = "ScrollBar\ScrollRp.tga";
+#Pressed_Button_Top = "ScrollBar\ScrollButLp.tga";
+#Pressed_Button_Middle = "ScrollBar\ScrollButMHp.tga";
+#Pressed_Button_Bottom = "ScrollBar\ScrollButRp.tga";
+
+Top_ButtonSize = 20;
+Bottom_ButtonSize = 20;
+
+MinButtonSize = 12;

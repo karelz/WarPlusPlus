@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Uživatelské nastavení toolbarů</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../hlina.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="02-sekce.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="02-sekce.html#">Sekce</a>
+</p>
+
+<h2 id="funkce_pro_jedno_tlacitko">Funkce pro jedno tlačítko</h2>
+
+<p>Funkčnost každého tlačítka zajišťuje globální funkce v jazyce <b>TripleS</b>. Napsaná může být v libovolném zdrojovém souboru a stačí pouze tento soubor přeložit a aktualizovat. Poté je funkce dostupná pro spuštění z toolbaru. Každá takováto funkce má standardní hlavičku:</p>
+<pre>
+void FuncName ( Client client, Unit selectedunits{},
+                &lt;any additional parameters&gt; )
+
+</pre>
+<ul>
+<li><code><b>client</b></code> je objekt reprezentující klienta, který funkci spustil. Pomocí tohoto objektu se funkce může uživatele interaktivně ptát nebo mu posílat textové zprávy. Podrobnosti viz dokumentace k systémovému objektu <a href="../TripleS/11h-systemove_objekty.html#sysobj_client">Client</a>.</li>
+<li><code><b>selectedunits</b></code> je množina jednotek, které byly na klientovi vybrány při spuštění funkce.</li>
+<li>a pak přídavné parametry definované v sekci jednoho tlačítka.</li>
+</ul>
+
+<p>Pro psaní funkce, platí následující pořadí operací:</p>
+<ul>
+<li><b>Zpracování parametrů</b> - sem patří kontrola parametrů a tak podobně, případnou chybu lze hlásit buď do logu funkcí <code><a href="../TripleS/12-systemove_globalni_funkce.html#WriteToLog">WriteToLog</a></code>, nebo posláním zprávy klientovi funkcí <code><a href="../TripleS/11h-systemove_objekty.html#MessageInfo">Client::Message...()</a></code>.</li>
+<li><b>Dotazy na klienta</b> - zjištění dodatečných hodnot pro spuštění funkce. Například funkce pro pohyb jednotek se zde zeptá na pozici na mapě, kam mají jednotky dojít.</li>
+<li><b>Ukončení práce s klientem</b> - To znamená, že funkce už nebude potřebovat žádné vstupy od klienta. Tato akce se provádí voláním funkce <code><a href="../TripleS/11h-systemove_objekty.html#CloseUserInput">Client::CloseUserInput</a></code>. Po zavolání této funkce se klient uvede do stavu, kdy může spouštět další funkce. Objekt klienta, který funkce dostala v parametru se přepne do režimu, kdy jsou povoleny pouze funkce, které nepotřebují ke svému běhu klienta, protože klient se může v tuto chvíli odpojit. Jediné funkce, které budou dál fungovat jsou funkce pro posílání zpráv (pokud klient není připojen, zpráva se zahodí)</li>
+<li><b>Libovolná akce, bez použití objektu klienta</b> - Funkce pak typicky provede požadovanou akci, při které může klidně volat i čekací metody a tak podobně. Jediné omezení je, že nesmí volat metody na objektu <code><a href="../TripleS/11h-systemove_objekty.html#sysobj_client">Client</a></code>, které vyžadují připojeného klienta.</li>
+</ul>
+<p>Dokud funkce nezavolá metodu <code><a href="../TripleS/11h-systemove_objekty.html#CloseUserInput">Client::CloseUserInput</a></code>, může být v libovolnou chvíli ukončena. To může nastat pokud se klient odpojí, nebo pokud ho odpojí administrátor ze serveru, nebo pokud dojde k chybě v síťovém spojení. Funkce by s tím měla počítat, a nespouštět žádné akce, které potřebují nějaký úklid a podobně.</p>
+<p>Pokud funkce vůbec nezavolá metodu <code><a href="../TripleS/11h-systemove_objekty.html#CloseUserInput">Client::CloseUserInput</a></code>, tato se automaticky zavolá na konci funkce.</p>
+
+<p>Pro skrytá tlačítka, jako jsou například ty co jsou spouštěna při pravém kliku, je hlavička funkce trochu odlišná.</p>
+<ul>
+<li><b>Funkce použitá v sekci <code>RightClickPosition</code></b> má hlavičku:
+<pre>
+void FuncName ( Client client, Unit selectedunits{},
+                Position clickedposition,
+                &lt;any additional parameters&gt; )
+</pre>
+Parametr <b><code>clickedposition</code></b> obsahuje pozici na mapě, na kterou uživatel kliknul pravým tlačítkem. Všechny ostatní parametry mají stejný význam jako u normálního tlačítka.</li>
+<li><b>Funkce použitá v sekci <code>RightClickMyUnit</code> a <code>RightClickEnemyUnit</code></b> má hlavičku:
+<pre>
+void FuncName ( Client client, Unit selectedunits{},
+                Unit clickedunit,
+                &lt;any additional parameters&gt; )
+</pre>
+Parametr <b><code>clickedunit</code></b> obsahuje jednotku, na kterou uživatel kliknul pravým tlačítkem. Všechny ostatní parametry mají stejný význam jako u normálního tlačítka.</li>
+</ul>
+
+<p class="odkaz">
+<a href="02-sekce.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="02-sekce.html#">Sekce</a>,
+</p>
+
+</body>
+</html>

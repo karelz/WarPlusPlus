@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Objekt Map</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="11e-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11e-systemove_objekty.html#sysobj_position">Objekt <code>Position</code></a>
+<b>|</b>
+<a href="11h-systemove_objekty.html#sysobj_client">Objekt <code>Client</code></a>,
+<a href="11h-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="sysobj_map">Objekt <code>Map</code></h2>
+<p>Pomocí objektu <code>Map</code> lze přistupovat na mapu hry. Každá instance objektu <code>Map</code> odkazuje na stejnou a jedinou mapu hry. Objekt typu <code>Map</code> lze získat buď vyrobením proměnné typu <code>Map</code>, nebo ho vrací globální funkce <a href="12-systemove_globalni_funkce.html"><code>GetMap</code></a>.</p>
+
+<h3>Metody</h3>
+<pre class="hlavicka">
+Unit {} GetMyUnitsInArea ( int x, int y,
+                           int radius )
+</pre>
+<p>Vrátí množinu jednotek, které patří k uživatelově civilizaci a které se nacházejí na mapě v kruhu se středem zadaným souřadnicemi <code>x</code> a <code>y</code> a poloměrem <code>radius</code>.</p>
+
+<pre class="hlavicka">
+Unit {} GetEnemyUnitsInArea ( int x, int y,
+                              int radius )
+</pre>
+<p>Vrátí množinu jednotek, které patří k nepřátelským civilizacím a které se nacházejí na mapě v kruhu se středem zadaným souřadnicemi <code>x</code> a <code>y</code> a poloměrem <code>radius</code>.</p>
+
+<pre class="hlavicka">
+Unit {} GetAllUnitsInArea ( int x, int y,
+                            int radius )
+</pre>
+<p>Vrátí množinu všech jednotek, které se nacházejí na mapě v kruhu se středem zadaným souřadnicemi <code>x</code> a <code>y</code> a poloměrem <code>radius</code> (tzn. jednotky, které patří k uživatelově nebo k nepřátelským civilizacím).</p>
+
+<p class="odkaz">
+<a href="11e-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11e-systemove_objekty.html#sysobj_position">Objekt <code>Position</code></a>
+<b>|</b>
+<a href="11h-systemove_objekty.html#sysobj_client">Objekt <code>Client</code></a>,
+<a href="11h-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

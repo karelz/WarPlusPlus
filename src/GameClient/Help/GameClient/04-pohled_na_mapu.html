@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>GameClient - uživatelská dokumentace</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../trava.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>GameClient - uživatelská dokumentace</h1>
+
+<h2 id="pohled">Pohled na mapu</h2>
+
+<p>Po úspěšném připojení klient zobrazí pohled na mapu přes celou obrazovku. Ovládací panely a lišty se zobrazují nad tímto pohledem. Protože mapa je typicky mnohonásobně větší než obrazovka, je zobrazen pouze výřez pohledu, kterým je možné po mapě pohybovat. To je možné udělat umístěním kurzoru myši na okraj obrazovky ve směru, kterým uživatel výřez posunout.</p>
+<p>Kromě posunů umožňuje pohled na mapu vybírat jednotky klepnutím. Klepnutí mimo jednotku zruší aktuální výběr. Pokud uživatel potřebuje vybrat více jednotek, je možné k výběru přidávat pomocí klávesy <code>shift</code> a klepnutí myší. Jednou vybrané jednotky lze stejnou metodou z výběru odstranit.</p>
+<p>Klepnutím a tažením myši je možné vybrat jednotky v obdélníkové oblasti. Pokud klepnete na přátelskou jednotku, budou se tímto způsobem vybírat jenom přátelské jednotky, pokud klepnete na nepřátelskou, budou to pouze nepřátelské. I při vybírání oblasti funguje klávesa <code>shift</code>. Najednou nesmí být vybrány zároveň přátelské i nepřátelské jednotky.</p>
+<table>
+<tr>
+    <td><img src="Obrazky\NevybranaJednotka.png" alt="Nevybrana jednotka" /></td>
+    <td><img src="Obrazky\VybranaJednotka.png" alt="Vybrana jednotka" /></td>
+</tr>
+<tr>
+    <td><i>Nevybraná jednotka</i></td>
+    <td><i>Vybraná jednotka</i></td>
+</tr>
+</table>
+
+<h2 id="minimapa">Minimapa</h2>
+<p>Pro snadnější orientaci na mapě slouží okno minimapy. To obsahuje zmenšený pohled na mapu a jednotky, zbavený detailů. Jednotlivé barvy na mapě znázorňují různé typy terénu (tráva, písek, voda, láva). Malé barevné tečky zobrazují jednotlivé jednotky. Každá z nich má barvu své civilizace.</p>
+<p><img class="samostatny" src="Obrazky\Minimapa.png" alt="Minimapa" /></p>
+<p>Minimapa může zobrazovat náhled v několika různých zmenšeních (2x, 4x, 8x a 16x), která se přepínají tlačítky <code>+</code> a <code>-</code>. Kromě toho zobrazuje umístění aktuálně zobrazovaného výřezu mapy a umožňuje s ním pohybovat. Pokud okno minimapy zavřete, je možné jej znovu vyvolat pomocí ikony na liště v pravém dolním rohu obrazovky.</p>
+<p><img class="samostatny" src="Obrazky\IkonaMinimapy.png" alt="Ikona minimapy"/></p>
+
+</body>
+</html>

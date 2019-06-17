@@ -1,0 +1,3 @@
+Passive = "PClose.tga";
+Active = "AClose.tga";
+Pressed = "PsClose.tga";

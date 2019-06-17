@@ -1,0 +1,3 @@
+Passive = "CloseButton\Passive.tga";
+Active = "CloseButton\Active.anim";
+Pressed = "CloseButton\Pressed.tga";

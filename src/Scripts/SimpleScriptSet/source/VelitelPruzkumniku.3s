@@ -1,0 +1,63 @@
+unit VelitelPruzkumniku extends Velitel
+{
+
+notification INFERIOR_ADDED ( Unit u ) 
+{
+  WriteToLog("Inferior added");
+  if ( u.GetUnitTypeName () != "Explorer" )
+  {
+    WriteToLog ( "Veliteli pruzkumníku " + Name + " byla prirazena jednotka " + u.Name + 
+      " (typu " + u.GetUnitTypeName () + ") - ocekává se jednotka typu Explorer." );
+    return;
+  }
+
+  if ( !u.EmptyCommandQueue (true) )
+  {
+    WriteToLog ( "Veliteli pruzkumníku " + Name + " byla prirazena jednotka " + u.Name + 
+      " (typu " + u.GetUnitTypeName () + ") - ale jednotka mu již nepatrí!" );
+    return;
+  }
+
+  if ( !u.ChangeScript ( "Pruzkumnik" ) )
+  {
+    WriteToLog ( "Jednotce " + u.Name + " (typu " + u.GetUnitTypeName () + 
+      ") nelze zmenit skript!" );
+    return;
+  }
+}
+
+// reakce na zadost o pomoc
+notification PLEASE_HELP ( Unit uMyUnit ) 
+{
+  // posleme si sami sobe prikaz k pomoci
+  EmptyCommandQueue (true);
+
+  this <- HELP ( uMyUnit );
+}
+
+// reakce na prikaz k pomoci jine jednotce
+// vezme vsechny sve jednotky a posle je na to misto hlidkovat
+command HELP ( Unit uMyUnit ) 
+{
+  Unit MyUnits{};
+  MyUnits = GetInferiorUnits ();
+
+  // poslat je na to misto
+  sendto ( MyUnits )
+  {
+    MOVE ( uMyUnit.GetPosition () );
+  }
+
+  // A kazde jednotce poslat prikaz k hlidkovani
+  Unit u;
+  for ( u in MyUnits )
+  {
+    Position pos;
+    pos.x = uMyUnit.GetPosition ().x + RandomInt ( 11 ) - 5;
+    pos.y = uMyUnit.GetPosition ().y + RandomInt ( 11 ) - 5;
+
+    u <- CIRCLE ( pos, RandomInt ( 10 ) );
+  }
+}
+
+}

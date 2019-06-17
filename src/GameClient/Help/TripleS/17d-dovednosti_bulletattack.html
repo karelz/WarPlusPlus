@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Dovednost BulletAttack</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="17c-dovednosti_make.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="17c-dovednosti_make.html#dovednost_make">Dovednost <code>Make</code></a>
+<b>|</b>
+<a href="17e-dovednosti_bulletdefense.html#dovednost_bulletdefense">Dovednost <code>BulletDefense</code></a>
+<a href="17e-dovednosti_bulletdefense.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="dovednost_bulletattack">Dovednost <code>BulletAttack</code></h2>
+<p>Umožňuje jednotce útočit na nepřátelské jednotky.</p>
+
+<h3>Metody</h3>
+
+<pre class="hlavicka">bool IsActive ()</pre>
+<p>Vrátí <code>true</code> pokud je dovednost aktivní.</p>
+
+<pre class="hlavicka">String GetName ()</pre>
+<p>Vrátí jméno dovednosti.</p>
+
+<pre class="hlavicka">Unit {} GetAttackableUnits ()</pre>
+<p>Vrátí množinu všech jednotek, na které může jednotka v danou chvíli útočit.</p>
+
+<pre class="hlavicka">bool CanAttackUnit ( Unit enemy )</pre>
+<p>Vrátí <code>true</code> pokud jednotka, může útočit na zadanou jednotku nepřítele <code>enemy</code>. Pokud na jednotku nelze útočit, vrátí <code>false</code>.</p>
+
+<pre class="hlavicka">int GetAttackInteractionsMask ()</pre>
+<p>Vrátí interakce, kterými je jednotka schopna útočit.</p>
+
+<pre class="hlavicka">int GetAttackRadius ()</pre>
+<p>Vrátí maximální vzdálenost, na kterou je jednotka schopna útočit.</p>
+
+<pre class="hlavicka">int GetAttackAltMin ()</pre>
+<p>Vrátí minimální výšku jednotek, na které je jednotka schopna útočit.</p>
+
+<pre class="hlavicka">int GetAttackAltMax ()</pre>
+<p>Vrátí maximální výšku jednotek, na které je jednotka schopna útočit.</p>
+
+<pre class="hlavicka">bool Fire ( Unit enemy )</pre>
+<p>Zaútočí na nepřátelskou jednotku <code>enemy</code>. Vrátí <code>true</code> pokud se povedlo jednotku zabít. Pokud se z nějakého důvodu nepovede jednotku zabít, tak vrátí <code>false</code>.</p>
+
+<p class="odkaz">
+<a href="17c-dovednosti_make.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="17c-dovednosti_make.html#dovednost_make">Dovednost <code>Make</code></a>
+<b>|</b>
+<a href="17e-dovednosti_bulletdefense.html#dovednost_bulletdefense">Dovednost <code>BulletDefense</code></a>
+<a href="17e-dovednosti_bulletdefense.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

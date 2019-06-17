@@ -1,0 +1,41 @@
+# Frame window part
+Passive_Bottom = "BlackHorizontal.tga";
+Passive_BottomLeft = "BlackCorner.tga";
+Passive_BottomRight = "BlackCorner.tga";
+Passive_Middle_Color = 0x0000000;
+Passive_Left = "BlackVertical.tga";
+Passive_Right = "BlackVertical.tga";
+Passive_Top = "BlackHorizontal.tga";
+Passive_TopLeft = "BlackCorner.tga";
+Passive_TopRight = "BlackCorner.tga";
+
+Active_Bottom = "BlackHorizontal.tga";
+Active_BottomLeft = "BlackCorner.tga";
+Active_BottomRight = "BlackCorner.tga";
+Active_Middle_Color = 0x0000000;
+Active_Left = "BlackVertical.tga";
+Active_Right = "BlackVertical.tga";
+Active_Top = "BlackHorizontal.tga";
+Active_TopLeft = "BlackCorner.tga";
+Active_TopRight = "BlackCorner.tga";
+
+MinimalSize_X = 10;
+MinimalSize_Y = 10;
+
+# ListBox part
+ScrollControl = "UnitListVertical.scroll";
+
+Font = "..\..\Fonts\Mini.fnt";
+
+LeftMargin = 2;
+RightMargin = 1;
+TopMargin = 1;
+BottomMargin = 1;
+
+Normal_TextColor = 0x0C0C0C0;
+Selected_TextColor = 0x0F0F0F0;
+Focus_TextColor = 0x0FFFF40;
+SelectedFocus_TextColor = 0x0FFFF40;
+
+Selection = "Selection.tga";
+SelectionFocus = "Selection.tga";

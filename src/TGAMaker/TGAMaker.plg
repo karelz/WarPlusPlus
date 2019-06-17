@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: TGAMaker - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "D:\TEMP\RSP121.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"Release/TGAMaker.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"E:\Projects\TheGame\Utilities\TGAMaker\TGAMakerDlg.cpp"
+]
+Creating command line "cl.exe @D:\TEMP\RSP121.tmp" 
+Creating temporary file "D:\TEMP\RSP122.tmp" with contents
+[
+ddraw.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/TGAMaker.pdb" /machine:I386 /out:"Release/TGAMaker.exe" 
+.\Release\ColorView.obj
+.\Release\ImageReader2.obj
+.\Release\PreviewWindow.obj
+.\Release\StdAfx.obj
+.\Release\TGAMaker.obj
+.\Release\TGAMakerDlg.obj
+.\Release\TGAReader2.obj
+.\Release\TIFFReader2.obj
+.\Release\TGAMaker.res
+.\DirectX\Release\DirectX.lib
+]
+Creating command line "link.exe @D:\TEMP\RSP122.tmp"
+<h3>Output Window</h3>
+Compiling...
+TGAMakerDlg.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+TGAMaker.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

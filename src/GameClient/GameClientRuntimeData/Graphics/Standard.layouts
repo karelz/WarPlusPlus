@@ -1,0 +1,10 @@
+CaptionWindowLayout = "Windows\CaptionTransparent.window";
+DialogWindowLayout = "Windows\CaptionTransparent.window";
+EditBoxLayout = "Controls\Standard.editbox";
+ListControlLayout = "Controls\Standard.listctrl";
+VerticalScrollControlLayout = "Controls\StandardVertical.scroll";
+HorizontalScrollControlLayout = "Controls\StandardHorizontal.scroll";
+StaticTextLayout = "Controls\Standard.statictext";
+TextButtonLayout = "Controls\Standard.button";
+PopupMenuLayout = "Controls\Standard.menu";
+ToolTipLayout = "Controls\Standard.tooltip";

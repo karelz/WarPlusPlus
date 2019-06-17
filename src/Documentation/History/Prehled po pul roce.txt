@@ -1,0 +1,115 @@
+Softwarovy projekt - strategie
+------------------------------
+
+Cilem projektu je vytvoreni engine pro strategicke hry, ktery bude
+dostatecne obecny a snadno pouzitelny pro vytvoreni konkretnich her.
+
+Vlastni hra bude bezet na jednom pocitaci, serveru, ke kteremu se budou
+hraci pripojovat pomoci svych klientu pomoci TCP/IP.
+
+Server
+------
+
+Program bezici na serveru se bude skladat z nekolika casti, ktere budou
+realizovany jako samostatne procesy.
+
+1) startup
+
+Proces 'startup' na zacatku nainicializuje celou hru, dale bude umoznovat
+hracum pripojeni a odpojeni od hry.
+
+2) spravce databaze
+
+Dalsim procesem bude spravce databaze hry, ktery v sobe bude drzet data o
+hre. Tento program se bude starat o udrzeni konzistentniho stavu databaze.
+Bude mozne stav cele hry 'zamrazit'.
+
+3) civilizace
+
+K spravci databaze budou startupem pripojovany dalsi procesy nazyvane
+'civilizace'. Tyto procesy budou zprostredkovavat komunikaci s klienty a
+vykonavat prikazy uzivatele. Bude existovat moznost odpojeni klienta od
+hry, s tim, ze jeho 'civilizace' zustane pripojena. Hracova civilizace tak
+bude schopna pracovat autonomne do doby, nez se hrac znovu pripoji.
+Civilizace budou reprezentovat souperici entity, nicmene bude mozne, aby
+se nekolik hracu spojilo a hralo za jednu civilizaci kooperativne. To
+prinasi urcite problemy, napriklad jak si hraci rozdeli sve jednotky v ramci
+civilizace. Bude existovat moznost si jednotky predavat mezi sebou.
+
+Klienti
+-------
+
+Klienti budou programy bezici u hrace, ktere budou pres TCP/IP komunikovat s
+civilizacemi. Bude se jednat v podstate o vicemene 'hloupe' graficke
+rozhrani, veskera funkcnost bude soustredena v civilizacich. Na druhe
+strane, vlastni civilizace se nebude vubec starat o vizualizaci (napriklad
+nebude uvazovat animaci jednotek), takze bude mozne, aby na klientu kazdeho
+hrace hra vypadala uplne jinak. Klient dale umozni zadavat skripty pro hru,
+a jeho vzhled bude skripty ovlivnitelny.
+
+IPC
+---
+
+Protoze civilizace a databazovy server pobezi na jednom pocitaci,
+komunikace mezi nimi bude s vyhodou vyresena pomoci sdilene pameti.
+Frekvence prenaseni dat a jejich objemy budou v tomto pripade vysoke.
+Spravce databaze zajisti bezpecnost dat pomoci zamku.
+
+Komunikace s klienty pobezi po siti pres TCP/IP, to znamena, ze bude
+optimalizovana na objem. Prikazy z klientu budou civilizaci zasilany
+pomoci specialniho skriptovaciho jazyka. Zpatky pujdou jenom nejnutnejsi
+data, slouzici k aktualizaci obrazovky u hrace, pripadne dotazy od skriptu a
+podobne.
+
+Skriptovaci jazyk
+-----------------
+
+1) Rizeni civilizaci
+
+Civilizace budou v podstate interpretery skriptovaciho jazyka, pomoci
+ktereho bude mozno hru plne ovladat. Velka cast funkcnosti civilizaci bude
+naprogramovana v tomto vyssim jazyce, takze bude mozne zmenit chovani hry
+bez nutnosti rekompilace.
+
+2) Pouziti jazyka
+
+Skriptovaci jazyk bude pouzit jednak interne, pro potreby civilizace a
+komunikaci klient->civilizace, jednak jako jazyk, ve kterem si
+pokrocilejsi hrac bude moci prizpusobit funkci svych jednotek svym
+potrebam. Protoze hra bude moci bezet bez hrace, hraci si naprogramuji
+svou civilizaci a nechaji ji hrat autonomne, po dobu kdy jsou offline. Dale
+si bude hrac pomoci tohoto jazyka menit napriklad vzhled obrazovky na strane
+klienta, vytvaret nove ovladaci prvky, vytvaret interaktivni skripty a
+podobne.
+
+3) Skripty
+
+Skripty budou psany v nejakem intuitivnim jazyce, tak aby byly srozumitelne
+i hracum. Po napsani a odeslani se budou kompilovat do mezikodu, ktery
+umozni rychlejsi interpretovani. Original kodu se bude samozrejme take
+uchovavat, aby mel hrac moznost videt svuj kod po kompilaci v jeho puvodnim
+tvaru.
+
+4) Uzivatelske rozhrani
+
+Ackoliv bezne skripty pro rizeni jednotek budou pouze specifikovat, jak ma
+jednotka reagovat na udalosti, krome toho bude existovat moznost vytvaret
+interaktivni skripty, ktere budou komunikovat s uzivatelem, takze
+uzivatelske rozhrani na strane klienta bude mozne vytvorit ve skriptovacim
+jazyce a dat hraci moznost si je preprogramovat.
+
+5) Hierarchie skriptu
+
+Skripty budou hierarchicky usporadany podle stupne abstrakce do jednotlivych
+vrstev.  Techto vrstev muze byt obecne libovolne mnoho - zalezi na vuli
+hrace.. uvazujeme vsak asi jen o ctyrech vrstvach, od vrstvy pro absolutniho
+vladce civilizace, ktera bude delat globalni rozhodnuti, az po jednotlive
+jednotky. Vyssi vrstvy skriptu nebudou mit prirazenu zadnou viditelnou
+jednotku.
+
+Implementace
+------------
+
+Zaklad hry bude naprogramovan v C++ (MFC), zbytek pak v jejim vlastnim
+skriptovacim jazyce. Server pobezi pod Win95/98/NT. Klienti pobezi take pod
+Windows s vyuzitim DirectX.

@@ -1,0 +1,21 @@
+unit UserCommander extends AbstractCommander
+{
+  notification INFERIOR_ADDED(Unit u)
+  {
+    String tn=u.GetUnitTypeName();
+    switch(tn) {
+    case "Explorer":
+      u.ChangeScript("ExploringUnit");
+      break;
+    case "Jumper":
+    case "Boot":
+      u.ChangeScript("FightingUnit");
+      break;
+    case "Base":
+    case "Factory":
+    case "Builder":
+      u.ChangeScript("BuildingUnit");
+      break;
+    }
+  }
+}

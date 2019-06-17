@@ -1,0 +1,3 @@
+Passive = "ScriptEditorP.tga";
+Active = "ScriptEditorA.tga";
+Pressed = "ScriptEditorS.tga";

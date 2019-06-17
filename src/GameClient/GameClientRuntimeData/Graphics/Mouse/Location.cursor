@@ -1,0 +1,13 @@
+# Animation part
+FrameNum = 6;
+Speed = 50;
+Frame0 = "Location\Focus1.tga";
+Frame1 = "Location\Focus2.tga";
+Frame2 = "Location\Focus3.tga";
+Frame3 = "Location\Focus4.tga";
+Frame4 = "Location\Focus3.tga";
+Frame5 = "Location\Focus2.tga";
+
+# Cursor part
+HotSpot_X = 16;
+HotSpot_Y = 16;

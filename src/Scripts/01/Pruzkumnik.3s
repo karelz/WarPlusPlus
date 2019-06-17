@@ -1,0 +1,43 @@
+unit Pruzkumnik extends Jednotka
+{
+
+// Nahodne bloudi po mape
+command EXPLORE()
+{
+	while ( true )
+	{
+		Position posMe = GetPosition ( );
+
+		posMe.x = posMe.x + RandomInt ( 20 ) - RandomInt ( 10 );
+		posMe.y = posMe.y + RandomInt ( 20 ) - RandomInt ( 10 );
+	}
+}
+
+// reakce na prikaz PATROL
+// chodi s jednotkou mezi dvema body
+command PATROL(Position pos1, Position pos2)
+{
+	while ( true )
+	{
+		Move.Go ( pos1.x, pos1.y );
+
+		Move.Go ( pos2.x, pos2.y );
+	}
+}
+
+// Chodi s jednotkou v krouzku se stredem a nejakym polomerem
+command CIRCLE(Position posCenter, int nRadius)
+{
+	while ( true )
+	{
+		Move.Go ( posCenter.x + nRadius, posCenter.y );
+
+		Move.Go ( posCenter.x, posCenter.y + nRadius );
+
+		Move.Go ( posCenter.x - nRadius, posCenter.y );
+
+		Move.Go ( posCenter.x, posCenter.y - nRadius );
+	}
+}
+
+}

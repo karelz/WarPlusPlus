@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - definice proměnných, datových položek a parametrů</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Definice proměnných, datových položek a parametrů</h1>
+
+<p>Lokální proměnné lze definovat kdekoli v kódu v každém programovém bloku uzavřeném závorkami <code>{ }</code>. Datové položky jednotek a struktur se definují mimo programové bloky. Lokální proměnné i datové položky jsou inicializovány na nulu, <code>false</code>, resp. prázdný řetězec.</p>
+
+<h2 id="jednoducha">Jednoduchá definice</h2>
+
+<p>Jednoduchá definice je stejná jako v jazyce C++. Za jménem typu je čárkami oddělený seznam jmen proměnných (identifikátorů).</p>
+
+<p>Příklad jednoduché definice:</p>
+
+<pre>
+<b>int</b> i;
+<b>float</b> a, b;
+</pre>
+
+<h2 id="pole">Definice pole</h2>
+
+<p>Definice pole se také shoduje s definicí v jazyce C++. Za jménem typu je uveden identifikátor, za ním v hranatých závorkách velikost pole. Lze definovat i vícerozměrná pole. Stejně jako u jednoduché definice lze na jednom řádku definovat více proměnných typu pole.</p>
+
+<p>Příklad definice pole:</p>
+
+<pre>
+<b>int</b> a[10][20], b[5]; // dvou- a jednorozměrné pole celých čísel
+<b>String</b> s[10]; // pole deseti řetězců
+</pre>
+
+<h2 id="mnozina">Definice množiny</h2>
+
+<p>Množina se v <b>TripleS</b> definuje podobně jako pole. Za jménem typu, který chceme ukládat do množiny, je uveden identifikátor následovaný prázdnými složenými závorkami.</p>
+
+<p>Příklad definice množiny:</p>
+
+<pre>
+<b>int</b> a{}, b{};
+<b>String</b> s{};
+</pre>
+
+<h2 id="parametry">Parametry funkcí, metod a reakcí na zprávy</h2>
+
+<p>Parametry funkcí, metod, a reakcí na zprávy se definují podobně jako v C/C++.  Nejprve napíšeme typ parametru, poté jeho název. Parametry oddělujeme čárkami.</p>
+
+<p>Je-li parametr typu pole, používají se pouze prázdné závorky <code>[]</code> pro specifikaci dimenze pole, ale neudává se přesný počet buňek pole, tedy např. <code>int a[][]</code> pro dvourozměré pole.</p>
+
+<p>Parametr může být také typu množina s obvyklým zápisem &mdash; <code>float x{}</code>.</p>
+
+</body>
+</html>

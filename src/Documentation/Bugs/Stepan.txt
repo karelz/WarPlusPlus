@@ -1,0 +1,25 @@
+Explorer
+--------
+  - cilem je asi stin explorera uprostred "selection" krouzku, tomu nevyhovuje za letu smer vpravo a smer dolu,
+    smer vpravo nahoru pri stani / opraveno v anim. filech a v GrassMap
+    
+Jumper
+------
+  - pri skakani vlevo je jeden frame spatne / snad opraveno v GrassMap
+  - selection bych cekal uprostred jeho hlavy, hodne spatne je smer nahoru (pri stani), ostatni smery nic moc, smer vlevo je OK (snad diky chybe? ;-)
+  uz je to lepsi... ale chce to jeste dodelat.
+  
+Boot
+----
+  - pri chuzi vlevo ma spatne nastavene tolerance pro prebarvovani (viz prava baterie), nahoru, vpravo a dolu totez
+  - optimalni selection je tak, aby stal noahama primo uprostred ni (ted stoji na dolnim okraji trosku vlevo) / upraveno
+  v anim filech a v GrassMap
+  
+------------------------------------------------------------------------------
+
+200001104@0308 by Helena
+    Grafika Explorera - kdyz se da "hlidej" a on jezdi vodorovne mezi dvema bodama, tak
+    kdyz jede doleva tak jede niz nad svym stinem nez kdyz jede doprava. Tahle chyba viz chyba u Exploreru / upraveno
+    v anim filech a v GrassMap
+  
+  

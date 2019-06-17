@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - příkazy (3/3)</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="07b-prikazy.html"><img class="sipka" src="../cast-predchozi.png" alt="Další část" /></a>
+<a href="07b-prikazy.html#cykly">Cykly</a>
+</p>
+
+<h2 id="skoky">Skoky</h2>
+
+<p>Příkaz <code>break</code> ukončí nejbližší (vnitřní) cyklus <code>while</code>, <code>do</code>, <code>for</code>, nebo ukončí vykonávání posloupnosti příkazů v těle <code>switch</code>.</p>
+
+<p>Příkaz <code>continue</code> nastartuje další iteraci nejbližšího cyklu <code>while</code>, <code>do</code> nebo <code>for</code>. Ve všech případech se nejprve znovu vyhodnotí iterační podmínka.</p>
+
+<p>Příkaz <code>return</code> vrací řízení tomu, kdo vyvolal danou funkci nebo metodu, ve které se nachází příkaz <code>return</code>. U reakcí na zprávy nebo u přímo volaných globálních funkcí příkaz <code>return</code> ukončuje jejich interpretaci.</p>
+
+
+<h2 id="zpravy">Posílání zpráv (notifikací a příkazů)</h2>
+
+<p>K poslání zprávy jedné jednotce se používá operátor šipka <code>&lt;-</code>. Zda zpráva dojde jednotce jako příkaz nebo notifikace se určuje automaticky dle vztahu odesílající a přijímající jednotky. Ve vojenské hierarchii nadřízené jednotce se vždy pošle notifikace, podřízené jednotce se pošle příkaz. Nelze čekat na doručení/výsledek.</p>
+
+<pre>
+jednotka &lt;- JMENO_ZPRAVY(parametr, parametr, ...);
+</pre>
+
+<p>Pokud chceme poslat zprávu najednou více jednotkám, nebo chceme poslat podřízené jednotce notifikaci, použijeme příkaz <code>sendto</code>. Posílané zprávy jsou implicitně považovány za příkazy, pokud modifikátorem <code>notification</code> neurčíme jinak. Existují dva další modifikátory určené ke specifikaci čekání na vyřízení zpráv. Modifikátor <code>wait</code> způsobí, že příkaz <code>sendto</code> neskončí dříve, než se vyřídí <b>všechny</b> odeslané zprávy, modifikátor <code>waitfirst</code> přiměje <code>sendto</code> čekat na vyřízení první zprávy. Bez modifikátoru příkaz <code>sendto</code> nečeká. Jako parametr bere <code>sendto</code> seznam jednotek nebo množin jednotek (i promíchaně).</p>
+
+<pre>
+<b>sendto</b> (jednotka, množina) <i>[modifikátor]</i>
+{
+  JMENO_ZPRAVY(parametr, parametr, ...);
+   . . .
+}
+</pre>
+
+
+<p class="odkaz">
+<a href="07b-prikazy.html"><img class="sipka" src="../cast-predchozi.png" alt="Další část" /></a>
+<a href="07b-prikazy.html#cykly">Cykly</a>
+</p>
+
+</body>
+</html>

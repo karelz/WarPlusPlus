@@ -1,0 +1,17 @@
+# Animation part
+FrameNum = 10;
+Speed = 50;
+Frame0 = "Waiting\Waiting1.tga";
+Frame1 = "Waiting\Waiting2.tga";
+Frame2 = "Waiting\Waiting3.tga";
+Frame3 = "Waiting\Waiting4.tga";
+Frame4 = "Waiting\Waiting5.tga";
+Frame5 = "Waiting\Waiting6.tga";
+Frame6 = "Waiting\Waiting7.tga";
+Frame7 = "Waiting\Waiting8.tga";
+Frame8 = "Waiting\Waiting9.tga";
+Frame9 = "Waiting\Waiting10.tga";
+
+# Cursor part
+HotSpot_X = 15;
+HotSpot_Y = 15;

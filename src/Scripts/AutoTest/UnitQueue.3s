@@ -1,0 +1,93 @@
+// Struktura reprezentujici frontu jednotek
+struct UnitQueue
+{
+  // Celkova delka naalokovane fronty
+  int m_nQueueLength;
+  
+  // Pozice, na kterou se bude vkladat novy prvek
+  int m_nInsertPos;
+
+  // Pozice, ze ktere se bude cist prvek
+  int m_nReadPos;
+
+  // Po kolika prirusta fronta
+  int m_nQueueGrowth;
+
+  // Vlastni data
+  Unit m_queue[1];
+}
+
+// Inicializuje frontu na danou pocatecni delku a prirustek
+// v pripade zaplneni
+void QueueInit(UnitQueue queue, int nQueueLength, int nQueueGrowth)
+{
+  // Unit m_initArray[1];
+  // queue.m_queue=m_initArray;
+  queue.m_queue.Resize(nQueueLength);
+  queue.m_nQueueLength=nQueueLength;
+  queue.m_nQueueGrowth=nQueueGrowth;
+  queue.m_nInsertPos=0;
+  queue.m_nReadPos=0;  
+}
+
+// Prida do fronty dalsi polozku
+void QueueAdd(UnitQueue queue, Unit item)
+{
+  int i;
+  queue.m_queue[queue.m_nInsertPos++]=item;
+  queue.m_nInsertPos = queue.m_nInsertPos % queue.m_nQueueLength;
+  // Doslo misto
+  if(queue.m_nInsertPos==queue.m_nReadPos) {    
+    queue.m_queue.Resize(queue.m_nQueueLength+queue.m_nQueueGrowth);
+    for(i=queue.m_nQueueLength-1; i>=queue.m_nInsertPos; i--) {
+      queue.m_queue[i+queue.m_nQueueGrowth]=queue.m_queue[i];
+    }
+    queue.m_nReadPos+=queue.m_nQueueGrowth;
+    queue.m_nQueueLength+=queue.m_nQueueGrowth;
+  }
+}
+
+// Vyzvedne a vrati prvni polozku fronty
+Unit QueueRead(UnitQueue queue)
+{
+  if(queue.m_nReadPos!=queue.m_nInsertPos) {
+    int nPrevPos;
+    Unit retUnit;
+    nPrevPos=queue.m_nReadPos;
+    queue.m_nReadPos++;
+    queue.m_nReadPos%=queue.m_nQueueLength;
+    retUnit=queue.m_queue[nPrevPos];
+    queue.m_queue[nPrevPos]=null;
+    return retUnit;
+  } else {
+    Unit nullUnit;
+    return nullUnit;
+  }
+}
+
+// Vrati prvni polozku fronty
+Unit QueueFirst(UnitQueue queue)
+{
+  if(queue.m_nReadPos!=queue.m_nInsertPos) {
+    return queue.m_queue[queue.m_nReadPos];
+  } else {
+    Unit nullUnit;
+    return nullUnit;
+  }
+}
+
+// Vraci, jestli je fronta prazdna
+bool QueueEmpty(UnitQueue queue)
+{
+  return queue.m_nReadPos==queue.m_nInsertPos;
+}
+
+// Vraci pocet polozek fronty
+int QueueItems(UnitQueue queue)
+{
+  if(queue.m_nInsertPos-queue.m_nReadPos<0) {
+    return queue.m_nQueueLength+queue.m_nInsertPos-queue.m_nReadPos;
+  } else {
+    return queue.m_nInsertPos-queue.m_nReadPos;
+  }
+}

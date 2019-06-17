@@ -1,0 +1,208 @@
+body
+{
+    font: 9pt/14pt "Verdana", "Arial", sans-serif;
+}
+
+h1
+{
+    font-size: 16pt;
+    line-height: 20pt;
+    font-weight: bold;
+    width: 12cm;
+    margin: 4mm 0mm 1mm 0mm;
+}
+
+h2
+{
+    font-size: 13pt;
+    line-height: 16pt;
+    font-weight: bold;
+    font-style: italic;
+    width: 11.7cm;
+    margin: 4mm 0mm 1mm 3mm;
+}
+
+h3
+{
+    font-size: 11pt;
+    line-height: 14pt;
+    font-weight: bold;
+    width: 11.4cm;
+    margin: 4mm 0mm 1mm 6mm;
+}
+
+p
+{
+    width: 11cm;
+    margin: 1mm 0mm 2mm 10mm;
+    text-align: justify;
+}
+
+p.odkaz
+{
+    width: 12cm;
+    margin: 4mm 0mm 4mm 0mm;
+    text-align: left;
+}
+
+a:link
+{
+    color: #B7C8FF;
+    background: transparent none;
+}
+
+a:active
+{
+    color: #B7C8FF;
+    background: transparent none;
+}
+
+a:visited
+{
+    color: #FFD3DC;
+    background: transparent none;
+}
+
+pre
+{
+    font: 9pt/12pt "Courier New", "Courier", monospace;
+    margin: 0mm 0 2mm 5mm;
+    color: #FFFFFF;
+    background: transparent none;
+}
+
+pre.hlavicka
+{
+    font-size: 10pt;
+    font-weight: bold;
+    margin: 4mm 0 0mm 10mm;
+}
+
+code
+{
+    font-family: "Courier New", "Courier", monospace;
+    font-style: normal;
+    color: #FFFFFF;
+    background: transparent none;
+    white-space: pre;
+}
+
+ul
+{
+    list-style-type: disc;
+    width: 10.6cm;
+    line-height: 13pt;
+    margin: 0 0 1mm 14mm;
+    text-align: justify;
+}
+
+ul li ul
+{
+    list-style-type: square;
+    width: 10.1cm;
+    margin: 0 0 1mm 5mm;
+}
+
+ol
+{
+    width: 10.6cm;
+    line-height: 13pt;
+    margin: 0 0 1mm 14mm;
+    text-align: justify;
+}
+
+table
+{
+    font-size: 9pt;
+    line-height: 13pt;
+    border: 1px solid #E0E0E0;
+    margin: 3mm 5mm 3mm 15mm;
+}
+
+table.velka
+{
+    width: 10cm;
+}
+
+th
+{
+    padding: 2px 5px;
+    border: 1px solid #707070;
+    text-align: center;
+}
+
+td
+{
+    padding: 2px 5px;
+    border: none;
+    text-align: center;
+}
+
+td.vlevo
+{
+    text-align: left;
+}
+
+td.vpravo
+{
+    text-align: right;
+}
+
+table.tip
+{
+    margin: 3mm 0mm 3mm 5mm;
+    width: 11.2cm;
+    border: none;
+}
+
+td.tipimg
+{
+    vertical-align: top;
+    padding-top: 2mm;
+}
+
+td.tiptext
+{
+    font-size: 8pt;
+    line-height: 12pt;
+    text-align: justify;
+}
+
+img
+{
+    border: none;
+}
+
+img.samostatny
+{
+    margin: 2mm 0mm 2mm 3mm;
+}
+
+img.ikona
+{
+    float: left;
+    margin: 1mm 3mm 0 0;
+}
+
+img.sipka
+{
+    margin: 0px 4px;
+}
+
+dl
+{
+    width: 11cm;
+    margin: 1mm 0mm 2mm 10mm;
+    text-align: justify;
+}
+
+dt
+{
+    margin: 2mm 0mm 0mm 0mm;
+    text-align: left;
+}
+
+dd
+{
+    margin: 1mm 0mm 2mm 5mm;
+}

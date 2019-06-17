@@ -1,0 +1,9 @@
+FrameNum = 6;
+Speed = 70;
+Frame0 = "ADown1.tga";
+Frame1 = "ADown2.tga";
+Frame2 = "ADown3.tga";
+Frame3 = "ADown4.tga";
+Frame4 = "ADown5.tga";
+Frame5 = "ADown6.tga";
+

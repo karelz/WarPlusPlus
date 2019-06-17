@@ -1,0 +1,117 @@
+unit Defender
+{
+
+// jednotka, na kterou utocim
+Unit uAttackedEnemy;
+
+
+// reakce na informace od velitele
+notification PREFERRED_ATTACK(BestEnemy sBestEnemyUnits[3])
+{
+  int i;
+
+  // utocime na nekoho?
+  if (uAttackedEnemy != null)
+  {
+    // je dana jednotka mezi tremi kandidaty? kdyz ano, tak nic nedelame (strilime dal)
+    for (i = 0; i < 3; i++)
+    {
+      if (uAttackedEnemy == sBestEnemyUnits[i].uEnemy)
+        break;
+    }
+    if (i < 3)
+      return;
+  }
+
+  // jednotka, na kterou utocime, neni mezi tremi nejlepsimi,
+  // nebo zrovna nemame nic na praci
+
+  // nejlepsi kandidat
+  Unit uBestEnemy;
+  int nBestEnemyDistance = 1000000;
+
+  // jdeme utocit na nekterou ze tri
+  for (i = 0; i < 3; i++)
+  {
+    Position posEnemy = sBestEnemyUnits[i].uEnemy.GetPosition();
+    if ((posEnemy.z < BulletAttack.GetAttackAltMin()) || (posEnemy.z > BulletAttack.GetAttackAltMax()))
+      continue;
+    int nEnemyDistance = posEnemy.GetDistancePos(GetPosition());
+    if (nEnemyDistance < BulletAttack.GetAttackRadius())
+      break;
+    if (nEnemyDistance < nBestEnemyDistance)
+    {
+      uBestEnemy = sBestEnemyUnits[i].uEnemy;
+      nBestEnemyDistance = nEnemyDistance;
+    }
+  }
+
+  // nektery z kandidatu je rovnou na dostrel
+  if (i < 3)
+  {
+    // nejaka jednotka je na dostrel, neni o cem premyslet :-)
+    EmptyCommandQueue(true, false);
+    this<-ATTACK(sBestEnemyUnits[i].uEnemy);
+    return;
+  }
+
+  // zadny z kandidatu neni dost blizko, mame ale vybraneho nejblizsiho (pokud to neni null)
+  if (uBestEnemy != null)
+  {
+    EmptyCommandQueue(true, false);
+    this<-ATTACK(uBestEnemy);
+  }
+}
+
+
+// vlastni prikaz k utoku
+command ATTACK(Unit uEnemy)
+{
+  // nastavime si promennou, aby notifikace PREFERRED_ATTACK vedela, co se momentalne deje
+  uAttackedEnemy = uEnemy;
+
+  // jednou zjistime polomer utoku
+  int nAttackRadius = BulletAttack.GetAttackRadius();
+
+  // dokud nebude nepritel mrtev
+  while (!uEnemy.IsDead())
+  {
+    Position posEnemy = uEnemy.GetPosition();
+    int nEnemyDistanceFromCommander = posEnemy.GetDistancePos(GetCommander().posDefendPosition);
+
+    // pokud je nepritel moc daleko od commandera, tak na nej kasleme
+    if (nEnemyDistanceFromCommander > GetCommander().nDefendRadius)
+    {
+      uAttackedEnemy = null;
+      return;
+    }
+
+    Position posMy = GetPosition();
+    int nEnemyDistance = posEnemy.GetDistancePos(posMy);
+
+    if (nEnemyDistance > nAttackRadius)
+    {
+      // jsme daleko
+
+      // najdeme polovinu
+      Position posMidPoint;
+      posMidPoint.x = (posEnemy.x + posMy.x) / 2;
+      posMidPoint.y = (posEnemy.y + posMy.y) / 2;
+
+      if (Move.GoCloseToPos(posMidPoint, 5) != 0)
+      {
+        Sleep(10);
+        continue;
+      }
+    }
+
+    // zkusime zautocit
+    BulletAttack.Fire(uEnemy);
+  }
+
+  // parada, zabili jsme ho...
+  uAttackedEnemy = null;
+}
+
+
+}  // unit Defender

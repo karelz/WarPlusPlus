@@ -1,0 +1,9 @@
+FrameNum = 6;
+Speed = 70;
+Frame0 = "ALeft1.tga";
+Frame1 = "ALeft2.tga";
+Frame2 = "ALeft3.tga";
+Frame3 = "ALeft4.tga";
+Frame4 = "ALeft5.tga";
+Frame5 = "ALeft6.tga";
+

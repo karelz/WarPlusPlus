@@ -1,0 +1,42 @@
+Passive_Left = "TextButton\PLeft.tga";
+Passive_Middle = "TextButton\PMid.tga";
+Passive_Right = "TextButton\PRight.tga";
+
+PassiveKey_Left = "TextButton\PKLeft.tga";
+PassiveKey_Middle = "TextButton\PKMid.tga";
+PassiveKey_Right = "TextButton\PKRight.tga";
+
+Active_Left = "TextButton\ALeft.anim";
+Active_Middle = "TextButton\AMid.anim";
+Active_Right = "TextButton\ARight.anim";
+
+ActiveKey_Left = "TextButton\AKLeft.anim";
+ActiveKey_Middle = "TextButton\AKMid.anim";
+ActiveKey_Right = "TextButton\AKRight.anim";
+
+Pressed_Left = "TextButton\PsLeft.tga";
+Pressed_Middle = "TextButton\PsMid.tga";
+Pressed_Right = "TextButton\PsRight.tga";
+
+PressSound = "Sounds\Press.wav";
+HoverSound = "Sounds\Hover.wav";
+
+Passive_TextOrigin_X = 24;
+Passive_TextOrigin_Y = 5;
+Passive_RightMargin = 12;
+Passive_TextColor = 0x010D080;
+
+Active_TextOrigin_X = 23;
+Active_TextOrigin_Y = 4;
+Active_RightMargin = 11;
+Active_TextColor = 0x08CF0D0;
+
+Pressed_TextOrigin_X = 24;
+Pressed_TextOrigin_Y = 5;
+Pressed_RightMargin = 12;
+Pressed_TextColor = 0x0ACFFE0;
+
+VirtualSize_X = 15;
+VirtualSize_Y = -7;
+
+MinimalTextWidth = 35;

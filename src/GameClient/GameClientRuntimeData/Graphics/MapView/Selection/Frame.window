@@ -1,0 +1,26 @@
+Passive_Bottom = "UnitListBottom.tga";
+Passive_BottomLeft = "UnitListBottomLeft.tga";
+Passive_BottomRight = "UnitListBottomRight.tga";
+Passive_Left = "UnitListLeft.tga";
+Passive_Right = "UnitListRight.tga";
+#Passive_Middle = "UnitListMid.tga";
+Passive_Middle_Color = 0x0000000;
+Passive_Top = "UnitListTop.tga";
+Passive_TopLeft = "UnitListTopLeft.tga";
+Passive_TopRight = "UnitListTopRight.tga";
+
+DragBottom = -10;
+
+EdgeSize_Left = 5;
+EdgeSize_Right = 5;
+EdgeSize_Top = 5;
+EdgeSize_Bottom = 5;
+EdgeSize_Corner = 10;
+
+MinimalSize_X = 125;
+MinimalSize_Y = 80;
+
+LRCursor = "..\..\Mouse\ScaleCursorLR.cursor";
+TBCursor = "..\..\Mouse\ScaleCursorTB.cursor";
+TLBRCursor = "..\..\Mouse\ScaleCursorTLBR.cursor";
+TRBLCursor = "..\..\Mouse\ScaleCursorTRBL.cursor";

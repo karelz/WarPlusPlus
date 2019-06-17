@@ -1,0 +1,25 @@
+Passive_Bottom = "MinimapBottom.tif";
+Passive_BottomLeft = "MinimapBottomLeft.tif";
+Passive_BottomRight = "MinimapBottomRight.tif";
+Passive_Left = "MinimapLeft.tif";
+Passive_Right = "MinimapRight.tif";
+Passive_Middle = "MinimapMid.tif";
+Passive_Top = "MinimapTop.tif";
+Passive_TopLeft = "MinimapTopLeft.tif";
+Passive_TopRight = "MinimapTopRight.tif";
+
+DragBottom = -10;
+
+EdgeSize_Left = 7;
+EdgeSize_Right = 7;
+EdgeSize_Top = 7;
+EdgeSize_Bottom = 7;
+EdgeSize_Corner = 10;
+
+MinimalSize_X = 125;
+MinimalSize_Y = 125;
+
+LRCursor = "..\..\Mouse\ScaleCursorLR.cursor";
+TBCursor = "..\..\Mouse\ScaleCursorTB.cursor";
+TLBRCursor = "..\..\Mouse\ScaleCursorTLBR.cursor";
+TRBLCursor = "..\..\Mouse\ScaleCursorTRBL.cursor";

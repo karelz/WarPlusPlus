@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Uživatelské nastavení toolbarů</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../hlina.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="02-sekce.html#sekce_jednoho_toolbaru">Sekce</a>,
+<a href="02-sekce.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h1>Uživatelské nastavení toolbarů</h1>
+
+<p>Klient umožňuje uživatelské nastavení toolbarů i jejich funkcí. Uživatel může každému typu jednotky přiřadit jiný toolbar a každému tlačítku na toolbaru nějakou funkci v jazyce <b>TripleS</b>.</p>
+
+<h2 id="zakladni_vlastnosti">Základní vlastnosti</h2>
+
+<p>Pro každou množinu označených jednotek se volba toolbaru provádí podle následujících pravidel:</p>
+<ul>
+<li>Pokud je vybrána alespoň jedna nepřátelská jednotka, zobrazí se toolbar pro nepřátelské jednotky</li>
+<li>Pokud je vybráno několik typů jednotek, zobrazí se výchozí toolbar</li>
+<li>Pokud jsou ve výběru pouze jednotky jednoho typu, zobrazí se toolbar pro tento typ</li>
+<li>Speciální toolbar (<code>noselection</code>) se zobrzí pokud není vybraná žádná jednotka</li>
+</ul>
+
+<p>Dále pak platí, že pokud není některý z toolbarů zadán, zobrazí se výchozí toolbar. Výchozí toolbar je také jediný, který musí být zadán.</p>
+
+<h2 id="definice_toolbaru">Definice toolbarů</h2>
+
+<p>Definice toolbaru se skládá z konfiguračního souboru a vlastní grafiky. Tyto soubory jsou uloženy v podadresáři <code>Toolbars</code> adresáře skriptsetu, ke kterému se toolbar vztahuje. Při vytváření skriptsetu je adresář <code>Toolbars</code> do skriptsetu začleněn. Různé skriptsety tak mohou mít různě nastavené toolbary.</p>
+<p>Konfigurační soubor se jmenuje <code>Toolbars.txt</code>. Tento soubor je zapsán ve standardním formátu konfiguračních souborů.</p>
+
+<p>Každá sekce v tomto souboru je chápána jako samostatný toolbar pro nějaký typ jednotky. Jméno sekce pak určuje, pro který typ jednotky se má daný toolbar použít. (K definování jednoho toolbaru pro více typů jednotek, lze využít sekcí v externích souborech, viz konfigurační soubory).</p>
+
+<p>Výjimkou je definice speciálních toolbarů:</p>
+<ul>
+<li>Sekce se jménem <code>default</code> definuje výchozí toolbar jak je popsán výše.</li>
+<li>Sekce se jménem <code>enemy</code> definuje toolbar pro nepřátelské jednotky.</li>
+<li>Sekce se jménem <code>noselection</code> definuje toolbar pro případ, že není vybraná žádná jednotka.</li>
+</ul>
+
+<p class="odkaz">
+<a href="02-sekce.html#sekce_jednoho_toolbaru">Sekce</a>,
+<a href="02-sekce.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

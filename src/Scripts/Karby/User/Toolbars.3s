@@ -1,0 +1,323 @@
+//////////////////////////////////////////////////////////////////////
+// Toolbars.3s - globální funkce pro panel nástrojù
+
+
+//====================================================================
+// pomocná metoda pro vyprázdnìní fronty pøíkazù
+void EmptyQueue(Unit uSelected{}, bool bSendIdle)
+{
+  Unit u;
+  for (u in uSelected)
+  {
+    // true znamena, ze vyprazdnujeme obe fronty prikazu
+    // druhy parametr rika, jestli se ma posilat notifikace IDLE
+    u.EmptyCommandQueue(true, bSendIdle);
+  }
+}
+
+
+//====================================================================
+// Pøerušení èinnosti
+void Stop(Client cl, Unit uSelected{})
+{
+  // nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // vyprazdnime frontu danym jednotkam, posleme jim IDLE
+  EmptyQueue(uSelected, true);
+}
+
+
+//====================================================================
+// funkce pro výrobu jednotek
+void BuildUnit(Client cl, Unit uSelected{}, String strUnitType)
+{
+  // nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  Unit u;
+  for (u in uSelected)
+  {
+    cl.MessageInfo("Stavba jednotky typu " + strUnitType + " pøidána do fronty na výrobu");
+
+    sendto(u)
+    {
+      BUILD(strUnitType, cl);
+    }
+  }
+}
+
+
+//====================================================================
+// funkce pro nastaveni bodu, na ktery se maji posilat nove vyyrobene jednotky
+void SetRelayPoint(Client cl, Unit uSelected{})
+{
+  // zeptame se uzivatele na novou pozici
+  Position pos;
+  if (!cl.AskForPosition("Kam se mají posílat novì vyrobené jednotky?", pos))
+  {
+    // uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  // konec vsstupu od uzivatele
+  cl.CloseUserInput();
+
+  // kazdemu veliteli naselektovane jednotky posleme notifikaci o novem relay pointu
+  Unit u;
+  for (u in uSelected)
+  {
+    sendto(u.GetCommander()) notification
+    {
+      SET_RELAY_POINT(pos);
+    }
+  }
+}
+
+
+//====================================================================
+// Pohyb jednotek
+void Move(Client cl, Unit uSelected{})
+{
+  // zeptame se na pozici
+  Position pos;
+  if (!cl.AskForPosition("Kam mám jít?", pos))
+  {
+    // uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  // nepotrebujeme zadny dalsi vstup
+  cl.CloseUserInput();
+
+  // vyprazdnime frontu danym jednotkam, nebudeme posilat notifikaci IDLE
+  EmptyQueue(uSelected, false);
+
+  // posleme prikaz MOVE
+  sendto(uSelected)
+  {
+    MOVE(pos);
+  }
+}
+
+
+//====================================================================
+// Útoèení
+void Attack(Client cl, Unit uSelected{})
+{
+  Unit uEnemy = cl.AskForEnemyUnit("Na koho mám zaútoèit?");
+  if (uEnemy == null)
+  {
+    // Uživatel si zadání jednotky rozmyslel
+    return;
+  }
+
+  // uz nepotrebujeme uzivateluv vstup
+  cl.CloseUserInput();
+
+  // je jednotka opravdu nepratelska?
+  if (!uEnemy.IsEnemyUnit())
+    return;
+
+  // jednotka(-y) prestane delat to, co momentalne dela,
+  // nebudeme ji posilat notifikaci IDLE
+  EmptyQueue(uSelected, false);
+
+  // posleme ji command, ze ma utocit
+  sendto(uSelected)
+  {
+    ATTACK(uEnemy);
+  }
+}
+
+
+//====================================================================
+// Hlídání
+void Patrol(Client cl, Unit uSelected{})
+{
+  Position pos1, pos2;
+
+  if (!cl.AskForPosition("Zadej první bod pro hlídání", pos1))
+  {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  if (!cl.AskForPosition("Zadej druhý bod pro hlídání", pos2))
+  {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+  cl.CloseUserInput();
+
+  // jednotka(-y) prestane delat to, co momentalne dela,
+  // nebudeme ji posilat notifikaci IDLE
+  EmptyQueue(uSelected, false);
+
+  sendto(uSelected) {
+    PATROL(pos1, pos2);
+  }
+}
+
+
+//====================================================================
+// Kroužení
+void Circle(Client cl, Unit uSelected{})
+{
+  // promenne pro stred a bod na kruznici
+  Position pos1, pos2;
+
+  // stred krouzeni
+  if (!cl.AskForPosition("Kde mám kroužit?", pos1))
+  {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  // bod na kruznici
+  if (!cl.AskForPosition("Polomìr (bod na kružnici)?", pos2))
+  {
+    // Uživatel si zadání pozice rozmyslel
+    return;
+  }
+
+  // uz nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // jednotka(-y) prestane delat to, co momentalne dela,
+  // nebudeme ji posilat notifikaci IDLE
+  EmptyQueue(uSelected, false);
+
+  // posleme prikaz CIRCLE
+  sendto(uSelected)
+  {
+    CIRCLE(pos1, pos2);
+  }
+}
+
+
+//====================================================================
+// Náhodné zkoumání
+void Explore(Client cl, Unit uSelected{})
+{
+  // nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // jednotka(-y) prestane delat to, co momentalne dela,
+  // nebudeme ji posilat notifikaci IDLE
+  EmptyQueue(uSelected, false);
+
+  // posleme jim vsem prikaz EXPLORE
+  sendto(uSelected)
+  {
+    EXPLORE();
+  }
+}
+
+
+//====================================================================
+// Stání na místì
+void Hold(Client cl, Unit uSelected{})
+{
+  // nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // posleme vsem jednotkam notifikaci, aby staly
+  sendto(uSelected) notification
+  {
+    HOLD();
+  }
+}
+
+
+//====================================================================
+// Reakce na kliknuti pravym tlacitkem na prazdnou pozici (command MOVE)
+void RightClickMove(Client cl, Unit uSelected{}, Position pos)
+{
+  // nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // jednotka(-y) prestane delat to, co momentalne dela,
+  // nebudeme ji posilat notifikaci IDLE
+  EmptyQueue(uSelected, false);
+
+  // posleme jim vsem prikaz MOVE
+  sendto(uSelected)
+  {
+    MOVE(pos);
+  }
+}
+
+
+//====================================================================
+// Reakce na kliknuti pravym tlacitkem na prazdnou pozici
+// se shiftem (pridat command MOVE do fronty prikazu)
+void ShiftRightClickMove(Client cl, Unit uSelected{}, Position pos)
+{
+  // nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // posleme jim vsem prikaz MOVE
+  sendto(uSelected)
+  {
+    MOVE(pos);
+  }
+}
+
+
+//====================================================================
+// Reakce na kliknuti pravym tlacitkem na nepratelskou jednotku (command ATTACK)
+void RightClickAttack(Client cl, Unit uSelected{}, Unit uEnemy)
+{
+  // nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // je dana jednotka opravdu nepratelska?
+  if (!uEnemy.IsEnemyUnit())
+    return;
+
+  // jednotka(-y) prestane delat to, co momentalne dela,
+  // nebudeme ji posilat notifikaci IDLE
+  EmptyQueue(uSelected, false);
+
+  // posleme jim vsem prikaz ATTACK
+  sendto(uSelected)
+  {
+    ATTACK(uEnemy);
+  }
+}
+
+
+//====================================================================
+// Reakce na kliknuti pravym tlacitkem na nepratelskou jednotku (command ATTACK)
+void ShiftRightClickAttack(Client cl, Unit uSelected{}, Unit uEnemy)
+{
+  // nepotrebujeme vstup od uzivatele
+  cl.CloseUserInput();
+
+  // je dana jednotka opravdu nepratelska?
+  if (!uEnemy.IsEnemyUnit())
+    return;
+
+  // posleme jim vsem prikaz ATTACK
+  sendto(uSelected)
+  {
+    ATTACK(uEnemy);
+  }
+}
+
+
+//====================================================================
+// Pridani jednotek pod defender commandera
+void ChangeToDefender(Client cl, Unit uSelected{})
+{
+  Unit u;
+  StartupCommander uStartupCommander = GetGeneralCommander();
+  for (u in uSelected)
+  {
+    if (u.BulletAttack == null) continue;
+    u.EmptyCommandQueue(true, false);
+    u.ChangeScript("Defender");
+    u.ChangeCommander(uStartupCommander.uDefendCommander);
+  }
+}

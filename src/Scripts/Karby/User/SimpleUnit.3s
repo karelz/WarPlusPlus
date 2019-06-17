@@ -1,0 +1,343 @@
+unit SimpleUnit
+{
+
+// ma jednotka stat na miste?
+bool bHoldPosition;
+// mnozina
+Unit setSeenUnits{};
+
+
+//====================================================================
+// inicializace jednotky
+constructor
+{
+  // ma jednotka stat na miste?
+  bHoldPosition = false;
+}
+
+
+//====================================================================
+// dojdi na zadanou pozici
+// (prikaz od uzivalete z toolbaru)
+command MOVE(Position posDestination)
+{
+  // nastavime, ze se jednotka muze hybat
+  bHoldPosition = false;
+
+  // Kdyz se nemuzu hybat -> nic
+  if (Move == null)
+    return;
+
+  // Zavolam na sobe dovednost Move
+  // kdyz vrati, ze cesta je momentalne nedostupna, tak to zkusim jeste ctyrikrat s malym odstupem
+  int i;
+  for (i = 0; i < 5; i++)
+  {
+    if (Move.GoPos(posDestination) == 2)
+    {
+      Sleep(RandomInt(10) + 5);
+      continue;
+    }
+    else
+      break;
+  }
+}
+
+
+//====================================================================
+// zautoc na jednotku
+// (prikaz od uzivalete z toolbaru)
+command ATTACK(Unit uEnemy)
+{
+  // nastavime, ze se jednotka muze hybat
+  bHoldPosition = false;
+
+  // Kdyz nemuzu utocit kulkama -> nic
+  if (BulletAttack == null)
+    return;
+
+  // akcni polomer
+  int nAttackRadius = BulletAttack.GetAttackRadius();
+
+  // nekonecny cyklus
+  while (true)
+  {
+    // zjistime, jestli jednotka zije
+    if (uEnemy.IsDead())
+      return;
+
+    // zjistime pozici nepratelske jednotky
+    Position posEnemy = uEnemy.GetPosition();
+
+    // nepritel neni na mape  (?!?!)
+    if (!posEnemy.IsOnMap())
+      return;
+
+    // kdyz je nepritel moc vysoko nebo snad nizko, tak se neda nic delat
+    if (posEnemy.z < BulletAttack.GetAttackAltMin() || posEnemy.z > BulletAttack.GetAttackAltMax())
+      return;
+
+    // moje pozice
+    Position posMy = GetPosition();
+
+    // je dost blizko?
+    if (posMy.GetDistancePos(posEnemy) > nAttackRadius)
+    {
+      // neni, zkusime jit blize
+
+      // vysledek pohybu si zapamatujeme
+      int nMoveResult = Move.GoCloseToPos(posEnemy, nAttackRadius);
+
+      // cil je blbost nebo cesta vubec neexistuje
+      if ((nMoveResult == -1) || (nMoveResult == 1))
+        return;
+
+      // cesta existuje, ale momentalne to nejak nejde
+      if (nMoveResult == 2)
+        Sleep(20);
+
+      // dalsi mozny vysledek je 0, coz znamena, ze jsme dosli na pozadovane misto
+    }
+    else
+    {
+      // jsme dost blizko, zkus zautocit
+      if (BulletAttack.Fire(uEnemy))
+      {
+        // nepritel zemrel
+        return;
+      }
+    }
+  }
+}
+
+
+//====================================================================
+// zjisti, jestli se jednotka prave pohybuje
+// (pomocna funkce pro notification HOLD)
+bool IsMoving()
+{
+  // otestujeme ted jedinou move skillu, do budoucna jich muze byt vice
+  if ((Move != null) && (Move.IsActive()))
+    return true;
+  else
+    return false;
+}
+
+
+//====================================================================
+// stuj na miste
+// (prikaz od uzivalete z toolbaru)
+notification HOLD()
+{
+  // nastavime, ze se nema jednotka hybat
+  bHoldPosition = true;
+
+  // hybe se jednotka zrovna ted?
+  if (IsMoving())
+  {
+    // vyprazdnime frontu, neposleme ji notifikaci IDLE,
+    EmptyCommandQueue(true, false);
+
+    // misto toho udelame primo to, co by udelalo IDLE
+    if (!setSeenUnits.IsEmpty())
+      this<-DO_ENEMY_COMMAND_QUEUE();
+  }
+}
+
+
+//====================================================================
+// reakce na objevenou jednotku
+notification ENEMY_UNIT_SEEN(Unit u)
+{
+  // je to opravdu nepratelska jednotka, nebo jen neutralni?
+  if (BulletAttack != null)
+  {
+    // objevenou jednotku pridame do mnoziny spatrenych jednotek
+    setSeenUnits += u;
+  }
+
+  // kdyz nemam co na praci, tak si poslu prikaz na vyrizovani fronty nepratel
+  if (IsCommandQueueEmpty())
+    this<-DO_ENEMY_UNIT_QUEUE();
+}
+
+
+//====================================================================
+// reakce na IDLE (jednotka nema nic na praci)
+notification IDLE()
+{
+  if (!setSeenUnits.IsEmpty())
+    this<-DO_ENEMY_UNIT_QUEUE();
+}
+
+
+//====================================================================
+// "vyrizovani" nepratelskych jednotek z fronty
+command DO_ENEMY_UNIT_QUEUE()
+{
+  // kdyz je mnozina nepratel prazdna, nedelam nic
+  if (setSeenUnits.IsEmpty())
+    return;
+
+  // kdyz nemam attack skillu, taky nedelam nic (ze slusnosti uklidim mnozinu)
+  if (BulletAttack == null)
+  {
+    setSeenUnits.SetEmpty();
+    return;
+  }
+
+  // zjistime polomer strelby
+  int nAttackRadius = BulletAttack.GetAttackRadius();
+  // zjistime minimalni a maximalni vysku strelby
+  int nAttackAltMin = BulletAttack.GetAttackAltMin();
+  int nAttackAltMax = BulletAttack.GetAttackAltMax();
+  // zjistime polomer viditelnosti
+  int nViewRadius = GetViewRadius();
+
+  // promenna pro zpracovavanou jednotku
+  Unit uEnemy;
+  // pozice nepratelske zpracovavane jednotky
+  Position posEnemy;
+  // vzdalenost nepratelske jednotky
+  int nEnemyDistance;
+  // vlastni pozice
+  Position posMy = GetPosition();
+
+  // zahodime jednotky, ktere jsou prilis daleko, vysoko, nizko
+  for (uEnemy in setSeenUnits)
+  {
+    posEnemy = uEnemy.GetPosition();
+    if (uEnemy.IsDead() ||
+        (posMy.GetDistancePos(posEnemy) > max(nAttackRadius, nViewRadius)) ||
+        (posEnemy.z < nAttackAltMin) ||
+        (posEnemy.z > nAttackAltMax))
+      setSeenUnits -= uEnemy;
+  }
+
+  // kdyz je mnozina prazdna, tak konec
+  if (setSeenUnits.IsEmpty())
+    return;
+
+  // promenne popisujici nejlepsi nepratelskou jednotku
+  Unit uBestEnemy;
+  int nBestEnemyValue = 1000000;
+  Position posBestEnemy;
+
+  // smime se hybat?
+  if (bHoldPosition)
+  {
+    // strilime na nejblizsi
+    for (uEnemy in setSeenUnits)
+    {
+      posEnemy = uEnemy.GetPosition();
+      nEnemyDistance = posMy.GetDistancePos(posEnemy);
+      if (nEnemyDistance < nBestEnemyValue)
+      {
+        // nasli jsme lepsiho kandidata
+        uBestEnemy = uEnemy;
+        nBestEnemyValue = nEnemyDistance;
+      }
+    }
+
+    // mame nejlepsi cil, kdyz je dost blizko, tak zahajime palbu
+    if (nBestEnemyValue > nAttackRadius)
+    {
+      // bohuzel je moc daleko, neda se nic delat, chvilku pockame a pak skoncime
+      Sleep(10);
+      return;
+    }
+
+    // fajn, je dost blizko, jdeme do ni palit
+    if (BulletAttack.Fire(uBestEnemy))
+    {
+      // vyborne, zabili jsme ji, odebereme ji z mnoziny
+      setSeenUnits -= uBestEnemy;
+    }
+
+    // to je konec, jednotka zustala v mnozine...
+  }
+  else
+  {
+    // muzeme chodit
+
+    // mnozina nevhodnych jednotek
+    Unit uBadEnemies{};
+
+    while (!setSeenUnits.IsEmpty())
+    {
+      // strilime na nejblizsi
+      for (uEnemy in setSeenUnits)
+      {
+        posEnemy = uEnemy.GetPosition();
+        nEnemyDistance = posMy.GetDistancePos(posEnemy);
+        if (nEnemyDistance < nBestEnemyValue)
+        {
+          // nasli jsme lepsiho kandidata
+          uBestEnemy = uEnemy;
+          nBestEnemyValue = nEnemyDistance;
+          posBestEnemy = posEnemy;
+        }
+      }
+
+      // mame nejlepsi cil, kdyz je dost blizko, tak zahajime palbu
+      if (nBestEnemyValue > nAttackRadius)
+      {
+        // bohuzel je moc daleko
+
+        // vysledek pohybu si zapamatujeme
+        int nMoveResult = Move.GoCloseToPos(posBestEnemy, nAttackRadius);
+
+        // kdyz je cil nesmysl, cesta vubec neexistuje nebo je docasne nedostupna
+        if (nMoveResult != 0)
+        {
+          // prehodime jednotku do seznamu spatnych
+          setSeenUnits -= uBestEnemy;
+          uBadEnemies += uBestEnemy;
+
+          // chvilku pauza
+          Sleep(10);
+
+          // nechame znovu najit nejlepsiho kandidata
+          continue;
+        }
+      }
+      else
+      {
+        // je blizko, muzeme hned palit
+        if (BulletAttack.Fire(uBestEnemy))
+        {
+          // vyborne, zabili jsme ji, odebereme ji z mnoziny
+          setSeenUnits -= uBestEnemy;
+
+          // sjednotime mnoziny videnych a spatnych jednotek
+          setSeenUnits += uBadEnemies;
+
+          // skoncime (prijde IDLE a pravdepodobne spusti tento command znovu)
+          return;
+        }
+        else
+        {
+          // nepodarilo se ho zabit
+
+          // sjednotime mnoziny videnych a spatnych jednotek
+          setSeenUnits += uBadEnemies;
+
+          // skoncime (prijde IDLE a pravdepodobne spusti tento command znovu)
+          return;
+        }
+      }
+    }
+
+    // o jeeje, vsechny jednotky jsou spatne
+
+    // pockame chvili
+    Sleep(50);
+
+    // prehodime mnoziny
+    setSeenUnits = uBadEnemies;
+
+    // a zacneme cele znovu
+  }
+}  // command DO_ENEMY_UNIT_QUEUE()
+
+}  // unit SimpleUnit

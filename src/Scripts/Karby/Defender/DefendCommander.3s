@@ -1,0 +1,92 @@
+unit DefendCommander
+{
+
+// pozice, na ktere hlidam
+Position posDefendPosition;
+// polomer, ktery mam hlidat
+int nDefendRadius;
+// utocna sila, kterou mam shromazdit
+int nAttackPower;
+// build commander, ktery pro me produkuje jednotky
+Unit uBuildCommander;
+
+// vsechny jednotky, ktere jsou pobliz
+Unit uEnemyUnits{};
+
+constructor
+{
+  // zahajime casovani
+  SetTimer(1, 100);
+}
+
+notification TIMER(int nTimerID, int nTimeSlice)
+{
+  // z mnoziny, kterou mame, vyhazime jednotky, ktere jsou mrtve nebo daleko
+  Unit u;
+  for (u in uEnemyUnits)
+  {
+    if (u.IsDead() || (u.GetPosition().GetDistancePos(posDefendPosition) > nDefendRadius))
+      uEnemyUnits -= u;
+  }
+
+  // zjistime nove nepratelske jednotky
+  Unit uNewEnemyUnits{} = Map.GetEnemyUnitsInArea(posDefendPosition.x, posDefendPosition.y, nDefendRadius);
+
+  // sjednotime mnoziny
+  uEnemyUnits += uEnemies;
+
+  // najdeme 3 zhave kandidaty
+  BestEnemy sBestEnemyUnits[3];
+  // index do pole
+  int nIndex;
+  // "odlozeni" nepratele
+  Unit uSelectedEnemyUnits{};
+
+  // celkovy pocet nepratel
+  int nMaxEnemyUnits = uEnemyUnits.GetItemCount();
+  if (nMaxEnemyUnits == 0)
+  {
+    // nemame nepratele, svet je krasny  :-)
+    return;
+  }
+
+  // kdyz jich je hodne, tak vybereme nejlepsi
+  if (nMaxEnemyUnits > 3)
+    nMaxEnemyUnits = 3;
+
+  // najdeme nejlepsi nepratele
+  for (nIndex = 0; i < nMaxEnemyUnits; i++)
+  {
+    // dosavadni nejlepsi ohodnoceni
+    sBestEnemtUnits[i].nValue = 1000000;
+
+    // najdeme nejlepsiho nepritele
+    for (u in uEnemyUnits)
+    {
+      int nEnemyDistance = u.GetPosition().GetDistancePos(posDefendPos);
+
+      if (nEnemyDistance < sBestEnemtUnits[i].nValue)
+      {
+        sBestEnemyUnits[i].nValue = nEnemyDistance;
+        sBestEnemyUnits[i].nEnemy = u;
+      }
+    }
+
+    // nejlepsi nalezenou jednotku docasne vytahneme z mnoziny
+    uEnemyUnits -= u;
+    uSelectedEnemyUnits += u;
+  }
+
+  // mame nejlepsi nepratele
+  // vratime naselektovane jednotky zpatky do mnoziny
+  uEnemyUnits += uSelectedEnemyUnits;
+
+  // posleme notifikaci vsem podrizenym jednotkam
+  sendto (GetInferiorUnits()) notification
+  {
+    PREFERRED_ATTACK(sBestEnemyUnits);
+  }
+}
+
+
+}  // unit DefendCommander

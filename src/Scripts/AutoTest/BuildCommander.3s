@@ -1,0 +1,259 @@
+// Popis typu jednotky
+struct TypeInfo
+{	
+	// Jmeno typu
+	String TypeName;
+	
+  // Kolik mam vyrobit jednotek daneho typu pro nadrizene
+  UnitQueue Requested;
+  
+  // Kolik jednotek mam vyrobit interne pro sebe
+  int RequestedInternal;
+  
+  // Na vyrobe kolika jednotek daneho typu se prave pracuje
+  int Ordered;
+  
+  // Udaje o tom, ktera jednotka je mou tovarnou
+  int Factory;
+
+	// Jednotky tohoto typu, co zrovna nic nedelaji
+	Unit Free{};
+
+	// Pocet vsech jednotek tohoto typu
+	int Count;
+}
+
+unit BuildCommander extends AbstractCommander
+{
+///////////////////////////////////////////////////
+// Data
+  
+  // Tabulka znamych typu jednotek
+  int nUnitTypes;
+  
+	// Mnoziny volnych jednotek	
+	TypeInfo UnitTypes[1];
+
+///////////////////////////////////////////////////
+// Konstrukce
+
+  // Inicializace
+  constructor
+  {
+    int i=0;
+  
+    UnitTypes.Resize(10);
+		InitTypeInfo(i++, "Base");    
+    InitTypeInfo(i++, "Boot");    
+    InitTypeInfo(i++, "Builder");
+    InitTypeInfo(i++, "Explorer");
+    InitTypeInfo(i++, "Jumper");
+    InitTypeInfo(i++, "Factory");
+    
+    nUnitTypes=i;
+    UnitTypes.Resize(nUnitTypes);
+        
+    // Nastaveni informaci o staveni
+    // SetFactory(U, F) -> jednotku U umi postavit tovarna F
+    SetFactory("Base",			"Builder");
+    SetFactory("Explorer",	"Base");
+    SetFactory("Builder",		"Base");
+    SetFactory("Jumper",		"Factory");
+    SetFactory("Boot",			"Factory");
+    SetFactory("Factory",		"Builder");
+  }
+
+	void InitTypeInfo(int i, String name)
+	{
+		TypeInfo info; Unit us{}; UnitQueue queue;
+		
+		info.TypeName=name;
+		info.Requested=queue;
+		QueueInit(info.Requested, 5, 5);
+		info.RequestedInternal=info.Ordered=info.Count=0;
+		info.Factory=-1; // Nikdo mne nedokaze vyrobit		
+		info.Free=us;
+		UnitTypes[i]=info;
+	}
+  
+  // Nastavuje pro dany typ jednotky kdo je jeji tovarna
+  void SetFactory(String strUnitType, String strFactoryType)
+  {
+    int u, f;
+
+    u=GetTypeID(strUnitType);
+    f=GetTypeID(strFactoryType);
+    if(u==-1 || f==-1) return;
+    
+    UnitTypes[u].Factory=f;
+  }
+
+///////////////////////////////////////////////////
+// Prikazy od velitelu
+
+  // Funkce pro vytvoreni jednotky s typem daneho jmena
+  void BuildUnit(String strUnitType, Unit uCommander)
+  {
+    int id;
+    id = GetTypeID(strUnitType);
+    if(id==-1) return;
+    
+    // Zvysime dany pozadavek
+    QueueAdd(UnitTypes[id].Requested, uCommander);
+  }
+  
+  // Interni prikaz, provadejici vlastni staveni
+  command BUILD_RUN() {  
+    int i, id, fid;
+    Unit u, us{};    
+    while(true) { // Nekonecny cyklus      
+			for(i=0; i<nUnitTypes; i++) {
+				TypeInfo info=UnitTypes[i], finfo;
+				// Kolik jednotek pozadujeme
+				int requested=QueueItems(info.Requested)+info.RequestedInternal;
+				// Kolik jednotek jsme jiz objednali
+				if(info.Ordered<requested) {
+					// Neni objednano vsechno, co pozadujeme
+					if(info.Factory==-1) break; // Nelze objednat
+					finfo=UnitTypes[info.Factory];
+					if(finfo.Free.GetItemCount()==0) {
+						// Neni zadna volna tovarna, ktera by nas vyrobila
+						// To se neda nic delat
+						if(finfo.Count==0) {
+						  // Jenze nejenom, ze neni zadna volna, ona neni vubec zadna
+						  // Dame si sami sobe objednavku na vyrobeni teto tovarny,
+						  // pokud jsme si jiz tuto interni objednavku nedali
+						  if(finfo.RequestedInternal<=0) {
+						    finfo.RequestedInternal++;
+							}
+						}
+					} else {
+  				  for(u in finfo.Free) {
+	  					// Mame tovarnu, ktera nema co delat
+		  				// Davame objednavku
+			  			info.Ordered++;
+				  		finfo.Free-=u;
+					  	u<-MAKE_UNIT(info.TypeName, "AbstractUnit", this);
+						  if(info.Ordered>=requested) break;
+						}
+					}
+				}
+			}
+      Sleep(10);
+    } // Nekonecny cyklus
+  }
+  
+///////////////////////////////////////////////////
+// Notifikace od podrizenych
+
+  // Byla vytvorena nova jednotka
+  notification INFERIOR_CREATED(Unit inferior)
+  {
+    int id;
+
+    StartupCommander sc=GetGeneralCommander();
+
+    inferior.Name=sc.NewName(inferior.GetUnitTypeName());
+    id=GetTypeID(inferior.GetUnitTypeName());
+    if(id==-1) return;
+    
+    TypeInfo info=UnitTypes[id];
+		// Nova jednotka, je volna
+		info.Count++;
+		info.Free+=inferior;
+
+    // Predpokladame, ze nove vznikla jednotka byla objednana
+		info.Ordered--;
+    if(info.Ordered<0) {
+			// Pribyla jednotka, ktera nebyla objednana
+			// Nechavame si ji
+			info.Ordered=0;
+    }
+    
+    // Jednotka o danem ID je pozadovana nami (to ma prednost)
+    if(info.RequestedInternal>0) {
+      // Snizime si citac internich pozadavku
+      info.RequestedInternal--;
+      // A jednotku si nechavame
+    } 
+    else if(QueueItems(info.Requested)>0) { // Jednotka je pozadovana nekym zvenku 
+      // Snizime citac pozadavku
+      // A dame jednotku svemu veliteli
+      Unit newOwner=QueueRead(info.Requested);
+      inferior.ChangeCommander(newOwner);
+    }
+  }
+
+	// Byla pridana nova jednotka
+	notification INFERIOR_ADDED(Unit inferior) {
+		int id=GetTypeID(inferior.GetUnitTypeName()); if(id==-1) return;
+		TypeInfo info=UnitTypes[id];
+		info.Free+=inferior;
+		info.Count++;
+	}
+
+	// Byla odebrana jednotka
+	notification INFERIOR_REMOVED(Unit inferior) {
+		int id=GetTypeID(inferior.GetUnitTypeName()); if(id==-1) return;
+		TypeInfo info=UnitTypes[id];
+		info.Free-=inferior;
+		info.Count--;
+	}
+
+	// Zemrela jednotka
+	notification INFERIOR_DIED(Unit inferior) {
+		int id=GetTypeID(inferior.GetUnitTypeName()); if(id==-1) return;
+		TypeInfo info=UnitTypes[id];
+		info.Free-=inferior;
+		info.Count--;
+	}
+  
+///////////////////////////////////////////////////
+// Notifikace od tovaren
+
+  // Tovarna nedokazala splnit objednavku na dany typ jednotky
+  // (treba umrela, dosly resourcy apod.)
+  notification ORDER_REJECTED(String strTypeName) 
+  {
+    int id=GetTypeID(strTypeName); if(id==-1) return; // Spatny typ jednotky
+		TypeInfo info=UnitTypes[id];
+
+    // Rusime objednavku
+    info.Ordered--;
+    
+    if(info.Ordered<0) {
+      info.Ordered=0;
+    }
+  }
+
+	// Tovarna nema co delat
+	notification UNIT_FREE(Unit u) {
+    int id=GetTypeID(u.GetUnitTypeName()); if(id==-1) return; // Spatny typ jednotky
+		TypeInfo info=UnitTypes[id];
+
+		info.Free+=u;
+	}
+  
+///////////////////////////////////////////////////
+// Pomocne metody
+    
+  // Vraci ID typu.
+  int GetTypeID(String strType)
+  {
+    int i;
+  
+    for(i=0; i<nUnitTypes; i++) {
+      if(strType==UnitTypes[i].TypeName) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
+
+  // Vraci jmeno typu.
+  String GetTypeName(int i) {
+    return UnitTypes[i].TypeName;
+  }
+
+}

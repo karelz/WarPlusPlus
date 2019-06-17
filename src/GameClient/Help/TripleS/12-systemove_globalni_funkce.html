@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Systémové globální funkce</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1 id="system_global_functions">Systémové globální funkce</h1>
+<p>Toto jsou globální funkce, které jsou součástí serveru, nemají implementaci v jazyce <b>TripleS</b>, ale jsou implementovány přímo v aplikaci serveru.</p>
+
+<pre class="hlavicka">String IntToString ( int i )</pre>
+<p>Konvertuje celé číslo <code>i</code> na řetězec, který vrací.</p>
+<pre class="hlavicka">String FloatToString ( float f, int precision )</pre>
+<p>Konvertuje reálné číslo <code>f</code> na řetězec. Počet desetinných míst ve výsledném řetězci je specifikován parametrem <code>precision</code>. Je-li <code>precision</code> rovno <code>-1</code>, výsledek bude v exponenciálním tvaru s oddělovačem exponentu <code>E</code> (např. <code>1E10</code>). Je-li hodnota <code>precision</code> rovna <code>-2</code> dělá to samé, ale s oddělovačem <code>e</code> (např. <code>1e10</code>).</p>
+
+<pre class="hlavicka">String BoolToString ( bool b )</pre>
+<p>Konvertuje hodnotu <code>b</code> typu <code>bool</code> na řetězec "true" nebo "false", který vrací.</p>
+
+<pre class="hlavicka" id="WriteToLog">void WriteToLog ( String str )</pre>
+<p>Zapíše řetězec <code>str</code> do logu.</p>
+
+<pre class="hlavicka">int GetCivilizationCount ()</pre>
+<p>Vrátí počet civilizací ve hře.</p>
+
+<pre class="hlavicka">Map GetMap ()</pre>
+<p>Vrátí objekt reprezentující mapu. Viz systémový objekt <a href="11f-systemove_objekty.html#sysobj_map"><code>Map</code></a>.</p>
+
+<pre class="hlavicka">float RandomFloat ()</pre>
+<p>Vrátí náhodné realné číslo v rozmezí <code>0..1</code>.</p>
+
+<pre class="hlavicka">int RandomInt ( int range )</pre>
+<p>Vrátí náhodné celé číslo v rozmezí <code>0 .. range - 1</code>.</p>
+
+<pre class="hlavicka">Unit GetGeneralCommander()</pre>
+<p>Vrátí nejvyššího velitele vojenské hierarchie. Přes něj je pak možné dostat se ke všem jednotkám civilizace.</p>
+
+<pre class="hlavicka">int GetTimeSlice()</pre>
+<p>Vrací počet timesliců, které uběhly od začátku hry (=aktuální čas hry).</p>
+
+<pre class="hlavicka">void Sleep ( int nTimeslices )</pre>
+<p>Pozdrží vykonávání aktuálního skriptu o zadaný počet timesliců. Během tohoto čekání můžou pracovat
+ostatní skripty.</p>
+
+<table class="tip">
+<tr><td class="tipimg"><img src="../tip.png" alt="Tip" /></td>
+<td class="tiptext">Pokud je parametr roven nule, aktuální skript nečeká, pouze se vzdá procesoru ve prospěch jiného skriptu civilizace. To je vhodné zvláště ve skriptech, které dlouho počítají složité věci a zdržovaly by tak plynulý běh hry.</p>
+</td></tr>
+</table>
+
+<pre class="hlavicka">float sin(float angle)</pre>
+<p>Počítá hodnotu funkce sinus. Parametr je v radiánech.</p>
+
+<pre class="hlavicka">float cos(float angle)</pre>
+<p>Počítá hodnotu funkce cosinus. Parametr je v radiánech.</p>
+
+<pre class="hlavicka">float sqrt(float f)</pre>
+<p>Počítá odmocninu ze zadaného čísla. Záporná čísla odmocňovat nelze. Pokus o takovéto odmocnění má za následek ukončení běhu skriptu, který tuto chybu udělal.</p>
+
+</body>
+</html>

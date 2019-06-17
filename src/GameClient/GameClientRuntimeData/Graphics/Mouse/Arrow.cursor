@@ -1,0 +1,17 @@
+# Animation part
+FrameNum = 10;
+Speed = 50;
+Frame0 = "Cursor1.tga";
+Frame1 = "Cursor2.tga";
+Frame2 = "Cursor3.tga";
+Frame3 = "Cursor4.tga";
+Frame4 = "Cursor5.tga";
+Frame5 = "Cursor6.tga";
+Frame6 = "Cursor7.tga";
+Frame7 = "Cursor8.tga";
+Frame8 = "Cursor9.tga";
+Frame9 = "Cursor10.tga";
+
+# Cursor part
+HotSpot_X = 0;
+HotSpot_Y = 0;

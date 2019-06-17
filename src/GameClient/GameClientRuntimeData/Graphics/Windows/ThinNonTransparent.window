@@ -1,0 +1,19 @@
+Passive_Bottom = "ThinNonTransparent\Bottom.tga";
+Passive_BottomLeft = "ThinNonTransparent\BottomLeft.tga";
+Passive_BottomRight = "ThinNonTransparent\BottomRight.tga";
+Passive_Middle = "ThinNonTransparent\Middle.tga";
+Passive_Left = "ThinNonTransparent\Left.tga";
+Passive_Right = "ThinNonTransparent\Right.tga";
+Passive_Top = "ThinNonTransparent\Top.tga";
+Passive_TopLeft = "ThinNonTransparent\TopLeft.tga";
+Passive_TopRight = "ThinNonTransparent\TopRight.tga";
+
+MinimalSize_X = 1;
+MinimalSize_Y = 1;
+
+EdgeSize_Left = 4;
+EdgeSize_Right = 4;
+EdgeSize_Top = 4;
+EdgeSize_Bottom = 4;
+
+DragLeft = -1;

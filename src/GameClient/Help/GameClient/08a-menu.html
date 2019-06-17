@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>GameClient - uživatelská dokumentace</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../trava.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>GameClient - uživatelská dokumentace</h1>
+
+<h2 id="menu">Menu skriptů</h2>
+
+<p><img class="samostatny" src="Obrazky\MenuSkript.png" alt="Menu skriptů" /></p>
+<p>Toto menu v sobě sdružuje funkce související s vytvářením, otevíráním a ukládáním skriptů. Skripty jsou uložené na serveru a jsou dvojího druhu - globální a lokální. Globální skripty jsou při startu hry společné všem hráčům. Obsahují základní inteligenci hry - inicializační kód, základní reakce jednotek na události, implementaci funkcí <a href="06a-panely.html#panel">panelu nástrojů</a> a podobně. Jakmile si uživatel tyto skripty začne editovat, vytvoří se jejich kopie - lokální skript. Ten je pak přístupný pouze uživateli, který jej vlastní.</p>
+<p>Kromě upravování globálních skriptů může uživatel vytvářet i nové skripty. Ty se stávají lokálními automaticky.</p>
+
+<h2 id="vytvoreni">Vytvoření nového skriptu</h2>
+
+<p><img class="samostatny" src="Obrazky\MenuSkriptNovy.png" alt="Vytvoření nového skriptu" /></p>
+<p>Pro otevření nového skriptu slouží položka menu <code>Skript</code> - <code>Nový</code>. Tuto funkci lze také aktivovat klepnutím na ikonu <code>Nový skript</code> v levém horním rohu obrazovky. Objeví se nové, prázdné okno s nepojmenovaným skriptem, který má nastavený příznak <code>L</code> - 'lokální'.</p>
+<p><img class="ikona" src="Obrazky\IkonaSkriptNovy.png" alt="Ikona nového skriptu" />Otevřít nový skript lze také klepnutím na ikonu <b>Nový skript</b>.</p>
+
+
+<h2 id="otevreni">Otevření skriptu ze serveru</h2>
+
+<p><img class="samostatny" src="Obrazky\MenuSkriptOtevritServer.png" alt="Otevreni skriptu ze serveru" /></p>
+<p>Tato funkce umožňuje otevřít skript, který již je uložen na serveru. Může se jednat o lokální uživatelský skript nebo o globální serverový. Tato položka menu otevírá dialog pro specifikaci jména souboru.</p>
+<p><img class="samostatny" src="Obrazky\DialogOtevritSkript.png" alt="Dialog na otevření skriptu ze serveru" /></p>
+<p>Dialog kromě pole pro výběr souborů obsahuje ještě přepínací tlačítko, které umožňuje skrývat/nechávat zobrazit globální skripty. V seznamu skriptů je jejich lokálnost signalizována písmenem <code>L</code>, globální mají v příslušném sloupci písmeno <code>G</code>.</p>
+<p><img class="ikona" src="Obrazky\IkonaSkriptOtevrit.png" alt="Ikona otevření skriptu ze serveru" />Tento dialog lze také vyvolat klepnutím na ikonu <b>Otevřít skript ze serveru</b>.</p>
+
+<table class="tip">
+<tr>
+    <td class="tipimg"><img class="tip" src="..\varovani.png" alt="Varovani" /></td>
+    <td class="tiptext">Protože při otevírání souboru je zobrazován seznam souborů na serveru, je třeba vždy chvíli počkat, než se ze serveru stáhne aktuální seznam. Proces stahování je signalizován zobrazením okna.</td>
+</tr>
+</table>
+
+<p><img class="samostatny" src="Obrazky\StahovaniSeznamuSouboru.png" alt="Stahování seznamu souborů" /></p>
+
+
+</body>
+</html>

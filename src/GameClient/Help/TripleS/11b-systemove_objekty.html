@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Objekt String</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="11a-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11a-systemove_objekty.html#sysobjs">Systémové objekty</a>
+<b>|</b>
+<a href="11c-systemove_objekty.html#sysobj_array">Pole</a>
+<a href="11c-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="sysobj_string">Objekt <code>String</code></h2>
+
+<p>Objekt <code>String</code> v jazyce <b>TripleS</b> reprezentuje textový řetězec. Pozice znaků v řetězci se počítají od 0 a k jednotlivým znakům řetězce se přistupuje stejně jako k prvkům pole pomocí hranatých závorek <code>[]</code>.</p>
+<p>Řetězce lze spojovat pomocí operátorů <code>+</code> a <code>+=</code>, a to buď s jiným řetězcem, nebo se samostatným znakem (znak se přidá na konec řetězce).</p>
+
+<h3>Metody</h3>
+
+<pre class="hlavicka">int GetLength ()</pre>
+<p>Vrací délku řetězce.</p>
+
+<pre class="hlavicka">void MakeLower ()</pre>
+<p>Zkonvertuje všechny znaky retězce na malá písmena.</p>
+
+<pre class="hlavicka">void MakeUpper ()</pre>
+<p>Zkonvertuje všechny znaky retězce na velká písmena.</p>
+
+<pre class="hlavicka">String Left ( int count )</pre>
+<p>Vykopíruje z levé strany řetězce (ze začátku) podřetězec délky <code>count</code> znaků a vrátí jej.</p>
+
+<pre class="hlavicka">String Right ( int count )</pre>
+<p>Vykopíruje z pravé strany řetězce (z konce) podřetězec délky count znaků a vrátí jej.</p>
+
+<pre class="hlavicka">String Mid ( int first, int count )</pre>
+<p>Vykopíruje z řetězce podřetězec začínající na pozici <code>first</code> a obsahující <code>count</code> znaků a vrátí jej.</p>
+
+<pre class="hlavicka">int Find ( String substring )</pre>
+<p>Vyhledává podřetězec <code>substring</code>. Vrací pozici prvního znaku hledaného řetězce, nebo <code>-1</code>, pokud je podřetězec nenalezen.</p>
+
+<pre class="hlavicka">int FindFrom ( String substring, int start )</pre>
+<p>Vyhledává podřetězec <code>substring</code>, vyhledávání začíná na pozici <code>start</code>. Vrací pozici prvního znaku hledaného řetězce, nebo <code>-1</code>, pokud je nenalezen.</p>
+
+<p>Příklad použití <code>String</code>:</p>
+<pre>
+String str = "Abc";
+str += "def" + 'D' + str[1];    // str nyní obsahuje "AbcdefDb"
+str.MakeUpper;                  // str nyní obsahuje "ABCDEFDB"
+
+</pre>
+
+<p class="odkaz">
+<a href="11a-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11a-systemove_objekty.html#sysobjs">Systémové objekty</a>
+<b>|</b>
+<a href="11c-systemove_objekty.html#sysobj_array">Pole</a>
+<a href="11c-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

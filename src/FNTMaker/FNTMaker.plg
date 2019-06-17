@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: FNTMaker - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x405 /fo"Debug/FNTMaker.res" /d "_DEBUG" /d "_AFXDLL" "D:\Projects\TheGame\FNTMaker\FNTMaker.rc"" 
+Creating temporary file "D:\TEMP\RSP21.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/FNTMaker.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Projects\TheGame\FNTMaker\FNTMaker.cpp"
+"D:\Projects\TheGame\FNTMaker\FNTMakerDlg.cpp"
+"D:\Projects\TheGame\FNTMaker\ImageReader.cpp"
+"D:\Projects\TheGame\FNTMaker\TGAReader.cpp"
+"D:\Projects\TheGame\FNTMaker\TIFFReader.cpp"
+]
+Creating command line "cl.exe @D:\TEMP\RSP21.tmp" 
+Creating temporary file "D:\TEMP\RSP22.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/FNTMaker.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Projects\TheGame\FNTMaker\StdAfx.cpp"
+]
+Creating command line "cl.exe @D:\TEMP\RSP22.tmp" 
+Creating temporary file "D:\TEMP\RSP23.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/FNTMaker.pdb" /debug /machine:I386 /out:"Debug/FNTMaker.exe" /pdbtype:sept 
+.\Debug\FNTMaker.obj
+.\Debug\FNTMakerDlg.obj
+.\Debug\ImageReader.obj
+.\Debug\StdAfx.obj
+.\Debug\TGAReader.obj
+.\Debug\TIFFReader.obj
+.\Debug\FNTMaker.res
+]
+Creating command line "link.exe @D:\TEMP\RSP23.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+FNTMaker.cpp
+FNTMakerDlg.cpp
+ImageReader.cpp
+TGAReader.cpp
+TIFFReader.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+FNTMaker.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

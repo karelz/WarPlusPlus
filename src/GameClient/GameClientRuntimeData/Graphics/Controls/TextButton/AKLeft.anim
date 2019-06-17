@@ -1,0 +1,14 @@
+FrameNum = 11;
+Speed = 40;
+Loop = False;
+Frame0 = "AKLeft0.tga";
+Frame1 = "AKLeft1.tga";
+Frame2 = "AKLeft2.tga";
+Frame3 = "AKLeft3.tga";
+Frame4 = "AKLeft4.tga";
+Frame5 = "AKLeft5.tga";
+Frame6 = "AKLeft6.tga";
+Frame7 = "AKLeft7.tga";
+Frame8 = "AKLeft8.tga";
+Frame9 = "AKLeft9.tga";
+Frame10 = "AKLeft10.tga";

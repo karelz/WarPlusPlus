@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Objekt Client</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+
+<p class="odkaz">
+<a href="11f-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11f-systemove_objekty.html#sysobj_map">Objekt <code>Map</code></a>,
+<b>|</b>
+<a href="11i-systemove_objekty.html#sysobj_resources">Objekt <code>Resources</code></a>,
+<a href="11i-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="sysobj_client">Objekt <code>Client</code></h2>
+<p>Objekt <code>Client</code> slouží ke komunikaci s uživatelem klientské aplikace. Podrobnější popis použití viz <a href="../Toolbars/01-uvod.html">Uživatelské nastavení toolbarů</a>.</p>
+<p>Objekt lze získat pouze jako parametr globální funkce, která byla spuštěná uživatelem. Na uživatele, který tuto funkci spustil se budu dále odvolávat jako na &bdquo;uživatele&ldquo;.</p>
+
+<h3>Metody</h3>
+
+<pre class="hlavicka">String GetUserLogin ()</pre>
+<p>Vrátí uživatelské jméno (login) uživatele</p>
+
+<pre class="hlavicka">bool IsLoggedOn ()</pre>
+<p>Vrací <code>true</code> pokud je uživatel nalogován, jinak <code>false</code>. Metoda funguje samozřejmě i po odlogování uživatele.</p>
+
+<pre class="hlavicka" id="MessageInfo">void MessageInfo ( String strText )</pre>
+<p>Zobrazí uživateli zprávu zadanou parametrem <code>strText</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka">
+void MessageInfoLocation ( String strText,
+                           Position pos )
+</pre>
+<p>Zobrazí uživateli zprávu zadanou parametrem <code>strText</code> a přidá k ní odkaz na pozici na mapě zadanou parametrem <code>pos</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka">void MessageInfoUnit ( String strText, Unit unit )</pre>
+<p>Zobrazí uživateli zprávu zadanou parametrem <code>strText</code> a přidá k ní odkaz na jednotku zadanou parametrem <code>unit</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka">void MessageWarning ( String strText )</pre>
+<p>Zobrazí uživateli upozornění zadané parametrem <code>strText</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka">
+void MessageWarningLocation ( String strText,
+                              Position pos )
+</pre>
+<p>Zobrazí uživateli upozornění zadané parametrem <code>strText</code> a přidá k němu odkaz na pozici na mapě zadanou parametrem <code>pos</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka">void MessageWarningUnit ( String strText, Unit unit )</pre>
+<p>Zobrazí uživateli upozornění zadané parametrem <code>strText</code> a přidá k němu odkaz na jednotku zadanou parametrem <code>unit</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka">void MessageError ( String strText )</pre>
+<p>Zobrazí uživateli chybovou hlášku zadanou parametrem <code>strText</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka">
+void MessageErrorLocation ( String strText,
+                            Position pos )
+</pre>
+<p>Zobrazí uživateli chybovou hlášku zadanou parametrem <code>strText</code> a přidá k ní odkaz na pozici na mapě zadanou parametrem <code>pos</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka">void MessageErrorUnit ( String strText, Unit unit )</pre>
+<p>Zobrazí uživateli chybovou hlášku zadanou parametrem <code>strText</code> a přidá k ní odkaz na jednotku zadanou parametrem <code>unit</code>. Metoda funguje i po odlogování uživatele, zpráva se zahodí.</p>
+
+<pre class="hlavicka" id="CloseUserInput">void CloseUserInput ()</pre>
+<p>Ukončí interaktivní akci s uživatelem. Po zavolání této metody se aplikace klienta vrátí do normálního stavu a uživatel má plnou volnost v zadávaní příkazů. To mimo jiné znamená, že se může odlogovat. Tedy po zavolání této metody budou na objektu fungovat pouze metody, které mají u sebe uvedeno, že fungují i po odlogování uživatele.</p>
+
+<pre class="hlavicka">
+bool AskForPosition ( String strQuestion,
+                      Position pos )
+</pre>
+<p>Zeptá se uživatele na pozici na mapě. Jako otázku zobrazí text zadaný parametrem <code>strQuestion</code>. Získanou pozici naplní do parametru <code>pos</code>.</p>
+<table class="tip">
+<tr><td class="tipimg"><img src="../tip.png" alt="Tip" /></td>
+<td class="tiptext">Zde se využívá toho, že se systémové objekty (v tomto případě objekt <code>Position</code>) předávají pouze referencí, takže funkce může vracet hodnotu i přes parametr.</td></tr>
+</table>
+
+<pre class="hlavicka">
+Unit AskForMyUnit ( String strQuestion )
+</pre>
+<p>Zeptá se uživatele na jednotku patřící uživatelově civilizaci. Jako otázku zobrazí text zadaný parametrem <code>strQuestion</code>. Získanou jednotku vrací jako návratovou hodnotu.</p>
+
+<pre class="hlavicka">
+Unit AskForEnemyUnit ( String strQuestion )
+</pre>
+<p>Zeptá se uživatele na jednotku patřící nepřátelské civilizaci. Jako otázku zobrazí text zadaný parametrem <code>strQuestion</code>. Získanou jednotku vrací jako návratovou hodnotu.</p>
+
+<pre class="hlavicka">
+Unit AskForAnyUnit ( String strQuestion )
+</pre>
+<p>Zeptá se uživatele na jednotku patřící libovolné civilizaci. Jako otázku zobrazí text zadaný parametrem <code>strQuestion</code>. Získanou jednotku vrací jako návratovou hodnotu.</p>
+
+<p class="odkaz">
+<a href="11f-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11f-systemove_objekty.html#sysobj_map">Objekt <code>Map</code></a>,
+<b>|</b>
+<a href="11i-systemove_objekty.html#sysobj_resources">Objekt <code>Resources</code></a>,
+<a href="11i-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

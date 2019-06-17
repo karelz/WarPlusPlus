@@ -1,0 +1,5 @@
+struct BestEnemy
+{
+  Unit uEnemy;
+  int nValue;
+}

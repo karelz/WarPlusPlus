@@ -1,0 +1,6 @@
+FrameNum = 4;
+Speed = 100;
+Frame0 = "EditTR1.tga";
+Frame1 = "EditTR2.tga";
+Frame2 = "EditTR3.tga";
+Frame3 = "EditTR2.tga";

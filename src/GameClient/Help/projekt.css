@@ -1,0 +1,51 @@
+BODY { background: #FFFFFF;
+       color: #000000 }
+P { font: 10pt "Times New Roman", Times, serif;
+    margin: 0 0 3pt 15mm;
+    text-align: justify }
+A:link { color: #0000C0;
+         background: #FFFFFF }
+A:active { color: #FF40C0;
+           background: #FFFFFF }
+A:visited { color: #C000C0;
+            background: #FFFFFF }
+H1 { font: bold 18pt "Times New Roman", Times, serif;
+     margin: 10pt 0 4pt 0 }
+H2 { font: bold italic 15pt "Times New Roman", Times, serif;
+     margin: 8pt 0 4pt 5mm }
+H3 { font: bold 12pt "Times New Roman", Times, serif;
+     margin: 6pt 0 4pt 10mm }
+H4 { font: bold italic 11pt "Times New Roman", Times, serif;
+     margin: 5pt 0 4pt 15mm }
+PRE { font: 9pt "Courier New", Courier, monospace;
+      margin: 0 0 0 5mm }
+CODE { font-family: "Courier New", Courier, monospace }
+UL { font: 10pt/11pt "Times New Roman", Times, serif;
+     list-style-type: disc;
+     margin: 0 0 0 21mm }
+OL { font: 10pt/11pt "Times New Roman", Times, serif;
+     list-style-type: decimal;
+     margin: 0 0 0 21mm }
+P.comment { font: 8pt/10pt "Times New Roman", Times, serif;
+            margin: 3pt 0 4pt 15mm;
+            text-align: justify;
+            text-indent: -5mm }
+TABLE { font: 10pt "Times New Roman", Times, serif;
+        border: 1px solid #303030;
+        margin: 2mm 0mm 2mm 10mm;
+        text-align: left }
+TH { text-align: right;
+     border: 1px solid #D0D0D0;
+     padding: 1mm 3mm }
+TD { text-align: left;
+     border: 1px solid #D0D0D0;
+     padding: 1mm 3mm }
+HR { text-align: center;
+     margin: 1mm 0mm;
+     width: 80% }
+HR.footer { text-align: left;
+            margin: 10mm 0mm 0mm 0mm;
+            width: 40% }
+P.footer { text-align: left;
+           margin: 1mm 0mm;
+           font: 8pt/10pt "Times New Roman", Times, serif }

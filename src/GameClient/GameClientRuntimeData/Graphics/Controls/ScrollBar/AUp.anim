@@ -1,0 +1,9 @@
+FrameNum = 6;
+Speed = 70;
+Frame0 = "AUp1.tga";
+Frame1 = "AUp2.tga";
+Frame2 = "AUp3.tga";
+Frame3 = "AUp4.tga";
+Frame4 = "AUp5.tga";
+Frame5 = "AUp6.tga";
+

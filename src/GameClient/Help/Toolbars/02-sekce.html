@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Uživatelské nastavení toolbarů</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../hlina.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="01-uvod.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="01-uvod.html#">Úvod</a>,
+<b>|</b>
+<a href="03-funkce.html#cast3">Funkce</a>,
+<a href="03-funkce.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="sekce_jednoho_toolbaru">Sekce jednoho toolbaru</h2>
+
+<p>Sekce popisující jeden toolbar obsahuje tyto proměnné</p>
+<ul>
+<li>
+<code><b>ButtonCount</b></code> (<code>Integer</code>, povinná) - určuje počet tlačítek na toolbaru (včetně oddělovačů).
+</li>
+</ul>
+<p>Dále pak obsahuje podsekce definující jednotlivá tlačítka. Jméno sekce určuje kolikáté tlačítko definuje. Podsekce se jménem <code><b>Button1</b></code> definuje první tlačítko, <code><b>Button2</b></code> druhé a tak dále.</p>
+<p>Vyjímkou je definice specielních funkcí:</p>
+<ul>
+<li>Sekce se jménem <b><code>RightClickPosition</code></b> definuje funkci, která se má spustit pokud uživatel klikne pravým tlačítkem na mapu. Definice nemusí obsahovat jméno tlačítka (<code>Caption</code>) ani ikonu.</li>
+<li>Sekce se jménem <b><code>RightClickMyUnit</code></b> definuje funkci, která se má spustit pokud uživatel klikne pravým tlačítkem na jeho jednotku. Definice nemusí obsahovat jméno tlačítka (<code>Caption</code>) ani ikonu.</li>
+<li>Sekce se jménem <b><code>RightClickEnemyUnit</code></b> definuje funkci, která se má spustit pokud uživatel klikne pravým tlačítkem na nepřátelskou jednotku. Definice nemusí obsahovat jméno tlačítka (<code>Caption</code>) ani ikonu.</li>
+<li>Sekce se jménem <b><code>ShiftRightClickPosition</code></b> definuje funkci, která se má spustit pokud uživatel drží klávesu <code>Shift</code> a zároveň klikne pravým tlačítkem na mapu. Definice nemusí obsahovat jméno tlačítka (<code>Caption</code>) ani ikonu.</li>
+<li>Sekce se jménem <b><code>ShiftRightClickMyUnit</code></b> definuje funkci, která se má spustit pokud uživatel drží klávesu <code>Shift</code> a zároveň klikne pravým tlačítkem na jeho jednotku. Definice nemusí obsahovat jméno tlačítka (<code>Caption</code>) ani ikonu.</li>
+<li>Sekce se jménem <b><code>ShiftRightClickEnemyUnit</code></b> definuje funkci, která se má spustit pokud uživatel drží klávesu <code>Shift</code> a zároveň klikne pravým tlačítkem na nepřátelskou jednotku. Definice nemusí obsahovat jméno tlačítka (<code>Caption</code>) ani ikonu.</li>
+</ul>
+
+
+<h2 id="sekce_jednoho_tlacitka">Sekce jednoho tlačítka</h2>
+
+<p>Sekce popisující jedno tlačítko obsahuje tyto proměnné</p>
+<ul>
+<li>
+<code><b>Caption</b></code> (<code>String</code>, povinná) - určuje jméno tlačítka. Pokud je text prázdný, sekce definuje separátor, a všechny ostatní proměnné se ignorují (a jsou tedy nepovinné).
+</li>
+<li>
+<code><b>Icon</b></code> (<code>String</code>, nepovinná) - určuje ikonu, která se má zobrazit na tlačítku. Obsah proměnné je cesta k souboru typu <code>.tga</code>, <code>.tif</code> nebo <code>.anim</code>. Pokud tato proměnná není zadaná, nebo cesta k souboru je neplatná, použije se výchozí ikona.
+</li>
+<li>
+<code><b>Function</b></code> (<code>String</code>, povinná) - určuje jméno funkce v jazyce <b>TripleS</b>, která má být zavolána při aktivaci tlačítka. Hlavička funkce viz odstavec <a href="03-funkce.html#funkce_pro_jedno_tlacitko">Funkce pro jedno tlačítko</a>.
+</li>
+<li>
+<code><b>Accelerator</b></code> (<code>String</code>, nepovinná) - určuje klávesovou zkratku, která bude přiřazena tomuto tlačítku. Hodnota této proměnné je textový řetězec, který může mít následující tvar:
+	<ul>
+	<li>
+	<code><b>"X"</b></code> - Klávesová zkratka je samotná klávesa, která je identifikována prvním písmenem zadaného řetězce (v tomto pžípadě je to klávesa  X).
+	</li>
+	<li>
+	<code><b>"Shift&nbsp;+&nbsp;X"</b></code> - Klávesová zkratka je kombinace Shift a klávesa, která je identifikována písmenem (v tomto případě X).
+	</li>
+	<li>
+	<code><b>"Ctrl&nbsp;+&nbsp;X"</b></code> - Klávesová zkratka je kombinace Ctrl a klávesa, která je identifikována písmenem (v tomto případě X).
+	</li>
+	</ul>
+</li>
+<li>
+<code><b>ParamCount</b></code> (<code>Integer</code>, nepovinná) - určuje počet přídavných parametrů, které se předají funkci. Pokud tato proměnná není uvedená, funkce nedostane žádné přídavné parametry.
+</li>
+<li>
+<code><b>Param1</b></code>, <code><b>Param2</b></code>,... (libovolný typ) - určuje hodnotu přídavného parametru. Číslo za slovem <code>Param</code> určuje kolikátý přídavný parametr je definován. Sekce musí obsahovat tolik parametrů, kolik je uvedeno v proměnné <code>ParamCount</code>. Parametry se číslují vzestupně od jedničky.
+</li>
+</ul>
+
+<p class="odkaz">
+<a href="01-uvod.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="01-uvod.html#">Úvod</a>,
+<b>|</b>
+<a href="03-funkce.html#cast3">Funkce</a>,
+<a href="03-funkce.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

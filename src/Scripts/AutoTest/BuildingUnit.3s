@@ -1,0 +1,35 @@
+unit BuildingUnit extends AbstractUnit {
+  
+  // Objednana jednotka
+  String strUnitTypeOrdered;
+
+  command MAKE_UNIT(String strUnitType, String strScriptName, Unit commander)
+  {
+    Unit u;    
+    if(Make==null) {
+      GetCommander()<-ORDER_REJECTED(strUnitType);    
+    } else {
+      strUnitTypeOrdered=strUnitType;
+      u=Make.Make(strUnitType, strScriptName, commander);
+      strUnitTypeOrdered="";
+      if(u==null) {
+        GetCommander()<-ORDER_REJECTED(strUnitType);
+      } else {
+        GetCommander()<-UNIT_FREE(this);
+      }
+    }
+  }
+
+  notification UNIT_BEING_ATTACKED(Unit enemy, int damage) 
+  {
+    // Hmm, utoci na nas nepritel, meli bychom zavolat pomoc
+  }  
+
+  notification UNIT_DIED(Position pos)
+  {
+    // Umreli jsme
+    if(strUnitTypeOrdered!="") {
+      GetCommander()<-ORDER_REJECTED(strUnitTypeOrdered);
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Systémové objekty</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="11b-systemove_objekty.html#sysobj_string">Objekt <code>String</code></a>
+<a href="11b-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h1 id="sysobjs">Systémové objekty</h1>
+
+<p>Pro všechny systémové objekty platí, že operátorem <code>=</code> se systémové objekty nekopírují, ale pouze se kopíruje reference na ně. Stejně tak při předávání parametrů se předává pouze reference na systémový objekt. Opravdová kopie objektu (duplikát) se vytváří pomocí operátoru <code>dup</code>.</p>
+
+<p>Příklad kopírování reference:</p>
+<pre>
+Position position1, position2;
+
+position1.x = 5;
+position2 = position1; // Zde se okopíruje reference
+position2.x = 10;
+</pre>
+
+<p>Po provedení těchto příkazů budou obě proměnné <code>position1</code> i <code>position2</code> obsahovat stejné hodnoty (odkazují na jeden objekt). Takže <code>position1.x</code> i <code>position2.x</code> bude mít hodnotu <code>10</code>.</p>
+
+<p>Příklad vytvoření kopie objektu:</p>
+<pre>
+Position position1, position2;
+
+position1.x = 5;
+position2 = dup(position1);  // Zde se vyrobí kopie
+position2.x = 10;
+
+</pre>
+<p>Po provedení těchto příkazů bude v proměnné <code>position1</code> jiná hodnota (jiný objekt), než v proměnné <code>position2</code>. Takže <code>position1.x</code> bude mít hodnotu <code>5</code>, ale <code>position2.x</code> bude mít hodnotu <code>10</code>.</p>
+
+<p class="odkaz">
+<a href="11b-systemove_objekty.html#sysobj_string">Objekt <code>String</code></a>
+<a href="11b-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

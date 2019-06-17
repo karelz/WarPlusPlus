@@ -1,0 +1,141 @@
+unit MiningUnit extends AbstractUnit
+{   
+  Unit mineUnit, unloadUnit;
+  bool bMining;
+	bool bGonnaMine; // Jedeme tezit
+
+	constructor {
+		bGonnaMine=false;
+	}
+
+  bool TestFinish() {
+    if(!IsAlive(mineUnit)) {
+			MiningCommander c=GetCommander();
+			c.ResourceVanished(mineUnit);
+      sendto(c) notification {        
+        REQUEST_WORK(this);
+      }
+      return true;
+    }
+    if(!IsAlive(unloadUnit)) {
+      StartupCommander sc=GetGeneralCommander();
+      unloadUnit=sc.GetClosestBase(GetPosition());
+      if(unloadUnit==null) {
+        // Konec hry, neni baze na vylozeni
+        return true;
+      }
+    }
+    return false;
+  }
+
+  notification MINE(Unit mine, Unit unload) 
+  {
+    bMining=true;
+    mineUnit=mine;
+    unloadUnit=unload;
+    EmptyCommandQueue(true, false);
+    this<-DO_MINING();
+  }
+
+  command DO_MINING()
+  {
+    Resources loaded, toload;
+    int i;
+    // Petkrat maximalne zopakujeme
+    for(i=0; i<5; i++) {
+      Sleep(5);
+      bMining=true;
+      if(TestFinish()) break;
+      
+      toload=mineUnit.Resource.GetResources();
+      if(!toload.IsEmpty() && !Mine.IsFull()) {
+				bGonnaMine=true;
+        switch(GoNearby(mineUnit.GetPosition(), true)) {
+				case 0: // Ok, nic nedelame
+					break;
+				case -1: // Pozice mimo mapu
+				case 1: // Cesta neexistuje
+					// Hlasime veliteli, ze tento krystal je spatny
+					MiningCommander mc=GetCommander();
+					mc.BadResource(mineUnit);
+					// A zadame o jinou praci
+          sendto(GetCommander()) notification {
+            REQUEST_WORK(this);
+					}
+					return;
+				case 2: // Cesta je zablokovana
+					Sleep(20);
+					continue;
+        }
+        if(TestFinish()) break;
+        if(!Mine.Mine(mineUnit)) Sleep(10);
+        if(TestFinish()) break;
+				bGonnaMine=false;
+      }
+
+      if(Mine.IsFull()) {
+        switch(GoNearby(unloadUnit.GetPosition(), false)) {
+				case 0: // Ok, nic nedelame
+					break;
+				case -1: // Pozice mimo mapu
+				case 1: // Cesta neexistuje
+					// Nejde se dostat k zakladne
+					bMining=false;
+					// Odpocineme si
+					Sleep(20);
+					// Dame si prochazku
+					this<-EXPLORE();
+					return;
+				case 2: // Cesta je zablokovana
+					Sleep(20);
+					continue;
+				}
+        if(TestFinish()) break;
+        if(!Mine.Unload(unloadUnit)) Sleep(10);
+      }
+    }
+    bMining=false;
+    sendto(GetCommander()) notification {
+      REQUEST_WORK(this);
+    }
+  }
+
+  notification EXPLOITED(Unit e) 
+  {
+		// Pokud jsme se zrovna chystali tezit vycerpany krystal...
+		// zabijime tezeni, zadame novou praci
+    if(mineUnit==e && bGonnaMine) {			
+      mineUnit==null;
+      EmptyCommandQueue(true, false);
+      sendto(GetCommander()) notification {
+        REQUEST_WORK(this);
+      }
+    }
+  }
+
+  // Nahodne bloudi po mape
+  command EXPLORE()
+  {
+		// Za jak dlouho skoncime prochazku
+		SetTimer(1, 200);
+		Trace(Name+" prochazka.");
+
+    bMining=false;
+    while ( true )
+    {
+      Position posMe = GetPosition ( );
+
+      posMe.x = posMe.x + RandomInt ( 41 ) - 20;
+      posMe.y = posMe.y + RandomInt ( 41 ) - 20;
+
+      Move.GoPos(posMe);
+    }
+  }
+
+	notification TIMER(int timer, int timeslice) {
+		EmptyCommandQueue(true, false);
+		sendto(GetCommander()) notification {
+			REQUEST_WORK(this);
+		}
+	}
+}

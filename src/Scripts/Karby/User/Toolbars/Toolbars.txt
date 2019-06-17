@@ -1,0 +1,303 @@
+#------------------------------------------------------------------------------------
+[Base]
+ButtonsCount = 4;
+
+[Base/Button1]
+Caption = "Vyrob jednotku Explorer";
+Function = "BuildUnit";
+Icon = "Explorer.tga";
+Accelerator = "E";
+ParamCount = 1;
+Param1 = "Explorer";
+
+[Base/Button2]
+Caption = "Vyrob jednotku Builder";
+Function = "BuildUnit";
+Icon = "Builder.tga";
+Accelerator = "B";
+ParamCount = 1;
+Param1 = "Builder";
+
+[Base/Button3]
+Caption = "Odešli vyrobené jednotky";
+Function = "SetRelayPoint";
+Icon = "Relay.tga";
+Accelerator = "R";
+
+[Base/Button4]
+Caption = "Zastav výrobu";
+Function = "Stop";
+Icon = "Stop.tga";
+Accelerator = "S";
+
+#------------------------------------------------------------------------------------
+[Factory]
+ButtonsCount = 4;
+
+[Factory/Button1]
+Caption = "Vyrob jednotku Jumper";
+Function = "BuildUnit";
+Icon = "Jumper.tga";
+Accelerator = "J";
+ParamCount = 1;
+Param1 = "Jumper";
+
+[Factory/Button2]
+Caption = "Vyrob jednotku Boot";
+Function = "BuildUnit";
+Icon = "Boot.tga";
+Accelerator = "B";
+ParamCount = 1;
+Param1 = "Boot";
+
+[Factory/Button3]
+Caption = "Odešli vyrobené jednotky";
+Function = "SetRelayPoint";
+Icon = "Relay.tga";
+Accelerator = "R";
+
+[Factory/Button4]
+Caption = "Zastav výrobu";
+Function = "Stop";
+Icon = "Stop.tga";
+Accelerator = "S";
+
+#------------------------------------------------------------------------------------
+[Jumper]
+ButtonsCount = 4;
+
+[Jumper/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "Move.tga";
+Accelerator = "M";
+
+[Jumper/Button2]
+Caption = "Zaútoè";
+Function = "Attack";
+Icon = "Attack.tga";
+Accelerator = "A";
+
+[Jumper/Button3]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Stop.tga";
+Accelerator = "S";
+
+[Jumper/Button4]
+Caption = "Stùj na místì";
+Function = "Hold";
+Icon = "Hold.tga";
+Accelerator = "H";
+
+[Jumper/RightClickPosition]
+Function = "RightClickMove";
+
+[Jumper/RightClickEnemyUnit]
+Function = "RightClickAttack";
+
+[Jumper/ShiftRightClickPosition]
+Function = "ShiftRightClickMove";
+
+[Jumper/ShiftRightClickEnemyUnit]
+Function = "ShiftRightClickAttack";
+
+
+#------------------------------------------------------------------------------------
+[Boot]
+ButtonsCount = 4;
+
+[Boot/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "Move.tga";
+Accelerator = "M";
+
+[Boot/Button2]
+Caption = "Zaútoè";
+Function = "Attack";
+Icon = "Attack.tga";
+Accelerator = "A";
+
+[Boot/Button3]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Stop.tga";
+Accelerator = "S";
+
+[Boot/Button4]
+Caption = "Stùj na místì";
+Function = "Hold";
+Icon = "Hold.tga";
+Accelerator = "H";
+
+[Boot/RightClickPosition]
+Function = "RightClickMove";
+
+[Boot/RightClickEnemyUnit]
+Function = "RightClickAttack";
+
+[Boot/ShiftRightClickPosition]
+Function = "ShiftRightClickMove";
+
+[Boot/ShiftRightClickEnemyUnit]
+Function = "ShiftRightClickAttack";
+
+
+#------------------------------------------------------------------------------------
+[Builder]
+ButtonsCount = 5;
+
+[Builder/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "Move.tga";
+Accelerator = "M";
+
+[Builder/Button2]
+Caption = "Vyrob jednotku Base";
+Function = "BuildUnit";
+Icon = "Base.tga";
+Accelerator = "B";
+ParamCount = 1;
+Param1 = "Base";
+
+[Builder/Button3]
+Caption = "Vyrob jednotku Factory";
+Function = "BuildUnit";
+Icon = "Factory.tga";
+Accelerator = "F";
+ParamCount = 1;
+Param1 = "Factory";
+
+[Builder/Button4]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Stop.tga";
+Accelerator = "S";
+
+[Builder/Button5]
+Caption = "Stùj na místì";
+Function = "Hold";
+Icon = "Hold.tga";
+Accelerator = "H";
+
+[Builder/RightClickPosition]
+Function = "RightClickMove";
+
+[Builder/ShiftRightClickPosition]
+Function = "ShiftRightClickMove";
+
+
+#------------------------------------------------------------------------------------
+[Explorer]
+ButtonsCount = 6;
+
+[Explorer/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "Move.tga";
+Accelerator = "M";
+
+[Explorer/Button2]
+Caption = "Náhodnì zkoumej";
+Function = "Explore";
+Icon = "Explore.tga";
+Accelerator = "R";
+
+[Explorer/Button3]
+Caption = "Hlídej";
+Function = "Patrol";
+Icon = "Patrol.tga";
+Accelerator = "P";
+
+[Explorer/Button4]
+Caption = "Kroužení";
+Function = "Circle";
+Icon = "Circle.tga";
+Accelerator = "C";
+
+[Explorer/Button5]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Stop.tga";
+Accelerator = "S";
+
+[Explorer/Button6]
+Caption = "Stùj na místì";
+Function = "Hold";
+Icon = "Hold.tga";
+Accelerator = "H";
+
+[Explorer/RightClickPosition]
+Function = "RightClickMove";
+
+[Explorer/ShiftRightClickPosition]
+Function = "ShiftRightClickMove";
+
+
+#------------------------------------------------------------------------------------
+[Default]
+ButtonsCount = 5;
+
+[Default/Button1]
+Caption = "Jdi";
+Function = "Move";
+Icon = "Move.tga";
+Accelerator = "M";
+
+[Default/Button2]
+Caption = "Zaútoè";
+Function = "Attack";
+Icon = "Attack.tga";
+Accelerator = "A";
+
+[Default/Button3]
+Caption = "Pøeruš èinnost";
+Function = "Stop";
+Icon = "Stop.tga";
+Accelerator = "S";
+
+[Default/Button4]
+Caption = "Stùj na místì";
+Function = "Hold";
+Icon = "Hold.tga";
+Accelerator = "H";
+
+[Default/Button5]
+Caption = "Pøidej se k obranì";
+Function = "ChangeToDefender";
+Icon = "Defender.tga";
+Accelerator = "D";
+
+[Default/RightClickPosition]
+Function = "RightClickMove";
+
+[Default/RightClickEnemyUnit]
+Function = "RightClickAttack";
+
+[Default/ShiftRightClickPosition]
+Function = "ShiftRightClickMove";
+
+[Default/ShiftRightClickEnemyUnit]
+Function = "ShiftRightClickAttack";
+
+
+#------------------------------------------------------------------------------------
+[NoSelection]
+ButtonsCount = 3;
+
+[NoSelection/Button1]
+Caption = "Zavolej globální funkci Custom1()";
+Function = "Custom1";
+Icon = "Custom.tga";
+
+[NoSelection/Button2]
+Caption = "Zavolej globální funkci Custom2()";
+Function = "Custom2";
+Icon = "Custom.tga";
+
+[NoSelection/Button3]
+Caption = "Zavolej globální funkci Custom3()";
+Function = "Custom3";
+Icon = "Custom.tga";

@@ -1,0 +1,9 @@
+FrameNum = 6;
+Speed = 70;
+Frame0 = "ARight1.tga";
+Frame1 = "ARight2.tga";
+Frame2 = "ARight3.tga";
+Frame3 = "ARight4.tga";
+Frame4 = "ARight5.tga";
+Frame5 = "ARight6.tga";
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Důvody ukončení interpretace - Část 1</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+	table.notifikace
+	{
+		margin: 3mm 0mm 3mm 10mm;
+		width: 11cm;
+	}
+    td
+    {
+        text-align: left;
+    }
+
+	td.vycpavka
+	{
+		width: 5mm;
+	}
+
+    td.notifikace_deklarace
+    {
+    	font-size: 10pt;
+        font-weight: bold;
+    }
+
+    td.notifikace_hlavicka
+    {
+        font-weight: bold;
+        vertical-align: top;
+    }
+
+    td.notifikace_popis
+    {
+    	width: 10.5cm;
+    }
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="15b-duvody_ukonceni_interpretace.html#cast2">Část 2</a>
+<a href="15b-duvody_ukonceni_interpretace.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h1>Důvody ukončení interpretace</h1>
+<p>V případě chybového ukončení skriptu, se do logu vypíše zpráva o tom, že skript byl ukončen a jako důvod je uvedena jedna z následujících hodnot:</p>
+
+<h2 id="cast1">Důvody ukončení interpretace - Část 1</h2>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_ARGUMENT_TYPE_MISHMASH</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Chyba v typech parametrů při volání globální funkce, metody nebo reakce na zprávu.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_INVALID_ARGUMENT_COUNT
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Chybný počet parametrů při volání globální funkce, metody nebo reakce na zprávu.
+</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_METHOD_NOT_FOUND
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Pokus o volání metody, kterou jednotka nemá. To se stává v případě, když interpretovaný kód používá jednotku, jejíž definice se změnila.
+</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_FUNCTION_NOT_FOUND
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Pokus o volání globální funkce, které neexistuje. To se stává v případě, když funkce kdysi existovala, interpretovaný kód ji volal, a někdo funkci smazal.
+</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_STRUCTURE_NOT_FOUND
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Použitý typ struktury neexistuje. To se stává v případě, když struktura kdysi existovala, interpretovaný kód ji používal, a někdo tu strukturu smazal.
+</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_MEMBER_NOT_FOUND
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Pokud o přístup na datovou položku, kterou jednotka nemá. To se stává v případě, když je interpretovaný kód používá jednotku, jejíž definice se změnila.
+</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_SYSCALL_ARGUMENT_ERROR
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Chyba v parametrech systémového volání. Například špatný typ parametru, nebo funkce očekávala nějakou hodnotu a dostala jinou.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_SYSCALL_ERROR
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Chyba systémového volání.
+</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_STRING_INDEX_OUT_OF_BOUNDS
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Pokus o indexování znaku v řetězci záporným číslem nebo číslem větším, než je délka řetězce.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_ARRAY_INDEX_OUT_OF_BOUNDS
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Pokus o indexování buňky v poli záporným číslem nebo číslem větším, než je počet buňek v poli.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_CANNOT_CREATE_SYSTEM_OBJECT
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Interpret nemůže vytvořit systémový objekt.
+</td></tr>
+</table>
+
+<p class="odkaz">
+<a href="15b-duvody_ukonceni_interpretace.html#cast2">Část 2</a>
+<a href="15b-duvody_ukonceni_interpretace.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

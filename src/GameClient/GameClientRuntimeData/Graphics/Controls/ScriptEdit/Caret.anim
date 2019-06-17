@@ -1,0 +1,8 @@
+FrameNum = 6;
+Speed = 75;
+Frame0 = "Caret4.tga";
+Frame1 = "Caret3.tga";
+Frame2 = "Caret2.tga";
+Frame3 = "Caret1.tga";
+Frame4 = "Caret2.tga";
+Frame5 = "Caret3.tga";

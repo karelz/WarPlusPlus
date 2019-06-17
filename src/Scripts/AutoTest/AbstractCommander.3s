@@ -1,0 +1,22 @@
+unit AbstractCommander extends Unit
+{
+  
+  void EnemySpotted(Unit enemy)
+  {
+    StartupCommander sc=GetGeneralCommander();
+    sc.EnemySpotted(enemy);
+  }
+
+  void ResourceSpotted(Unit resource)
+  {
+    StartupCommander sc=GetGeneralCommander();
+    sc.ResourceSpotted(resource);
+  }
+
+  // Zabili nam jednotku
+  notification INFERIOR_DIED(Unit inferior, Position pos) {
+    // Pozadame o prideleni DVOU takovych jednotek
+	GetCommander()<-REQUEST_UNIT(inferior.GetUnitTypeName(), this);
+	GetCommander()<-REQUEST_UNIT(inferior.GetUnitTypeName(), this);
+  }
+}

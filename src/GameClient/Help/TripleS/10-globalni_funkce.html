@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - globální funkce</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Globální funkce</h1>
+
+<p>Globální funkce se definují stejně jako metody, pouze nejsou umístěny uvnitř definice jednotky (tj. v bloku <code>unit { ... }</code>).</p>
+
+<pre>
+návratový_typ identifikátor(parametr, parametr, ...) blok
+</pre>
+
+<p>Pokud metoda nemá návratovou hodnotu, použije se klíčové slovo <code>void</code>. Globální funkce lze použít libovolně v metodách jednotek i v ostatních globálních funkcích.</p>
+
+<p>Navíc existuje možnost přiřadit je tlačítkům v nástrojových panelech v klientské aplikaci. Je ale nutné, aby měly speciální tvar &mdash; prvním parametrem musí být systémový objekt <code>Client</code>, který se uvnitř funkce používá ke komunikaci s uživatelem, druhým parametrem musí být množina jednotek <code>Unit{}</code>, pro které klient spustil funkci z nástrojového panelu.</p>
+
+</body>
+</html>

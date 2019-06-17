@@ -1,0 +1,60 @@
+unit Factory
+{
+
+// reakce na prikaz staveni jednotky
+command BUILD(String strUnitType, Client cl)
+{
+  if (Make == null)
+  {
+    // napiseme chybovou hlasku a nic vic
+    cl.MessageError("Jednotka " + GetUnitTypeName() + " nemùže vyrábìt jiné jednotky!");
+  }
+
+  switch (strUnitType)
+  {
+  case "Boot":
+    {
+      // vyrobime jednotku
+      Unit u = Make.Make(strUnitType, "SimpleUnit", GetCommander());
+
+      if (u == null)
+      {
+        // nepodarilo se vyrobit jednotku
+        cl.MessageError("Nelze vyrobit jednotku Boot!");
+      }
+      else
+      {
+        // hura, jednotka vyrobena!
+        cl.MessageInfoUnit("Byla vyrobena jednotka Boot", u);
+      }
+    }
+    break;
+
+  case "Jumper":
+    {
+      // vyrobime jednotku
+      Unit u = Make.Make(strUnitType, "SimpleUnit", GetCommander());
+
+      if (u == null)
+      {
+        // nepodarilo se vyrobit jednotku
+        cl.MessageError("Nelze vyrobit jednotku Jumper!");
+      }
+      else
+      {
+        // hura, jednotka vyrobena!
+        cl.MessageInfoUnit("Byla vyrobena jednotka Jumper", u);
+      }
+    }
+    break;
+
+  default:
+    {
+      // napiseme jen chybovou hlasku a konec
+      cl.MessageError("Nelze vyrobit jednotku " + strUnitType);
+    }
+    break;
+  }
+}  // command BUILD
+
+}  // unit Factory

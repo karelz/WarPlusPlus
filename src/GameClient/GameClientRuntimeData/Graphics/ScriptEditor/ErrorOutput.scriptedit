@@ -1,0 +1,55 @@
+# Frame window part
+Passive_Bottom = "..\Windows\SimpleLarge\BottomP.tga";
+Passive_BottomLeft = "..\Windows\SimpleLarge\BottomLeftP.tga";
+Passive_BottomRight = "..\Windows\SimpleLarge\BottomRightP.tga";
+Passive_Middle_Color = 0x0193026;
+Passive_Left = "..\Windows\SimpleLarge\LeftP.tga";
+Passive_Right = "..\Windows\SimpleLarge\RightP.tga";
+Passive_Top = "..\Windows\SimpleLarge\TopP.tga";
+Passive_TopLeft = "..\Windows\SimpleLarge\TopLeftP.tga";
+Passive_TopRight = "..\Windows\SimpleLarge\TopRightP.tga";
+
+Active_Bottom = "..\Windows\SimpleLarge\BottomA.tga";
+Active_BottomLeft = "..\Windows\SimpleLarge\BottomLeftA.tga";
+Active_BottomRight = "..\Windows\SimpleLarge\BottomRightA.tga";
+Active_Middle_Color = 0x0193026;
+Active_Left = "..\Windows\SimpleLarge\LeftA.tga";
+Active_Right = "..\Windows\SimpleLarge\RightA.tga";
+Active_Top = "..\Windows\SimpleLarge\TopA.tga";
+Active_TopLeft = "..\Windows\SimpleLarge\TopLeftA.tga";
+Active_TopRight = "..\Windows\SimpleLarge\TopRightA.tga";
+
+MinimalSize_X = 10;
+MinimalSize_Y = 10;
+
+NormalCursor = "..\Mouse\BeamCursor.cursor";
+
+# ScriptEdit part
+VerticalScrollControl = "..\Controls\StandardVertical.scroll";
+HorizontalScrollControl = "..\Controls\StandardHorizontal.scroll";
+
+Caret = "..\Controls\ScriptEdit\Caret.anim";
+
+BackgroundColor = 0x0193026;
+SelectionColor = 0x000008C;
+
+Font = "..\Fonts\Courier.fnt";
+
+LeftMargin = 5;
+RightMargin = 5;
+TopMargin = 5;
+BottomMargin = 5;
+
+Token_Comment = 0x000FFFF;
+Token_String = 0x000FFFF;
+Token_Integer = 0x000FFFF;
+Token_Float = 0x000FFFF;
+Token_Keyword = 0x000FFFF;
+Token_Operator = 0x000FFFF;
+Token_Constant = 0x000FFFF;
+Token_DataType = 0x000FFFF;
+Token_Text = 0x000FFFF;
+Token_Char = 0x000FFFF;
+Token_Hex = 0x000FFFF;
+Token_EndOfFile = 0x000FFFF;
+Token_Error = 0x000FFFF;

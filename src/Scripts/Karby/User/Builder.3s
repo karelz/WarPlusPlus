@@ -1,0 +1,84 @@
+unit Builder extends SimpleUnit
+{
+
+// reakce na prikaz staveni jednotky
+command BUILD(String strUnitType, Client cl)
+{
+  if (Make == null)
+  {
+    // napiseme chybovou hlasku a nic vic
+    cl.MessageError("Jednotka " + GetUnitTypeName() + " nemùže vyrábìt jiné jednotky!");
+  }
+
+  switch (strUnitType)
+  {
+  case "Base":
+    {
+      // vyrobime jednotku
+      Unit u = Make.Make(strUnitType, "", GetCommander());
+
+      if (u == null)
+      {
+        // nepodarilo se vyrobit jednotku
+        cl.MessageError("Nelze vyrobit jednotku Base!");
+      }
+      else
+      {
+        // hura, jednotka vyrobena!
+        cl.MessageInfoUnit("Byla vyrobena jednotka Base", u);
+      }
+    }
+    break;
+
+  case "Factory":
+    {
+      // vyrobime jednotku
+      Unit u = Make.Make(strUnitType, "", GetGeneralCommander());
+
+      if (u == null)
+      {
+        // nepodarilo se vyrobit jednotku
+        cl.MessageError("Nelze vyrobit jednotku Factory!");
+      }
+      else
+      {
+        // hura, jednotka vyrobena!
+        cl.MessageInfoUnit("Byla vyrobena jednotka Factory", u);
+      }
+    }
+    break;
+
+  default:
+    {
+      // napiseme jen chybovou hlasku a konec
+      cl.MessageError("Nelze vyrobit jednotku " + strUnitType);
+    }
+    break;
+  }
+}  // command BUILD
+
+
+// vypneme vsechno, co builder neumi
+command ATTACK(Unit uEnemy)
+{
+}
+
+
+// vypneme vsechno, co builder neumi
+notification ENEMY_UNIT_SEEN(Unit u)
+{
+}
+
+
+// vypneme vsechno, co builder neumi
+notification IDLE()
+{
+}
+
+
+// vypneme vsechno, co builder neumi
+command DO_ENEMY_UNIT_QUEUE()
+{
+}
+
+}  // unit Factory

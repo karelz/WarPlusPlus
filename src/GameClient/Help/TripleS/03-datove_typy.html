@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - datové typy</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Datové typy</h1>
+
+<p>V jazyce <b>TripleS</b> rozlišujeme dva druhy datových typů &mdash; jednoduché a referenční.</p>
+
+<table id="jednoduche" class="velka">
+<tr>
+    <th colspan="2">Jednoduché datové typy:</th>
+</tr>
+<tr>
+    <td class="vpravo"><code><b>int</b></code></td>
+    <td class="vlevo">celé číslo (32 bitů) v rozsahu -2147483648&hellip;+2147483647</td>
+</tr>
+<tr>
+    <td class="vpravo"><code><b>float</b></code></td>
+    <td class="vlevo">číslo v pohyblivé řádové čárce (64 bitů) v&nbsp;rozsahu 1,7.10<sup>&plusmn;308</sup> s přesností na 15 platných cifer</td>
+</tr>
+<tr>
+    <td class="vpravo"><code><b>char</b></code></td>
+    <td class="vlevo">znak (8 bitů)</td>
+</tr>
+<tr>
+    <td class="vpravo"><code><b>bool</b></code></td>
+    <td class="vlevo">logická hodnota <code>true</code> nebo <code>false</code></td>
+</tr>
+</table>
+
+<p>Jednoduché datové typy se při předávání jako parametry funkcí a metod kopírují; to znamená, že když je tato metoda mění, nedotkne se to hodnoty proměnných vně této funkce nebo metody. Po ukončení volání funkce je hodnota zevnitř funkce (metody) ztracena.</p>
+
+<table id="referencni">
+<tr>
+    <th colspan="2">Referenční datové typy</th>
+</tr>
+<tr>
+    <td class="vpravo" style="width: 40%"><code><b>unit</b></code></td>
+    <td class="vlevo"><a href="08a-jednotky.html">jednotky</a></td>
+</tr>
+<tr>
+    <td class="vpravo"><code><b>struct</b></code></td>
+    <td class="vlevo"><a href="09-struktury.html">struktury</a></td>
+</tr>
+<tr>
+    <td class="vpravo"> </td>
+    <td class="vlevo"><a href="11a-systemove_objekty.html">systémové objekty</a></td>
+</tr>
+</table>
+
+<p>Referenční datové typy, na rozdíl od jednoduchých, existují v jedné instanci mezi volajícím a volaným. Když uvnitř funkce změníme hodnotu referenční proměnné, změna se promítne i do volajícího.</p>
+
+<p>Přiřazením dvou referenčních proměnných (operátorem <code>=</code>) pouze kopírujeme referenci na jednu instanci referenční proměnné.</p>
+
+<p>Pokud chceme tomuto jevu zabránit (vytvořit kopii jako u jednoduchých typů), použijeme operátor <code>dup</code>.</p>
+
+<p>Příklad:</p>
+
+<pre>
+<b>String</b> str1, str2, str3;
+str1 = "Ahoj";
+str2 = str1;      // str2 obsahuje referenci na "Ahoj"
+str3 = dup str1;  // str3 obsahuje vlastní kopii
+</pre>
+
+</body>
+</html>

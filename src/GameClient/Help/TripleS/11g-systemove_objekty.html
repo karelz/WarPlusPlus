@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Objekt Path</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="11f-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11f-systemove_objekty.html#sysobj_map">Objekt <code>Map</code></a>,
+<b>|</b>
+<a href="11h-systemove_objekty.html#sysobj_client">Objekt <code>Client</code></a>,
+<a href="11h-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="sysobj_path">Objekt <code>Path</code></h2>
+<p>Objekt <code>Path</code> reprezentuje vyhledanou cestu na mapě. Cesta má podobu lomené čáry, tedy je to vlastně seznam pozicí (pouze dvourozměrných, souřadnice x a y) na mapě.</p>
+
+<h3>Metody</h3>
+<pre class="hlavicka">Position GetStartPoint ()</pre>
+<p>Vrací pozici, kde cesta začíná.</p>
+<pre class="hlavicka">Position GetEndPoint ()</pre>
+<p>Vrací pozici, kde cesta končí.</p>
+<pre class="hlavicka">void SwapDirection ()</pre>
+<p>Obrací směr cesty.</p>
+<pre class="hlavicka">int GetDistance ()</pre>
+<p>Vrací délku cesty.</p>
+<pre class="hlavicka">int GetBeeLineDistance ()</pre>
+<p>Vrací přímou (vzdušnou) vzdálenost výchozího a koncového bodu cesty.</p>
+<pre class="hlavicka">int GetMinWidth ()</pre>
+<p>Vrací minimální šířku cesty (šířku nejuzšího místa).</p>
+<pre class="hlavicka">int GetMinDistancen ( Position pos )</pre>
+<p>Vrací minimální přímou vzdálenost pozice <code>pos</code> na mapě od cesty. Tedy vrací vzdálenost nejbližšího bodu cesty od zadané pozice na mapě.</p>
+<pre class="hlavicka">int GetMaxDistance ( Position pos )</pre>
+<p>Vrací maximální přímou vzdálenost pozice <code>pos</code> na mapě od cesty. Tedy vrací vzdálenost nejvzdálenějšího bodu cesty od zadané pozice na mapě.</p>
+<pre class="hlavicka">void Truncate ( int distance )</pre>
+<p>Zkrátí cestu o vzdálenost zadanou parametrem <code>distance</code>. Zkracování probíhá od koncového bodu cesty.</p>
+<pre class="hlavicka">void TruncateBeeLine ( int distance )</pre>
+<p>Zkrátí cestu tak, že koncový bod cesty je od výchozího vzdálen <code>distance</code> vzdušnou čarou.</p>
+<pre class="hlavicka">void AppendPath ( Position pos )</pre>
+<p>Prodlouží cestu na mapě až k pozici <code>pos</code>.</p>
+
+<p class="odkaz">
+<a href="11f-systemove_objekty.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="11f-systemove_objekty.html#sysobj_map">Objekt <code>Map</code></a>
+<b>|</b>
+<a href="11h-systemove_objekty.html#sysobj_client">Objekt <code>Client</code></a>
+<a href="11h-systemove_objekty.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

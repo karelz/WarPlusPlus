@@ -1,0 +1,14 @@
+Funkce, ktere je treba implementovat z namespace.nsp
+
+Path
+	Position GetStartPoint();
+	Position GetEndPoint();
+	void SwapDirection();
+	int GetDistance();
+	int GetBeeLineDistance();
+	int GetMinWidth();
+	int GetMinDistance(Position pos);
+	int GetMaxDistance(Position pos);
+	void Truncate(int distance);
+	void TruncateBeeLine(int distance);
+	void AppendPath(Position pos);

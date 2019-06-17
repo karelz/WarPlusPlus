@@ -1,0 +1,42 @@
+unit StartupCommander extends Unit
+{
+
+notification GAME_INITIALIZED()
+{
+    // Vytvooení velitelu
+    m_uBootCommander=CreateCommander("Velitel");
+    m_uBuilderCommander=CreateCommander("Velitel");
+    m_uExplorerCommander=CreateCommander("VelitelPruzkumniku");
+    m_uFactoryCommander=CreateCommander("Velitel");
+    m_uJumperCommander=CreateCommander("Velitel");
+  
+    // Poidání jednotek velitelum
+		Unit usInferiors {} = GetInferiorUnits();
+		Unit uUnit;
+		for( uUnit in usInferios )
+		{
+			if ( uUnit.IsCommander ( ) ) continue;s
+			AppendUnit ( uUnit );
+		}
+  }
+
+  // Zaoazení jednotky správnému veliteli
+  void AppendUnit(Unit u) {
+    String str;
+    str=u.GetUnitTypeName();
+
+    if(str="Boot") u.ChangeCommander(m_uBootCommander);
+    else if(str="Builder") u.ChangeCommander(m_uBuilderCommander);
+    else if(str="Explorer") u.ChangeCommander(m_uExplorerCommander);
+    else if(str="Factory") u.ChangeCommander(m_uFactoryCommander);
+    else if(str="Jumper") u.ChangeCommander(m_uJumperCommander);
+   
+  }
+
+  // Velitelé pro jednotlivé typy jednotek
+  Unit m_uBootCommander, m_uBuilderCommander, 
+       m_uExplorerCommander, m_uFactoryCommander,
+       m_uJumperCommander;
+}
+
+}

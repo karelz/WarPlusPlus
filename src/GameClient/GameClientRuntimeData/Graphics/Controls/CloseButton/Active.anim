@@ -1,0 +1,6 @@
+FrameNum = 3;
+Speed = 100;
+Loop = True;
+Frame0 = "Active0.tga";
+Frame1 = "Active1.tga";
+Frame2 = "Active2.tga";

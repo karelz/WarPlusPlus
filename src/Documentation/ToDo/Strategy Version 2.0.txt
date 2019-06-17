@@ -1,0 +1,50 @@
+Do verze 2.0
+------------
+
+- hned do verze 1.1 nahravani skriptu z disku...
+
+- od CNotifier::Create(), pres CIWaitingInterface, CISyscall...
+  proste pak vsechny syscalls maji Create(), kterej vzdycky vraci
+  true a vola VERIFY(predek::Create())
+  => predelat na void
+
+- predelat celou sit na UDPko, tride CVirtualConnection dat rozumnou funkcnost,
+  veskerou inteligenci nad virtualnima konexema v CNetworkConnection zrusit...
+
+- vymyslet chytrejsi zrani resourcu v Make, Build skillach - neco jako leasing.
+
+- kontrola jestli se jednotky neprekryvaji v MapEditoru
+
+- clear flag u sendto (nejdriv vyprazdni fronty a pak posli zpravy)
+
+- do TripleS dodelat operator XOR (^ a ^=), operator carka (,) a
+  operator podmineneho vyrazu ( ? : ), navic na mnozinach operatory
+  == a != (porovnat obsah, ne referenci)
+
+- Interpret - predelat interface volani zvenku (hlavne C++)
+
+- Cesta - dodelat vymyslenosti, udelat strileni (hlavne kdyz se nenajde graf)
+
+- Server - zlepsit brief infa atp.
+         - udelat full infa (do skill)
+
+- textove resourcy vsude (i interpret, kompilator atp.)
+
+- Client - Shadow folder na skripty
+
+- drobne zmeny mapy (alespon grafy cest) udelat bez zmeny verze mapy, nebo externi utilitka
+
+- sjednotit CStaticBitArray atp. GameServer a MapEditor a udelat poradek v Common\MemoryPool
+
+- Nastaveni velikosti cachi na Clientovi pri startu (podle velikosti Systemove RAMky)
+
+- nejak vymyslet a udelat kontrolu, ze se v reakci na notifikaci nevolaji hard metody
+  na skillach (a vubec prehodnotit, co je to soft/hard, cekaci/necekaci, dlouha/kratka,...)
+
+- navratovy kod v interpretu TYPE_MISHMASH zmenit na TYPE_MISMATCH
+
+- v klientovi (helpu) dodelat kod na zkraceni title v helpu (tri tecky...)
+
+- syntax highlight na "null" a "this" na klientovi
+
+- predavani null v interpretu padne na typovou kontrolu, kdyz se predava jako jednotka

@@ -1,0 +1,3 @@
+Passive = "MinimapP.tga";
+Active = "MinimapA.tga";
+Pressed = "MinimapS.tga";

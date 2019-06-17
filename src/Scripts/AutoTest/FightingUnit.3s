@@ -1,0 +1,29 @@
+unit FightingUnit extends AbstractUnit
+{
+  // Reakce na spatreni nepratelske jednotky
+  notification ENEMY_UNIT_SEEN(Unit enemy)
+  {
+    StartupCommander sc=GetGeneralCommander();
+    // Mame nepritele
+    // Rikame veliteli
+    sc.EnemySpotted(enemy);
+ 
+    // A pokud to jde, jdeme do boje
+    if(BulletAttack!=null) {
+      if(BulletAttack.CanAttackUnit(enemy) && !BulletAttack.IsActive()) {
+        this<-ATTACK(enemy);
+      }
+    }
+  }  
+
+  notification IDLE()
+  {
+    bBusy=false;
+    // Podivame se kolem sebe, jestli neni na co utocit
+    Position pos=GetPosition();
+    Unit u=GetClosestEnemy(GetMap().GetEnemyUnitsInArea(pos.x, pos.y, GetViewRadius()), pos);
+    if(u!=null) {
+      this<-ATTACK(u);
+    }
+  }
+}

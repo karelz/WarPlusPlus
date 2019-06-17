@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - konverze datových typů</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Konverze datových typů</h1>
+
+<p>Kompilátor provádí implicitní konverze následujících datových typů:</p>
+
+<table class="velka">
+<tr>
+    <th>původní typ</th>
+    <th>výsledný typ</th>
+    <th>kdy se provede konverze</th>
+</tr>
+<tr>
+    <td><code><b>int</b></code></td>
+    <td><code><b>float</b></code></td>
+    <td>je-li očekáván typ <code>float</code><br />(např. jako parametr)</td>
+</tr>
+<tr>
+    <td><code><b>float</b></code></td>
+    <td><code><b>int</b></code></td>
+    <td>je-li očekáván typ <code>int</code><br />(např. jako parametr)</td>
+</tr>
+<tr>
+    <td><code><b>int</b></code></td>
+    <td><code><b>char</b></code></td>
+    <td>při použití operátoru <code>+</code>, kdy jeden z operandů je typu <code>char</code> a druhý typu <code>int</code></td>
+</tr>
+<tr>
+    <td><code><b>char</b></code></td>
+    <td><code><b>String</b></code></td>
+    <td>při použití operátoru <code>+</code>, kdy jeden z operandů je typu <code>String</code> a druhý typu <code>char</code></td>
+</tr>
+<tr>
+    <td>typ jednotky</td>
+    <td>jiný typ jednotky</td>
+    <td>je-li očekáván jiný typ jednotky než daný typ</td>
+</tr>
+</table>
+
+<p>Při konverzi mezi typy jednotek se provádí za běhu skriptu kontrola, zda je daná konverze možná, tedy zda je daná jednotka potomkem typu, na který je konvertována.</p>
+
+</body>
+</html>

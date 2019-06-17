@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - výrazy (1/2)</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="06b-vyrazy.html#aritmeticke">Aritmetické výrazy</a>
+<a href="06b-vyrazy.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h1>Výrazy</h1>
+
+<h2 id="zakladni">Základní výrazy</h2>
+
+<p>Základní výrazy jsou literály (konstanty), proměnné, parametry funkce, datové položky, volání funkce, indexace pole a použití ukazatelů <code>this</code> a <code>null</code>. Každá proměnná, parametr nebo datová položka má spolu se svou hodnotou pevně asociovaný svůj typ. Výrazy lze uzávorkovat pomocí kulatých závorek <code>( )</code>.</p>
+
+<h3>Literál</h3>
+
+<p>Literál je výskyt přímé hodnoty (konstanty) v kódu. Každý literál má asociovaný typ:</p>
+
+<table>
+<tr>
+    <th>typ</th>
+    <th>příklad literálu</th>
+</tr>
+<tr>
+    <td><code><b>int</b></code></td>
+    <td><code>1</code>, <code>-5</code>, <code>+10</code></td>
+</tr>
+<tr>
+    <td><code><b>float</b></code></td>
+    <td><code>1.13</code>, <code>12.5E-9</code>, <code>3e+5</code></td>
+</tr>
+<tr>
+    <td><code><b>char</b></code></td>
+    <td><code>'a'</code>, <code>'X'</code></td>
+</tr>
+<tr>
+    <td><code><b>bool</b></code></td>
+    <td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+    <td><code><b>String</b></code></td>
+    <td><code>"Ahoj"</code></td>
+</tr>
+</table>
+
+<h3>Přístup k datové položce nebo metodě</h3>
+
+<p>Pro přístup k datové položce nebo metodě jednotky, systémového objektu nebo struktury se používá operátor tečka:</p>
+
+<pre>
+základní_výraz.identifikátor
+</pre>
+
+<p>Základní výraz musí být typu jednotka, systémový objekt nebo struktura a musí mít nějaké datové položky nebo metody. Identifikátor specifikuje jméno datové položky nebo metody, ke které se přistupuje.</p>
+
+<h3>Volání funkce nebo metody</h3>
+
+<p>Volání globální funkce, metody jednotky nebo systémového objektu je také výraz. Volání se zapisuje obvyklým způsobem <code>základní_výraz(seznam parametrů...)</code>, kde základní výraz specifikuje metodu jednotky nebo systémového objektu nebo globální funkci, která se má zavolat.</p>
+
+<h3>Přístup k prvkům pole, ke znakům v řetězci</h3>
+
+<p>Pro přístup k prvkům pole nebo ke znakům v řetězci se používá operátor hranatých závorek <code>[ ]</code>. Základní výraz musí být typu pole nebo <code>String</code>. U výrazu uvnitř hranatých závorek je očekáván typ <code>int</code>.</p>
+
+<pre>
+základní_výraz[výraz]
+</pre>
+
+<h3><code>this</code></h3>
+
+<p>Klíčové slovo <code>this</code> vyskytující se v kódu nějaké metody nebo reakce na zprávu plní úlohu reference na aktuální jednotku, jejíž metoda/reakce na zprávu je interpretována. Používá se zejména pro předání této reference jako parametr jiným metodám, zprávám nebo globálním funkcím.</p>
+
+<h3><code>super</code></h3>
+
+<p>Pomocí klíčového slova <code>super</code> lze v kódu metody nebo reakce na zprávu jednotky přistupovat na metody předka (které byly překryty metodami se stejným jménem aktuální jednotky). Příklad:</p>
+
+<pre>
+<b>unit</b> Vojak
+{
+  void DelejNeco() { ... }
+}
+
+<b>unit</b> Velitel <b>extends</b> Vojak
+{
+  void DelejNeco()
+  {
+    <b>super</b> DelejNeco();  // udelame to, co dela Vojak
+     . . .  // a jeste neco navic
+  }
+}
+</pre>
+
+<h3><code>null</code></h3>
+
+<p>Jazyk <b>TripleS</b> obsahuje speciální klíčové slovo <code>null</code>, pomocí kterého lze testovat, zda je reference na nějaký systémový objekt, jednotku nebo strukturu platná. Testování se provádí porovnáním dané reference za pomoci operátorů <code>==</code> a <code>!=</code>.
+
+<pre>
+<b>String</b> str;
+...
+<b>if</b> (str == <b>null</b>) { ... }
+</pre>
+
+
+
+<p class="odkaz">
+<a href="06b-vyrazy.html#aritmeticke">Aritmetické výrazy</a>
+<a href="06b-vyrazy.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

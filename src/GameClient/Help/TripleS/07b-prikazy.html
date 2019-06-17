@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - příkazy (2/3)</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="07a-prikazy.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="07a-prikazy.html#zakladni">Základní příkazy</a>,
+<a href="07a-prikazy.html#vetveni">Větvení</a>
+<b>|</b>
+<a href="07c-prikazy.html#skoky">Skoky</a>,
+<a href="07c-prikazy.html#zpravy">Zprávy</a>
+<a href="07c-prikazy.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="cykly">Cykly</h2>
+
+<p>V jazyce TripleS existují celkem 4 druhy cyklů. <code>while</code>-cyklus, <code>do</code>-cyklus, <code>for</code>-cyklus pro celočíselné proměnné a <code>for</code>-cyklus pro množiny.</p>
+
+<p><code>while</code>-cyklus se provádí, dokud je pravdivá podmínka na začátku cyklu. Cyklus se nemusí provést ani jednou, pokud se hned na začátku vyhodnotí podmínka na <code>false</code>.</p>
+
+<pre>
+<b>while</b> (podmínka) příkaz
+</pre>
+
+<p><code>do</code>-cyklus se naproti tomu provede vždy alespoň jednou, protože podmínka cyklu se vyhodnocuje na konci (tedy až po prvním provedení příkazu). Cyklus se opakuje, pokud je podmínka vyhodnocena na <code>true</code>.</p>
+
+<pre>
+<b>do</b> příkaz <b>while</b> (podmínka)
+</pre>
+
+<p><code>for</code>-cyklus má proti předchozím dvěma více možností. V jeho parametrech jsou celkem tři části. Inicializační výraz se provede pouze jednou před spuštěním cyklu. Pak se vždy vyhodnotí logický výraz, když je <code>true</code>, provede se tělo cyklu a iterační výraz. Pak se znovu jde na vyhodnocení logického výrazu. Kterýkoliv z výrazů lze vynechat (neprovede se žádná inicializace, logický výraz je <code>true</code>, neprovede se iterační výraz).</p>
+
+<pre>
+<b>for</b> (inicializační_výraz; logický_výraz; iterační výraz) příkaz
+</pre>
+
+<p id="for_set"><code>for</code>-cyklus pro množinu vypočítává prvky množiny a pro každý z nich spouští zadaný příkaz. První identifikátor je jméno proměnné stejného typu, jako jsou položky enumerované množiny, druhý identifikátor je proměnná typu množina, kterou chceme enumerovat. Hodnota aktuálního prvku je uložena v poskytnuté proměnné.</p>
+
+<pre>
+<b>for</b> (proměnná <b>in</b> množina) vnořený_příkaz
+</pre>
+
+<p class="odkaz">
+<a href="07a-prikazy.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="07a-prikazy.html#zakladni">Základní příkazy</a>,
+<a href="07a-prikazy.html#vetveni">Větvení</a>
+<b>|</b>
+<a href="07c-prikazy.html#skoky">Skoky</a>,
+<a href="07c-prikazy.html#zpravy">Zprávy</a>
+<a href="07c-prikazy.html"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

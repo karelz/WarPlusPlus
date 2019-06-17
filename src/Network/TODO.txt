@@ -1,0 +1,33 @@
+TODO:
+--------------
+
+- update documentation
+  - new CNetworkException type added
+  - CreateVirtualConnection() can throw an exception
+
+====================================
+FAR FUTURE:
+
+- add network statistics
+  - add statistic information functions
+  - update statistics in thread functions
+  - reconsider sizes in statistics structure (DWORD is sometimes too small!!)
+  - adjust sending according to actual state of network (statistics)
+
+- add timer adaptability (according to network statistics)
+
+- change the network constants to variables, load them from the config file
+
+- retry connect to server when it fails (leave it on higher layers?!?!)
+  - UNPOSSIBLE...
+
+====================================
+FAR FAR FUTURE:
+
+- simplify CNetworkConnection class to contain just link list of CVirtualConnection
+  objects, move everything necessary to protected members of CVirtualConnection,
+  so GetVirtualConnectionPriority() and many others won't need to browse the whole
+  link list...
+  - it means to destroy SVirtualConnection structure...
+
+- change TCP -> UDP

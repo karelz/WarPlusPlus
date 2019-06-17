@@ -1,0 +1,274 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "Archive"=..\Archive\Archive\Archive.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Archive/Archive", FHCAAAAA
+    ..\archive\archive
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Compression
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Cache"=.\Cache\Cache.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameClient/Cache", PGBAAAAA
+    .\cache
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Common"=..\common\Common.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Common", JWAAAAAA
+    ..\common
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Archive
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Compression"=..\Archive\Compression\Compression.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Archive/Compression", FJCAAAAA
+    ..\archive\compression
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "DirectX"=..\common\directx\DirectX.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Common/DirectX", THBAAAAA
+    ..\common\directx
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Events
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Documentation"=..\DOCUMENTATION\Documentation.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Documentation", VCCAAAAA
+    ..\documentation
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Events"=..\common\events\Events.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Common/Events", KWAAAAAA
+    ..\common\events
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Common
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GameClient"=.\GameClient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameClient", WABAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Cache
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GameClientCommon
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Network
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Windows
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GameClientCommon"=.\common\GameClientCommon.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameClient/GameClientCommon", HHBAAAAA
+    .\common
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameClientRuntimeData"=.\GameClientRuntimeData\GameClientRuntimeData.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameClient/GameClientRuntimeData", ILCAAAAA
+    .\gameclientruntimedata
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Network"=..\network\network\Network.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Network/Network", IKAAAAAA
+    ..\network\network
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ScriptLex"=.\scriptlex\ScriptLex.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameClient/ScriptLex", SBCAAAAA
+    .\scriptlex
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Windows"=.\windows\Windows.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GameClient/Windows", MSBAAAAA
+    .\windows
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name DirectX
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ScriptLex
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Zlib"=..\Archive\Zlib\Zlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Archive/Zlib", WJCAAAAA
+    ..\archive\zlib
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

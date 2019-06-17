@@ -1,0 +1,46 @@
+------------------------------------------------------------------------------
+- kradeni modrych bodu
+verze 2.0:
+----------
+- caste posilani FullInfa na klienta
+- FindLocalPath dává chybné výsledky - jednotka znovu narazí (MiniMap)
+
+------------------------------------------------------------------------------
+20001205@1715 Karby
+
+verze 2.0:
+----------
+- do cesty dodelat pripad, kdyz cilovy bod je nedostupny, tak aby se doslo
+  na nejblizsi rozumne misto (v grafu i bez nej)
+- zjisteni delky cesty atp. - ISOPath
+
+------------------------------------------------------------------------------
+
+NEVYSKYTLO SE ZNOVU:
+====================
+20001127 Helena
+
+Mapa: AutoTestMap.TheMap z 26.11.
+
+Otevrit hru, spustit, zastavit, otevrit stejnou znova, spustit.
+Spadlo na Access Violation v SUnitType(775): pSkillTypeDescription->pSkillType->DestructSkill ( pUnit );
+pSkillTypeDescription->pSkillType ma spatnou vtable, prvni dve polozky vypadaji
+zdrave, treti a ctvrta jsou NULL a pata 0x000000004 nebo tak neco.
+
+Jiny pokus:
+vtable byla:
+0x016b6b98           .. ok
+0x016b7200           .. ok
+0x005acdb4 THIS FILE .. ?????
+0x00000097           .. ?????
+0x00000050           .. ?????
+
+Pri stejne postupu to pada taky takhle:
+SUnitType.cpp(768): if ( pSkillTypeDescription->pSkillType->IsSkillActive ( pUnit ) )
+Access Violation, pSkillTypeDescription je 0xbaadf00d, ale ukazuje na neplatny kus pameti
+Dalsi pokus: pSkillTypeDescription je 0xabababab.
+Dalsi pokus: pSkillTypeDescription je 0x00000002.
+
+ALE: Na Karbyho mape (z 27.11.) to nedela.
+
+------------------------------------------------------------------------------

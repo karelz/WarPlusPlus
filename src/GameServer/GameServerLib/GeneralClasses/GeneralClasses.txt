@@ -1,0 +1,3 @@
+MFC\Include\AFXWIN.H
+MFC\Include\AFXWIN1.INL
+VC98\Include\WTYPES.H

@@ -1,0 +1,3 @@
+Passive = "MinusPassive.tga";
+Active = "MinusActive.tga";
+Pressed = "MinusPressed.tga";

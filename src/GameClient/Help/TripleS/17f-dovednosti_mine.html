@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Dovednost Mine</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="17e-dovednosti_bulletdefense.html#dovednost_bulletdefense"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="17e-dovednosti_bulletdefense.html#dovednost_bulletdefense">Dovednost <code>BulletDefense</code></a>
+<b>|</b>
+<a href="17g-dovednosti_resource.html#dovednost_resource">Dovednost <code>Resource</code></a>
+<a href="17g-dovednosti_resource.html#dovednost_resource"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+<h2 id="dovednost_mine">Dovednost <code>Mine</code></h2>
+<p>Umožňuje jednotce těžit a vykládat svůj náklad.</p>
+
+<h3>Metody</h3>
+
+<pre class="hlavicka">bool IsActive ()</pre>
+<p>Vrátí <code>true</code> pokud je dovednost aktivní.</p>
+
+<pre class="hlavicka">String GetName ()</pre>
+<p>Vrátí jméno dovednosti.</p>
+
+<pre class="hlavicka">bool Mine (Unit mine)</pre>
+<p>Začne těžit ze zadané jednotky. Tato jednotka musí mít nastavenu dovednost <code>Resource</code>, jinak
+není natěženo nic. Těží se dokud není jednotka plná, nebo dokud těžené látky nedojdou. Pokud se nepodařilo natěžit
+vůbec nic, funkce vrací <code>false</code>, jinak vrací <code>true</code>.</p>
+
+<pre class="hlavicka">bool Unload (Unit storage)</pre>
+<p>Naložené suroviny jsou vyloženy do zadané jednotky. Tato jednotka musí mít nastavenu dovednost <code>Storage</code>,
+jinak není možno vykládat. Vykládá se do úplného vyprázdnění jednotky, nebo dokud je <code>storage</code> ochotna přijímat suroviny.
+Pokud se nepodařilo vyložit vůbec nic, funkce vrací <code>false</code>, jinak vrací <code>true</code>.</p>
+
+<pre class="hlavicka">Resources GetResources ()</pre>
+<p>Vrátí vektor surovin, které jednotka má momentálně u sebe natěžené.</p>
+
+<pre class="hlavicka">Resources GetCapacity ()</pre>
+<p>Vrátí vektor surovin, které jednotka může maximálně natěžit.</p>
+
+<pre class="hlavicka">bool IsEmpty()</pre>
+<p>Vrácí <code>true</code>, pokud je jednotka prázdná.</p>
+
+<pre class="hlavicka">bool IsFull()</pre>
+<p>Vrácí <code>true</code>, pokud je jednotka úplně zaplněná.</p>
+
+<p class="odkaz">
+<a href="17e-dovednosti_bulletdefense.html#dovednost_bulletdefense"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="17e-dovednosti_bulletdefense.html#dovednost_bulletdefense">Dovednost <code>BulletDefense</code></a>
+<b>|</b>
+<a href="17g-dovednosti_resource.html#dovednost_resource">Dovednost <code>Resource</code></a>
+<a href="17g-dovednosti_resource.html#dovednost_resource"><img class="sipka" src="../cast-dalsi.png" alt="Další část" /></a>
+</p>
+
+</body>
+</html>

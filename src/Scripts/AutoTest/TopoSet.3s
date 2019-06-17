@@ -1,0 +1,147 @@
+// Datove struktury a metody pro praci s topologickou mapou resourcu
+
+//////////////////////////////
+// Metody
+
+// Inicializace
+void TopoInit(TopoSet set) 
+{
+  // Polomer v mapcellech
+  set.m_nClusterRadius=12;
+  
+  // Inicializace mnoziny clusteru
+  Cluster initcs{};
+  set.cs=initcs;
+
+  set.m_nItems=0;
+}
+
+// Pridani jednotky. Vraci true, pokud pribyl cluster
+bool TopoAdd(TopoSet set, Unit u)
+{
+  Cluster c=TopoClosestCluster(set, u.GetPosition());
+  if(c==null) {
+    TopoNewCluster(set, u);
+    return true;
+  }
+  if(c.pos.GetDistancePos(u.GetPosition())>set.m_nClusterRadius) {
+    TopoNewCluster(set, u);
+    return true;
+  }
+  // Pridame do existujiciho clusteru
+  int size=c.us.GetItemCount();
+  c.us+=u;
+  if(c.us.GetItemCount()>size) {
+    Trace("Cluster("+IntToString(c.pos.x)+", "+IntToString(c.pos.y)+") vzrostl na "+IntToString(c.us.GetItemCount()));
+    set.m_nItems++;
+  }
+  return false;
+}
+
+// Odebrani jednotky
+void TopoRemove(TopoSet set, Unit u)
+{
+  Cluster c=TopoClosestCluster(set, u.GetPosition());
+  int size=TopoClusterSize(c);
+  if(size==0) {
+    for(c in set.cs) {
+      size=c.us.GetItemCount();
+      c.us-=u;
+      if(c.us.GetItemCount()<size) {
+        set.m_nItems--;
+        if(size==1) {
+          set.cs-=c;
+          Trace("Zrusen cluster ("+IntToString(c.pos.x)+", "+IntToString(c.pos.y)+"). Celkem "+IntToString(set.cs.GetItemCount())+" clusteru.");
+        } else {
+          Trace("Cluster("+IntToString(c.pos.x)+", "+IntToString(c.pos.y)+") se zmensil na "+IntToString(c.us.GetItemCount()));
+        }
+        return;
+      }
+    }
+  }
+}
+
+// Nalezeni jednotky nejblizsi zadane pozici
+Unit TopoClosestUnit(TopoSet set, Position pos)
+{
+  Cluster c=TopoClosestCluster(set, pos);
+  return TopoClosestInCluster(c, pos);
+}
+
+Unit TopoClosestInCluster(Cluster c, Position pos)
+{
+  if(c==null) return null;
+  
+  Unit u, min=null;
+  int dist, mindist=1E9;
+
+  for(u in c.us) {
+    dist=pos.GetDistancePos(u.GetPosition());
+    if(dist<mindist) {
+      mindist=dist;
+      min=u;
+    }
+  }
+  return u;
+}
+
+// Nalezeni clusteru nejblizsiho zadane pozici
+Cluster TopoClosestCluster(TopoSet set, Position pos)
+{
+  Cluster c;
+  Cluster min=null;
+  int dist, mindist=1E9;
+
+  for(c in set.cs) {
+    dist=c.pos.GetDistancePos(pos);
+    if(dist<mindist) {
+      mindist=dist;
+      min=c;
+    }
+  }
+  return c;
+}
+
+// Pocet prvku clusteru
+int TopoClusterSize(Cluster c) {
+  if(c==null) return 0;
+  return c.us.GetItemCount();
+}
+
+// Vytvoreni noveho clusteru s danou jednotkou uprostred
+void TopoNewCluster(TopoSet set, Unit u) {
+  Cluster c;
+  Unit units{};
+  c.pos=u.GetPosition();
+  c.us=units;
+  c.us+=u;
+  set.cs+=c;
+  Trace("Novy cluster ("+IntToString(c.pos.x)+", "+IntToString(c.pos.y)+"). Celkem "+IntToString(set.cs.GetItemCount())+" clusteru.");
+}
+
+//////////////////////////////
+// Data
+
+// Shluk krystalu
+struct Cluster 
+{
+  // Pozice referencniho bodu clusteru
+  Position pos;
+  
+  // Jednotky v clusteru
+  Unit us{};
+}
+
+// Hlavni struktura drzici mapu resourcu
+struct TopoSet
+{
+  // Polomer clusteru
+  int m_nClusterRadius;
+
+  // Mnozina clusteru
+  Cluster cs{};
+
+  // Pocet jednotek v clusterech
+  int m_nItems;
+}
+

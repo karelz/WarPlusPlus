@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Důvody ukončení interpretace - Část 1</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+	table.notifikace
+	{
+		margin: 3mm 0mm 3mm 10mm;
+		width: 11cm;
+	}
+    td
+    {
+        text-align: left;
+    }
+
+	td.vycpavka
+	{
+		width: 5mm;
+	}
+
+    td.notifikace_deklarace
+    {
+    	font-size: 10pt;
+        font-weight: bold;
+    }
+
+    td.notifikace_hlavicka
+    {
+        font-weight: bold;
+        vertical-align: top;
+    }
+
+    td.notifikace_popis
+    {
+    	width: 10.5cm;
+    }
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="15a-duvody_ukonceni_interpretace.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="15a-duvody_ukonceni_interpretace.html#cast1">Část 1</a>
+</p>
+
+<h2 id="cast2">Důvody ukončení interpretace - Část 2</h2>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_DIVISION_BY_ZERO
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Dělení nulou.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_MODULO_BY_ZERO
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Modulo nulou.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_INVALID_REFERENCE
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Neplatná reference na systémový objekt, jednotku nebo strukturu (reference je <code>null</code>). Tato chyba nastane pokud se na proměnné typu jednotka (nebo struktura, nebo systémový objekt), která má hodnotu <code>null</code> pokusíte zavolat nějakou metodu.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_UNIT_CONVERSION_ERROR
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Chyba při konverzi jednotek z typu na typ. Jednotku nelze konvertovat.
+</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_NESTED_SET_FOR_CYCLE
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Vnořený for-cyklus pro stejnou množinu. Takovéto použití cyklu je zakázáno. Lze obejít tím, že se daná množina okopíruje operátorem <code>dup</code> a ve vnořeném for-cyklu se použije její kopie.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_UPDATE
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Jednotka je updatována. Na jednotce právě probíhá aktualizace skriptu, v tomto stavu na ní nelze volat metody.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_COMMAND_NOTIFICATION_MISHMASH
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Pokus o spuštění notifikace jako příkazu a naopak.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_COMMAND_DEFFERED
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Prováděl se příkaz v nadřazené fronty a nějaký příkaz přišel do podřízené fronty, proto byl prováděný příkaz přerušen. Viz <a href="08c-jednotky.html#fronty">Fronty příkazů</a>.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_EMPTYING_COMMAND_QUEUE</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Interpretace byla ukončena, protože byla interpretována reakce na příkaz, a někdo vyprázdnil frontu příkazů. Viz <a href="08c-jednotky.html#fronty">Fronty příkazů</a>.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_PERMISSION_DENIED
+</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Interpretovaný kód zavolal metodu, na kterou nemá právo. Např.: nemá právo volat na nepřátelské jednotce metody <code>CreateCommander</code>, <code>KillCommander</code> atp.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_UNIT_IS_DEAD</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Jednotka, se kterou interpretovaný kód pracuje, je mrtvá.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_SKILL_COLLISION</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Kolize dovedností. Za běhu jedné dovednosti byla aktivována jiná skila, která vylučuje běh první.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_GAME_CLOSING</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Končí se hra.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_INFINITE_CYCLE</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Nekonečný cyklus. Skript vykonal příliš mnoho insturkcí bez zavolání uspávací metody, nejčastější příčinou bývá zacyklení.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_FORBIDDEN_SEND_COMMAND</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Nepovolané poslání příkazu. Jednotka se pokusila poslat si příkaz sama sobě (do podřízené fronty), zatímco vykonává příkaz z nadřízené fronty. Takovéto poslání příkazu má na svědomí ukončení interpretace příkazu z nadřazené fronty, který se ale znova spustí jakmile se dokončí reakce na příkaz v podřízené frontě, což vede typicky k zacyklení v posílání příkazů. Viz <a href="08c-jednotky.html#fronty">Fronty příkazů</a>.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_INFINITE_COMMAND_CYCLE</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Nekonečný cyklus posílání příkazů. Jednotce přišlo příliš mnoho příkazů, které nestačila zinterpretovat.</td></tr>
+</table>
+
+<table class="notifikace">
+<tr><td colspan="2" class="notifikace_deklarace">STATUS_INFINITE_NOTIFICATION_CYCLE</td></tr>
+<tr><td class="vycpavka"></td><td class="notifikace_popis">Nekonečný cyklus posílání notifikací. Jednotce přišlo příliš mnoho notifikací, které nestačila zinterpretovat.</td></tr>
+</table>
+
+<p class="odkaz">
+<a href="15a-duvody_ukonceni_interpretace.html"><img class="sipka" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="15a-duvody_ukonceni_interpretace.html#cast1">Část 1</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+unit ExplorationCommander extends AbstractCommander
+{
+  // Zemrel nam explorer
+  notification INFERIOR_DIED(Unit inferior, Position pos) 
+  {
+    // Zazadame sefa, aby nam pridelil noveho
+    GetCommander()<-REQUEST_UNIT("Explorer", this);
+  }
+
+  // Pribyl nam explorer
+  notification INFERIOR_ADDED(Unit inferior) { AddInferior(inferior); }
+  notification INFERIOR_CREATED(Unit inferior) { AddInferior(inferior); }
+
+  void AddInferior(Unit inferior)
+  {
+    inferior.ChangeScript("ExploringUnit");
+    inferior<-EXPLORE();
+  }
+}

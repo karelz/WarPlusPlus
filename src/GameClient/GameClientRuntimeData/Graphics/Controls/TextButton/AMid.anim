@@ -1,0 +1,14 @@
+FrameNum = 11;
+Speed = 40;
+Loop = False;
+Frame0 = "AMid0.tga";
+Frame1 = "AMid1.tga";
+Frame2 = "AMid2.tga";
+Frame3 = "AMid3.tga";
+Frame4 = "AMid4.tga";
+Frame5 = "AMid5.tga";
+Frame6 = "AMid6.tga";
+Frame7 = "AMid7.tga";
+Frame8 = "AMid8.tga";
+Frame9 = "AMid9.tga";
+Frame10 = "AMid10.tga";

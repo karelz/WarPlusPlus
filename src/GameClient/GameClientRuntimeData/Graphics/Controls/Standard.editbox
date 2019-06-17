@@ -1,0 +1,41 @@
+# Frame window part
+Passive_Bottom = "EditBox\EditBM.tga";
+Passive_BottomLeft = "EditBox\EditBL.tga";
+Passive_BottomRight = "EditBox\EditBR.tga";
+Passive_Middle = "EditBox\EditM.tga";
+Passive_Left = "EditBox\EditL.tga";
+Passive_Right = "EditBox\EditR.tga";
+Passive_Top = "EditBox\EditTM.tga";
+Passive_TopLeft = "EditBox\EditTL.tga";
+Passive_TopRight = "EditBox\EditTR.tga";
+
+Active_Bottom = "EditBox\EditBMa.anim";
+Active_BottomLeft = "EditBox\EditBLa.anim";
+Active_BottomRight = "EditBox\EditBRa.anim";
+Active_Middle = "EditBox\EditMa.anim";
+Active_Left = "EditBox\EditLa.anim";
+Active_Right = "EditBox\EditRa.anim";
+Active_Top = "EditBox\EditTMa.anim";
+Active_TopLeft = "EditBox\EditTLa.anim";
+Active_TopRight = "EditBox\EditTRa.anim";
+
+MinimalSize_X = 24;
+MinimalSize_Y = 16;
+
+NormalCursor = "..\Mouse\BeamCursor.cursor";
+
+# EditBox part
+
+Selection = "EditBox\Selection.tga";
+
+Caret = "EditBox\Caret.anim";
+
+# 010D080
+InactiveTextColor = 0x0C0C0C0;
+ActiveTextColor = 0x0F0F0F0;
+SelectedTextColor = 0x0FFFF40;
+
+LeftMargin = 4;
+RightMargin = 4;
+TopMargin = 2;
+BottomMargin = 2;

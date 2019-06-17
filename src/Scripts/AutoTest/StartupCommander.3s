@@ -1,0 +1,209 @@
+unit StartupCommander extends AbstractCommander
+{
+  int nFactory, nBuilder, nBase, nBoot, nJumper, nExplorer;
+  BuildCommander       Build;   
+  AttackCommander      Attack; 
+  ExplorationCommander Exploration;
+  MiningCommander      Mining; 
+  UserCommander        User;
+  Unit Bases{};
+  int nBuild, nTrace;
+  bool bSystem;
+
+  // Byla spatrena nepratelska jednotka
+  void EnemySpotted(Unit enemy) {
+    Attack.AttackEnemy(enemy);
+  }
+    
+  // Zadost o dalsi jednotku
+  notification REQUEST_UNIT(String strType, Unit uCommander) {
+    Build.BuildUnit(strType, uCommander);
+  }
+  
+  // Pribyla nam dalsi jednotka
+  notification INFERIOR_ADDED(Unit inferior) {
+    NewUnit(inferior);
+  }
+  
+  // Byla vytvorena dalsi jednotka
+  notification INFERIOR_CREATED(Unit inferior) {
+    NewUnit(inferior);
+  }
+  
+  // Jednotka umrela
+  notification INFERIOR_DIED(Unit inferior) {
+    if(inferior.GetUnitTypeName()=="Base") {
+      Bases-=inferior;
+      if(Bases.IsEmpty()) {
+        WriteToLog("No bases available. Game over.");
+      }
+    }
+  }
+
+  // Reakce na spatreni systemove jednotky
+  notification SYSTEM_UNIT_SEEN_BY_CIVILIZATION(Unit u)
+  {
+    if(u.Resource != null) {
+      Mining.MineResource(u);
+    }
+  }
+  
+  // Zpracovani nove jednotky
+  void NewUnit(Unit newUnit) {
+    String type;
+  
+    if(newUnit.IsCommander()) return;
+  
+    type=newUnit.GetUnitTypeName();
+    switch(type) {
+      case "Crystal":
+        break;
+      case "Explorer":
+        if(Exploration!=null) newUnit.ChangeCommander(Exploration);
+        break;
+    
+      case "Jumper":
+      case "Boot":
+        if(Attack!=null) newUnit.ChangeCommander(Attack);
+        break;
+    
+      case "Base":
+        newUnit.ChangeScript("BaseUnit");
+        if(Build!=null) newUnit.ChangeCommander(Build);
+        break;
+
+      case "Factory":
+      case "Builder":
+        newUnit.ChangeScript("BuildingUnit");        
+        if(Build!=null) newUnit.ChangeCommander(Build);
+        break;
+    }    
+  }
+  
+  String NewName(String tn) {
+    switch(tn) {
+    case "Base":
+      return tn+IntToString(++nBase);
+    case "Builder":
+      return tn+IntToString(++nBuilder);
+    case "Factory":
+      return tn+IntToString(++nFactory);
+
+    case "Boot":
+      return tn+IntToString(++nBoot);
+    case "Jumper":
+      return tn+IntToString(++nJumper);
+
+    case "Explorer":
+      return tn+IntToString(++nExplorer);
+    
+    default:
+      return "";
+    }
+  }
+  
+  // Vytvoreni hierarchie pri inicializaci hry
+  notification GAME_INITIALIZED()
+  {
+    Unit u, us{};
+    String tn;
+  
+    Name="Game General";
+
+    us = GetInferiorUnits();    
+  
+    User=CreateCommander("UserCommander");
+    User.Name="User controlled";
+  
+    Mining=CreateCommander("MiningCommander");
+    Mining.Name="Mining";
+  
+    Exploration=CreateCommander("ExplorationCommander");
+    Exploration.Name="Exploration";
+  
+    Build=CreateCommander("BuildCommander");
+    Build.Name="Building";
+    Build<-BUILD_RUN();
+    
+    Attack=CreateCommander("AttackCommander");
+    Attack.Name="Attack";
+  
+    for(u in us) {
+      tn=u.GetUnitTypeName();    
+      switch(tn) {
+      case "Base":
+        u.ChangeScript("BaseUnit");
+        u.ChangeCommander(Build);
+        Bases+=u;
+        break;
+      case "Builder":
+        u.ChangeScript("BuildingUnit");
+        u.ChangeCommander(Build);
+        break;
+      case "Factory":
+        u.ChangeScript("BuildingUnit");
+        u.ChangeCommander(Build);
+        break;
+  
+      case "Boot":
+        u.ChangeCommander(Attack);
+        break;
+  
+      case "Jumper":
+        u.ChangeCommander(Attack);
+        break;
+  
+      case "Explorer":
+        u.ChangeCommander(Exploration);
+        break;
+      }
+      u.Name=NewName(tn);
+    }
+    nBuild=0;
+    if(!Bases.IsEmpty()) {
+      SetTimer(1, 50);
+    }
+  }
+  
+  Unit GetClosestBase(Position pos)
+  {
+    Unit u;
+    Unit base=null;
+    int minDist=10000;
+    int dist;
+    for(u in Bases) {
+      dist=pos.GetDistancePos(u.GetPosition());
+      if(dist<minDist) {
+        minDist=dist;
+        base=u;
+      }
+    }
+    return base;
+  }
+
+  notification TIMER(int timer, int timeslice) {
+    
+    switch(nBuild) {
+      case 0:  Build.BuildUnit("Boot", Attack); break;
+      case 1:  Build.BuildUnit("Explorer", Exploration); break;
+      case 2:  Build.BuildUnit("Jumper", Attack); break;
+      case 3:  Build.BuildUnit("Explorer", Exploration); break;
+      case 4:  Build.BuildUnit("Boot", Attack); break;      
+      case 5:  Build.BuildUnit("Builder", Build); break;      
+      case 6:  Build.BuildUnit("Boot", Attack); break;
+      case 7:  Build.BuildUnit("Explorer", Exploration); break;
+      case 8:  Build.BuildUnit("Boot", Attack); break;
+      case 9:  Build.BuildUnit("Jumper", Attack); break;
+      case 10: Build.BuildUnit("Builder", Build); break;
+      case 11: Build.BuildUnit("Explorer", Exploration); break;
+      case 12: Build.BuildUnit("Factory", Build); break;
+      case 13: Build.BuildUnit("Boot", Attack); break;
+      case 14: Build.BuildUnit("Explorer", Exploration); break;
+      case 15: Build.BuildUnit("Base", Attack); break;
+    }
+    nBuild++;
+    nBuild%=16;
+    SetTimer(1, 2000);
+  }
+ 
+}

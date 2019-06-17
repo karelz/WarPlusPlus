@@ -1,0 +1,3 @@
+Passive = "SelectionP.tga";
+Active = "SelectionA.anim";
+Pressed = "SelectionS.tga";

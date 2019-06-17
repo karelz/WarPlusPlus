@@ -1,0 +1,403 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\GameClient.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\GameClient.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "GameClient"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "GameClient"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    IDS_SCRIPTEDITOR_OPENREMOTESCRIPT "Otev¯Ìt skript ze serveru"
+    IDS_SCRIPTEDITOR_OPENREMOTESCRIPT_LISTTITLE "Seznam skript˘:"
+    IDS_SCRIPTEDITOR_OPENREMOTESCRIPT_OPEN "Otev¯Ìt"
+    IDS_SCRIPTEDITOR_OPENREMOTESCRIPT_CANCEL "Storno"
+    IDS_CUT                 "Vyjmout"
+    IDS_COPY                "KopÌrovat"
+    IDS_PASTE               "Vloûit"
+    IDS_DELETE              "Odstranit"
+    IDS_SCRIPTEDITOR_FILE   "Skript"
+    IDS_SCRIPTEDITOR_FILE_NEWSCRIPT "Nov˝..."
+    IDS_SCRIPTEDITOR_FILE_OPENREMOTESCRIPT "Otev¯Ìt ze serveru..."
+    IDS_SCRIPTEDITOR_FILE_SAVEREMOTESCRIPT "Uloûit na server..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SCRIPTEDITOR_FILE_OPENLOCALSCRIPT "Otev¯Ìt z disku..."
+    IDS_SCRIPTEDITOR_FILE_SAVELOCALSCRIPT "Uloûit na disk..."
+    IDS_SCRIPTEDITOR_EDIT   "Upravit"
+    IDS_SCRIPTEDITOR_OPENREMOTESCRIPT_TT "Otev¯Ìt skript ze serveru"
+    IDS_SCRIPTEDITOR_SAVEREMOTESCRIPT_TT "Uloûit skript na server"
+    IDS_SCRIPTEDITOR_OPENLOCALSCRIPT_TT "Otev¯Ìt skript z disku"
+    IDS_SCRIPTEDITOR_SAVELOCALSCRIPT_TT "Uloûit skript na disk"
+    IDS_SCRIPTEDITOR_NEWSCRIPT_TT "Nov˝ skript"
+    IDS_CONNECT_CAPTION     "Nav·z·nÌ spojenÌ"
+    IDS_CONNECT_SERVERNAME  "Adresa serveru:"
+    IDS_CONNECT_SERVERPORT  "Port:"
+    IDS_CONNECT_LOGIN       "JmÈno:"
+    IDS_CONNECT_PASSWORD    "Heslo:"
+    IDS_OK                  "OK"
+    IDS_CANCEL              "Storno"
+    IDS_CONNECT_BADPORT     "»Ìslo portu je öpatnÏ (nebo nebylo zad·no).\n\nZadejte prosÌm ËÌslo portu serveru, na kter˝ se m· aplikace p¯ipojit."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_REALLYQUIT          "Opravdu chcete skonËit?"
+    IDS_CONNECT_NETWORKERROR 
+                            "Nezn·m· sÌùov· chyba:\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_PROGRESS    "P¯ipojov·nÌ..."
+    IDS_LOADING             "Nahr·v·m..."
+    IDS_SCRIPTEDITOR_ERROROUTPUT_SHOW_TT "Zobrazit v˝stup kompil·toru"
+    IDS_SCRIPTEDITOR_ERROROUTPUT_HIDE_TT "Skr˝t v˝stup kompil·toru"
+    IDS_SCRIPTEDITOR_DOWNLOADING "Stahov·nÌ ze serveru..."
+    IDS_SCRIPTEDITOR_SERVERSIDEERROR 
+                            "Na serveru doölo k chybÏ.\nAkce nem˘ûe b˝t dokonËena."
+    IDS_SCRIPTEDITOR_CAPTION "Editor skript˘"
+    IDS_SCRIPTEDITOR_SAVEREMOTESCRIPT "Uloûit skript na server"
+    IDS_SCRIPTEDITOR_SAVEREMOTESCRIPT_LISTTITLE "Seznam skript˘:"
+    IDS_SCRIPTEDITOR_SAVEREMOTESCRIPT_SAVE "Uloûit"
+    IDS_SCRIPTEDITOR_SAVEREMOTESCRIPT_CANCEL "Storno"
+    IDS_SCRIPTEDITOR_FILE_SAVEASREMOTESCRIPT "Uloûit na server jako..."
+    IDS_WRONGFILENAME       "JmÈno souboru je neplatnÈ."
+    IDS_OVERWRITEFILE       "Soubor s tÌmto jmÈnem jiû existuje.\nChcete ho p¯epsat?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_NONAMEFILE          "Beze jmÈna %d"
+    IDS_SCRIPTEDITOR_SAVING "Ukl·d·m..."
+    IDS_SCRIPTEDITOR_OPENREMOTESCRIPT_SHOWGLOBALS "Zobrazit glob·lnÌ"
+    IDS_SCRIPTEDITOR_OPENREMOTESCRIPT_HIDEGLOBALS "Skr˝t glob·lnÌ"
+    IDS_SCRIPTEDITOR_LOADING "Stahov·nÌ..."
+    IDS_SCRIPTEDITOR_SAVEMODIFIEDVIEW 
+                            "Skript '%s' byl zmÏnÏn.\nChcete uloûit zmÏny?"
+    IDS_SCRIPTEDITOR_COMPILE_TT "P¯eloûit skript"
+    IDS_SCRIPTEDITOR_COMPILEANDUPDATE_TT "P¯eloûit a aktualizovat"
+    IDS_SCRIPTEDITOR_COMPILE_COMPILE "P¯eloûit skript"
+    IDS_SCRIPTEDITOR_COMPILE_COMPILEANDUPDATE "P¯eloûit a aktualizovat"
+    IDS_SCRIPTEDITOR_COMPILEMENU "P¯eloûit"
+    IDS_SCRIPTEDITOR_LOGWINDOW_CAPTION "ProhlÌûeË ud·lostÌ"
+    IDS_SCRIPTEDITOR_LOGWINDOW_CLEAR "Smazat"
+    IDS_SCRIPTEDITOR_LOGWINDOW_HIDE_TT "Skr˝t prohlÌûeË ud·lostÌ"
+    IDS_SCRIPTEDITOR_LOGWINDOW_SHOW_TT "Zobrazit prohlÌûeË ud·lostÌ"
+    IDS_SCRIPTEDITOR_FILE_EXIT "Konec"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SCRIPTEDITOR_COMPILE_MULTICOMPILE "P¯eloûit a aktualizovat vöe"
+    IDS_SCRIPTEDITOR_MULTICOMPILE_TT "P¯eloûit a aktualizovat vöe"
+    IDS_DOWNLOADMAP_NETWORKERROR 
+                            "Doölo k chybÏ p¯i stahov·nÌ mapy ze serveru."
+    IDS_DOWNLOADMAP_PROGRESS "Stahov·nÌ mapy...  %d%% (%dkB/s)"
+    IDS_DOWNLOADMAP_STARTING "Stahov·nÌ informacÌ o mapÏ..."
+    IDS_DOWNLOADMAP_CAPTION "Stahov·nÌ mapy"
+    IDS_DOWNLOADMAP_ESTIMATED "Zb˝vajÌcÌ Ëas %d:%02d"
+    IDS_UNITTOOLBAR_EMPTY   "Pr·zdn˝"
+    IDS_MAPVIEW_SCRIPTEDITOR_TT "Editor skript˘"
+    IDS_SCRIPTEDITOR_MAPVIEW_TT "Zobrazit mapu"
+    IDS_MAPVIEW_MINIMAP_TT  "Minimapa"
+    IDS_APPLICATION_INITFAILED 
+                            "Chyba p¯i inicializaci spojenÌ se serverem.\nAplikace bude ukonËena."
+    IDS_MAPVIEW_SELECTION_TT "VybranÈ jednotky"
+    IDS_CONNECT_NETWORKERROR_DNSERROR 
+                            "ZadanÈ jmÈno serveru je öpatnÈ, nebo chyba DNS.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_CREATESOCKETERROR 
+                            "InternÌ sÌùov· chyba (socket).\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_GETPORTERROR 
+                            "InternÌ sÌùov· chyba (port).\nNelze se p¯ipojit k serveru."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONNECT_NETWORKERROR_CONNECT 
+                            "SpojenÌ se serverem se nezda¯ilo.\nMoûnÈ d˘vody:\n  - Server nebÏûÌ\n  - äpatnÈ ËÌslo portu\n  - P¯ipojenÌ odep¯eno firewallem\n\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_BIND 
+                            "InternÌ siùov· chyba (bind).\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_SENDTCP 
+                            "Chyba p¯i odesÌl·nÌ TCP packetu.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_RECEIVETCP 
+                            "Chybpa p¯i p¯Ìjmu TCP packetu.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_BADCHALLENGE 
+                            "Zadan˝ server neodpovÌd· jako hernÌ server.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_SERVERERROR 
+                            "InternÌ chyba serveru.\nNelze se p¯ipojit k serveru."
+    IDS_NETWORKERROR_NOTIFICATION 
+                            "SÌùovÈ spojenÌ bylo p¯eruöeno.\nUkonËete prosÌm aplikaci..."
+    IDS_CONNECT_NETWORKERROR_UNKNOWNHOST 
+                            "Zadan˝ server se nepoda¯ilo nalÈzt.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_WSASTARTUP 
+                            "Nepoda¯ilo se nainicializovat knihovnu WinSock.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_WSACLEANUP 
+                            "Nepoda¯ilo se ukonËit knihovnu WinSock.\nNelze se p¯ipojit k serveru."
+    IDS_SCRIPTEDITOR_HELP_TT "N·povÏda"
+    IDS_MAPVIEW_RUNFUNCTIONERROR 
+                            "Asociovanou funkci se nepoda¯ilo spustit (viz ProhlÌûeË ud·lostÌ)."
+    IDS_HELPBROWSER_BACK_TT "ZpÏt"
+    IDS_HELPBROWSER_FORWARD_TT "Dop¯edu"
+    IDS_HELPBROWSER_HOME_TT "Obsah"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_HELPBROWSER_REFRESH_TT "Obnovit"
+    IDS_HELPBROWSER_HOMEURL "file://Help/obsah.html"
+    IDS_UNITHIERARCHY_CAPTION "Hierarchie jednotek"
+    IDS_SCRIPTEDITOR_UNITHIERARCHY_TT "Hierarchie jednotek"
+    IDS_UNITHIERARCHY_REFRESH "Obnovit"
+    IDS_UNITHIERARCHY_NOITEM 
+                            "ProbÌh· stahov·nÌ seznamu jednotek ze serveru..."
+    IDS_UNITHIERARCHY_COMMANDERUNIT "Velitel"
+    IDS_UNITHIERARCHY_CHANGESCRIPT "ZmÏnit skript..."
+    IDS_UNITHIERARCHY_CHANGENAME "P¯ejmenovat..."
+    IDS_UNITHIERARCHY_CHANGESCRIPT_CAPTION "ZmÏnit skript"
+    IDS_UNITHIERARCHY_CHANGESCRIPT_SCRIPTNAME "JmÈno skriptu:"
+    IDS_UNITHIERARCHY_CHANGENAME_NAME "JmÈno jednotky:"
+    IDS_UNITHIERARCHY_CHANGENAME_CAPTION "ZmÏnit jmÈno jednotky"
+    IDS_UNITHIERARCHY_CHANGEERROR 
+                            "Operaci se nepoda¯ilo ˙spÏönÏ dokonËit.\n(PoËet chyb: %d]"
+    IDS_UNITHIERARCHY_CHANGESUCCESS "Operace ˙spÏönÏ dokonËena."
+    IDS_UNITHIERARCHY_SERVERERROR "Chyba p¯i komunikaci se serverem..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SCRIPTEDITOR_OPENLOCALSCRIPT_FILENAME "Cesta k souboru:"
+    IDS_SCRIPTEDITOR_OPENLOCALSCRIPT_CAPTION 
+                            "Otev¯Ìt soubor z lok·lnÌho disku"
+    IDS_SCRIPTEDITOR_OPENLOCALSCRIPT_ERROR 
+                            "Chyba p¯i otevÌr·nÌ souboru z lok·lnÌho disku.\nZkontrolujte zadanou cestu."
+    IDS_LOADERROR           "Chyba p¯i nahr·v·nÌ.\nMoûnÈ p¯ÌËiny:\n\n    - soubor .TheMap je poökozen˝\n\n    - verze nÏkterÈ Ë·sti souboru .TheMap je nezn·m·, \n\n         nebo je p¯Ìliö star·\n\n    - nezn·m˝ form·t souboru .TheMap"
+    IDS_CONNECT_NETWORKERROR_LOGINFAILED 
+                            "Nezn·m· chyba p¯i p¯ihlaöov·nÌ na server.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_LOGINBADPASSWORD 
+                            "äpatnÈ heslo.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_LOGINUNKNOWNUSER 
+                            "Nezn·m˝ uûivatel\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_LOGINALREADYLOGGEDON 
+                            "Tento uûivatel je jiû p¯ihl·öen.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_LOGINGAMENOTRUNNING 
+                            "Hra nenÌ spuötÏna.\nNelze se p¯ipojit k serveru."
+    IDS_CONNECT_NETWORKERROR_LOGINUSERDISABLED 
+                            "Tento uûivatelsk˝ ˙Ëet byl zablokov·n.\nNelze se p¯ipojit k serveru."
+    IDS_SCRIPTEDITOR_COMPILE_PROFILING "Profilov·nÌ"
+    IDS_PROFILING_CAPTION   "Profilov·nÌ"
+END
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "GameClient MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "GameClient\0"
+            VALUE "LegalCopyright", "Copyright (C) 1999\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "GameClient.EXE\0"
+            VALUE "ProductName", "GameClient Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\GameClient.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

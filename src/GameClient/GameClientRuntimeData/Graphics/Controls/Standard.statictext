@@ -1,0 +1,4 @@
+# Static text part
+TextColor = 0x0001D080;
+#TextColor = 0x0FFFF00;
+Align = 0;

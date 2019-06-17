@@ -1,0 +1,43 @@
+unit Jednotka extends Unit
+{
+
+// Reakce na prikaz MOVE
+// Dojde s jednotkou na zadanou pozici
+// Pokud se jednotka nemuze hybat, okamzite vrati
+command MOVE(Position posDestination)
+{
+	// Kdyz se nemuzu hybat -> nic
+	if ( Move == null ) return;
+
+	// Zavolam na sobe dovednost Move
+	Move.Go ( posDestination.x, posDestination.y );
+}
+
+// Reakce na prikaz ATTACK
+// Zautoci na jednotku
+// Pokud na jednotku nejde utocit, dojde k ni bliz a zkusi to znovu
+// Skonci pokud se povedlo jednotku zabit
+command ATTACK(Unit uEnemy)
+{
+	// Nekonecny cyklus
+	while ( true )
+	{
+		// Zkus zautocit
+		if ( BulletAttack.Fire ( uEnemy ) )
+		{
+			// Hura, nepritel zemrel
+			return;
+		}
+
+		// Nejde to -> dojdi k nemu
+		Position posNear, posMe, posEnemy;
+		posMe = GetPosition();
+		posEnemy = uEnemy.GetPosition();
+		posNear.x = (posMe.x + posEnemy.x) / 2;
+		posNear.y = (posMe.y + posEnemy.y) / 2;
+
+		Move.Go(posNear.x, posNear.y);
+	}
+}
+
+}

@@ -1,0 +1,5 @@
+Passive = "..\..\Controls\IconButton\Passive.tga";
+Active = "..\..\Controls\IconButton\Active.tga";
+Pressed = "..\..\Controls\IconButton\Pressed.tga";
+
+IconCenter = True;

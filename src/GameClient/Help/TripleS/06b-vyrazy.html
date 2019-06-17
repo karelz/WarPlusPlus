@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - výrazy (2/2)</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+    table { width: 12cm;
+            margin: 5mm 0mm 5mm 0mm; }
+    td.popis { padding: 0px 10px 12px 50px;
+               text-align: left; }
+</style>
+</head>
+<body>
+
+<p class="odkaz">
+<a href="06a-vyrazy.html"><img class="arrow" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="06a-vyrazy.html#zakladni">Základní výrazy</a>
+</p>
+
+<h2 id="aritmeticke">Aritmetické výrazy</h2>
+
+<p>Aritmetické výrazy se skládají ze základních výrazů a operátorů mezi nimi. Zde je uveden seznam všech operátorů, které je možno použít. Operátory jsou seřazené podle priority (nahoře jsou operátory, které mají nejvyšší prioritu).</p>
+
+<table>
+<tr>
+    <th style="width: 90px">operátor</th>
+    <th style="text-align: left">pro typy</th>
+    <th>asociativita</th>
+</tr>
+
+<tr>
+    <td><code><b>dup</b></code></td>
+    <td class="vlevo">referenční typy</td>
+    <td>žádná</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">kopie objektu, na který odkazuje referenční typ</td>
+</tr>
+
+<tr>
+    <td><code>++</code> <code>--</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code>, <code>char</code></td>
+    <td>žádná</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">postfixový inkrement, dekrement</td>
+</tr>
+
+<tr>
+    <td><code>!</code></td>
+    <td class="vlevo"><code>bool</code></td>
+    <td>zprava</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">logická negace</td>
+</tr>
+
+<tr>
+    <td><code>+</code> <code>-</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code></td>
+    <td>zprava</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">unární plus a minus</td>
+</tr>
+
+<tr>
+    <td><code>++</code> <code>--</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code>, <code>char</code></td>
+    <td>zprava</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">prefixový inkrement, dekrement</td>
+</tr>
+
+<tr>
+    <td><code>*</code></td>
+    <td class="vlevo">množina</td>
+    <td>zleva</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">průnik množin</td>
+</tr>
+
+<tr>
+    <td><code>*</code> <code>/</code> <code>%</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code></td>
+    <td>zleva</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">součin, podíl, zbytek po dělení</td>
+</tr>
+
+<tr>
+    <td><code>+</code></td>
+    <td class="vlevo"><code>String</code></td>
+    <td>zleva</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">spojení řetězců</td>
+</tr>
+
+<tr>
+    <td><code>+</code> <code>-</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code>, <code>char</code>, množina</td>
+    <td>zleva</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">součet, resp. sjednocení množin</td>
+</tr>
+
+<tr>
+    <td><code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code>, <code>char</code>, <code>String</code></td>
+    <td>zleva</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">porovnávání hodnot, výsledná hodnota je typu <code>bool</code></td>
+</tr>
+
+<tr>
+    <td><code>in</code></td>
+    <td class="vlevo">množina</td>
+    <td>žádná</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">dotaz na prvek množiny (viz <a href="11d-systemove_objekty.html#set_oper">Operace s množinami</a>)</td>
+</tr>
+
+<tr>
+    <td><code>==</code> <code>!=</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code>, <code>char</code>, <code>String</code></td>
+    <td>zprava</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">porovnávání hodnot, výsledná hodnota je typu <code>bool</code></td>
+</tr>
+
+<tr>
+    <td><code>&&</code></td>
+    <td class="vlevo"><code>bool</code></td>
+    <td>zleva</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">logická konjunkce</td>
+</tr>
+
+<tr>
+    <td><code>||</code></td>
+    <td class="vlevo"><code>bool</code></td>
+    <td>zleva</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">logická disjunkce</td>
+</tr>
+
+<tr>
+    <td><code>+=</code></td>
+    <td class="vlevo"><code>String</code></td>
+    <td>zprava</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">připojení řetězce na konec</td>
+</tr>
+
+<tr>
+    <td><code>+=</code> <code>-=</code></td>
+    <td class="vlevo"><code>char</code></td>
+    <td>zprava</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">posun hodnoty znaku</td>
+</tr>
+
+<tr>
+    <td><code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code></td>
+    <td>zprava</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">přičtení, odečtení, vynásobení, vydělení nebo vymodulování</td>
+</tr>
+
+<tr>
+    <td><code>=</code></td>
+    <td class="vlevo"><code>int</code>, <code>float</code>, <code>char</code>, <code>bool</code>, systémový objekt, jednotka, struktura</td>
+    <td>zprava</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">přiřazení</td>
+</tr>
+
+<tr>
+    <td><code>,</code></td>
+    <td class="vlevo">libovolný typ</td>
+    <td>zleva</td>
+</tr>
+<tr>
+    <td colspan="3" class="popis">postupné vyhodnocení výrazu vlevo a vpravo od operátoru, vrací hodnotu pravého výrazu</td>
+</tr>
+
+</table>
+
+<p class="odkaz">
+<a href="06a-vyrazy.html"><img class="arrow" src="../cast-predchozi.png" alt="Předchozí část" /></a>
+<a href="06a-vyrazy.html#zakladni">Základní výrazy</a>
+</p>
+
+</body>
+</html>

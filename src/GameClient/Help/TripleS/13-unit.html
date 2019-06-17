@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>TripleS - Popis rozhraní jednotky Unit</title>
+<link rel="StyleSheet" href="../obecny.css" type="text/css" />
+<link rel="StyleSheet" href="../pisek.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1 id="unit">Popis rozhraní jednotky <code>Unit</code></h1>
+
+<h3>Datové položky</h3>
+<pre class="hlavicka">String Name</pre>
+<p>Jméno jednotky.</p>
+<pre class="hlavicka">String Status</pre>
+<p>Informace o stavu jednotky, která je zobrazena jako první v detailním pohledu na jednotku.</p>
+<p></p>
+<pre class="hlavicka">MoveSkill Move</pre>
+<p><a href="17b-dovednosti_move.html#dovednost_move">Dovednost <code>Move</code></a></p>
+<pre class="hlavicka">MakeSkill Make</pre>
+<p><a href="17c-dovednosti_make.html#dovednost_make">Dovednost <code>Make</code></a></p>
+<pre class="hlavicka">BulletAttackSkill BulletAttack</pre>
+<p><a href="17d-dovednosti_bulletattack.html#dovednosti_bulletattack">Dovednost <code>BulletAttack</code></a></p>
+<pre class="hlavicka">BulletDefenseSkill BulletDefense</pre>
+<p><a href="17e-dovednosti_bulletdefense.html#dovednosti_bulletdefense">Dovednost <code>BulletDefense</code></a></p>
+<pre class="hlavicka">MineSkill Mine</pre>
+<p><a href="17f-dovednosti_mine.html#dovednosti_mine">Dovednost <code>Mine</code></a></p>
+<pre class="hlavicka">ResourceSkill Resource</pre>
+<p><a href="17g-dovednosti_resource.html#dovednosti_resource">Dovednost <code>Resource</code></a></p>
+<pre class="hlavicka">StorageSkill Storage</pre>
+<p><a href="17h-dovednosti_storage.html#dovednosti_storage">Dovednost <code>Storage</code></a></p>
+
+<h3>Metody</h3>
+
+<pre class="hlavicka">int GetLives ()</pre>
+<p>Vrací počet životů jednotky.</p>
+
+<pre class="hlavicka">int GetLivesMax ()</pre>
+<p>Vrací maximýlní počet životů jednotky.</p>
+
+<pre class="hlavicka">Position GetPosition ()</pre>
+<p>Vrací pozici jednotky na mapě.</p>
+
+<pre class="hlavicka">String GetScriptName ()</pre>
+<p>Vrací jméno (skriptového) typu jednotky (jméno následující za klíčovým slovem unit v definici jednotky).</p>
+
+<pre class="hlavicka">int GetViewRadius ()</pre>
+<p>Vrací poloměr viditelnosti jednotky.</p>
+
+<pre class="hlavicka">Unit GetCommander ()</pre>
+<p>Vrací velitele jednotky.</p>
+
+<pre class="hlavicka">Unit {} GetInferiorUnits ()</pre>
+<p>Vrací množinu podřízených jednotek.</p>
+
+<pre class="hlavicka">bool IsCommander ()</pre>
+<p>Vrací <code>true</code>, pokud je jednotka velitel, <code>false</code> pokud je to fyzická jednotka na mapě.</p>
+
+<pre class="hlavicka">bool EmptyCommandQueue ( bool Both )</pre>
+<p>Vyprazdňuje frontu příkazů jednotky. Pokud tuto metodu volá velitel jednotky nebo uživatel, vyprazdňuje se nadřízená fronta příkazů a v případě, že je <code>Both</code> nastaveno na <code>true</code>, je vyprázdněna i podřízená fronta. Pokud ji volá jednotka sama, vyprazdňuje se podřízená fronta. V obou případech metoda vrací <code>true</code>. Pokud tuto metodu volá někdo jiný, než jednotka sama nebo její velitel, nic se nestane a metoda vrátí <code>false</code>.</p>
+
+<pre class="hlavicka">bool ChangeScript ( String ScriptName )</pre>
+<p>Změna (skriptového) typu jednotky. Jednotka je kompletně restartována. Vrací <code>false</code>, pokud se změna typu nepovedla, jinak <code>true</code>.</p>
+
+<pre class="hlavicka">bool IsDead()</pre>
+<p>Vrací <code>true</code>, pokud je jednotka mrtvá.</p>
+
+<pre class="hlavicka">bool IsMyUnit()</pre>
+<p>Vrací <code>true</code>, pokud jednotka patří civilizaci hráče, který metodu zavolal.</p>
+
+<pre class="hlavicka">bool IsEnemyUnit()</pre>
+<p>Vrací <code>true</code>, pokud je jednotka nepřátelská. Jednotky systémové civilizace se za nepřátelské nepovažují (krystaly).</p>
+
+<pre class="hlavicka">Unit CreateCommander ( String scriptname )</pre>
+<p>Vytvoří nového velitele se skriptovým typem <code>scriptname</code>, podřízeného dané jednotce, a vrátí ho. Pokud jednotka nemůže mít podřízeného velitele (je to fyzická jednotka na mapě), vrací <code>null</code>.</p>
+
+<pre class="hlavicka">bool KillCommander ( Unit commander )</pre>
+<p>Zabíjí velitele <code>commander</code>. Jednotka, na které se tato její metoda volá, musí být nadřízená zabíjenému veliteli <code>commander</code> a zabíjený velitel nesmí mít žádné podřízené jednotky. Metoda vrací <code>false</code>, pokud velitel nemůže být zabit, jinak vrací <code>true</code>.</p>
+
+<pre class="hlavicka">bool ChangeCommander( Unit NewCommander )</pre>
+<p>Změna velitele jednotky. Pokud je metoda zavolána jednotkou, která nemá právo měnit dané jednotce velitele, nestane se nic a je vráceno <code>false</code>. V případě úspěchu je vráceno <code>true</code>.</p>
+
+<pre class="hlavicka">String GetUnitTypeName ()</pre>
+<p>Vrací jméno typu jednotky.</p>
+
+<pre class="hlavicka">void SetTimer ( int TimerID, int Delay )</pre>
+<p>Na dané jednotce se nastaví časovač, který za <code>Delay</code> timesliců pošle jednotce notifikaci
+<code>ON_TIMER</code> s paremetrem <code>TimerID</code>.</p>
+
+</body>
+</html>

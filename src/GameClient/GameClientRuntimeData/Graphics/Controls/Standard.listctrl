@@ -1,0 +1,39 @@
+# Frame window part
+Passive_Bottom = "..\Windows\SimpleSmall\BottomP.tga";
+Passive_BottomLeft = "..\Windows\SimpleSmall\BottomLeftP.tga";
+Passive_BottomRight = "..\Windows\SimpleSmall\BottomRightP.tga";
+Passive_Middle_Color = 0x0193026;
+Passive_Left = "..\Windows\SimpleSmall\LeftP.tga";
+Passive_Right = "..\Windows\SimpleSmall\RightP.tga";
+Passive_Top = "..\Windows\SimpleSmall\TopP.tga";
+Passive_TopLeft = "..\Windows\SimpleSmall\TopLeftP.tga";
+Passive_TopRight = "..\Windows\SimpleSmall\TopRightP.tga";
+
+Active_Bottom = "..\Windows\SimpleSmall\BottomA.tga";
+Active_BottomLeft = "..\Windows\SimpleSmall\BottomLeftA.tga";
+Active_BottomRight = "..\Windows\SimpleSmall\BottomRightA.tga";
+Active_Middle_Color = 0x0193026;
+Active_Left = "..\Windows\SimpleSmall\LeftA.tga";
+Active_Right = "..\Windows\SimpleSmall\RightA.tga";
+Active_Top = "..\Windows\SimpleSmall\TopA.tga";
+Active_TopLeft = "..\Windows\SimpleSmall\TopLeftA.tga";
+Active_TopRight = "..\Windows\SimpleSmall\TopRightA.tga";
+
+MinimalSize_X = 10;
+MinimalSize_Y = 10;
+
+# ListBox part
+ScrollControl = "StandardVertical.scroll";
+
+LeftMargin = 5;
+RightMargin = 5;
+TopMargin = 5;
+BottomMargin = 5;
+
+Normal_TextColor = 0x0C0C0C0;
+Selected_TextColor = 0x0F0F0F0;
+Focus_TextColor = 0x0FFFF40;
+SelectedFocus_TextColor = 0x0FFFF40;
+
+Selection = "ListControl\Selection.tga";
+SelectionFocus = "ListControl\Selection.tga";

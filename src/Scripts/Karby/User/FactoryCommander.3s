@@ -1,0 +1,27 @@
+unit FactoryCommander
+{
+
+// relay point == bod, na ktery se ma poslat nove vyrobena jednotka
+Position posRelayPoint;
+
+
+// nastaveni relay pointu
+notification SET_RELAY_POINT(Position pos)
+{
+  posRelayPoint = pos;
+}
+
+
+// reakce na nove vyrobenou jednotku
+notification INFERIOR_CREATED(Unit uInferior)
+{
+  // jednotce vyprazdnime frontu a zachovame se tak, jako by
+  // uzivatel klikl na jejim toolbaru "MOVE"
+  uInferior.EmptyCommandQueue(true, false);
+  uInferior<-MOVE(posRelayPoint);
+
+  // predame jednotku StartupCommanderovi
+  uInferior.ChangeCommander(GetCommander());
+}
+
+}  // unit FactoryCommander
