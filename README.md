@@ -8,8 +8,13 @@ We started as group of friends. We put lots of work into the project (2.5 years 
 
 Authors (alphabetically):
 * [Helena Kotas](https://github.com/hekota) (back then Helena Kupkova)
+    * Scripting language compiler and interpreter
 * [Karel Zikmund](https://github.com/karelz)
+    * Server
 * [Roman Zenka](https://github.com/romanzenka)
+    * Compression libraries
 * [Tomas Karban](https://github.com/KarbyCZ)
+    * Networking libraries
 * [Vit Karas](https://github.com/vitek-karas)
+    * Client, Map editor, graphics, project lead
 * Graphics help: Stepan Karas
